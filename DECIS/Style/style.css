@@ -1,0 +1,41 @@
+﻿.mainbg {
+    background-color: #88BBD6;
+    height: 100vh;
+}
+
+.blkf{
+    color: black;
+}
+
+.freshwater{
+    background-color: #88BBD6;
+}
+
+.plaster {
+    background-color: #CDCDCD;
+}
+
+.linen{
+    background-color: #E9E9E9;
+}
+
+.ice{
+    background-color: #99D3DF;
+}
+.homepageCol {
+    padding-bottom: 30px;
+}
+
+.homepageCard {
+    margin: auto;
+    height: 170px;
+    background-color: whitesmoke;
+}
+
+.homepage {
+    background-color: white;
+    width: 90%;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding-bottom: 5%;
+}
