@@ -1,4 +1,5 @@
 ﻿using DECIS.DataAccess.DataAccessors;
+using DECIS.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -33,18 +34,29 @@ namespace DECIS
                 gvAssetList.DataSource = dtAssetList;
                 gvAssetList.DataBind();
 
-                Session["AssetListDT"] = dtAssetList;
+                ViewState["AssetListDT"] = dtAssetList;
             }
 
-            dtAssetList = Session["AssetListDT"] as DataTable;
+            dtAssetList = ViewState["AssetListDT"] as DataTable;
 
-            if (Request.Browser.IsMobileDevice)
-                gvAssetList.Columns[2].Visible = false; //Hide event description on mobile
         }
 
         protected void lnkHome_Click(object sender, EventArgs e)
         {
             Response.Redirect("./Homepage.aspx");
+        }
+
+        protected void lnkBtnView_Click(object sender, EventArgs e)
+        {
+            //Get the row containing the clicked button
+            LinkButton btn = (LinkButton)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            //Recreate the Datarow the GVR is bound to
+            DataRow dr = (ViewState["AssetListDT"] as DataTable).Rows[row.DataItemIndex];
+            Asset asset = new Asset(dr);
+
+            Session["CurrentAsset"] = asset;
+            Response.Redirect("./AssetView.aspx");
         }
     }
 }

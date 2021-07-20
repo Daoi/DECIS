@@ -108,7 +108,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AssetForm.aspx" />
     <Content Include="AssetList.aspx" />
+    <Content Include="AssetUpload.aspx" />
+    <Content Include="AssetView.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -283,6 +286,7 @@
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Homepage.aspx" />
+    <Content Include="Images\Optiplex 990.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -378,6 +382,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssetForm.aspx.cs">
+      <DependentUpon>AssetForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AssetForm.aspx.designer.cs">
+      <DependentUpon>AssetForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AssetList.aspx.cs">
       <DependentUpon>AssetList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -385,10 +396,25 @@
     <Compile Include="AssetList.aspx.designer.cs">
       <DependentUpon>AssetList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AssetUpload.aspx.cs">
+      <DependentUpon>AssetUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AssetUpload.aspx.designer.cs">
+      <DependentUpon>AssetUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AssetView.aspx.cs">
+      <DependentUpon>AssetView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AssetView.aspx.designer.cs">
+      <DependentUpon>AssetView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssets.cs" />
     <Compile Include="DataAccess\DataSupport.cs" />
     <Compile Include="DataAccess\ExecuteData.cs" />
+    <Compile Include="DataModels\Asset.cs" />
     <Compile Include="DECIS.Master.cs">
       <DependentUpon>DECIS.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -439,9 +465,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

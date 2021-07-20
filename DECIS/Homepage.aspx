@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid mainbg">
-        <div class="row modal-header p-0" style="height: 50px;">
+        <div class="row p-0" style="height: 50px;">
         </div>
         <div class="jumbotron vertical-center linen h-75">
             <div class="container-fluid plaster">
@@ -11,8 +11,8 @@
                         <!-- Button 1 Start -->
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">Create CHW Account</label>
-                                <p class="text-dark">Create a new Community Health Worker Account</p>
+                                <label class="card-title font-weight-bold h5">Add New Asset</label>
+                                <p class="text-dark">Add assets one at a time manually</p>
                                 <a class="stretched-link" href="CreateCHW.aspx"></a>
                             </div>
                         </div>
@@ -33,8 +33,8 @@
                         <%-- Button 3 Start --%>
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">Create Event</label>
-                                <p class="text-dark">Create a new community health event</p>
+                                <label class="card-title font-weight-bold h5">Upload Assets</label>
+                                <p class="text-dark">Upload a spreadsheet to add multiple assests at once</p>
                                 <a class="stretched-link" href="EventCreator.aspx"></a>
                             </div>
                         </div>
@@ -46,8 +46,8 @@
                         <%-- Button 4 Start --%>
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">Review Interactions</label>
-                                <p class="text-dark">View a list of all interactions available to you</p>
+                                <label class="card-title font-weight-bold h5">View Orders</label>
+                                <p class="text-dark">Place holder text</p>
                                 <a class="stretched-link" href="InteractionList.aspx"></a>
                             </div>
                         </div>
@@ -57,8 +57,8 @@
                         <%-- Button 5 Start --%>
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">Resident Look Up</label>
-                                <p class="text-dark">Search for a specific resident's profile</p>
+                                <label class="card-title font-weight-bold h5">Placeholder</label>
+                                <p class="text-dark">Place holder text</p>
                                 <a class="stretched-link" href="ResidentLookUp.aspx"></a>
                             </div>
                         </div>
@@ -68,8 +68,8 @@
                         <%-- Button 6 Start --%>
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">View Events</label>
-                                <p class="text-dark">View a list of all community health events </p>
+                                <label class="card-title font-weight-bold h5">Admin Settings</label>
+                                <p class="text-dark">Add new locations, images, makes/models, etc </p>
                                 <a class="stretched-link" href="EventList.aspx"></a>
                             </div>
                         </div>
