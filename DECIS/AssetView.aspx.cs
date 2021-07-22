@@ -16,6 +16,7 @@ using System.Web.UI.WebControls;
 using DECIS.DataAccess.DataAccessors.Assets;
 using DECIS.PageLogic;
 
+
 namespace DECIS
 {
     public partial class AssetView : System.Web.UI.Page

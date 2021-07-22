@@ -45,7 +45,6 @@ namespace DECIS
 
             ddlAssetModel.SelectedIndex = 0;
             upMakeModel.Update();
-
         }
     }
 }
