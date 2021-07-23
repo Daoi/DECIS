@@ -11,8 +11,11 @@
                 <div class="card-body">
                     <%-- Content Start --%>
                     <h5>
-                        <asp:TextBox ID="tbSerialNumber" CssClass="form-control" runat="server"></asp:TextBox>
-                        <asp:DropDownList ID="ddlAssetType" CssClass="form-control" runat="server"></asp:DropDownList>
+                        <asp:Label ID="lblSerialNumber" runat="server" Text="Serial Number: "></asp:Label>
+                        <asp:TextBox ID="tbSerialNumber" CssClass="form-control-sm" runat="server"></asp:TextBox>
+                        <asp:Label ID="lblAssetType" runat="server" CssClass="ps-3" Text="Asset Type: "></asp:Label>
+                        <asp:DropDownList ID="ddlAssetType" CssClass="form-control-sm" runat="server" OnDataBound="ddlAssetType_DataBound" OnSelectedIndexChanged="ddlAssetType_SelectedIndexChanged" AutoPostBack="True">
+                        </asp:DropDownList>
                     </h5>
                     <asp:Panel ID="pnlControls" CssClass="row form-group h-100" runat="server">
                         <div class="col-md">
