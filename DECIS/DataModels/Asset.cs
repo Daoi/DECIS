@@ -22,7 +22,8 @@ namespace DECIS.DataModels
         public string Model { get; set; }
         public int ModelID { get; set; }
         public string Image { get; set; }
-        public string From { get; set; } //Keep track of where item came from eventually
+        public int? IntakeID { get; set; } //Keep track of where item came from eventually
+        public string OrgName { get; set; }
 
         public Asset()
         {
@@ -41,6 +42,8 @@ namespace DECIS.DataModels
             Model = dr["Model"].ToString();
             Image = dr["Image"].ToString();
             MakeID = int.Parse(dr["MakeID"].ToString());
+            IntakeID =  int.Parse(dr["Intake"].ToString());
+            OrgName = dr["OrgName"].ToString();
         }
     }
 }
