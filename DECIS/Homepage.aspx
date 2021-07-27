@@ -35,7 +35,7 @@
                             <div class="card-body shadow">
                                 <label class="card-title font-weight-bold h5">Upload Assets</label>
                                 <p class="text-dark">Upload a spreadsheet to add multiple assests at once</p>
-                                <a class="stretched-link" href="EventCreator.aspx"></a>
+                                <a class="stretched-link" href="AssetUpload.aspx"></a>
                             </div>
                         </div>
                         <%-- Button 3 End --%>

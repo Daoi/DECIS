@@ -46,6 +46,15 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelMapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.Mapping.2.2.0\lib\netstandard2.0\ExcelMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -67,6 +76,7 @@
     </Reference>
     <Reference Include="System.ComponentModel, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.IO.Compression, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
@@ -412,6 +422,8 @@
       <DependentUpon>AssetView.aspx</DependentUpon>
     </Compile>
     <Compile Include="ControlLogic\DDL\SetItem.cs" />
+    <Compile Include="ControlLogic\FileUp\SaveFile.cs" />
+    <Compile Include="ControlLogic\FileUp\ValidateFile.cs" />
     <Compile Include="ControlLogic\Panels\TogglePanel.cs" />
     <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssets.cs" />
@@ -479,6 +491,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Importing\Files\" />
     <Folder Include="PageLogic\" />
   </ItemGroup>
   <PropertyGroup>

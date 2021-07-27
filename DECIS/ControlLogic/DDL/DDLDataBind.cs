@@ -27,9 +27,9 @@ namespace DECIS.CotrolLogic
         /// <param name="ddls">List of the DDLs to bind</param>
         /// <param name="makeID">Optional parameter for Make where a model is already chosen to filter items put into list</param>
         /// <returns>A list of the data tables used for binding. Index should match the order of ddls in list.</returns>
-        public static List<DataTable> ddlBind(List<DropDownList> ddls, int makeID = -1)
+        public static DataSet ddlBind(List<DropDownList> ddls, int makeID = -1)
         {
-            List<DataTable> dts = new List<DataTable>();
+            DataSet dts = new DataSet();
             if (makeID > -1)
             {
                 DropDownList model = ddls.First(ddl => ddl.ID == "ddlAssetModel") as DropDownList;
@@ -39,7 +39,7 @@ namespace DECIS.CotrolLogic
             foreach(DropDownList ddl in ddls)
             {
                 string name = ddl.ID;
-                dts.Add(bindings[name].Invoke(ddl));
+                dts.Tables.Add(bindings[name].Invoke(ddl));
             }
 
             return dts;

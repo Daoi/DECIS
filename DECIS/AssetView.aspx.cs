@@ -49,14 +49,10 @@ namespace DECIS
 
         private void RetrieveData()
         {
-            DataTable modelDT = new GetAllModel().ExecuteCommand();
-            DataTable locationDT = new GetAllLocation().ExecuteCommand();
-            ViewState["Models"] = modelDT;
-            ViewState["Locations"] = locationDT;
-
             List<DropDownList> ddls = new List<DropDownList>() { ddlAssetMake, ddlAssetModel, ddlAssetStatus, ddlLocation };
-            DDLDataBind.ddlBind(ddls, curAsset.MakeID);
-
+            DataSet dts = DDLDataBind.ddlBind(ddls, curAsset.MakeID);
+            ViewState["Models"] = dts.Tables["Model"];
+            ViewState["Locations"] = dts.Tables["Location"];
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)

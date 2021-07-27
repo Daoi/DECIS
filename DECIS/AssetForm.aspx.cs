@@ -1,14 +1,8 @@
-﻿using DECIS.DataAccess.DataAccessors.Location;
-using DECIS.DataAccess.DataAccessors.Make;
-using DECIS.DataAccess.DataAccessors.Model;
-using DECIS.DataAccess.DataAccessors.Status;
-using DECIS.CotrolLogic;
+﻿using DECIS.CotrolLogic;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace DECIS
@@ -25,14 +19,12 @@ namespace DECIS
 
         private void RetrieveData()
         {
-
-
             List<DropDownList> ddls = new List<DropDownList>() { ddlAssetMake, ddlAssetModel, ddlAssetStatus, ddlLocation, ddlAssetType };
-            List<DataTable> dts = DDLDataBind.ddlBind(ddls);
+            DataSet dts = DDLDataBind.ddlBind(ddls);
 
-            ViewState["Make"] = dts[0];
-            ViewState["Models"] = dts[1];
-            ViewState["Locations"] = dts[3];
+            ViewState["Make"] = dts.Tables["Make"];
+            ViewState["Models"] = dts.Tables["Model"];
+            ViewState["Locations"] = dts.Tables["Location"];
         }
 
 
