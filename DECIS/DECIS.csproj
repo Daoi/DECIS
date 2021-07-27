@@ -454,6 +454,7 @@
       <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ControlLogic\DDL\DDLDataBind.cs" />
+    <Compile Include="Importing\AssetImportReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
