@@ -27,7 +27,7 @@ namespace DECIS
 
                 if (dtAssetList.Rows.Count == 0)
                 {
-                    lblNoRows.Text = "Couldn't find any events to display.";
+                    lblNoRows.Text = "Couldn't find any assets to display.";
                     divNoRows.Visible = true;
                     return;
                 }
