@@ -34,7 +34,7 @@
                 </div>
                 <div class="row justify-content-center mt-5">
                     <div class="col-md-6">
-                        <asp:Button ID="btnSubmitImport" runat="server" Text="Import Resident List" CssClass="buttonStyle" />
+                        <asp:Button ID="btnSubmitImport" runat="server" Text="Import Resident List" CssClass="buttonStyle" OnClick="btnSubmitImport_Click" />
                     </div>
                     <div class="col-md-6">
                         <asp:Button ID="btnDownloadTemplate" runat="server" Text="Download Template" CssClass="buttonStyle" />

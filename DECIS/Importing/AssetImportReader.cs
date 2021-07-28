@@ -1,8 +1,10 @@
 ﻿using DECIS.DataAccess.DataAccessors.Assets.Types;
+using DECIS.DataAccess.DataAccessors.Intake;
 using DECIS.DataAccess.DataAccessors.Location;
 using DECIS.DataAccess.DataAccessors.Make;
 using DECIS.DataAccess.DataAccessors.Model;
 using DECIS.DataAccess.DataAccessors.Status;
+using DECIS.DataAccess.Utilities;
 using DECIS.DataModels;
 using ExcelDataReader;
 using System;
@@ -24,6 +26,7 @@ namespace DECIS.Importing
         DataTable statusDT = new GetAllStatus().ExecuteCommand();
         DataTable locationDT = new GetAllLocation().ExecuteCommand();
         DataTable typeDT = new GetAllAssetTypes().ExecuteCommand();
+        int intakeID;
 
 
         public AssetImportReader(string filePath) {
@@ -49,13 +52,9 @@ namespace DECIS.Importing
                     // 2. Use the AsDataSet extension method
                     sheets = reader.AsDataSet(new ExcelDataSetConfiguration()
                     {
-                        ConfigureDataTable = (tableReader) => new ExcelDataTableConfiguration()
+                        ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
                         {
-                            FilterRow = (rowReader) => {
-                                int progress = (int)Math.Ceiling((decimal)rowReader.Depth / (decimal)rowReader.RowCount * (decimal)100);
-                                // progress is in the range 0..100
-                                return true;
-                            }
+                            UseHeaderRow = true
                         }
                     });
 
@@ -66,33 +65,30 @@ namespace DECIS.Importing
             intakeInfo = sheets.Tables["Donor Info"];
             assetInfo = sheets.Tables["Asset Info"];
 
-            Intake curIntake = CreateIntakeForm();
-            if (curIntake != null)
+            try
             {
-
+                Intake curIntake = CreateIntakeForm();
             }
-            else
-                throw new FormatException("Invalid donor info sheet");
-            
+            catch(Exception e)
+            {
+                throw e;
+            }
 
+            int a = 9;
         }
 
 
         private Intake CreateIntakeForm()
         {
             try
-            { 
-                foreach(DataRow dr in intakeInfo.Rows)
-                {
-                    return new Intake(dr);
-                }
+            {
+                DataRow dr = intakeInfo.Rows[0];
+                return Intake.ImportIntake(dr);
             }
             catch (Exception e)
             {
                 return null;
             }
-
-            return null;
         }
 
         private List<Asset> CreateAssets()
@@ -104,14 +100,11 @@ namespace DECIS.Importing
                 {
                     Asset curAsset = new Asset()
                     {
-                        AssetTypeID = FindID(typeDT, dr, "AssetType", "AssetTypeID"),
+                        AssetTypeID = FindIDWithWhere.FindID(typeDT, dr, "AssetType", "AssetTypeID"),
                         AssetType = dr["Equipment Type"].ToString(),
-                        Make = dr["Make"].ToString(),
-                        MakeID = FindID(makeDT, dr, "Make", "MakeID"),
-                        Model = dr["Model"].ToString(),
-                        ModelID = FindID(modelDT, dr, "Model", "ModelID"),
                         SerialNumber = dr["Serial Number"].ToString(),
-                        Description = dr["Asset Description"].ToString()
+                        Description = $"Make: {dr["Make"].ToString()} Model: {dr["Model"].ToString()}, Description: {dr["Asset Description"].ToString()}",
+                        IntakeID = intakeID
                     };
                     assets.Add(curAsset);
                 }
@@ -123,21 +116,5 @@ namespace DECIS.Importing
             return assets;
         }
 
-        /// <summary>
-        /// Find the ID for a value in the spreadsheet.
-        /// </summary>
-        /// <param name="dt">Datatable(Look up table) from the database</param>
-        /// <param name="dr">Datarow from the spreadsheet</param>
-        /// <param name="drColumn">The column from the current row of the spreadsheet</param>
-        /// <param name="dtColumn">The column in the datatable to look for the ID in</param>
-        /// <returns>the ID of the value from the database</returns>
-        private int FindID(DataTable dt, DataRow dr, string drColumn, string dtColumn)
-        {
-            int id = makeDT.AsEnumerable().SingleOrDefault
-                     (r => r.Field<string>(drColumn) == dr[drColumn].ToString())
-                     .Field<int>(dtColumn);
-
-            return id;
-        }
     }
 }

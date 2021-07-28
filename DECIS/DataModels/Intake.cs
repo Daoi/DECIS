@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DECIS.DataAccess.DataAccessors.Intake;
+using DECIS.DataAccess.DataAccessors.Organization;
+using DECIS.DataAccess.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -34,5 +37,37 @@ namespace DECIS.DataModels
             IntakeNotes = dr["IntakeNotes"].ToString();
 
         }
+
+        public static Intake ImportIntake(DataRow dr)
+        {
+            DataTable orgDT = new GetAllOrgs().ExecuteCommand();
+
+            int orgID = FindIDWithWhere.FindID(orgDT, dr, "OrgName", "Donor's Organization", "OrgID");
+
+            if (orgID == -1)
+            {
+                Organization newOrg = Organization.ImportOrg(dr);
+                orgID = RetrieveLastInsertedID.RetrieveID(new InsertOrg(newOrg).ExecuteCommand());
+            }
+
+            Intake newIntake = new Intake()
+            {
+                IntakeDate = dr["Date"].ToString(),
+                IntakeDonorOrganization = orgID,
+                IntakeNotes = $"Provided Contact Info: {dr["Contact Person"].ToString()} Phone: {dr["Phone Number"].ToString()} Email: {dr["Email Address"].ToString()} "
+            };
+
+            try
+            {
+                newIntake.IntakeID = RetrieveLastInsertedID.RetrieveID(new InsertIntake().ExecuteCommand(newIntake));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return newIntake;
+        }
+
     }
 }

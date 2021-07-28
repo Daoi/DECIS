@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DECIS.Importing;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,8 @@ namespace DECIS
 
         protected void btnSubmitImport_Click(object sender, EventArgs e)
         {
-
+            string path = Server.MapPath($"./Importing/Files/") + "Donor Intake Sheet.xlsx";
+            new AssetImportReader(path); 
         }
 
     }

@@ -308,6 +308,7 @@
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="connections.config" />
+    <Content Include="Importing\Files\Donor Intake Sheet.xlsx" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -430,14 +431,20 @@
     <Compile Include="DataAccess\DataAccessors\Assets\Types\GetAllAssetTypes.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAsset.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAssetParameters.cs" />
+    <Compile Include="DataAccess\DataAccessors\Intake\InsertIntake.cs" />
     <Compile Include="DataAccess\DataAccessors\Location\GetAllLocation.cs" />
     <Compile Include="DataAccess\DataAccessors\Location\GetLocationInfoByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Make\GetAllMake.cs" />
     <Compile Include="DataAccess\DataAccessors\Model\GetAllModel.cs" />
     <Compile Include="DataAccess\DataAccessors\Model\GetModelInfoByID.cs" />
+    <Compile Include="DataAccess\DataAccessors\Organization\GetAllOrgs.cs" />
+    <Compile Include="DataAccess\DataAccessors\Organization\InsertOrg.cs" />
+    <Compile Include="DataAccess\DataAccessors\Organization\InsertOrgParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Status\GetAllStatus.cs" />
     <Compile Include="DataAccess\DataSupport.cs" />
     <Compile Include="DataAccess\ExecuteData.cs" />
+    <Compile Include="DataAccess\Utilities\FindIDWithWhere.cs" />
+    <Compile Include="DataAccess\Utilities\RetrieveLastInsertedID.cs" />
     <Compile Include="DataModels\Asset.cs" />
     <Compile Include="DataModels\Donation.cs" />
     <Compile Include="DataModels\Intake.cs" />
@@ -496,7 +503,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Importing\Files\" />
     <Folder Include="PageLogic\" />
   </ItemGroup>
   <PropertyGroup>
