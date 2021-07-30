@@ -1,14 +1,8 @@
-﻿using DECIS.DataAccess.DataAccessors.Location;
-using DECIS.DataAccess.DataAccessors.Make;
-using DECIS.DataAccess.DataAccessors.Model;
-using DECIS.DataAccess.DataAccessors.Status;
-using DECIS.PageLogic;
+﻿using DECIS.CotrolLogic;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace DECIS
@@ -25,8 +19,12 @@ namespace DECIS
 
         private void RetrieveData()
         {
-            List<DropDownList> ddls = new List<DropDownList>() { ddlAssetMake, ddlAssetModel, ddlAssetStatus, ddlLocation };
-            DDLDataBind.ddlBind(ddls);
+            List<DropDownList> ddls = new List<DropDownList>() { ddlAssetMake, ddlAssetModel, ddlAssetStatus, ddlLocation, ddlAssetType };
+            DataSet dts = DDLDataBind.ddlBind(ddls);
+
+            ViewState["Make"] = dts.Tables["Make"];
+            ViewState["Models"] = dts.Tables["Model"];
+            ViewState["Locations"] = dts.Tables["Location"];
         }
 
 
@@ -45,6 +43,25 @@ namespace DECIS
 
             ddlAssetModel.SelectedIndex = 0;
             upMakeModel.Update();
+        }
+
+        protected void ddlAssetType_DataBound(object sender, EventArgs e)
+        {
+            DropDownList ddl = sender as DropDownList;
+            ddl.Items.Insert(0, new ListItem("Select Asset Type", "-1"));
+        }
+
+        protected void ddlAssetType_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+         
+            //Use update panel to update display after last line
+
+            DropDownList ddl = sender as DropDownList;
+            if (ddl.SelectedIndex == 0)
+                return;
+            DataTable modelDT = ViewState["Models"] as DataTable;
+            DataTable makeDT = ViewState["Make"] as DataTable;
+            ddlAssetModel.DataSource = modelDT.AsEnumerable().Where(r => r.Field<int>("AssetType") == ddl.SelectedIndex).CopyToDataTable();
         }
     }
 }

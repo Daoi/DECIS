@@ -1,20 +1,15 @@
 ﻿using DECIS.ControlLogic.Panels;
 using DECIS.ControlLogic.DDL;
-using DECIS.DataAccess.DataAccessors.Assets.Types;
 using DECIS.DataAccess.DataAccessors.Location;
-using DECIS.DataAccess.DataAccessors.Make;
 using DECIS.DataAccess.DataAccessors.Model;
-using DECIS.DataAccess.DataAccessors.Status;
 using DECIS.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using DECIS.DataAccess.DataAccessors.Assets;
-using DECIS.PageLogic;
+using DECIS.CotrolLogic;
 
 
 namespace DECIS
@@ -41,7 +36,7 @@ namespace DECIS
         {
             //Setup asset info display
             crdAssetImage.Src = curAsset.Image;
-            lblSerialNumber.Text = $"Serial Number: {curAsset.SerialNumber} | Asset ID: {curAsset.AssetID}";
+            lblSerialNumber.Text = $"Serial Number: {curAsset.SerialNumber} | Asset ID: {curAsset.AssetID} Intake ID: {curAsset.IntakeID}";
             tbAssetDescription.Text = curAsset.Description;
             lblAssetTypeText.Text = curAsset.AssetType;
             lblLocationDescriptionText.Text = curAsset.LocationDescription;
@@ -55,14 +50,10 @@ namespace DECIS
 
         private void RetrieveData()
         {
-            DataTable modelDT = new GetAllModel().ExecuteCommand();
-            DataTable locationDT = new GetAllLocation().ExecuteCommand();
-            ViewState["Models"] = modelDT;
-            ViewState["Locations"] = locationDT;
-
             List<DropDownList> ddls = new List<DropDownList>() { ddlAssetMake, ddlAssetModel, ddlAssetStatus, ddlLocation };
-            DDLDataBind.ddlBind(ddls, curAsset.MakeID);
-
+            DataSet dts = DDLDataBind.ddlBind(ddls, curAsset.MakeID);
+            ViewState["Models"] = dts.Tables["Model"];
+            ViewState["Locations"] = dts.Tables["Location"];
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
