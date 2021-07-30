@@ -37,9 +37,9 @@ namespace DECIS.DataModels
             OrgContactPrimary = dr["OrgContactPrimary"].ToString();
             OrgPrimaryEmail = dr["OrgPrimaryEmail"].ToString();
             OrgPrimaryPhone = dr["OrgPrimaryPhone"].ToString();
-            OrgContactSecondary = dr["OrgContactSecondary"].ToString();
-            OrgSecondaryEmail = dr["OrgSecondaryEmail"].ToString();
-            OrgSecondaryPhone = dr["OrgSecondaryPhone"].ToString();
+            OrgContactSecondary = dr["OrgContactSecondary"].ToString()?? "";
+            OrgSecondaryEmail = dr["OrgSecondaryEmail"].ToString()?? "";
+            OrgSecondaryPhone = dr["OrgSecondaryPhone"].ToString()?? "";
         }
 
         public static Organization ImportOrg(DataRow dr)

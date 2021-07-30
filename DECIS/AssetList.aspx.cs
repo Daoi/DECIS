@@ -1,4 +1,5 @@
-﻿using DECIS.DataAccess.DataAccessors;
+﻿using DECIS.ControlLogic.Gridview;
+using DECIS.DataAccess.DataAccessors;
 using DECIS.DataModels;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,7 @@ namespace DECIS
         {
             if (!IsPostBack)
             {
-                gvAssetList.DataBound += (object o, EventArgs ev) =>
-                {
-                    gvAssetList.HeaderRow.TableSection = TableRowSection.TableHeader;
-                };
-
+                HeaderBinding.CreateHeaders(gvAssetList);
                 dtAssetList = new GetAllAssets().ExecuteCommand();
 
                 if (dtAssetList.Rows.Count == 0)

@@ -9,12 +9,22 @@ using System.Web;
 
 namespace DECIS.DataModels
 {
+    [Serializable]
     public class Intake
     {
         public int IntakeID { get; set; }
         public string IntakeDate { get; set; }
         public int IntakeDonorOrganization { get; set; }
         public string IntakeNotes { get; set; }
+        public string DonorOrg { get; set; }
+        public string OrgPhone { get; set; }
+        public string PrimaryContact { get; set; }
+        public string OrgEmail { get; set; }
+        public string OrgName { get; set; }
+        public string OrgAddress { get; set; }
+        public string PrimaryEmail { get; set; }
+        public string PrimaryPhone { get; set; }
+
 
 
         public Intake()
@@ -35,6 +45,14 @@ namespace DECIS.DataModels
             IntakeDate = dr["IntakeDate"].ToString();
             IntakeDonorOrganization = int.Parse(dr["IntakeDonorOrganization"].ToString());
             IntakeNotes = dr["IntakeNotes"].ToString();
+            DonorOrg = dr["OrgName"].ToString();
+            OrgPhone = dr["OrgPrimaryPhone"].ToString();
+            PrimaryContact = dr["OrgContactPrimary"].ToString();
+            OrgEmail = dr["OrgEmail"].ToString();
+            OrgName = dr["OrgName"].ToString();
+            OrgAddress = dr["OrgAddress"].ToString();
+            PrimaryEmail = dr["OrgPrimaryEmail"].ToString();
+            PrimaryPhone = dr["OrgPrimaryPhone"].ToString();
 
         }
 
