@@ -12,6 +12,7 @@ namespace DECIS.DataModels
         public string SerialNumber { get; set; }
         public string Description { get; set; }
         public string AssetType { get; set; }
+        public int AssetTypeID { get; set; }
         public string Location { get; set; }
         public int LocationID { get; set; }
         public string LocationDescription { get; set; }
@@ -22,7 +23,8 @@ namespace DECIS.DataModels
         public string Model { get; set; }
         public int ModelID { get; set; }
         public string Image { get; set; }
-        public string From { get; set; } //Keep track of where item came from eventually
+        public int IntakeID { get; set; } //Keep track of where item came from eventually
+        public string OrgName { get; set; }
 
         public Asset()
         {
@@ -39,8 +41,10 @@ namespace DECIS.DataModels
             Status = dr["Status"].ToString();
             Make = dr["Make"].ToString();
             Model = dr["Model"].ToString();
-            Image = dr["Image"].ToString();
-            MakeID = int.Parse(dr["MakeID"].ToString());
+            Image = dr["Image"].ToString() == "" ? "No Image Available" : dr["Image"].ToString();
+            MakeID = dr["MakeID"] == DBNull.Value ? -1 : int.Parse(dr["MakeID"].ToString());
+            IntakeID = dr["IntakeID"] == DBNull.Value ? -1 : int.Parse(dr["IntakeID"].ToString());
+            OrgName = dr["OrgName"].ToString();
         }
     }
 }

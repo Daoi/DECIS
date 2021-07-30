@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using DECIS.DataAccess.DataAccessors.Assets;
 using DECIS.CotrolLogic;
 
+
 namespace DECIS
 {
     public partial class AssetView : System.Web.UI.Page
@@ -35,7 +36,7 @@ namespace DECIS
         {
             //Setup asset info display
             crdAssetImage.Src = curAsset.Image;
-            lblSerialNumber.Text = $"Serial Number: {curAsset.SerialNumber} | Asset ID: {curAsset.AssetID}";
+            lblSerialNumber.Text = $"Serial Number: {curAsset.SerialNumber} | Asset ID: {curAsset.AssetID} Intake ID: {curAsset.IntakeID}";
             tbAssetDescription.Text = curAsset.Description;
             lblAssetTypeText.Text = curAsset.AssetType;
             lblLocationDescriptionText.Text = curAsset.LocationDescription;

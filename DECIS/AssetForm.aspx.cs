@@ -43,7 +43,6 @@ namespace DECIS
 
             ddlAssetModel.SelectedIndex = 0;
             upMakeModel.Update();
-
         }
 
         protected void ddlAssetType_DataBound(object sender, EventArgs e)
