@@ -1,4 +1,5 @@
-﻿using DECIS.DataAccess.DataAccessors.Assets.Types;
+﻿using DECIS.DataAccess.DataAccessors.Assets;
+using DECIS.DataAccess.DataAccessors.Assets.Types;
 using DECIS.DataAccess.DataAccessors.Intake;
 using DECIS.DataAccess.DataAccessors.Location;
 using DECIS.DataAccess.DataAccessors.Make;
@@ -19,6 +20,7 @@ namespace DECIS.Importing
     public class AssetImportReader
     {
         private DataSet sheets;
+        public List<Asset> assets { get; set; }
         DataTable intakeInfo;
         DataTable assetInfo;
         DataTable modelDT = new GetAllModel().ExecuteCommand();
@@ -27,9 +29,10 @@ namespace DECIS.Importing
         DataTable locationDT = new GetAllLocation().ExecuteCommand();
         DataTable typeDT = new GetAllAssetTypes().ExecuteCommand();
         int intakeID;
+        public int Rows { get; set; }
 
 
-        public AssetImportReader(string filePath) {
+        public AssetImportReader(string filePath, string selectedOrg) {
 
             using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
             {
@@ -63,18 +66,26 @@ namespace DECIS.Importing
             }
             //Next steps here
             intakeInfo = sheets.Tables["Donor Info"];
-            assetInfo = sheets.Tables["Asset Info"];
+            assetInfo = sheets.Tables["Asset Info"].Rows
+                .Cast<DataRow>()
+                .Where(row => !row.ItemArray.All(val => val is DBNull || string.IsNullOrWhiteSpace(val as string))) //Remove empty rows
+                .CopyToDataTable();
+
+            Rows = assetInfo.Rows.Count;
+
+            if (selectedOrg != "New Organization")
+                intakeInfo.Rows[0]["Donor's Organization"] = selectedOrg;
 
             try
             {
                 Intake curIntake = CreateIntakeForm();
+                intakeID = curIntake.IntakeID;
+                assets = CreateAssets();
             }
             catch(Exception e)
             {
                 throw e;
             }
-
-            int a = 9;
         }
 
 
@@ -100,7 +111,7 @@ namespace DECIS.Importing
                 {
                     Asset curAsset = new Asset()
                     {
-                        AssetTypeID = FindIDWithWhere.FindID(typeDT, dr, "AssetType", "AssetTypeID"),
+                        AssetTypeID = FindIDWithWhere.FindID(typeDT, dr, "AssetType", "Equipment Type", "AssetTypeID"),
                         AssetType = dr["Equipment Type"].ToString(),
                         SerialNumber = dr["Serial Number"].ToString(),
                         Description = $"Make: {dr["Make"].ToString()} Model: {dr["Model"].ToString()}, Description: {dr["Asset Description"].ToString()}",
@@ -113,6 +124,12 @@ namespace DECIS.Importing
                     continue;
                 }
             }
+
+            foreach(Asset asset in assets)
+            {
+                 new ImportAsset().ExecuteCommand(asset);
+            }
+
             return assets;
         }
 

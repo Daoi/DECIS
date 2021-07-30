@@ -23,7 +23,7 @@ namespace DECIS.DataModels
         public string Model { get; set; }
         public int ModelID { get; set; }
         public string Image { get; set; }
-        public int? IntakeID { get; set; } //Keep track of where item came from eventually
+        public int IntakeID { get; set; } //Keep track of where item came from eventually
         public string OrgName { get; set; }
 
         public Asset()

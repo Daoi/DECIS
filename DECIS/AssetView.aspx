@@ -53,7 +53,7 @@
                             <asp:Button ID="btnCancelEdit" Visible="false" CssClass="btn-warning btn w-25" runat="server" Text="Cancel" OnClick="btnEditCancel_Click" />
                         </div>
                         <div class="col-md-3">
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="#" class="btn btn-primary">View Intake</a>
                         </div>
                         <div class="col-md-3">
                             <a href="#" class="btn btn-primary">Go somewhere</a>

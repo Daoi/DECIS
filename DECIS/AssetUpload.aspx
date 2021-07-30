@@ -18,9 +18,9 @@
                 <h4>Instructions</h4>
                 <div class="row justify-content-center">
                     <p class="w-50">
-                        Click browse to select a file to upload. The file must be a .csv file.
-                        After you choose the file, select the development this file relates to
-                        from the dropdown box.
+                        Click browse to select the file to upload. Select the organization providing the donation from the drop down 
+                        and then click submit. If the organization is not in the drop down list select New Organization. Make sure the Organizations
+                        name is spelled correctly in the Workbook's Donor Info sheet. To download a template of the Intake Form click download template.
                     </p>
                 </div>
                 <div class="row justify-content-center text-secondary mt-3">
@@ -30,14 +30,16 @@
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
-                    <asp:DropDownList ID="ddl" CssClass="" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlOrgs" CssClass="form-control w-50" runat="server" AppendDataBoundItems="True">
+                        <asp:ListItem Value="-1">New Organization</asp:ListItem>
+                    </asp:DropDownList>
                 </div>
                 <div class="row justify-content-center mt-5">
                     <div class="col-md-6">
-                        <asp:Button ID="btnSubmitImport" runat="server" Text="Import Resident List" CssClass="buttonStyle" OnClick="btnSubmitImport_Click" />
+                        <asp:Button ID="btnSubmitImport" runat="server" Text="Submit Intake Form" CssClass="btn-primary btn" OnClick="btnSubmitImport_Click" />
                     </div>
                     <div class="col-md-6">
-                        <asp:Button ID="btnDownloadTemplate" runat="server" Text="Download Template" CssClass="buttonStyle" />
+                        <asp:Button ID="btnDownloadTemplate" runat="server" Text="Download Template" CssClass="btn btn-primary" />
                     </div>
                 </div>
                 <asp:Label ID="lblInsertCount" CssClass="mt-1" runat="server" Text=""></asp:Label>
@@ -52,8 +54,8 @@
     </div>
     <script>
         $(document).ready(function () {
-            $("#MainContent_ddlDevelopments").select2({
-                placeholder: "Select Development",
+            $("#MainContent_ddlOrgs").select2({
+                placeholder: "Select Organization",
                 allowClear: true,
                 selectOnClose: true
             });
