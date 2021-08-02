@@ -36,7 +36,7 @@ namespace DECIS
         {
             //Setup asset info display
             crdAssetImage.Src = curAsset.Image;
-            lblSerialNumber.Text = $"Serial Number: {curAsset.SerialNumber} | Asset ID: {curAsset.AssetID} Intake ID: {curAsset.IntakeID}";
+            lblSerialNumber.Text = $"Serial Number: {curAsset.SerialNumber} | Asset ID: {curAsset.AssetID} | Intake ID(s): {string.Join(",", curAsset.IntakeID)}";
             tbAssetDescription.Text = curAsset.Description;
             lblAssetTypeText.Text = curAsset.AssetType;
             lblLocationDescriptionText.Text = curAsset.LocationDescription;
@@ -79,7 +79,8 @@ namespace DECIS
                     LocationDescription = locationInfoDT.Rows[0].Field<string>("LocationDescription"),
                     Status = ddlAssetStatus.SelectedItem.ToString(),
                     StatusID = int.Parse(ddlAssetStatus.SelectedValue),
-                    Image = modelInfoDT.Rows[0].Field<string>("Image")
+                    Image = modelInfoDT.Rows[0].Field<string>("Image"),
+                    IntakeID = curAsset.IntakeID
                 };
 
                 int x = new UpdateAsset(newAsset).ExecuteCommand(); //variable is unused currently, can be used to check success/failure
@@ -122,6 +123,11 @@ namespace DECIS
             ddlAssetModel.SelectedIndex = 0;
             upMakeModel.Update();
 
+        }
+
+        protected void btnViewIntake_Click(object sender, EventArgs e)
+        {
+            Response.Redirect($"./IntakeView.aspx?intid={curAsset.IntakeID}");
         }
     }
 }
