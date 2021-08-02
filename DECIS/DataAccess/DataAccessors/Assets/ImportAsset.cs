@@ -16,16 +16,15 @@ namespace DECIS.DataAccess.DataAccessors.Assets
             CommandType = CommandType.StoredProcedure;
         }
 
-        public DataTable ExecuteCommand(Asset ast)
+        public DataTable ExecuteCommand(Asset ast, int id)
         {
             string sn = ast.SerialNumber;
             string desc = ast.Description;
-            int intakeid = ast.IntakeID;
 
             Parameters = new MySqlParameter[3] {
                 new MySqlParameter("SerialNumber", sn),
                 new MySqlParameter("Description", desc),
-                new MySqlParameter("IntakeID", intakeid)
+                new MySqlParameter("IntakeID", id)
             };
             ExecuteQuery eq = new ExecuteQuery(); //Create instance of class that handles command obj
             return eq.ExecuteAdapter(this); //Run the command

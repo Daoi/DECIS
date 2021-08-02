@@ -454,13 +454,17 @@
     <Compile Include="ControlLogic\FileUp\ValidateFile.cs" />
     <Compile Include="ControlLogic\Panels\TogglePanel.cs" />
     <Compile Include="DataAccess\DataAccess.cs" />
+    <Compile Include="DataAccess\DataAccessors\Assets\FilterAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\ImportAsset.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\Types\GetAllAssetTypes.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAsset.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAssetParameters.cs" />
+    <Compile Include="DataAccess\DataAccessors\CTextWriter.cs" />
+    <Compile Include="DataAccess\DataAccessors\Intake\GetIntakeByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Intake\InsertIntake.cs" />
     <Compile Include="DataAccess\DataAccessors\Location\GetAllLocation.cs" />
+    <Compile Include="DataAccess\DataAccessors\Location\GetLocationByStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Location\GetLocationInfoByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Make\GetAllMake.cs" />
     <Compile Include="DataAccess\DataAccessors\Model\GetAllModel.cs" />

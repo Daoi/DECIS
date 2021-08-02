@@ -1,4 +1,5 @@
-﻿using DECIS.DataAccess.DataAccessors.Assets;
+﻿using DECIS.DataAccess.DataAccessors;
+using DECIS.DataAccess.DataAccessors.Assets;
 using DECIS.DataAccess.DataAccessors.Assets.Types;
 using DECIS.DataAccess.DataAccessors.Intake;
 using DECIS.DataAccess.DataAccessors.Location;
@@ -81,6 +82,12 @@ namespace DECIS.Importing
                 Intake curIntake = CreateIntakeForm();
                 intakeID = curIntake.IntakeID;
                 assets = CreateAssets();
+                if (assets.Count == 0)
+                {
+                    //If no assets were added delete last intake
+                    string delete = $"DELETE FROM intake WHERE IntakeID = {intakeID}";
+                    new CTextWriter(delete).ExecuteCommand();
+                }
             }
             catch(Exception e)
             {
@@ -115,8 +122,9 @@ namespace DECIS.Importing
                         AssetType = dr["Equipment Type"].ToString(),
                         SerialNumber = dr["Serial Number"].ToString(),
                         Description = $"Make: {dr["Make"].ToString()} Model: {dr["Model"].ToString()}, Description: {dr["Asset Description"].ToString()}",
-                        IntakeID = intakeID
+                        IntakeID = new List<int>()
                     };
+                    curAsset.IntakeID.Add(intakeID);
                     assets.Add(curAsset);
                 }
                 catch(Exception e)
@@ -127,7 +135,7 @@ namespace DECIS.Importing
 
             foreach(Asset asset in assets)
             {
-                 new ImportAsset().ExecuteCommand(asset);
+                 new ImportAsset().ExecuteCommand(asset, intakeID);
             }
 
             return assets;
