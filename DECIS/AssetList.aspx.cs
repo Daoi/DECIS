@@ -18,11 +18,7 @@ namespace DECIS
         {
             if (!IsPostBack)
             {
-                gvAssetList.DataBound += (object o, EventArgs ev) =>
-                {
-                    gvAssetList.HeaderRow.TableSection = TableRowSection.TableHeader;
-                };
-
+                HeaderBinding.CreateHeaders(gvAssetList);
                 dtAssetList = new GetAllAssets().ExecuteCommand();
 
                 if (dtAssetList.Rows.Count == 0)

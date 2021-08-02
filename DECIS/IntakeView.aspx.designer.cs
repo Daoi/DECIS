@@ -10,25 +10,16 @@
 namespace DECIS {
     
     
-    public partial class AssetView {
+    public partial class IntakeView {
         
         /// <summary>
-        /// crdAssetImage control.
+        /// lblCardTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage crdAssetImage;
-        
-        /// <summary>
-        /// lblSerialNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSerialNumber;
+        protected global::System.Web.UI.WebControls.Label lblCardTitle;
         
         /// <summary>
         /// pnlControls control.
@@ -40,139 +31,130 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.Panel pnlControls;
         
         /// <summary>
-        /// lblAssetType control.
+        /// lblOrgAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAssetType;
+        protected global::System.Web.UI.WebControls.Label lblOrgAddress;
         
         /// <summary>
-        /// lblAssetTypeText control.
+        /// lblOrgAddressText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAssetTypeText;
+        protected global::System.Web.UI.WebControls.Label lblOrgAddressText;
         
         /// <summary>
-        /// lblAssetStatus control.
+        /// lblOrgEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAssetStatus;
+        protected global::System.Web.UI.WebControls.Label lblOrgEmail;
         
         /// <summary>
-        /// ddlAssetStatus control.
+        /// lblOrgEmailText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAssetStatus;
+        protected global::System.Web.UI.WebControls.Label lblOrgEmailText;
         
         /// <summary>
-        /// upMakeModel control.
+        /// lblOrgPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upMakeModel;
+        protected global::System.Web.UI.WebControls.Label lblOrgPhone;
         
         /// <summary>
-        /// lblAssetMake control.
+        /// lblOrgPhoneText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAssetMake;
+        protected global::System.Web.UI.WebControls.Label lblOrgPhoneText;
         
         /// <summary>
-        /// ddlAssetMake control.
+        /// lblIntakeNotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAssetMake;
+        protected global::System.Web.UI.WebControls.Label lblIntakeNotes;
         
         /// <summary>
-        /// lblAssetModel control.
+        /// lblIntakeNotesText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAssetModel;
+        protected global::System.Web.UI.WebControls.Label lblIntakeNotesText;
         
         /// <summary>
-        /// ddlAssetModel control.
+        /// lblPrimaryContact control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAssetModel;
+        protected global::System.Web.UI.WebControls.Label lblPrimaryContact;
         
         /// <summary>
-        /// lblAssetDescription control.
+        /// tbPrimaryContact control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAssetDescription;
+        protected global::System.Web.UI.WebControls.TextBox tbPrimaryContact;
         
         /// <summary>
-        /// tbAssetDescription control.
+        /// lblPrimaryPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbAssetDescription;
+        protected global::System.Web.UI.WebControls.Label lblPrimaryPhone;
         
         /// <summary>
-        /// lblLocation control.
+        /// tbPrimaryPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocation;
+        protected global::System.Web.UI.WebControls.TextBox tbPrimaryPhone;
         
         /// <summary>
-        /// ddlLocation control.
+        /// lblPrimaryEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLocation;
+        protected global::System.Web.UI.WebControls.Label lblPrimaryEmail;
         
         /// <summary>
-        /// lblLocationDescription control.
+        /// tbPrimaryEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocationDescription;
-        
-        /// <summary>
-        /// lblLocationDescriptionText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocationDescriptionText;
+        protected global::System.Web.UI.WebControls.TextBox tbPrimaryEmail;
         
         /// <summary>
         /// btnEdit control.
@@ -193,12 +175,12 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.Button btnCancelEdit;
         
         /// <summary>
-        /// btnViewIntake control.
+        /// gvAssetList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewIntake;
+        protected global::System.Web.UI.WebControls.GridView gvAssetList;
     }
 }
