@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DECIS.Master" AutoEventWireup="true" CodeBehind="AssetUpload.aspx.cs" Inherits="DECIS.AssetUpload" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-        <div class="justify-content-center d-flex py-5">
+    <div class="justify-content-center d-flex py-5">
         <div class="card mb-3 text-center my-auto ">
             <div class="card-header" style="font-size: 18px">
                 Import Data
@@ -35,10 +36,13 @@
                     </asp:DropDownList>
                 </div>
                 <div class="row justify-content-center mt-5">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <asp:Button ID="btnSubmitImport" runat="server" Text="Submit Intake Form" CssClass="btn-primary btn" OnClick="btnSubmitImport_Click" />
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <asp:Button ID="btnRetryImports" runat="server" Text="Retry Failed Imports" Visible="false" CssClass="btn btn-primary" OnClick="btnRetryImports_Click" />
+                    </div>
+                    <div class="col-md-4">
                         <asp:Button ID="btnDownloadTemplate" runat="server" Text="Download Template" CssClass="btn btn-primary" />
                     </div>
                 </div>
@@ -46,6 +50,33 @@
                 <div runat="server" visible="false" id="divUploadErrors" class="row justify-content-center mt-3 fileUploadErrors">
                     <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
                 </div>
+                <asp:UpdatePanel ID="upGV" UpdateMode="Conditional" runat="server">
+                    <ContentTemplate>
+                        <asp:GridView ID="gvDuplicates" Width="100%" runat="server" CssClass="table table-light table-striped table-bordered thead-dark" AutoGenerateColumns="False">
+                            <HeaderStyle CssClass="cherryBackground" />
+                            <Columns>
+                                <asp:TemplateField HeaderText="Select" ItemStyle-CssClass="align-items-center">
+                                    <ItemTemplate>
+                                        <asp:HiddenField ID="hfOriginalSerial" runat="server" Value='<%# Bind("SerialNumber")%>' />
+                                        <asp:CheckBox runat="server" ID="cbSelectDupe"></asp:CheckBox>
+                                    </ItemTemplate>
+                                    <ItemStyle CssClass="align-items-center"></ItemStyle>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="SerialNumber">
+                                    <ItemTemplate>
+                                        <asp:TextBox ID="tbSerialNumber" Text='<%# Bind("SerialNumber")%>' runat="server"></asp:TextBox>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Description">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblDescription" runat="server" Text='<%# Bind("Description")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                            <RowStyle HorizontalAlign="Center" />
+                        </asp:GridView>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
             <div class="card-footer text-muted">
                 Digital Equity Center
@@ -61,7 +92,6 @@
             });
         });
     </script>
-
     <script>
         //Change file label to file uploaded
         $(".custom-file-input").on("change", function () {

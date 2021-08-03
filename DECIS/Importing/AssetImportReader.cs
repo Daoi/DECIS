@@ -18,6 +18,7 @@ using System.Web;
 
 namespace DECIS.Importing
 {
+    [Serializable]
     public class AssetImportReader
     {
         private DataSet sheets;
@@ -59,7 +60,7 @@ namespace DECIS.Importing
                 .Where(row => !row.ItemArray.All(val => val is DBNull || string.IsNullOrWhiteSpace(val as string))) //Remove empty rows
                 .CopyToDataTable();
 
-            Rows = assetInfo.Rows.Count - 1;
+            Rows = assetInfo.Rows.Count;
 
             if (selectedOrg != "New Organization")
                 intakeInfo.Rows[0]["Donor's Organization"] = selectedOrg;
@@ -69,7 +70,7 @@ namespace DECIS.Importing
                 Intake curIntake = CreateIntakeForm();
                 intakeID = curIntake.IntakeID;
                 assets = CreateAssets();
-                if (assets.Count == 0)
+                if (assets.Count == 0 && Duplicates.Count == 0)
                 {
                     //If no assets were added delete last intake
                     string delete = $"DELETE FROM intake WHERE IntakeID = {intakeID}";
@@ -126,10 +127,22 @@ namespace DECIS.Importing
             {
                 try
                 {
-                    var result = new ImportAsset().ExecuteCommand(asset, intakeID);
+                    DataRow result = new ImportAsset().ExecuteCommand(asset, intakeID).Rows[0];
                     if (result != null) //Serial Number Already Exists
                     {
+                        int x;
+                        if (int.TryParse(result["AssetID"].ToString(), out x))
+                            asset.AssetID = x;
+                        else
+                            asset.AssetID = -1;
+
                         Duplicates.Add(asset);
+                        //If further error handling is needed later can seperate between duplicates/other errors 
+                        //if (int.TryParse(result["Status"].ToString(), out x))
+                        //    if(x != ) If an item is duplicate serial number and not donated/recycled status something is wrong
+                        //        Errors.Add(asset);
+                        //else
+                        //    Duplicates.Add(asset);
                     }
                 }
                 catch(Exception e)
@@ -146,9 +159,20 @@ namespace DECIS.Importing
             return assets;
         }
 
-        public void HandleDuplicates()
+        public void HandleDuplicates(List<Asset> retries)
         {
-            //Update Status
+            foreach(Asset ast in retries)
+            {
+                if(Duplicates.Exists(a => a.SerialNumber == ast.SerialNumber))
+                {
+                    //Update status
+                    new UpdateAssetStatusOnImport().ExecuteCommand(ast.AssetID, intakeID);
+                }
+                else//Eventually handle other errors
+                {
+                    var result = new ImportAsset().ExecuteCommand(ast, intakeID);
+                }
+            }
         }
 
     }

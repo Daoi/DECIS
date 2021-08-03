@@ -49,6 +49,15 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.Button btnSubmitImport;
         
         /// <summary>
+        /// btnRetryImports control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRetryImports;
+        
+        /// <summary>
         /// btnDownloadTemplate control.
         /// </summary>
         /// <remarks>
@@ -83,5 +92,23 @@ namespace DECIS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMessage;
+        
+        /// <summary>
+        /// upGV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upGV;
+        
+        /// <summary>
+        /// gvDuplicates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvDuplicates;
     }
 }
