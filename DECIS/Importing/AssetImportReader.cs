@@ -30,6 +30,7 @@ namespace DECIS.Importing
         DataTable locationDT = new GetAllLocation().ExecuteCommand();
         DataTable typeDT = new GetAllAssetTypes().ExecuteCommand();
         int intakeID;
+        public List<Asset> Duplicates { get; set; }
         public int Rows { get; set; }
 
 
@@ -42,18 +43,6 @@ namespace DECIS.Importing
                 //  - OpenXml Excel files (2007 format; *.xlsx, *.xlsb)
                 using (var reader = ExcelReaderFactory.CreateReader(stream))
                 {
-                    // Choose one of either 1 or 2:
-
-                    // 1. Use the reader methods
-                    do
-                    {
-                        while (reader.Read())
-                        {
-                            // reader.GetDouble(0);
-                        }
-                    } while (reader.NextResult());
-
-                    // 2. Use the AsDataSet extension method
                     sheets = reader.AsDataSet(new ExcelDataSetConfiguration()
                     {
                         ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
@@ -61,8 +50,6 @@ namespace DECIS.Importing
                             UseHeaderRow = true
                         }
                     });
-
-                    // The result of each spreadsheet is in sheets.Tables
                 }
             }
             //Next steps here
@@ -72,7 +59,7 @@ namespace DECIS.Importing
                 .Where(row => !row.ItemArray.All(val => val is DBNull || string.IsNullOrWhiteSpace(val as string))) //Remove empty rows
                 .CopyToDataTable();
 
-            Rows = assetInfo.Rows.Count;
+            Rows = assetInfo.Rows.Count - 1;
 
             if (selectedOrg != "New Organization")
                 intakeInfo.Rows[0]["Donor's Organization"] = selectedOrg;
@@ -112,6 +99,8 @@ namespace DECIS.Importing
         private List<Asset> CreateAssets()
         {
             List<Asset> assets = new List<Asset>();
+            Duplicates = new List<Asset>();
+
             foreach(DataRow dr in assetInfo.Rows)
             {
                 try
@@ -135,10 +124,31 @@ namespace DECIS.Importing
 
             foreach(Asset asset in assets)
             {
-                 new ImportAsset().ExecuteCommand(asset, intakeID);
+                try
+                {
+                    var result = new ImportAsset().ExecuteCommand(asset, intakeID);
+                    if (result != null) //Serial Number Already Exists
+                    {
+                        Duplicates.Add(asset);
+                    }
+                }
+                catch(Exception e)
+                {
+                    assets.Remove(asset);
+                }
+            }
+
+            foreach(Asset duplicate in Duplicates)
+            {
+                assets.Remove(duplicate);
             }
 
             return assets;
+        }
+
+        public void HandleDuplicates()
+        {
+            //Update Status
         }
 
     }
