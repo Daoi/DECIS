@@ -464,6 +464,7 @@
     <Compile Include="DataAccess\DataAccessors\Assets\Types\GetAllAssetTypes.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAsset.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAssetParameters.cs" />
+    <Compile Include="DataAccess\DataAccessors\Assets\UpdateAssetStatusOnImport.cs" />
     <Compile Include="DataAccess\DataAccessors\CTextWriter.cs" />
     <Compile Include="DataAccess\DataAccessors\Intake\GetAllIntakes.cs" />
     <Compile Include="DataAccess\DataAccessors\Intake\GetIntakeByID.cs" />

@@ -6,6 +6,7 @@ using System.Web;
 
 namespace DECIS.DataModels
 {
+    [Serializable]
     public class Asset
     {
         public int AssetID { get; set; }
