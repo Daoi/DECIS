@@ -325,6 +325,7 @@
     <Content Include="Homepage.aspx" />
     <Content Include="Images\71m1pA4JteL._AC_SL1500_.jpg" />
     <Content Include="Images\Optiplex 990.png" />
+    <Content Include="IntakeList.aspx" />
     <Content Include="IntakeView.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -464,6 +465,7 @@
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAsset.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAssetParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\CTextWriter.cs" />
+    <Compile Include="DataAccess\DataAccessors\Intake\GetAllIntakes.cs" />
     <Compile Include="DataAccess\DataAccessors\Intake\GetIntakeByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Intake\InsertIntake.cs" />
     <Compile Include="DataAccess\DataAccessors\Location\GetAllLocation.cs" />
@@ -501,6 +503,13 @@
     </Compile>
     <Compile Include="ControlLogic\DDL\DDLDataBind.cs" />
     <Compile Include="Importing\AssetImportReader.cs" />
+    <Compile Include="IntakeList.aspx.cs">
+      <DependentUpon>IntakeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IntakeList.aspx.designer.cs">
+      <DependentUpon>IntakeList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="IntakeView.aspx.cs">
       <DependentUpon>IntakeView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

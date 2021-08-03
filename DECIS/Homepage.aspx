@@ -68,9 +68,9 @@
                         <%-- Button 6 Start --%>
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">Admin Settings</label>
+                                <label class="card-title font-weight-bold h5">View Intakes</label>
                                 <p class="text-dark">Add new locations, images, makes/models, etc </p>
-                                <a class="stretched-link" href="EventList.aspx"></a>
+                                <a class="stretched-link" href="IntakeList.aspx"></a>
                             </div>
                         </div>
                         <%-- Button 6 End --%>

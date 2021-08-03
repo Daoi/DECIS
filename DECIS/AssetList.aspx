@@ -7,9 +7,9 @@
         <div class="table-responsive tableContainer">
             <div class="container-fluid mt-2">
                 <div runat="server" id="divNoRows" visible="false" class="row w-auto justify-content-center" style="height: 10vh;">
-                    <asp:Label ID="lblNoRows" runat="server" Text=""></asp:Label>
+                    <asp:label id="lblNoRows" runat="server" text=""></asp:label>
                 </div>
-                <asp:UpdatePanel ID="upLocationDDL" runat="server" UpdateMode="Conditional">
+                <asp:updatepanel id="upLocationDDL" runat="server" updatemode="Conditional">
                     <ContentTemplate>
                         <div class="row">
                             <div class="col-md-1">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </ContentTemplate>
-                </asp:UpdatePanel>
+                </asp:updatepanel>
             </div>
         </div>
     </div>
