@@ -19,6 +19,7 @@ namespace DECIS
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            HeaderBinding.CreateHeaders(gvDuplicates);
             if (!IsPostBack)
             {
                 DataTable dtOrgs = new GetAllOrgs().ExecuteCommand();
@@ -44,7 +45,7 @@ namespace DECIS
 
                     import = new AssetImportReader(path, ddlOrgs.SelectedItem.Text);
                     ViewState["Import"] = import;
-                    lblInsertCount.Text = $"Added {import.assets.Count} of {import.Rows} new Assets";
+                    lblInsertCount.Text = $"Added {import.Successful} of {import.Rows} new Assets";
                     if (import.Duplicates.Count > 0)
                     {
                         lblInsertCount.Text += $"<br /> Found {import.Duplicates.Count} duplicate serial number(s): ";
@@ -53,6 +54,11 @@ namespace DECIS
                         gvDuplicates.DataBind();
                         btnRetryImports.Visible = true;
                         upGV.Update();
+                    }
+                    else if (import.Duplicates.Count <= 0 && import.Successful <= 0)
+                    {
+                        import.Abort();
+                        lblMessage.Text += $"<br /> No valid assets found, Intake aborted.";
                     }
                     lblMessage.Visible = true;
                 }
@@ -79,13 +85,27 @@ namespace DECIS
                 if (cb != null && cb.Checked)
                 {
                     string sn = (gvDuplicates.Rows[row].FindControl("hfOriginalSerial") as HiddenField).Value; //Original SN
-                    Asset selected = import.Duplicates.Find(a => a.SerialNumber == sn);
+                    Asset selected = (Asset)import.Duplicates.Find(a => a.SerialNumber == sn).Clone();
                     selected.SerialNumber = (gvDuplicates.Rows[row].FindControl("tbSerialNumber") as TextBox).Text; //Update serial number
                     retries.Add(selected);
                 }
             }
 
             import.HandleDuplicates(retries);
+
+            if (import.Duplicates.Count != 0)
+            {
+                gvDuplicates.DataSource = import.Duplicates;
+                gvDuplicates.DataBind();
+                upGV.Update();
+            }
+            else
+            {
+                gvDuplicates.Visible = false;
+                lblMessage.Text = "All duplicates fixed";
+                lblInsertCount.Text = $"{import.Successful} Assets out of ${import.Rows} imported";
+                upGV.Update();
+            }
         }
     }
 }

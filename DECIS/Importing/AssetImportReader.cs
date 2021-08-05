@@ -31,12 +31,14 @@ namespace DECIS.Importing
         DataTable locationDT = new GetAllLocation().ExecuteCommand();
         DataTable typeDT = new GetAllAssetTypes().ExecuteCommand();
         int intakeID;
+        int tempID = 0;
         public List<Asset> Duplicates { get; set; }
         public int Rows { get; set; }
+        public int Successful { get; set; }
 
 
         public AssetImportReader(string filePath, string selectedOrg) {
-
+            Successful = 0;
             using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
             {
                 // Auto-detect format, supports:
@@ -72,9 +74,7 @@ namespace DECIS.Importing
                 assets = CreateAssets();
                 if (assets.Count == 0 && Duplicates.Count == 0)
                 {
-                    //If no assets were added delete last intake
-                    string delete = $"DELETE FROM intake WHERE IntakeID = {intakeID}";
-                    new CTextWriter(delete).ExecuteCommand();
+                    Abort();
                 }
             }
             catch(Exception e)
@@ -112,7 +112,8 @@ namespace DECIS.Importing
                         AssetType = dr["Equipment Type"].ToString(),
                         SerialNumber = dr["Serial Number"].ToString(),
                         Description = $"Make: {dr["Make"].ToString()} Model: {dr["Model"].ToString()}, Description: {dr["Asset Description"].ToString()}",
-                        IntakeID = new List<int>()
+                        IntakeID = new List<int>(),
+                        AssetID = tempID++
                     };
                     curAsset.IntakeID.Add(intakeID);
                     assets.Add(curAsset);
@@ -128,13 +129,19 @@ namespace DECIS.Importing
                 try
                 {
                     DataRow result = new ImportAsset().ExecuteCommand(asset, intakeID).Rows[0];
+                    Successful++;
                     if (result != null) //Serial Number Already Exists
                     {
+                        Successful--;
                         int x;
                         if (int.TryParse(result["AssetID"].ToString(), out x))
+                        {
                             asset.AssetID = x;
+                            asset.Location = result["Location"].ToString();
+                            asset.Status = result["Status"].ToString();
+                        }
                         else
-                            asset.AssetID = -1;
+                            asset.AssetID = tempID++;
 
                         Duplicates.Add(asset);
                         //If further error handling is needed later can seperate between duplicates/other errors 
@@ -150,12 +157,12 @@ namespace DECIS.Importing
                     assets.Remove(asset);
                 }
             }
-
+            //Take duplicates out of asset list
             foreach(Asset duplicate in Duplicates)
             {
                 assets.Remove(duplicate);
             }
-
+            
             return assets;
         }
 
@@ -163,16 +170,38 @@ namespace DECIS.Importing
         {
             foreach(Asset ast in retries)
             {
-                if(Duplicates.Exists(a => a.SerialNumber == ast.SerialNumber))
+                try
                 {
-                    //Update status
-                    new UpdateAssetStatusOnImport().ExecuteCommand(ast.AssetID, intakeID);
+                    if (Duplicates.Exists(a => a.SerialNumber == ast.SerialNumber))//Check resubmitted serial numbers against original found sn
+                    {
+                        //Update status of existing object
+                        new UpdateAssetStatusOnImport().ExecuteCommand(ast.AssetID, intakeID);
+                        Successful++;
+                        Duplicates.Remove(Duplicates.Find(a => a.SerialNumber == ast.SerialNumber));
+                    }
+                    else//If it's an error and the serial number was corrected
+                    {
+                        var result = new ImportAsset().ExecuteCommand(ast, intakeID);
+                        Successful++;
+                        Duplicates.Remove(Duplicates.Find(a => a.AssetID == ast.AssetID));
+                    }
                 }
-                else//Eventually handle other errors
+                catch(Exception e)
                 {
-                    var result = new ImportAsset().ExecuteCommand(ast, intakeID);
+                    continue;
                 }
             }
+
+            if (Successful <= 0)
+                Abort();
+        }
+        /// <summary>
+        /// Delete intake in db
+        /// </summary>
+        public void Abort()
+        {
+            string delete = $"DELETE FROM intake WHERE IntakeID = {intakeID}";
+            new CTextWriter(delete).ExecuteCommand();
         }
 
     }

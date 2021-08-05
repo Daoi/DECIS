@@ -59,8 +59,8 @@
     </div>
     <div style="margin-top: 2%; height: 2%; width: auto;"></div>
     <script type="text/javascript">
-        $(document).ready(function () {
+        function pageLoad() {
             $('#MainContent_gvAssetList').DataTable();
-        });
+        }
     </script>
 </asp:Content>
