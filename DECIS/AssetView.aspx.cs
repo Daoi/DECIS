@@ -125,9 +125,5 @@ namespace DECIS
 
         }
 
-        protected void btnViewIntake_Click(object sender, EventArgs e)
-        {
-            Response.Redirect($"./IntakeView.aspx?intid={curAsset.IntakeID}");
-        }
     }
 }

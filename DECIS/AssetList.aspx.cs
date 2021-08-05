@@ -16,9 +16,9 @@ namespace DECIS
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            HeaderBinding.CreateHeaders(gvAssetList);
             if (!IsPostBack)
             {
-                HeaderBinding.CreateHeaders(gvAssetList);
                 dtAssetList = new GetAllAssets().ExecuteCommand();
 
                 if (dtAssetList.Rows.Count == 0)

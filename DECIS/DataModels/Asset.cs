@@ -7,7 +7,7 @@ using System.Web;
 namespace DECIS.DataModels
 {
     [Serializable]
-    public class Asset
+    public class Asset : ICloneable
     {
         public int AssetID { get; set; }
         public string SerialNumber { get; set; }
@@ -55,6 +55,16 @@ namespace DECIS.DataModels
             string[] values = dr["IntakeID"].ToString().Split(',');
             values.ToList().ForEach(v => ids.Add(int.Parse(v)));
             return ids;
+        }
+
+        /// <summary>
+        /// Create shallow copy of asset
+        /// </summary>
+        /// <returns></returns>
+        public object Clone()
+        {
+            Asset asset = (Asset)MemberwiseClone();
+            return asset;
         }
     }
 }
