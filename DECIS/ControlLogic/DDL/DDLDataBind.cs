@@ -33,7 +33,7 @@ namespace DECIS.CotrolLogic
             if (makeID > -1)
             {
                 DropDownList model = ddls.First(ddl => ddl.ID == "ddlAssetModel") as DropDownList;
-                AssetModel(model, makeID);
+                dts.Tables.Add(AssetModel(model, makeID));
                 ddls.Remove(model);
             }
             foreach(DropDownList ddl in ddls)
@@ -50,6 +50,7 @@ namespace DECIS.CotrolLogic
         private static DataTable AssetModel(DropDownList ddl)
         {
             DataTable modelDT = new GetAllModel().ExecuteCommand();
+            modelDT.TableName = "Model";
             ddl.DataSource = modelDT;
             ddl.DataTextField = "Model";
             ddl.DataValueField = "ModelID";
@@ -61,6 +62,7 @@ namespace DECIS.CotrolLogic
         private static DataTable AssetModel(DropDownList ddl, int makeID)
         {
             DataTable modelDT = new GetAllModel().ExecuteCommand();
+            modelDT.TableName = "Model";
             ddl.DataSource = modelDT.AsEnumerable().Where(r => r.Field<int>("Make") == makeID).CopyToDataTable();
             ddl.DataTextField = "Model";
             ddl.DataValueField = "ModelID";
@@ -72,7 +74,7 @@ namespace DECIS.CotrolLogic
         private static DataTable AssetMake(DropDownList ddl)
         {
             DataTable makeDT = new GetAllMake().ExecuteCommand();
-
+            makeDT.TableName = "Make";
             ddl.DataSource = makeDT;
             ddl.DataTextField = "Make";
             ddl.DataValueField = "MakeID";
@@ -84,7 +86,7 @@ namespace DECIS.CotrolLogic
         private static DataTable AssetStatus(DropDownList ddl)
         {
             DataTable statusDT = new GetAllStatus().ExecuteCommand();
-
+            statusDT.TableName = "Status";
             ddl.DataSource = statusDT;
             ddl.DataTextField = "Status";
             ddl.DataValueField = "StatusID";
@@ -96,7 +98,7 @@ namespace DECIS.CotrolLogic
         private static DataTable AssetLocation(DropDownList ddl)
         {
             DataTable locationDT = new GetAllLocation().ExecuteCommand();
-
+            locationDT.TableName = "Location";
             ddl.DataSource = locationDT;
             ddl.DataTextField = "Location";
             ddl.DataValueField = "LocationID";
@@ -108,10 +110,10 @@ namespace DECIS.CotrolLogic
         private static DataTable AssetLocationDescription(DropDownList ddl)
         {
             DataTable locationDT = new GetAllLocation().ExecuteCommand();
-
+            locationDT.TableName = "Location";
             ddl.DataSource = locationDT;
             ddl.DataTextField = "LocationDescription";
-            ddl.DataValueField = "LocationDescriptionID";
+            ddl.DataValueField = "LocationID";
             ddl.DataBind();
 
             return locationDT;
@@ -120,7 +122,7 @@ namespace DECIS.CotrolLogic
         private static DataTable AssetType(DropDownList ddl)
         {
             DataTable typeDT = new GetAllAssetTypes().ExecuteCommand();
-
+            typeDT.TableName = "AssetType";
             ddl.DataSource = typeDT;
             ddl.DataTextField = "AssetType";
             ddl.DataValueField = "AssetTypeID";
