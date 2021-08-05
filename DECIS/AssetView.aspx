@@ -19,14 +19,15 @@
                             <asp:Label ID="lblAssetType" runat="server" Text="Asset Type:">
                             </asp:Label>
                             <asp:Label ID="lblAssetTypeText" CssClass="form-control bg-muted" runat="server"></asp:Label>
-                            <asp:Label ID="lblAssetStatus" runat="server" Text="Asset Status:">
-                            </asp:Label>
-                            <asp:DropDownList ID="ddlAssetStatus" CssClass="form-control" runat="server"></asp:DropDownList>
+
                             <asp:UpdatePanel ID="upMakeModel" runat="server" UpdateMode="Conditional">
                                 <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="ddlAssetMake" EventName="SelectedIndexChanged" />
+                                    <asp:AsyncPostBackTrigger ControlID="ddlAssetMake" EventName="SelectedIndexChanged" />                                    <asp:AsyncPostBackTrigger ControlID="ddlAssetMake" EventName="SelectedIndexChanged" />
+                                    <asp:AsyncPostBackTrigger ControlID="ddlAssetStatus" EventName="SelectedIndexChanged" />
                                 </Triggers>
                                 <ContentTemplate>
+                                    <asp:Label ID="lblAssetStatus" runat="server" Text="Asset Status:"></asp:Label>
+                                    <asp:DropDownList ID="ddlAssetStatus" CssClass="form-control" runat="server" OnSelectedIndexChanged="ddlAssetStatus_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                                     <asp:Label ID="lblAssetMake" runat="server" Text="Asset Make:">
                                     </asp:Label>
                                     <asp:DropDownList ID="ddlAssetMake" CssClass="form-control" runat="server" OnSelectedIndexChanged="ddlAssetMake_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
@@ -39,10 +40,17 @@
                         <div class="col-md">
                             <asp:Label ID="lblAssetDescription" runat="server" Text="Asset Description:">
                             </asp:Label><asp:TextBox ID="tbAssetDescription" CssClass="form-control" runat="server"></asp:TextBox>
-                            <asp:Label ID="lblLocation" runat="server" Text="Location:"></asp:Label>
-                            <asp:DropDownList ID="ddlLocation" CssClass="form-control" runat="server"></asp:DropDownList>
-                            <asp:Label ID="lblLocationDescription" runat="server" Text="Location Description:"></asp:Label>
-                            <asp:Label ID="lblLocationDescriptionText" CssClass="bg-muted form-control" runat="server"></asp:Label>
+                            <asp:UpdatePanel ID="upLocation" UpdateMode="Conditional" runat="server">
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="ddlLocation" EventName="SelectedIndexChanged" />
+                                </Triggers>
+                                <ContentTemplate>
+                                    <asp:Label ID="lblLocation" runat="server" Text="Location:"></asp:Label>
+                                    <asp:DropDownList ID="ddlLocation" CssClass="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlLocation_SelectedIndexChanged"></asp:DropDownList>
+                                    <asp:Label ID="lblLocationDescription" runat="server" Text="Location Description:"></asp:Label>
+                                    <asp:Label ID="lblLocationDescriptionText" CssClass="bg-muted form-control" runat="server"></asp:Label>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
                         </div>
                     </asp:Panel>
                     <%-- Content End --%>

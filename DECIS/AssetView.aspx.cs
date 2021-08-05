@@ -52,6 +52,7 @@ namespace DECIS
         {
             List<DropDownList> ddls = new List<DropDownList>() { ddlAssetMake, ddlAssetModel, ddlAssetStatus, ddlLocation };
             DataSet dts = DDLDataBind.ddlBind(ddls, curAsset.MakeID);
+
             ViewState["Models"] = dts.Tables["Model"];
             ViewState["Locations"] = dts.Tables["Location"];
         }
@@ -125,5 +126,22 @@ namespace DECIS
 
         }
 
+        protected void ddlLocation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddl = (DropDownList)sender;
+            lblLocationDescriptionText.Text = new GetLocationInfoByID().ExecuteCommand(int.Parse(ddl.SelectedValue)).Rows[0]["LocationDescription"].ToString();
+            upLocation.Update();
+        }
+
+        protected void ddlAssetStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddl = (DropDownList)sender;
+            DataTable locs = new GetLocationByStatus().ExecuteCommand(ddl.SelectedItem.Text);
+            if (locs == null || locs.Rows.Count == 0)
+                ddlLocation.Items.Insert(0, new ListItem("No valid locations", "-1"));
+            ddlLocation.DataSource = locs;
+            ddlLocation.DataBind();
+            upLocation.Update();
+        }
     }
 }
