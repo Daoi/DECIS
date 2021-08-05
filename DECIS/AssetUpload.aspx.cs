@@ -103,7 +103,8 @@ namespace DECIS
             {
                 gvDuplicates.Visible = false;
                 lblMessage.Text = "All duplicates fixed";
-                lblInsertCount.Text = $"{import.Successful} Assets out of ${import.Rows} imported";
+                lblInsertCount.Text = $"{import.Successful} Assets out of {import.Rows} imported";
+                btnRetryImports.Visible = false;
                 upGV.Update();
             }
         }
