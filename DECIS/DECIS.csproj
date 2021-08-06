@@ -44,7 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.Core.3.7.1.1\lib\net45\AWSSDK.Core.dll</HintPath>
+      <HintPath>..\packages\AWSSDK.Core.3.7.1.4\lib\net45\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticBeanstalk, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.ElasticBeanstalk.3.7.0.45\lib\net45\AWSSDK.ElasticBeanstalk.dll</HintPath>
@@ -53,7 +53,7 @@
       <HintPath>..\packages\AWSSDK.Extensions.NETCore.Setup.3.7.1\lib\netstandard2.0\AWSSDK.Extensions.NETCore.Setup.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.S3.3.7.1.17\lib\net45\AWSSDK.S3.dll</HintPath>
+      <HintPath>..\packages\AWSSDK.S3.3.7.1.20\lib\net45\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SQS, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.SQS.3.7.0.46\lib\net45\AWSSDK.SQS.dll</HintPath>
@@ -324,6 +324,7 @@
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Homepage.aspx" />
     <Content Include="Images\71m1pA4JteL._AC_SL1500_.jpg" />
+    <Content Include="Images\DellXPSN4ZVS.png" />
     <Content Include="Images\Optiplex 990.png" />
     <Content Include="IntakeList.aspx" />
     <Content Include="IntakeView.aspx" />
@@ -338,6 +339,9 @@
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="connections.config" />
     <Content Include="Importing\Files\Donor Intake Sheet.xlsx" />
+    <Content Include="appSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -507,6 +511,7 @@
       <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ControlLogic\DDL\DDLDataBind.cs" />
+    <Compile Include="Importing\AmazonUploader.cs" />
     <Compile Include="Importing\AssetImportReader.cs" />
     <Compile Include="IntakeList.aspx.cs">
       <DependentUpon>IntakeList.aspx</DependentUpon>
@@ -573,7 +578,7 @@
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.ElasticBeanstalk.3.7.0.45\analyzers\dotnet\cs\AWSSDK.ElasticBeanstalk.CodeAnalysis.dll" />
-    <Analyzer Include="..\packages\AWSSDK.S3.3.7.1.17\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
+    <Analyzer Include="..\packages\AWSSDK.S3.3.7.1.20\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
     <Analyzer Include="..\packages\AWSSDK.SQS.3.7.0.46\analyzers\dotnet\cs\AWSSDK.SQS.CodeAnalysis.dll" />
   </ItemGroup>
   <PropertyGroup>

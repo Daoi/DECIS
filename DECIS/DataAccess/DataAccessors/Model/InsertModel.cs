@@ -15,18 +15,18 @@ namespace DECIS.DataAccess.DataAccessors.Model
             CommandType = CommandType.StoredProcedure;
         }
 
-        public DataTable ExecuteCommand(DataModels.Model mdl)
+        public int ExecuteCommand(DataModels.Model mdl)
         {
 
 
             Parameters = new MySqlParameter[4] {
-                new MySqlParameter("IntakeDate", date),
-                new MySqlParameter("IntakeDonorOrg", ido),
-                new MySqlParameter("IntakeNotes", notes),
-                new MySqlParameter("IntakeNotes", notes)
+                new MySqlParameter("Model", mdl.ModelName),
+                new MySqlParameter("MakeID", mdl.MakeID),
+                new MySqlParameter("Image", mdl.Image),
+                new MySqlParameter("AssetTypeID", mdl.AssetTypeID)
             };
             ExecuteQuery eq = new ExecuteQuery(); //Create instance of class that handles command obj
-            return eq.ExecuteAdapter(this); //Run the command
+            return eq.ExecuteNonQuery(this); //Run the command
         }
     }
 }

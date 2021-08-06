@@ -1,9 +1,12 @@
 ﻿using DECIS.CotrolLogic;
+using DECIS.DataAccess.DataAccessors.Model;
 using DECIS.DataModels;
+using DECIS.Importing;
 using DECIS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,6 +16,8 @@ namespace DECIS
 {
     public partial class Settings : System.Web.UI.Page
     {
+        private string bucket = "decisimages-33dm3c5d3pxzrqcs78s8f81fq8om6use2a-s3alias";
+        private string bucketImages = "decisimages-33dm3c5d3pxzrqcs78s8f81fq8om6use2a-s3alias";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,19 +29,34 @@ namespace DECIS
 
         protected void btnAddModel_Click(object sender, EventArgs e)
         {
-            string imagePath = Server.MapPath($"./Importing/Images/") + fuModelImage.FileName + RandomizeString.RandomString(5); //Try to prevent duplicate names
-            fuModelImage.SaveAs(imagePath);
+            Stream s = fuModelImage.PostedFile.InputStream;
+            string[] image = fuModelImage.FileName.Split('.');
+            string imageName = $"{image[0]}{RandomizeString.RandomString(5)}.{image[1]}"; //Try to prevent duplicate names
+            AmazonUploader myUploader = new AmazonUploader();
+            string url;
+            bool a = myUploader.sendMyFileToS3Async(s, bucketImages, imageName, out url);
 
-            Model mdl = new Model()
+            if (a)
             {
-                ModelName = tbModelName.Text,
-                AssetType = ddlAssetType.SelectedItem.Text,
-                AssetTypeID = int.Parse(ddlAssetType.SelectedValue),
-                Make = ddlAssetMake.SelectedItem.Text,
-                MakeID = int.Parse(ddlAssetMake.SelectedValue),
-                Image = imagePath
-            };
-
+                Model mdl = new Model()
+                {
+                    ModelName = tbModelName.Text,
+                    AssetType = ddlAssetType.SelectedItem.Text,
+                    AssetTypeID = int.Parse(ddlAssetType.SelectedValue),
+                    Make = ddlAssetMake.SelectedItem.Text,
+                    MakeID = int.Parse(ddlAssetMake.SelectedValue),
+                    Image = url
+                };
+                try
+                {
+                    int x = new InsertModel().ExecuteCommand(mdl);
+                }
+                catch (Exception ex)
+                {
+                    lblModelError.Text = ex.Message;
+                    upModel.Update();
+                }
+            }
 
         }
 
@@ -49,5 +69,6 @@ namespace DECIS
         {
             return  MimeMapping.GetMimeMapping(fileUpload.PostedFile.ContentType).StartsWith("image/", StringComparison.OrdinalIgnoreCase);
         }
+
     }
 }
