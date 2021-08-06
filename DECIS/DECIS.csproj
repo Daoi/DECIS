@@ -477,6 +477,7 @@
     <Compile Include="DataAccess\DataAccessors\Make\GetAllMake.cs" />
     <Compile Include="DataAccess\DataAccessors\Model\GetAllModel.cs" />
     <Compile Include="DataAccess\DataAccessors\Model\GetModelInfoByID.cs" />
+    <Compile Include="DataAccess\DataAccessors\Model\InsertModel.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\GetAllOrgs.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\InsertOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\InsertOrgParameters.cs" />
@@ -488,6 +489,7 @@
     <Compile Include="DataModels\Asset.cs" />
     <Compile Include="DataModels\Donation.cs" />
     <Compile Include="DataModels\Intake.cs" />
+    <Compile Include="DataModels\Model.cs" />
     <Compile Include="DataModels\OrderRequest.cs" />
     <Compile Include="DataModels\Organization.cs" />
     <Compile Include="DECIS.Master.cs">
@@ -528,6 +530,7 @@
     <Compile Include="Settings.aspx.designer.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\RandomizeString.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DECIS.Master" />

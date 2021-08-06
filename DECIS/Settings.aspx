@@ -24,7 +24,7 @@
                                 <asp:DropDownList ID="ddlAssetMake" CssClass="form-control mt-1" runat="server"></asp:DropDownList>
                                 <asp:DropDownList ID="ddlAssetType" CssClass="form-control mt-1" runat="server"></asp:DropDownList>
                                 <asp:FileUpload ID="fuModelImage" CssClass="form-control mt-1" runat="server" />
-                                <asp:Button ID="btnAddModel" runat="server" Text="Add New Model" CssClass="btn btn-primary mt-3" />
+                                <asp:Button ID="btnAddModel" runat="server" Text="Add New Model" CssClass="btn btn-primary mt-3" OnClick="btnAddModel_Click" />
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
