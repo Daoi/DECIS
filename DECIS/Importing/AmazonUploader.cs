@@ -4,7 +4,6 @@ using Amazon.S3.Model;
 using Amazon.S3.Transfer;
 using DECIS.Utilities;
 using System;
-using System.Threading.Tasks;
 
 namespace DECIS.Importing
 {

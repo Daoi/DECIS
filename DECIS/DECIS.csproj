@@ -466,6 +466,7 @@
     <Compile Include="DataAccess\DataAccessors\Assets\GetAssetsByIntake.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\ImportAsset.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\Types\GetAllAssetTypes.cs" />
+    <Compile Include="DataAccess\DataAccessors\Assets\Types\InsertAssetType.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAsset.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAssetParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAssetStatusOnImport.cs" />
@@ -477,6 +478,7 @@
     <Compile Include="DataAccess\DataAccessors\Location\GetLocationByStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Location\GetLocationInfoByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Make\GetAllMake.cs" />
+    <Compile Include="DataAccess\DataAccessors\Make\InsertMake.cs" />
     <Compile Include="DataAccess\DataAccessors\Model\GetAllModel.cs" />
     <Compile Include="DataAccess\DataAccessors\Model\GetModelInfoByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Model\InsertModel.cs" />

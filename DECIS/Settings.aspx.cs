@@ -1,4 +1,6 @@
 ﻿using DECIS.CotrolLogic;
+using DECIS.DataAccess.DataAccessors.Assets.Types;
+using DECIS.DataAccess.DataAccessors.Make;
 using DECIS.DataAccess.DataAccessors.Model;
 using DECIS.DataModels;
 using DECIS.Importing;
@@ -14,7 +16,7 @@ using System.Web.UI.WebControls;
 
 namespace DECIS
 {
-    public partial class Settings : System.Web.UI.Page
+    public partial class Settings : Page
     {
         private string bucketImages = "decisimages";
         protected void Page_Load(object sender, EventArgs e)
@@ -68,5 +70,30 @@ namespace DECIS
             return  MimeMapping.GetMimeMapping(fileUpload.PostedFile.ContentType).StartsWith("image/", StringComparison.OrdinalIgnoreCase);
         }
 
+        protected void btnAddMake_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int res = new InsertMake().ExecuteCommand(tbMake.Text);
+            }
+            catch(Exception ex)
+            {
+                lblMakeError.Text = $"Couldn't succesfully add Make, try again later";
+
+            }
+        }
+
+        protected void btnAssetType_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int res = new InsertAssetType().ExecuteCommand(tbAssetType.Text);
+            }
+            catch (Exception ex)
+            {
+                lblATError.Text = $"Couldn't succesfully add Asset Type, try again later";
+
+            }
+        }
     }
 }
