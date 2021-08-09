@@ -339,9 +339,7 @@
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="connections.config" />
     <Content Include="Importing\Files\Donor Intake Sheet.xlsx" />
-    <Content Include="appSettings.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="appSettings.config" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />

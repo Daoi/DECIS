@@ -16,8 +16,7 @@ namespace DECIS
 {
     public partial class Settings : System.Web.UI.Page
     {
-        private string bucket = "decisimages-33dm3c5d3pxzrqcs78s8f81fq8om6use2a-s3alias";
-        private string bucketImages = "decisimages-33dm3c5d3pxzrqcs78s8f81fq8om6use2a-s3alias";
+        private string bucketImages = "decisimages";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -34,8 +33,7 @@ namespace DECIS
             string imageName = $"{image[0]}{RandomizeString.RandomString(5)}.{image[1]}"; //Try to prevent duplicate names
             AmazonUploader myUploader = new AmazonUploader();
             string url;
-            bool a = myUploader.sendMyFileToS3Async(s, bucketImages, imageName, out url);
-
+            bool a = myUploader.UploadFileToS3Public(s, bucketImages, imageName, out url, "Images");
             if (a)
             {
                 Model mdl = new Model()
