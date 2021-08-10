@@ -477,6 +477,7 @@
     <Compile Include="DataAccess\DataAccessors\Location\GetAllLocation.cs" />
     <Compile Include="DataAccess\DataAccessors\Location\GetLocationByStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Location\GetLocationInfoByID.cs" />
+    <Compile Include="DataAccess\DataAccessors\Location\InsertLocation.cs" />
     <Compile Include="DataAccess\DataAccessors\Make\GetAllMake.cs" />
     <Compile Include="DataAccess\DataAccessors\Make\InsertMake.cs" />
     <Compile Include="DataAccess\DataAccessors\Model\GetAllModel.cs" />
@@ -527,6 +528,10 @@
     <Compile Include="IntakeView.aspx.designer.cs">
       <DependentUpon>IntakeView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PageLogic\Settings\SettingsClearLabels.cs" />
+    <Compile Include="PageLogic\Settings\SettingsLocation.cs" />
+    <Compile Include="PageLogic\Settings\SettingsMake.cs" />
+    <Compile Include="PageLogic\Settings\SettingsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.aspx.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
@@ -535,6 +540,8 @@
     <Compile Include="Settings.aspx.designer.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\CheckFile.cs" />
+    <Compile Include="Utilities\FindControl.cs" />
     <Compile Include="Utilities\RandomizeString.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -573,9 +580,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PageLogic\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.ElasticBeanstalk.3.7.0.45\analyzers\dotnet\cs\AWSSDK.ElasticBeanstalk.CodeAnalysis.dll" />
     <Analyzer Include="..\packages\AWSSDK.S3.3.7.1.20\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />

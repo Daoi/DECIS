@@ -14,11 +14,14 @@ namespace DECIS.CotrolLogic
 {
     public class DDLDataBind
     {
-
-        private static Dictionary<string, Func<DropDownList, DataTable>> bindings = new Dictionary<string, Func<DropDownList, DataTable>>()
-        { { "ddlAssetMake", AssetMake}, { "ddlAssetModel", AssetModel}, { "ddlLocation", AssetLocation},
-          { "ddlLocationDescription", AssetLocationDescription}, { "ddlAssetStatus", AssetStatus},
-          { "ddlAssetType", AssetType}
+        //Key = Name to check for - Value = Method to use for binding
+        private static Dictionary<Func<string, bool>, Func<DropDownList, DataTable>> bindings = new Dictionary<Func<string, bool>, Func<DropDownList, DataTable>>()
+        { { name => name.ToLower().Contains("make"), AssetMake},
+          { name => name.ToLower().Contains("model"), AssetModel},
+          { name => name.ToLower().Contains("location"), AssetLocation},
+          { name => name.ToLower().Contains("description"), AssetLocationDescription},
+          { name => name.ToLower().Contains("status"), AssetStatus},
+          { name => name.ToLower().Contains("type"), AssetType}
         };
 
         /// <summary>
@@ -38,14 +41,22 @@ namespace DECIS.CotrolLogic
             }
             foreach(DropDownList ddl in ddls)
             {
-                string name = ddl.ID;
-                dts.Tables.Add(bindings[name].Invoke(ddl));
+                try {
+                    string name = ddl.ID;
+                    var key = bindings.Keys.First(k => k(name));
+                    dts.Tables.Add(bindings[key].Invoke(ddl));
+                }
+                catch(Exception ex)
+                {
+                    continue;
+                }
+
             }
 
             return dts;
         }
 
-        //Should probably do this with an interface and seperate classes instead of these methods
+        //Should probably do this with an interface and seperate classes instead of these methods?
 
         private static DataTable AssetModel(DropDownList ddl)
         {

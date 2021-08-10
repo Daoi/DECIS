@@ -9,91 +9,41 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DECIS.PageLogic;
+using DECIS.PageLogic.Settings;
 
 namespace DECIS
 {
     public partial class Settings : Page
     {
-        private string bucketImages = "decisimages";
+        //Holds the event handlers
+        private static Dictionary<string, Func<Page, int>> eh = new Dictionary<string, Func<Page, int>>()
+        {   { "btnAddModel", SettingsModel.Add},
+            { "btnAddMake", SettingsMake.Add},
+            { "btnAddLocation", SettingsLocation.Add}
+        };
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                List<DropDownList> ddls = new List<DropDownList>() { ddlAssetType, ddlAssetMake };
+                List<DropDownList> ddls = new List<DropDownList>() { ddlAssetType, ddlAssetMake, ddlLocStatus };
                 DataSet dts = DDLDataBind.ddlBind(ddls);
             }
         }
 
-        protected void btnAddModel_Click(object sender, EventArgs e)
+        protected void btnAdd_Click(object sender, EventArgs e)
         {
-            Stream s = fuModelImage.PostedFile.InputStream;
-            string[] image = fuModelImage.FileName.Split('.');
-            string imageName = $"{image[0]}{RandomizeString.RandomString(5)}.{image[1]}"; //Try to prevent duplicate names
-            AmazonUploader myUploader = new AmazonUploader();
-            string url;
-            bool a = myUploader.UploadFileToS3Public(s, bucketImages, imageName, out url, "Images");
-            if (a)
-            {
-                Model mdl = new Model()
-                {
-                    ModelName = tbModelName.Text,
-                    AssetType = ddlAssetType.SelectedItem.Text,
-                    AssetTypeID = int.Parse(ddlAssetType.SelectedValue),
-                    Make = ddlAssetMake.SelectedItem.Text,
-                    MakeID = int.Parse(ddlAssetMake.SelectedValue),
-                    Image = url
-                };
-                try
-                {
-                    int x = new InsertModel().ExecuteCommand(mdl);
-                }
-                catch (Exception ex)
-                {
-                    lblModelError.Text = ex.Message;
-                    upModel.Update();
-                }
-            }
+            SettingsClearLabels.Clear(Page);
+            Button btn = (Button)sender;
+            int result = eh[btn.ID].Invoke(Page); //Chooses which event handler to run based on control ID
+
 
         }
 
-        /// <summary>
-        /// Make sure file is actually an image
-        /// </summary>
-        /// <param name="fileUpload"></param>
-        /// <returns></returns>
-        private bool FileIsValid(FileUpload fileUpload)
-        {
-            return  MimeMapping.GetMimeMapping(fileUpload.PostedFile.ContentType).StartsWith("image/", StringComparison.OrdinalIgnoreCase);
-        }
 
-        protected void btnAddMake_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int res = new InsertMake().ExecuteCommand(tbMake.Text);
-            }
-            catch(Exception ex)
-            {
-                lblMakeError.Text = $"Couldn't succesfully add Make, try again later";
-
-            }
-        }
-
-        protected void btnAssetType_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int res = new InsertAssetType().ExecuteCommand(tbAssetType.Text);
-            }
-            catch (Exception ex)
-            {
-                lblATError.Text = $"Couldn't succesfully add Asset Type, try again later";
-
-            }
-        }
     }
 }

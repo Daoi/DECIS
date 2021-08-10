@@ -31,13 +31,13 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.GridView gvModels;
         
         /// <summary>
-        /// lblModelError control.
+        /// lblModelMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModelError;
+        protected global::System.Web.UI.WebControls.Label lblModelMsg;
         
         /// <summary>
         /// tbModelName control.
@@ -103,13 +103,13 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.GridView gvMake;
         
         /// <summary>
-        /// lblMakeError control.
+        /// lblMakeMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMakeError;
+        protected global::System.Web.UI.WebControls.Label lblMakeMsg;
         
         /// <summary>
         /// tbMake control.
@@ -130,49 +130,67 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.Button btnAddMake;
         
         /// <summary>
-        /// upAssetType control.
+        /// upLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upAssetType;
+        protected global::System.Web.UI.UpdatePanel upLocation;
         
         /// <summary>
-        /// gvAssetType control.
+        /// gvLocations control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAssetType;
+        protected global::System.Web.UI.WebControls.GridView gvLocations;
         
         /// <summary>
-        /// lblATError control.
+        /// lblLocMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblATError;
+        protected global::System.Web.UI.WebControls.Label lblLocMsg;
         
         /// <summary>
-        /// tbAssetType control.
+        /// tbLocationName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbAssetType;
+        protected global::System.Web.UI.WebControls.TextBox tbLocationName;
         
         /// <summary>
-        /// btnAssetType control.
+        /// tbLocationDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAssetType;
+        protected global::System.Web.UI.WebControls.TextBox tbLocationDesc;
+        
+        /// <summary>
+        /// ddlLocStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlLocStatus;
+        
+        /// <summary>
+        /// btnAddLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddLocation;
         
         /// <summary>
         /// lbExport control.
