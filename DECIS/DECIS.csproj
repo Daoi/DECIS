@@ -497,6 +497,7 @@
     <Compile Include="DataModels\Model.cs" />
     <Compile Include="DataModels\OrderRequest.cs" />
     <Compile Include="DataModels\Organization.cs" />
+    <Compile Include="DataModels\Request.cs" />
     <Compile Include="DECIS.Master.cs">
       <DependentUpon>DECIS.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
