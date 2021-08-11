@@ -57,9 +57,9 @@
                         <%-- Button 5 Start --%>
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">Placeholder</label>
-                                <p class="text-dark">Place holder text</p>
-                                <a class="stretched-link" href="ResidentLookUp.aspx"></a>
+                                <label class="card-title font-weight-bold h5">Settings</label>
+                                <p class="text-dark">Modify the values for Locations, Make and Model. Export Database tables to excel.</p>
+                                <a class="stretched-link" href="Settings.aspx"></a>
                             </div>
                         </div>
                         <%-- Button 5 End --%>

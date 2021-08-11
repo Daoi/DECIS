@@ -27,12 +27,12 @@ namespace DECIS
             if (!IsPostBack)
             {
                 RetrieveData();
-                FormatCard();
+                DisplayData();
             }
 
         }
 
-        private void FormatCard()
+        private void DisplayData()
         {
             //Setup asset info display
             crdAssetImage.Src = curAsset.Image;
@@ -63,6 +63,12 @@ namespace DECIS
             {
                 //Save currently selected values
                 //Maybe combine these into the normal DTs for the page to reduce queries
+                if (ddlAssetModel.SelectedValue == "Invalid" || ddlLocation.SelectedValue == "Invalid")
+                {
+                    //error message
+                    return;
+                }
+
                 DataTable modelInfoDT = new GetModelInfoByID().ExecuteCommand(int.Parse(ddlAssetModel.SelectedValue));
                 DataTable locationInfoDT = new GetLocationInfoByID().ExecuteCommand(int.Parse(ddlLocation.SelectedValue));
                 Asset newAsset = new Asset()
@@ -102,10 +108,13 @@ namespace DECIS
         protected void btnEditCancel_Click(object sender, EventArgs e)
         {
             //Setup display
-            TogglePanel.ToggleInputs(pnlControls, true);
             btnCancelEdit.Visible = false;
             btnEdit.Text = "Edit";
-
+            DisplayData();
+            //reset model drop down
+            List<DropDownList> l = new List<DropDownList>() { ddlAssetModel };
+            DDLDataBind.ddlBind(l, curAsset.MakeID);
+            //Fix model no updating
         }
 
         protected void ddlAssetMake_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,13 +122,30 @@ namespace DECIS
             DropDownList ddl = sender as DropDownList;  
             int index = int.Parse(ddl.SelectedValue);
             DataTable modelDT = ViewState["Models"] as DataTable;
+            try
+            {
+                ddlAssetModel.Items.Clear();
+                DataTable filteredDT;
+                var result = modelDT.AsEnumerable()
+                    .Where(r => r.Field<int>("Make") == index);
 
-            ddlAssetModel.DataSource = modelDT.AsEnumerable()
-                .Where(r => r.Field<int>("Make") == index)
-                .CopyToDataTable();
-            ddlAssetModel.DataTextField = "Model";
-            ddlAssetModel.DataValueField = "ModelID";
-            ddlAssetModel.DataBind();
+                if (Enumerable.Any(result)) { 
+                    filteredDT = result.CopyToDataTable();
+                    ddlAssetModel.DataSource = filteredDT;
+                    ddlAssetModel.DataTextField = "Model";
+                    ddlAssetModel.DataValueField = "ModelID";
+                    ddlAssetModel.DataBind();
+                }
+                else
+                {
+                    ddlAssetModel.Items.Insert(0, new ListItem("No valid models for this make", "Invalid"));
+                    ddlAssetModel.DataBind();
+                }
+            }
+            catch(Exception ex)
+            {
+                //Add error message
+            }
 
             ddlAssetModel.SelectedIndex = 0;
             upMakeModel.Update();
@@ -138,7 +164,7 @@ namespace DECIS
             DropDownList ddl = (DropDownList)sender;
             DataTable locs = new GetLocationByStatus().ExecuteCommand(ddl.SelectedItem.Text);
             if (locs == null || locs.Rows.Count == 0)
-                ddlLocation.Items.Insert(0, new ListItem("No valid locations", "-1"));
+                ddlLocation.Items.Insert(0, new ListItem("No valid locations", "Invalid"));
             ddlLocation.DataSource = locs;
             ddlLocation.DataBind();
             upLocation.Update();

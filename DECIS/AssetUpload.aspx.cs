@@ -2,6 +2,7 @@
 using DECIS.DataAccess.DataAccessors.Organization;
 using DECIS.DataModels;
 using DECIS.Importing;
+using DECIS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -36,7 +37,7 @@ namespace DECIS
         protected void btnSubmitImport_Click(object sender, EventArgs e)
         {
 
-            if (fileUpload.HasFile && FileIsValid(fileUpload))
+            if (fileUpload.HasFile && CheckFile.Excel(fileUpload))
             {
                 try
                 {
@@ -68,11 +69,6 @@ namespace DECIS
                     lblMessage.Visible = true;
                 }
             }
-        }
-
-        private bool FileIsValid(FileUpload fileUpload)
-        {
-            return fileUpload.PostedFile.ContentType == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"; // .xlsx file type
         }
 
         protected void btnRetryImports_Click(object sender, EventArgs e)
