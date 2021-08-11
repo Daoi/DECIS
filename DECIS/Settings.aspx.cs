@@ -1,18 +1,9 @@
 ﻿using DECIS.CotrolLogic;
-using DECIS.DataAccess.DataAccessors.Assets.Types;
-using DECIS.DataAccess.DataAccessors.Make;
-using DECIS.DataAccess.DataAccessors.Model;
-using DECIS.DataModels;
-using DECIS.Importing;
-using DECIS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DECIS.PageLogic;
 using DECIS.PageLogic.Settings;
 
 namespace DECIS
@@ -40,8 +31,6 @@ namespace DECIS
             SettingsClearLabels.Clear(Page);
             Button btn = (Button)sender;
             int result = eh[btn.ID].Invoke(Page); //Chooses which event handler to run based on control ID
-
-
         }
 
 
