@@ -328,6 +328,8 @@
     <Content Include="Images\Optiplex 990.png" />
     <Content Include="IntakeList.aspx" />
     <Content Include="IntakeView.aspx" />
+    <Content Include="OrgList.aspx" />
+    <Content Include="OrgView.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -474,6 +476,7 @@
     <Compile Include="DataAccess\DataAccessors\Intake\GetAllIntakes.cs" />
     <Compile Include="DataAccess\DataAccessors\Intake\GetIntakeByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Intake\InsertIntake.cs" />
+    <Compile Include="DataAccess\DataAccessors\Intake\UpdateIntake.cs" />
     <Compile Include="DataAccess\DataAccessors\Location\GetAllLocation.cs" />
     <Compile Include="DataAccess\DataAccessors\Location\GetLocationByStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Location\GetLocationInfoByID.cs" />
@@ -484,8 +487,11 @@
     <Compile Include="DataAccess\DataAccessors\Model\GetModelInfoByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Model\InsertModel.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\GetAllOrgs.cs" />
+    <Compile Include="DataAccess\DataAccessors\Organization\GetOrgByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\InsertOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\InsertOrgParameters.cs" />
+    <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrg.cs" />
+    <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrgParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Status\GetAllStatus.cs" />
     <Compile Include="DataAccess\DataSupport.cs" />
     <Compile Include="DataAccess\ExecuteData.cs" />
@@ -497,6 +503,7 @@
     <Compile Include="DataModels\Model.cs" />
     <Compile Include="DataModels\OrderRequest.cs" />
     <Compile Include="DataModels\Organization.cs" />
+    <Compile Include="DataModels\Person.cs" />
     <Compile Include="DataModels\Request.cs" />
     <Compile Include="DECIS.Master.cs">
       <DependentUpon>DECIS.Master</DependentUpon>
@@ -529,6 +536,22 @@
     <Compile Include="IntakeView.aspx.designer.cs">
       <DependentUpon>IntakeView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="OrgList.aspx.cs">
+      <DependentUpon>OrgList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrgList.aspx.designer.cs">
+      <DependentUpon>OrgList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrgView.aspx.cs">
+      <DependentUpon>OrgView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrgView.aspx.designer.cs">
+      <DependentUpon>OrgView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageLogic\OrgView\CreateNewOrg.cs" />
+    <Compile Include="PageLogic\OrgView\OrgViewDataDisplay.cs" />
     <Compile Include="PageLogic\Settings\SettingsClearLabels.cs" />
     <Compile Include="PageLogic\Settings\SettingsLocation.cs" />
     <Compile Include="PageLogic\Settings\SettingsMake.cs" />

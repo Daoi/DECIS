@@ -10,9 +10,9 @@
                         <!-- Button 1 Start -->
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">Add New Asset</label>
-                                <p class="text-dark">Add assets one at a time manually</p>
-                                <a class="stretched-link" href="AssetForm.aspx"></a>
+                                <label class="card-title font-weight-bold h5">View Orgs</label>
+                                <p class="text-dark">View a list of all Organizations</p>
+                                <a class="stretched-link" href="OrgList.aspx"></a>
                             </div>
                         </div>
                         <%-- Button 1 End --%>
@@ -32,9 +32,9 @@
                         <%-- Button 3 Start --%>
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">Upload Assets</label>
-                                <p class="text-dark">Upload a spreadsheet to add multiple assests at once</p>
-                                <a class="stretched-link" href="AssetUpload.aspx"></a>
+                                <label class="card-title font-weight-bold h5">View Intakes</label>
+                                <p class="text-dark">View a list of all intakes</p>
+                                <a class="stretched-link" href="IntakeList.aspx"></a>
                             </div>
                         </div>
                         <%-- Button 3 End --%>
@@ -45,9 +45,9 @@
                         <%-- Button 4 Start --%>
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">View Orders</label>
+                                <label class="card-title font-weight-bold h5">View Requests</label>
                                 <p class="text-dark">Place holder text</p>
-                                <a class="stretched-link" href="InteractionList.aspx"></a>
+                                <a class="stretched-link" href="RequestList.aspx"></a>
                             </div>
                         </div>
                         <%-- Button 4 End --%>
@@ -56,9 +56,9 @@
                         <%-- Button 5 Start --%>
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">Settings</label>
-                                <p class="text-dark">Modify the values for Locations, Make and Model. Export Database tables to excel.</p>
-                                <a class="stretched-link" href="Settings.aspx"></a>
+                                <label class="card-title font-weight-bold h5">Upload Intakes</label>
+                                <p class="text-dark">Upload spreadsheets to enter multiple assets at once.</p>
+                                <a class="stretched-link" href="AssetUpload.aspx"></a>
                             </div>
                         </div>
                         <%-- Button 5 End --%>
@@ -67,9 +67,9 @@
                         <%-- Button 6 Start --%>
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">View Intakes</label>
-                                <p class="text-dark">Add new locations, images, makes/models, etc </p>
-                                <a class="stretched-link" href="IntakeList.aspx"></a>
+                                <label class="card-title font-weight-bold h5">Settings</label>
+                                <p class="text-dark">Modify the values for Locations, Make and Model. Export Database tables to excel.</p>
+                                <a class="stretched-link" href="Settings.aspx"></a>
                             </div>
                         </div>
                         <%-- Button 6 End --%>

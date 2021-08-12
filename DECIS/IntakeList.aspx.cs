@@ -16,8 +16,6 @@ namespace DECIS
         DataTable dtIntakeList;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
                 if (!IsPostBack)
                 {
                     HeaderBinding.CreateHeaders(gvIntakeList);
@@ -25,7 +23,7 @@ namespace DECIS
 
                     if (dtIntakeList.Rows.Count == 0)
                     {
-                        lblGVMessage.Text = "Couldn't find any assets to display.";
+                        lblGVMessage.Text = "Couldn't find any intakes to display.";
                         divNoRows.Visible = true;
                         return;
                     }
@@ -35,8 +33,7 @@ namespace DECIS
                     ViewState["IntakeListDT"] = dtIntakeList;
                 }
 
-                dtIntakeList = ViewState["AssetListDT"] as DataTable;
-            }
+                dtIntakeList = ViewState["IntakeListDT"] as DataTable;
         }
 
         protected void lnkBtnView_Click(object sender, EventArgs e)

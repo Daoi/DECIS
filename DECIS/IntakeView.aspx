@@ -7,14 +7,14 @@
             <div class="card my-auto mx-auto h-75 w-90 mb-3">
                 <div class="card-body">
                     <%-- Content Start --%>
-                    <h5>
+                    <h4>
                         <asp:Label ID="lblCardTitle" CssClass="card-title" runat="server" Text="">
                         </asp:Label>
-                    </h5>
+                    </h4>
                     <div class="row modal-header offwhiteBackground p-0 mb-1" style="padding-left: 0!important; padding-right: 0!important; font-size: large;"></div>
                     <asp:Panel ID="pnlControls" CssClass="row form-group h-100" runat="server">
                         <div class="col-md">
-                            <h6>Org Info</h6>
+                            <h5>Org Info</h5>
                             <asp:Label ID="lblOrgAddress" runat="server" Text="Address:"></asp:Label>
                             <asp:Label ID="lblOrgAddressText" CssClass="form-control bg-muted" runat="server"></asp:Label>
                             <asp:Label ID="lblOrgEmail" runat="server" Text="Org Email:"></asp:Label>
@@ -24,16 +24,16 @@
                             <asp:Label ID="lblOrgPhoneText" runat="server" CssClass="form-control bg-muted" Text=""></asp:Label>
                             <asp:Label ID="lblIntakeNotes" runat="server" Text="Intake Notes:">
                             </asp:Label>
-                            <asp:Label ID="lblIntakeNotesText" runat="server" CssClass="form-control bg-muted" Text=""></asp:Label>
+                            <asp:TextBox ID="tbIntakeNotes" MaxLength="500" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-md">
-                            <h6>Contact Info</h6>
+                            <h5>Contact Info</h5>
                             <asp:Label ID="lblPrimaryContact" runat="server" Text="Primary Contact:"></asp:Label>
-                            <asp:TextBox ID="tbPrimaryContact" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:Label ID="lblPrimaryContactText" CssClass="form-control bg-muted" runat="server"></asp:Label>
                             <asp:Label ID="lblPrimaryPhone" runat="server" Text="Primary Phone:"></asp:Label>
-                            <asp:TextBox ID="tbPrimaryPhone" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:Label ID="lblPrimaryPhoneText" CssClass="form-control bg-muted" runat="server"></asp:Label>
                             <asp:Label ID="lblPrimaryEmail" runat="server" Text="Primary Email:"></asp:Label>
-                            <asp:TextBox ID="tbPrimaryEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:Label ID="lblPrimaryEmailText" CssClass="form-control bg-muted" runat="server"></asp:Label>
                         </div>
                     </asp:Panel>
                     <%-- Content End --%>

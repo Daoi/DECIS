@@ -10,10 +10,10 @@
                 <img id="crdAssetImage" class="card-img-top h-25 w-25 mx-auto my-auto" src="..." alt="Image" runat="server" />
                 <div class="card-body">
                     <%-- Content Start --%>
-                    <h5>
+                    <h4>
                         <asp:Label ID="lblSerialNumber" CssClass="card-title" runat="server" Text="">
                         </asp:Label>
-                    </h5>
+                    </h4>
                     <asp:Panel ID="pnlControls" CssClass="row form-group h-100" runat="server">
                         <div class="col-md">
                             <asp:Label ID="lblAssetType" runat="server" Text="Asset Type:">
@@ -22,7 +22,8 @@
 
                             <asp:UpdatePanel ID="upMakeModel" runat="server" UpdateMode="Conditional">
                                 <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="ddlAssetMake" EventName="SelectedIndexChanged" />                                    <asp:AsyncPostBackTrigger ControlID="ddlAssetMake" EventName="SelectedIndexChanged" />
+                                    <asp:AsyncPostBackTrigger ControlID="ddlAssetMake" EventName="SelectedIndexChanged" />
+                                    <asp:AsyncPostBackTrigger ControlID="ddlAssetMake" EventName="SelectedIndexChanged" />
                                     <asp:AsyncPostBackTrigger ControlID="ddlAssetStatus" EventName="SelectedIndexChanged" />
                                 </Triggers>
                                 <ContentTemplate>
@@ -38,8 +39,6 @@
                             </asp:UpdatePanel>
                         </div>
                         <div class="col-md">
-                            <asp:Label ID="lblAssetDescription" runat="server" Text="Asset Description:">
-                            </asp:Label><asp:TextBox ID="tbAssetDescription" CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:UpdatePanel ID="upLocation" UpdateMode="Conditional" runat="server">
                                 <Triggers>
                                     <asp:AsyncPostBackTrigger ControlID="ddlLocation" EventName="SelectedIndexChanged" />
@@ -51,6 +50,8 @@
                                     <asp:Label ID="lblLocationDescriptionText" CssClass="bg-muted form-control" runat="server"></asp:Label>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
+                            <asp:Label ID="lblAssetDescription" runat="server" Text="Asset Description:">
+                            </asp:Label><asp:TextBox ID="tbAssetDescription" MaxLength="300" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox>
                         </div>
                     </asp:Panel>
                     <%-- Content End --%>
