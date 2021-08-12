@@ -121,24 +121,6 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.DropDownList ddlAssetModel;
         
         /// <summary>
-        /// lblAssetDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAssetDescription;
-        
-        /// <summary>
-        /// tbAssetDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbAssetDescription;
-        
-        /// <summary>
         /// upLocation control.
         /// </summary>
         /// <remarks>
@@ -182,6 +164,24 @@ namespace DECIS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLocationDescriptionText;
+        
+        /// <summary>
+        /// lblAssetDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAssetDescription;
+        
+        /// <summary>
+        /// tbAssetDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbAssetDescription;
         
         /// <summary>
         /// btnEdit control.

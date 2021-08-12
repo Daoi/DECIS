@@ -6,6 +6,7 @@ using System.Web;
 
 namespace DECIS.DataModels
 {
+    [Serializable]
     public class Organization
     {
         public int OrgID { get; set; }

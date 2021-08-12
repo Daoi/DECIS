@@ -15,13 +15,16 @@ namespace DECIS
 {
     public partial class IntakeView : System.Web.UI.Page
     {
-
+        int intID;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!int.TryParse(Request.QueryString["intid"], out intID))
+                Response.Redirect("./IntakeList.aspx");
+
             if (!IsPostBack)
             {
                 HeaderBinding.CreateHeaders(gvAssetList);
-                int intID = int.Parse(Request.QueryString["intid"]);
+
                 DataRow drInfo = new GetIntakeByID().ExecuteCommand(intID).Rows[0];
                 DataTable dtAssets = new GetAssetsByIntake().ExecuteCommand(intID);
                 Intake it = new Intake(drInfo);
@@ -41,12 +44,12 @@ namespace DECIS
         {
             TogglePanel.ToggleInputs(pnlControls);
             Intake it = ViewState["it"] as Intake;
-            tbPrimaryEmail.Text = it.PrimaryEmail;
-            tbPrimaryPhone.Text = it.PrimaryPhone;
-            tbPrimaryContact.Text = it.PrimaryContact;
+            lblPrimaryEmailText.Text = it.PrimaryEmail;
+            lblPrimaryPhoneText.Text = it.PrimaryPhone;
+            lblPrimaryContactText.Text = it.PrimaryContact;
             lblCardTitle.Text = $"Donating Org: {it.OrgName} | Donation Date: {it.IntakeDate}";
 
-            lblIntakeNotesText.Text = it.IntakeNotes;
+            tbIntakeNotes.Text = it.IntakeNotes;
             lblOrgAddressText.Text = it.OrgAddress;
             lblOrgEmailText.Text = it.OrgEmail;
             lblOrgPhoneText.Text = it.OrgPhone;
@@ -70,8 +73,9 @@ namespace DECIS
             if (ViewState["Editing"] != null && (bool)ViewState["Editing"]) //If we're in edit mode
             {
                 //Save currently selected values
+                new UpdateIntake().ExecuteCommand(intID, tbIntakeNotes.Text);
 
-                Response.Redirect($"./IntakeView.aspx?intid={"CurrentIDGoesHere"}");
+                Response.Redirect($"./IntakeView.aspx?intid={intID}");
             }
 
             //Initialize or update Editing State value

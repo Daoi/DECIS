@@ -94,13 +94,13 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.Label lblIntakeNotes;
         
         /// <summary>
-        /// lblIntakeNotesText control.
+        /// tbIntakeNotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIntakeNotesText;
+        protected global::System.Web.UI.WebControls.TextBox tbIntakeNotes;
         
         /// <summary>
         /// lblPrimaryContact control.
@@ -112,13 +112,13 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.Label lblPrimaryContact;
         
         /// <summary>
-        /// tbPrimaryContact control.
+        /// lblPrimaryContactText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPrimaryContact;
+        protected global::System.Web.UI.WebControls.Label lblPrimaryContactText;
         
         /// <summary>
         /// lblPrimaryPhone control.
@@ -130,13 +130,13 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.Label lblPrimaryPhone;
         
         /// <summary>
-        /// tbPrimaryPhone control.
+        /// lblPrimaryPhoneText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPrimaryPhone;
+        protected global::System.Web.UI.WebControls.Label lblPrimaryPhoneText;
         
         /// <summary>
         /// lblPrimaryEmail control.
@@ -148,13 +148,13 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.Label lblPrimaryEmail;
         
         /// <summary>
-        /// tbPrimaryEmail control.
+        /// lblPrimaryEmailText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPrimaryEmail;
+        protected global::System.Web.UI.WebControls.Label lblPrimaryEmailText;
         
         /// <summary>
         /// btnEdit control.
