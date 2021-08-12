@@ -35,7 +35,7 @@ namespace DECIS.CotrolLogic
             DataSet dts = new DataSet();
             if (makeID > -1)
             {
-                DropDownList model = ddls.First(ddl => ddl.ID == "ddlAssetModel") as DropDownList;
+                DropDownList model = ddls.First(ddl => ddl.ID.ToLower().Contains("model")) as DropDownList;
                 dts.Tables.Add(AssetModel(model, makeID));
                 ddls.Remove(model);
             }
@@ -50,14 +50,11 @@ namespace DECIS.CotrolLogic
                 {
                     continue;
                 }
-
             }
-
             return dts;
         }
 
         //Should probably do this with an interface and seperate classes instead of these methods?
-
         private static DataTable AssetModel(DropDownList ddl)
         {
             DataTable modelDT = new GetAllModel().ExecuteCommand();
