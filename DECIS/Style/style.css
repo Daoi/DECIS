@@ -44,3 +44,12 @@
     margin-bottom: 5vh;
     padding-bottom: 5%;
 }
+
+.cherryRedText {
+    background: #A41E35;
+    color: #E9E9E9;
+}
+
+.createRequestBG {
+    background: #F2E6EB;
+}

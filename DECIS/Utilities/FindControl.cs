@@ -15,5 +15,10 @@ namespace DECIS.Utilities
         /// Returns generic Control (Cast to proper control)
         /// </summary>
         public static Func<string, Page, Control> Find = (str, pg) => pg.Master.FindControl("MainContent").FindControl(str);
+        /// <summary>
+        /// Find a control on a page without a master page
+        /// </summary>
+        public static Func<string, Page, Control> FindNM = (str, pg) => pg.FindControl(str);
+
     }
 }

@@ -322,10 +322,9 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="CreateRequest.aspx" />
     <Content Include="Homepage.aspx" />
-    <Content Include="Images\71m1pA4JteL._AC_SL1500_.jpg" />
-    <Content Include="Images\DellXPSN4ZVS.png" />
-    <Content Include="Images\Optiplex 990.png" />
+    <Content Include="Images\CRC.png" />
     <Content Include="IntakeList.aspx" />
     <Content Include="IntakeView.aspx" />
     <Content Include="OrgList.aspx" />
@@ -462,6 +461,13 @@
     <Compile Include="ControlLogic\Gridview\BoundFieldFormatter.cs" />
     <Compile Include="ControlLogic\Gridview\HeaderBinding.cs" />
     <Compile Include="ControlLogic\Panels\TogglePanel.cs" />
+    <Compile Include="CreateRequest.aspx.cs">
+      <DependentUpon>CreateRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateRequest.aspx.designer.cs">
+      <DependentUpon>CreateRequest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\FilterAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssets.cs" />
@@ -550,6 +556,7 @@
     <Compile Include="OrgView.aspx.designer.cs">
       <DependentUpon>OrgView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PageLogic\CreateRequest\RequestType.cs" />
     <Compile Include="PageLogic\OrgView\CreateNewOrg.cs" />
     <Compile Include="PageLogic\OrgView\OrgViewDataDisplay.cs" />
     <Compile Include="PageLogic\Settings\SettingsClearLabels.cs" />

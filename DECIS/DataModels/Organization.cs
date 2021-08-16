@@ -21,6 +21,8 @@ namespace DECIS.DataModels
         public string OrgContactSecondary { get; set; }
         public string OrgSecondaryPhone { get; set; }
         public string OrgSecondaryEmail { get; set; }
+        public string Referer { get; set; }
+        public int RecievedEquipment { get; set; }
 
         public Organization()
         {
@@ -38,9 +40,11 @@ namespace DECIS.DataModels
             OrgContactPrimary = dr["OrgContactPrimary"].ToString();
             OrgPrimaryEmail = dr["OrgPrimaryEmail"].ToString();
             OrgPrimaryPhone = dr["OrgPrimaryPhone"].ToString();
-            OrgContactSecondary = dr["OrgContactSecondary"].ToString()?? "";
-            OrgSecondaryEmail = dr["OrgSecondaryEmail"].ToString()?? "";
-            OrgSecondaryPhone = dr["OrgSecondaryPhone"].ToString()?? "";
+            OrgContactSecondary = dr["OrgContactSecondary"].ToString();
+            OrgSecondaryEmail = dr["OrgSecondaryEmail"].ToString();
+            OrgSecondaryPhone = dr["OrgSecondaryPhone"].ToString();
+            Referer = dr["Referer"].ToString();
+            RecievedEquipment = int.Parse(dr["RecievedEquipment"].ToString());
         }
 
         public static Organization ImportOrg(DataRow dr)

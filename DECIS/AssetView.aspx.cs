@@ -10,7 +10,7 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using DECIS.DataAccess.DataAccessors.Assets;
 using DECIS.CotrolLogic;
-
+using DECIS.CotrolLogic.DDL;
 
 namespace DECIS
 {
@@ -51,7 +51,7 @@ namespace DECIS
         private void RetrieveData()
         {
             List<DropDownList> ddls = new List<DropDownList>() { ddlAssetMake, ddlAssetModel, ddlAssetStatus, ddlLocation };
-            DataSet dts = DDLDataBind.ddlBind(ddls, curAsset.MakeID);
+            DataSet dts = DDLDataBind.Bind(ddls, curAsset.MakeID);
 
             ViewState["Models"] = dts.Tables["Model"];
             ViewState["Locations"] = dts.Tables["Location"];
@@ -113,7 +113,7 @@ namespace DECIS
             DisplayData();
             //reset model drop down
             List<DropDownList> l = new List<DropDownList>() { ddlAssetModel };
-            DDLDataBind.ddlBind(l, curAsset.MakeID);
+            DDLDataBind.Bind(l, curAsset.MakeID);
             //Fix model no updating
         }
 

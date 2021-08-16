@@ -2,6 +2,7 @@
 using DECIS.DataAccess.DataAccessors.Location;
 using DECIS.DataAccess.DataAccessors.Make;
 using DECIS.DataAccess.DataAccessors.Model;
+using DECIS.DataAccess.DataAccessors.Organization;
 using DECIS.DataAccess.DataAccessors.Status;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 
-namespace DECIS.CotrolLogic
+namespace DECIS.CotrolLogic.DDL
 {
     public class DDLDataBind
     {
@@ -21,7 +22,9 @@ namespace DECIS.CotrolLogic
           { name => name.ToLower().Contains("location"), AssetLocation},
           { name => name.ToLower().Contains("description"), AssetLocationDescription},
           { name => name.ToLower().Contains("status"), AssetStatus},
-          { name => name.ToLower().Contains("type"), AssetType}
+          { name => name.ToLower().Contains("type"), AssetType},
+          { name => name.ToLower().Contains("org"), AssetType}
+
         };
 
         /// <summary>
@@ -30,7 +33,7 @@ namespace DECIS.CotrolLogic
         /// <param name="ddls">List of the DDLs to bind</param>
         /// <param name="makeID">Optional parameter for Make where a model is already chosen to filter items put into list</param>
         /// <returns>A list of the data tables used for binding. Index should match the order of ddls in list.</returns>
-        public static DataSet ddlBind(List<DropDownList> ddls, int makeID = -1)
+        public static DataSet Bind(List<DropDownList> ddls, int makeID = -1)
         {
             DataSet dts = new DataSet();
             if (makeID > -1)
@@ -137,6 +140,19 @@ namespace DECIS.CotrolLogic
             ddl.DataBind();
 
             return typeDT;
+        }
+
+        private static DataTable Organization(DropDownList ddl)
+        {
+            DataTable orgDT = new GetAllOrgs().ExecuteCommand();
+            orgDT.TableName = "Org";
+            ddl.DataSource = orgDT;
+            ddl.DataTextField = "OrgName";
+            ddl.DataValueField = "OrgID";
+            ddl.Items.Insert(0, new ListItem("Not Listed", "-1"));
+            ddl.DataBind();
+
+            return orgDT;
         }
 
     }
