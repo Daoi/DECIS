@@ -15,16 +15,39 @@ namespace DECIS
         {
             if (!IsPostBack)
             {
-                List<DropDownList> ddls = new List<DropDownList>() { ddlOrg };
-                DDLDataBind.Bind(ddls);
+
             }
         }
 
-        protected void ddlRequestType_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ddl_SelectedIndexChanged(object sender, EventArgs e)
         {
             DropDownList ddl = (DropDownList)sender;
-            RequestType.SetRequest(ddl, Page);
+            if (ddl.ID == ddlRequestType.ID)
+            {
+                RequestType.SetRequest(ddl, Page);
+                ViewState["Type"] = ddlRequestType.SelectedValue;
+            }
+            else if (ddl.ID == ddlOrg.ID && ddlRequestType.SelectedValue == "Organization")//If its an org request type
+            {
+                ViewState["SelectedOrg"] = DisplayInfo.DisplayOrgInfo(ddl.SelectedValue, Page);
+            }
+            else if (ddl.ID == ddlOrg.ID && ddlRequestType.SelectedValue == "Personal")//If its a personal request type
+            {
+                ViewState["SelectedOrg"] =  DisplayInfo.DisplayOrgInfo(ddl.SelectedValue, Page, true);
+            }
+
             upForm.Update();
+        }
+
+        protected void cbSameAsRequester_CheckedChanged(object sender, EventArgs e)
+        {
+            SameAsRequestor.Fill((CheckBox)sender, Page);
+            upForm.Update();
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            ViewState["Type"].ToString();
         }
     }
 }

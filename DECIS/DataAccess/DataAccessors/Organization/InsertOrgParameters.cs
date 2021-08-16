@@ -23,7 +23,12 @@ namespace DECIS.DataAccess.DataAccessors.Organization
             new MySqlParameter("OrgContactPrimary", MySqlDbType.VarChar, 100),
             new MySqlParameter("OrgPrimaryPhone", MySqlDbType.VarChar, 20),
             new MySqlParameter("OrgPrimaryEmail", MySqlDbType.VarChar, 100),
-
+            new MySqlParameter("OrgContactSecondary", MySqlDbType.VarChar, 100),
+            new MySqlParameter("OrgSecondaryPhone", MySqlDbType.VarChar, 20),
+            new MySqlParameter("OrgSecondaryEmail", MySqlDbType.VarChar, 100),
+            new MySqlParameter("OrgReferer", MySqlDbType.VarChar, 150),
+            new MySqlParameter("RecievedEquipment", MySqlDbType.Int16),
+            new MySqlParameter("Purpose", MySqlDbType.VarChar, 500),
             };
         }
 
@@ -37,6 +42,13 @@ namespace DECIS.DataAccess.DataAccessors.Organization
             Parameters[5].Value = org.OrgContactPrimary;
             Parameters[6].Value = org.OrgPrimaryPhone;
             Parameters[7].Value = org.OrgPrimaryEmail;
+            Parameters[8].Value = org.OrgContactSecondary;
+            Parameters[9].Value = org.OrgSecondaryPhone;
+            Parameters[10].Value = org.OrgSecondaryEmail;
+            Parameters[11].Value = org.Referer;
+            Parameters[12].Value = org.RecievedEquipment;
+            Parameters[13].Value = org.Purpose;
+
 
             return Parameters;
 

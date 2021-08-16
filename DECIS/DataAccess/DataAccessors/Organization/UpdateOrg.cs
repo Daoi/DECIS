@@ -9,7 +9,7 @@ namespace DECIS.DataAccess.DataAccessors.Organization
         {
             CommandText = "UpdateOrganization";
             CommandType = CommandType.StoredProcedure;
-            Parameters = new UpdateOrgParameters().Fill(org);
+            Parameters = new InsertOrgParameters().Fill(org);
         }
 
         public int ExecuteCommand()

@@ -18,8 +18,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css" />
-    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.962.0.min.js"></script>
 </head>
 <body>
@@ -32,29 +30,31 @@
                         <asp:Image ID="imgLogo" ImageUrl="Images/CRC.png" runat="server" CssClass="img-fluid" />
                     </div>
                     <div class="col-9">
-                        <h1>Temple Tech for Philly Computer Request Form</h1>
+                        <h1 class="mt-3">Temple Tech for Philly Computer Request Form</h1>
                         <h6 class="mb-3">Non-profit and community requests for refurbished computer equipment</h6>
                     </div>
                 </div>
-                <div class="row mt-5">
-                    <div class="col-2"></div>
-                    <%-- Main Form Start--%>
-                    <asp:UpdatePanel ID="upForm" UpdateMode="Conditional" runat="server">
-                        <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="ddlRequestType" EventName="SelectedIndexChanged" />
-                        </Triggers>
-                        <ContentTemplate>
-                            <div class="col-8" style="color: black">
+                <%-- Main Form Start--%>
+                <asp:UpdatePanel ID="upForm" UpdateMode="Conditional" runat="server">
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="ddlRequestType" EventName="SelectedIndexChanged" />
+                    </Triggers>
+                    <ContentTemplate>
+                        <div class="row mt-5">
+                            <div class="col-2"></div>
+                            <div class="col-8 mb-5" style="color: black">
                                 <asp:Label ID="lblRequestType" runat="server" Text="Select Request Type:" CssClass=""></asp:Label>
-                                <asp:DropDownList ID="ddlRequestType" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlRequestType_SelectedIndexChanged">
+                                <asp:DropDownList ID="ddlRequestType" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged">
                                     <asp:ListItem Selected="True" Value="-1">Select Request Type</asp:ListItem>
                                     <asp:ListItem>Personal</asp:ListItem>
                                     <asp:ListItem>Organization</asp:ListItem>
                                 </asp:DropDownList>
                                 <%--Shared Request Form Start--%>
                                 <asp:Panel ID="pnlShared" runat="server">
-                                    <asp:Label ID="lblOrganization" runat="server" Text="Select Affiliated Organization:" CssClass=""></asp:Label>
-                                    <asp:DropDownList ID="ddlOrg" runat="server" CssClass="form-control"></asp:DropDownList>
+                                    <asp:Label ID="lblOrganization" Visible="false" runat="server" Text="Select Affiliated Organization:" CssClass=""></asp:Label>
+                                    <asp:DropDownList ID="ddlOrg" Visible="false" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged" CssClass="form-control"></asp:DropDownList>
+                                    <asp:Label ID="lblOrgName" runat="server" Text="Org name: "></asp:Label>
+                                    <asp:TextBox ID="tbOrgName" Placeholder="Full Name" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblName" runat="server" Text="Name: "></asp:Label>
                                     <asp:TextBox ID="tbName" Placeholder="Full Name" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblEmail" runat="server" Text="Email Address: " CssClass="mt-2"></asp:Label>
@@ -82,12 +82,15 @@
                                 </asp:Panel>
                                 <%--Personal Request Form End--%>
                                 <%--Org Request Form Start--%>
-                                <asp:Panel ID="pnlOrg" runat="server" Visible="false">
-                                    <asp:Label ID="lblContactName" runat="server" Text="Name: "></asp:Label>
+                                <asp:Panel ID="pnlOrg" CssClass="mt-2" runat="server" Visible="false">
+                                    <asp:Label ID="lblSameAsRequester" runat="server"  Text="Is the contact for the request the same as the requester?"></asp:Label>
+                                    <asp:CheckBox ID="cbSameAsRequester" Checked="false" runat="server" OnCheckedChanged="cbSameAsRequester_CheckedChanged" AutoPostBack="True" />
+                                    <br />
+                                    <asp:Label ID="lblContactName" runat="server" Text="Contact Name: "></asp:Label>
                                     <asp:TextBox ID="tbContactName" Placeholder="Full Name" runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:Label ID="lblContactEmail" runat="server" Text="Email Address: " CssClass="mt-2"></asp:Label>
+                                    <asp:Label ID="lblContactEmail" runat="server" Text="Contact Email Address: " CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbContactEmail" runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:Label ID="lblContactPhone" runat="server" Text="Phone: " CssClass="mt-2"></asp:Label>
+                                    <asp:Label ID="lblContactPhone" runat="server" Text="Contact Phone: " CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbContactPhone" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblOrgPurpose" runat="server" Text="Describe the organization and its purpose:" CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbOrgPurpose" MaxLength="500" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
@@ -97,26 +100,39 @@
                                     <asp:TextBox ID="tbSpecs" MaxLength="400" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblReferer" runat="server" Text="How did you hear about Temple Tech for Philly: " CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbReferer" MaxLength="150" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:Label ID="lblTimeline" runat="server" Text="Please include a possible timeline of when you would need the items:" CssClass="mt-2"></asp:Label>
+                                    <asp:TextBox ID="tbTimeline" MaxLength="200" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:Label ID="lblRecievedEquipment" Visible="false" runat="server" Text="Has your organization recieved equipment from us before?"></asp:Label>
+                                    <asp:DropDownList ID="ddlRecievedEquipment" Visible="true" CssClass="form-control" runat="server">
+                                        <asp:ListItem Value="0">No</asp:ListItem>
+                                        <asp:ListItem Value="1">Yes</asp:ListItem>
+                                    </asp:DropDownList>
                                 </asp:Panel>
                                 <%--Org Request Form End--%>
                             </div>
                             <div class="col-2"></div>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                    <%-- Main Form End--%>
-                </div>
+                            <div runat="server" id="divButtons" class="row mb-3" visible="true">
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <asp:Button ID="btnSubmit" CssClass="btn btn-primary" runat="server" Text="Submit Request" OnClick="btnSubmit_Click" /></div>
+                            <div class="col-4"></div>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <%-- Main Form End--%>
             </div>
-            <div style="margin-top: 2%; height: 2%; width: auto;"></div>
+            <div class="pb-5" style="margin-top: 2%; height: 2%; width: auto;"></div>
         </div>
     </form>
 </body>
-        <script>
-        function pageLoad() {
-            $("#MainContent_ddlOrg").select2({
-                placeholder: "Select Organization",
-                allowClear: true,
-                selectOnClose: true
-            });
-        };
-    </script>
+<script>
+    function pageLoad() {
+        $("#MainContent_ddlOrg").select2({
+            placeholder: "Select Organization",
+            allowClear: true,
+            selectOnClose: true
+        });
+    };
+</script>
 </html>

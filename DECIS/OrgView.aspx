@@ -25,6 +25,11 @@
                             <asp:Label ID="lblOrgZipcode" runat="server" Text="Zipcode:">
                             </asp:Label>
                             <asp:TextBox ID="tbOrgZipcode" MaxLength="20" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:Label ID="lblRecievedEquipment" runat="server" Text="Has Recieved Equipment Before: "></asp:Label>
+                            <asp:DropDownList ID="ddlRecievedEquipment" CssClass="form-control" runat="server">                                        
+                                <asp:ListItem Value="0">Hasn't Recieved Equipment</asp:ListItem>
+                                <asp:ListItem Value="1">Has Recieved Equipment</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                         <div class="col-md">
                             <h5>Contact Info</h5>
@@ -40,6 +45,16 @@
                             <asp:TextBox ID="tbSecondaryPhone" CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:Label ID="lblSecondaryEmail" runat="server" Text="Secondary Email:"></asp:Label>
                             <asp:TextBox ID="tbSecondaryEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                            <asp:Label ID="lblOrgPurpose" runat="server" Text="Purpose:"></asp:Label>
+                            <asp:TextBox ID="tbOrgPurpose" TextMode="MultiLine" MaxLength="500" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:Label ID="lblReferer" runat="server" CssClass="mt-2" Text="Refered By:"></asp:Label>
+                            <asp:TextBox ID="tbOrgReferer" TextMode="MultiLine" MaxLength="150" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="col-md-3"></div>
                         </div>
                     </asp:Panel>
                     <%-- Content End --%>

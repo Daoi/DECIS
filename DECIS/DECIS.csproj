@@ -556,7 +556,10 @@
     <Compile Include="OrgView.aspx.designer.cs">
       <DependentUpon>OrgView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PageLogic\CreateRequest\CollectOrgRequestInfo.cs" />
+    <Compile Include="PageLogic\CreateRequest\DisplayInfo.cs" />
     <Compile Include="PageLogic\CreateRequest\RequestType.cs" />
+    <Compile Include="PageLogic\CreateRequest\SameAsRequestor.cs" />
     <Compile Include="PageLogic\OrgView\CreateNewOrg.cs" />
     <Compile Include="PageLogic\OrgView\OrgViewDataDisplay.cs" />
     <Compile Include="PageLogic\Settings\SettingsClearLabels.cs" />

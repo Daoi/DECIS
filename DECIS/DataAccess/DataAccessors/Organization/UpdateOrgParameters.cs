@@ -26,6 +26,8 @@ namespace DECIS.DataAccess.DataAccessors.Organization
             new MySqlParameter("OrgContactSecondary", MySqlDbType.VarChar, 100),
             new MySqlParameter("OrgSecondaryPhone", MySqlDbType.VarChar, 20),
             new MySqlParameter("OrgSecondaryEmail", MySqlDbType.VarChar, 100),
+            new MySqlParameter("Purpose", MySqlDbType.VarChar, 500),
+
             };
         }
 

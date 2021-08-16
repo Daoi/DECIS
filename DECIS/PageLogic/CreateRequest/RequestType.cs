@@ -1,4 +1,5 @@
-﻿using DECIS.Utilities;
+﻿using DECIS.CotrolLogic.DDL;
+using DECIS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,14 @@ namespace DECIS.PageLogic.CreateRequest
 
         public static void SetRequest(DropDownList ddl, Page pg)
         {
-            if(ddl.SelectedIndex == PERSONAL)
+            DropDownList ddlOrg = (FindControl.FindNM("ddlOrg", pg) as DropDownList);
+            Label lblOrg = (FindControl.FindNM("lblOrganization", pg) as Label);
+
+            if (ddl.SelectedIndex == PERSONAL)
             {
                 (FindControl.FindNM("pnlPersonal", pg) as Panel).Visible = true;
                 (FindControl.FindNM("pnlOrg", pg) as Panel).Visible = false;
-            }   
+            }
             else if(ddl.SelectedIndex == ORG)
             {
                 (FindControl.FindNM("pnlPersonal", pg) as Panel).Visible = false;
@@ -30,8 +34,15 @@ namespace DECIS.PageLogic.CreateRequest
             {
                 (FindControl.FindNM("pnlPersonal", pg) as Panel).Visible = false;
                 (FindControl.FindNM("pnlOrg", pg) as Panel).Visible = false;
+                ddlOrg.Visible = false;
+                lblOrg.Visible = false;
+                return;
             }
 
+            ddlOrg.Visible = true;
+            lblOrg.Visible = true;
+            List<DropDownList> ddls = new List<DropDownList>() { ddlOrg };
+            DDLDataBind.Bind(ddls);
         }
     }
 }

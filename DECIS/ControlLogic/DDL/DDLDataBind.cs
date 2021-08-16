@@ -23,8 +23,7 @@ namespace DECIS.CotrolLogic.DDL
           { name => name.ToLower().Contains("description"), AssetLocationDescription},
           { name => name.ToLower().Contains("status"), AssetStatus},
           { name => name.ToLower().Contains("type"), AssetType},
-          { name => name.ToLower().Contains("org"), AssetType}
-
+          { name => name.ToLower().Contains("org"), Organization}
         };
 
         /// <summary>
@@ -149,8 +148,8 @@ namespace DECIS.CotrolLogic.DDL
             ddl.DataSource = orgDT;
             ddl.DataTextField = "OrgName";
             ddl.DataValueField = "OrgID";
-            ddl.Items.Insert(0, new ListItem("Not Listed", "-1"));
             ddl.DataBind();
+            ddl.Items.Insert(0, new ListItem("Not Listed", "-1"));
 
             return orgDT;
         }
