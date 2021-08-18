@@ -38,6 +38,7 @@
                 <asp:UpdatePanel ID="upForm" UpdateMode="Conditional" runat="server">
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="ddlRequestType" EventName="SelectedIndexChanged" />
+                        <asp:PostBackTrigger ControlID="btnSubmit"/>
                     </Triggers>
                     <ContentTemplate>
                         <div class="row mt-5">
@@ -114,7 +115,10 @@
                             <div runat="server" id="divButtons" class="row mb-3" visible="true">
                             <div class="col-4"></div>
                             <div class="col-4">
-                                <asp:Button ID="btnSubmit" CssClass="btn btn-primary" runat="server" Text="Submit Request" OnClick="btnSubmit_Click" /></div>
+                                <asp:FileUpload ID="fuDocuments" CssClass="form-control" runat="server" />
+                                <asp:Button ID="btnSubmit" CssClass="btn btn-primary" runat="server" Text="Submit Request" OnClick="btnSubmit_Click" />
+                                <asp:Label ID="lblSubmitError" runat="server" Text=""></asp:Label>
+                            </div>
                             <div class="col-4"></div>
                             </div>
                         </div>

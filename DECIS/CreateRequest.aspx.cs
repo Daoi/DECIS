@@ -1,5 +1,6 @@
 ﻿using DECIS.CotrolLogic.DDL;
 using DECIS.PageLogic.CreateRequest;
+using DECIS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,29 @@ namespace DECIS
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            ViewState["Type"].ToString();
+            string requestType = ViewState["Type"].ToString();
+            upForm.Update();
+            if (requestType == "Organization")
+            {
+                try
+                {
+                    NonprofitFM fm = new NonprofitFM(Page, fuDocuments);
+                    if (fm.Verify())
+                    {
+                        CollectOrgRequestInfo.Collect(Page, ddlOrg.SelectedValue != "-1");
+                    }
+                    else
+                    {
+                        lblSubmitError.Text = "You must upload a valid PDF file";
+                        return;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    lblSubmitError.Text = ex.Message;
+                }
+            }
         }
     }
 }

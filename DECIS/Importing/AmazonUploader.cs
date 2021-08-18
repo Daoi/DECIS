@@ -48,7 +48,7 @@ namespace DECIS.Importing
             var response = client.GetObject(alias, key);
             var code = response.HttpStatusCode;
 
-            path = $"{alias},{key}"; //URL links are temporary so we need to generate it each time with these values
+            path = $"{alias},{key}"; //URL links are temporary so we need to generate it each time with these values using GetURL
             if (code == System.Net.HttpStatusCode.OK)
                 return true; //indicate that the file was sent  
             else

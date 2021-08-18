@@ -27,6 +27,7 @@ namespace DECIS.DataModels
         int Mice { get; set; }
         int Wifi { get; set; }
         int Webcam { get; set; }
+        public string Docs { get; set; }
 
         public Request() { }
         public Request(DataRow dr)
@@ -51,6 +52,7 @@ namespace DECIS.DataModels
             Wifi = int.Parse(dr["Wifi"].ToString());
             Webcam = int.Parse(dr["Webcam"].ToString());
             Notes = dr["Notes"].ToString();
+            Docs = dr["Docs"].ToString();
 
         }
     }
