@@ -1,4 +1,6 @@
 ﻿using DECIS.CotrolLogic.DDL;
+using DECIS.DataAccess.DataAccessors.Request;
+using DECIS.DataModels;
 using DECIS.PageLogic.CreateRequest;
 using DECIS.Utilities;
 using System;
@@ -57,18 +59,21 @@ namespace DECIS
                     NonprofitFM fm = new NonprofitFM(Page, fuDocuments);
                     if (fm.Verify())
                     {
-                        CollectOrgRequestInfo.Collect(Page, ddlOrg.SelectedValue != "-1");
+                        (Organization org, OrgRequest req) values = CollectOrgRequestInfo.Collect(Page, ddlOrg.SelectedValue != "-1");
+                        new InsertRequest(values.req).ExecuteCommand();
+                        fm.Upload(values.org);
+                        lblSubmitError.Text = "Successfully submitted request. You will be emailed with any updates";
                     }
                     else
                     {
-                        lblSubmitError.Text = "You must upload a valid PDF file";
+                        lblSubmitError.Text = "You must upload a PDF file containing proof of your organizations Non-profit status";
                         return;
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    lblSubmitError.Text = ex.Message;
+                    lblSubmitError.Text = "Error: " + ex.Message + " Please email reuse@temple.edu with this message.";
                 }
             }
         }

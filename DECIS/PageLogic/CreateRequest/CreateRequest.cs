@@ -11,12 +11,12 @@ namespace DECIS.PageLogic.CreateRequest
 {
     public class CreateRequest
     {
-        public static Request Create(Page pg)
+        public static OrgRequest Create(Page pg)
         {
-            Request newReq = new Request()
+            OrgRequest newReq = new OrgRequest()
             {
                 OrgID = int.Parse((FindControl.FindNM("ddlOrg", pg) as DropDownList).SelectedValue),
-                Status = 0,
+                Status = 1,
                 Name = (FindControl.FindNM("tbName", pg) as TextBox).Text,
                 Phone = (FindControl.FindNM("tbPhone", pg) as TextBox).Text,
                 Email = (FindControl.FindNM("tbEmail", pg) as TextBox).Text,
@@ -26,6 +26,21 @@ namespace DECIS.PageLogic.CreateRequest
                 Purpose = (FindControl.FindNM("tbPurpose", pg) as TextBox).Text,
                 ItemsRequested = (FindControl.FindNM("tbSpecs", pg) as TextBox).Text,
                 Timeline = (FindControl.FindNM("tbTimeline", pg) as TextBox).Text,
+                DateSubmitted = DateTime.Today.ToShortDateString()
+            };
+
+            return newReq;
+        }
+
+        public static Request CreatePersonal(Page pg)
+        {
+            Request newReq = new Request()
+            {
+                OrgID = int.Parse((FindControl.FindNM("ddlOrg", pg) as DropDownList).SelectedValue),
+                Status = 1,
+                Name = (FindControl.FindNM("tbName", pg) as TextBox).Text,
+                Phone = (FindControl.FindNM("tbPhone", pg) as TextBox).Text,
+                Email = (FindControl.FindNM("tbEmail", pg) as TextBox).Text,
                 DateSubmitted = DateTime.Today.ToShortDateString()
             };
 

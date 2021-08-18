@@ -11,7 +11,7 @@ namespace DECIS.PageLogic.CreateRequest
 {
     public class CreateOrg
     {
-        public static Organization Create(Page pg, Request req)
+        public static Organization Create(Page pg, OrgRequest req)
         {
             Organization org = new Organization()
             {
@@ -22,7 +22,7 @@ namespace DECIS.PageLogic.CreateRequest
                 OrgContactPrimary = (FindControl.FindNM("tbName", pg) as TextBox).Text,
                 OrgPrimaryPhone = (FindControl.FindNM("tbPhone", pg) as TextBox).Text,
                 OrgPrimaryEmail = (FindControl.FindNM("tbEmail", pg) as TextBox).Text,
-                RecievedEquipment = (FindControl.Find("ddlRecievedEquipment", pg) as DropDownList).SelectedValue == "1" //If its 1 they've recieved equipment
+                ReceivedEquipment = (FindControl.FindNM("ddlReceivedEquipment", pg) as DropDownList).SelectedValue == "1" //If its 1 they've recieved equipment
             };
 
             if (req.ContactName != org.OrgContactPrimary)

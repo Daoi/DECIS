@@ -16,7 +16,7 @@ namespace DECIS.PageLogic.OrgView
             (FindControl.Find("tbOrgEmail", pg) as TextBox).Text = org.OrgEmail;
             (FindControl.Find("tbOrgPhone", pg) as TextBox).Text = org.OrgPhone;
             (FindControl.Find("tbOrgZipcode", pg) as TextBox).Text = org.OrgZipcode;
-            (FindControl.Find("ddlRecievedEquipment", pg) as DropDownList).SelectedValue = (org.RecievedEquipment ? 1 : 0).ToString();
+            (FindControl.Find("ddlReceivedEquipment", pg) as DropDownList).SelectedValue = (org.ReceivedEquipment ? 1 : 0).ToString();
             (FindControl.Find("tbOrgPurpose", pg) as TextBox).Text = org.Purpose;
             (FindControl.Find("tbOrgReferer", pg) as TextBox).Text = org.Referer;
             //Primary Contact Info

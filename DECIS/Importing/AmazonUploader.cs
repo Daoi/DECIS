@@ -34,8 +34,6 @@ namespace DECIS.Importing
 
         public bool UploadFileToS3Private(System.IO.Stream fs, string alias, string key, out string path, string folder = "")
         {
-            key = key.Substring(0, 10);
-            key += RandomizeString.RandomString(5);
             if (folder != "")
                 key = $"{folder}/{key}";
 

@@ -11,7 +11,7 @@ namespace DECIS.DataAccess.DataAccessors.Documents
     {
         public InsertDocument()
         {
-            CommandText = "InsertDocuments";
+            CommandText = "InsertDocument";
             CommandType = CommandType.StoredProcedure;
         }
 

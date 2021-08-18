@@ -10,23 +10,18 @@ namespace DECIS.DataModels
     {
         public int RequestID { get; set; }
         public int OrgID { get; set; }
-        public int Status { get; set; } //0 = New Item, 1 = Pending, 2 = Finished, 3 = Cancelled
+        public int Status { get; set; } //1 = New Item, 2 = Pending, 3 = Finished, 4 = Cancelled
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public string ContactName { get; set; }
-        public string ContactPhone { get; set; }
-        public string ContactEmail { get; set; }
-        public string Purpose { get; set; }
-        public string ItemsRequested { get; set; }
-        public string Timeline { get; set; }
+
         public string DateSubmitted { get; set; }
         public string DateFinished { get; set; }
         public string Notes { get; set; }
-        int Keyboard { get; set; }
-        int Mice { get; set; }
-        int Wifi { get; set; }
-        int Webcam { get; set; }
+        public int Keyboard { get; set; }
+        public int Mice { get; set; }
+        public int Wifi { get; set; }
+        public int Webcam { get; set; }
         public string Docs { get; set; }
 
         public Request() { }
@@ -38,12 +33,6 @@ namespace DECIS.DataModels
             Name = dr["Name"].ToString();
             Phone = dr["Phone"].ToString();
             Email = dr["Email"].ToString();
-            ContactName = dr["ContactName"].ToString();
-            ContactPhone = dr["ContactPhone"].ToString();
-            ContactEmail = dr["ContactEmail"].ToString();
-            Purpose = dr["Purpose"].ToString(); 
-            ItemsRequested = dr["ItemsRequested"].ToString();
-            Timeline = dr["Timeline"].ToString();
             DateSubmitted = string.Format("MM-dd-yyyy", dr["DateSubmitted"]);
             if(dr["DateFinished"] != DBNull.Value)
                 DateFinished = string.Format("MM-dd-yyyy", dr["DateSubmitted"]);

@@ -14,8 +14,7 @@ namespace DECIS.PageLogic.CreateRequest
 {
     public class NonprofitFM
     {
-        private const string BUCKET = "decisdocuments";
-        byte[] file;
+        private const string BUCKET = "elasticbeanstalk-us-east-2-848774509032";
         Page pg;
         FileUpload fu;
         string path;
@@ -25,7 +24,6 @@ namespace DECIS.PageLogic.CreateRequest
             this.fu = fu;
             path = pg.Server.MapPath($"./Importing/Files/") + fu.FileName;
             fu.SaveAs(path);
-            file = fu.FileBytes;
 
         }
 

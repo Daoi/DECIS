@@ -38,7 +38,7 @@
                 <asp:UpdatePanel ID="upForm" UpdateMode="Conditional" runat="server">
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="ddlRequestType" EventName="SelectedIndexChanged" />
-                        <asp:PostBackTrigger ControlID="btnSubmit"/>
+                        <asp:PostBackTrigger ControlID="btnSubmit" />
                     </Triggers>
                     <ContentTemplate>
                         <div class="row mt-5">
@@ -84,7 +84,7 @@
                                 <%--Personal Request Form End--%>
                                 <%--Org Request Form Start--%>
                                 <asp:Panel ID="pnlOrg" CssClass="mt-2" runat="server" Visible="false">
-                                    <asp:Label ID="lblSameAsRequester" runat="server"  Text="Is the contact for the request the same as the requester?"></asp:Label>
+                                    <asp:Label ID="lblSameAsRequester" runat="server" Text="Is the contact for the request the same as the requester?"></asp:Label>
                                     <asp:CheckBox ID="cbSameAsRequester" Checked="false" runat="server" OnCheckedChanged="cbSameAsRequester_CheckedChanged" AutoPostBack="True" />
                                     <br />
                                     <asp:Label ID="lblContactName" runat="server" Text="Contact Name: "></asp:Label>
@@ -103,8 +103,8 @@
                                     <asp:TextBox ID="tbReferer" MaxLength="150" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblTimeline" runat="server" Text="Please include a possible timeline of when you would need the items:" CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbTimeline" MaxLength="200" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:Label ID="lblRecievedEquipment" Visible="false" runat="server" Text="Has your organization recieved equipment from us before?"></asp:Label>
-                                    <asp:DropDownList ID="ddlRecievedEquipment" Visible="true" CssClass="form-control" runat="server">
+                                    <asp:Label ID="lblRecievedEquipment" runat="server" Text="Has your organization recieved equipment from us before?" CssClass="mt-2"></asp:Label>
+                                    <asp:DropDownList ID="ddlReceivedEquipment" CssClass="form-control" runat="server">
                                         <asp:ListItem Value="0">No</asp:ListItem>
                                         <asp:ListItem Value="1">Yes</asp:ListItem>
                                     </asp:DropDownList>
@@ -113,13 +113,13 @@
                             </div>
                             <div class="col-2"></div>
                             <div runat="server" id="divButtons" class="row mb-3" visible="true">
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <asp:FileUpload ID="fuDocuments" CssClass="form-control" runat="server" />
-                                <asp:Button ID="btnSubmit" CssClass="btn btn-primary" runat="server" Text="Submit Request" OnClick="btnSubmit_Click" />
-                                <asp:Label ID="lblSubmitError" runat="server" Text=""></asp:Label>
-                            </div>
-                            <div class="col-4"></div>
+                                <div class="col-4"></div>
+                                <div class="col-4">
+                                    <asp:FileUpload ID="fuDocuments" CssClass="form-control" runat="server" />
+                                    <asp:Button ID="btnSubmit" CssClass="btn btn-primary" runat="server" Text="Submit Request" OnClick="btnSubmit_Click" />
+                                    <asp:Label ID="lblSubmitError" runat="server" Text=""></asp:Label>
+                                </div>
+                                <div class="col-4"></div>
                             </div>
                         </div>
                     </ContentTemplate>
@@ -132,11 +132,18 @@
 </body>
 <script>
     function pageLoad() {
-        $("#MainContent_ddlOrg").select2({
+        $("#ddlOrg").select2({
             placeholder: "Select Organization",
             allowClear: true,
             selectOnClose: true
         });
     };
+</script>
+<script>
+    //Change file label to file uploaded
+    $(".custom-file-input").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
 </script>
 </html>

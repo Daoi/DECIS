@@ -23,7 +23,7 @@ namespace DECIS.DataModels
         public string OrgSecondaryPhone { get; set; }
         public string OrgSecondaryEmail { get; set; }
         public string Referer { get; set; }
-        public bool RecievedEquipment { get; set; }
+        public bool ReceivedEquipment { get; set; }
         public string Purpose { get; set; }
 
         public Organization()
@@ -47,7 +47,7 @@ namespace DECIS.DataModels
             OrgSecondaryPhone = dr["OrgSecondaryPhone"].ToString();
             Referer = dr["OrgReferer"].ToString();
             Purpose = dr["Purpose"].ToString();
-            RecievedEquipment = dr["RecievedEquipment"] == DBNull.Value ? false : (bool)dr["RecievedEquipment"];
+            ReceivedEquipment = dr["ReceivedEquipment"] == DBNull.Value ? false : (bool)dr["ReceivedEquipment"];
         }
 
         public static Organization ImportOrg(DataRow dr)

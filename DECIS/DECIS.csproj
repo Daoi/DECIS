@@ -517,6 +517,8 @@
     <Compile Include="DataAccess\DataAccessors\Organization\InsertOrgParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrgParameters.cs" />
+    <Compile Include="DataAccess\DataAccessors\Request\InsertRequest.cs" />
+    <Compile Include="DataAccess\DataAccessors\Request\InsertRequestParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Status\GetAllStatus.cs" />
     <Compile Include="DataAccess\DataSupport.cs" />
     <Compile Include="DataAccess\ExecuteData.cs" />
@@ -528,6 +530,7 @@
     <Compile Include="DataModels\Model.cs" />
     <Compile Include="DataModels\OrderRequest.cs" />
     <Compile Include="DataModels\Organization.cs" />
+    <Compile Include="DataModels\OrgRequest.cs" />
     <Compile Include="DataModels\Person.cs" />
     <Compile Include="DataModels\Request.cs" />
     <Compile Include="DECIS.Master.cs">
@@ -582,6 +585,7 @@
     <Compile Include="PageLogic\CreateRequest\DisplayInfo.cs" />
     <Compile Include="PageLogic\CreateRequest\RequestType.cs" />
     <Compile Include="PageLogic\CreateRequest\SameAsRequestor.cs" />
+    <Compile Include="PageLogic\CreateRequest\SaveRequest.cs" />
     <Compile Include="PageLogic\OrgView\CreateNewOrg.cs" />
     <Compile Include="PageLogic\OrgView\OrgViewDataDisplay.cs" />
     <Compile Include="PageLogic\Settings\SettingsClearLabels.cs" />
