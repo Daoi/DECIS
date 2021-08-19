@@ -1,5 +1,9 @@
-﻿using DECIS.DataModels;
+﻿using DECIS.ControlLogic.Gridview;
+using DECIS.DataAccess.DataAccessors.Request;
+using DECIS.DataModels;
 using DECIS.Utilities;
+using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -26,6 +30,15 @@ namespace DECIS.PageLogic.OrgView
             (FindControl.Find("tbSecondaryContact", pg) as TextBox).Text = org.OrgContactSecondary;
             (FindControl.Find("tbSecondaryPhone", pg) as TextBox).Text = org.OrgSecondaryPhone;
             (FindControl.Find("tbSecondaryEmail", pg) as TextBox).Text = org.OrgSecondaryEmail;
+
+            //GridViews
+            DataTable requestDT = new GetAllOrgRequestsByID().ExecuteCommand(org.OrgID);
+            GridView gvRequests = (FindControl.Find("gvRequests", pg) as GridView);
+
+            //Uncompleted Requests
+            DataTableFilter.Filter(requestDT, gvRequests, r => int.Parse(r["Status"].ToString()) < 4);
+            //Cancelled/Finished 
+            DataTableFilter.Filter(requestDT, gvRequests, r => int.Parse(r["Status"].ToString()) > 3);
         }
 
     }

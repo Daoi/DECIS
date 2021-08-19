@@ -10,7 +10,7 @@ namespace DECIS.DataModels
     {
         public int RequestID { get; set; }
         public int OrgID { get; set; }
-        public int Status { get; set; } //1 = New Item, 2 = Pending, 3 = Finished, 4 = Cancelled
+        public int Status { get; set; } //1 = New Item, 2 = Pending, 3 = Scheduled, 4 = Finished, 5 = Cancelled
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }

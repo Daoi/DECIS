@@ -26,7 +26,7 @@
                             </asp:Label>
                             <asp:TextBox ID="tbOrgZipcode" MaxLength="20" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:Label ID="lblRecievedEquipment" runat="server" Text="Has Recieved Equipment Before: "></asp:Label>
-                            <asp:DropDownList ID="ddlRecievedEquipment" CssClass="form-control" runat="server">                                        
+                            <asp:DropDownList ID="ddlReceivedEquipment" CssClass="form-control" runat="server">                                        
                                 <asp:ListItem Value="0">Hasn't Recieved Equipment</asp:ListItem>
                                 <asp:ListItem Value="1">Has Recieved Equipment</asp:ListItem>
                             </asp:DropDownList>
@@ -65,7 +65,7 @@
                             <asp:Button ID="btnCancelEdit" Visible="false" CssClass="btn-warning btn w-25" runat="server" Text="Cancel" OnClick="btnEditCancel_Click" />
                         </div>
                         <div class="col-md-3">
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <asp:Button ID="btnDownload" CssClass="btn-primary btn" runat="server" Text="View Documents" OnClick="btnDownload_Click" OnClientClick="target ='_blank';"/>
                         </div>
                         <div class="col-md-3">
                             <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -104,9 +104,16 @@
                             <div class="tab-content mt-3">
                                 <div class="tab-pane active" id="Requests" role="tabpanel">
                                     <asp:Label ID="lblOutstandingMsg" runat="server" Text=""></asp:Label>
-                                    <asp:GridView ID="gvRequests" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="True">
+                                    <asp:GridView ID="gvRequests" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="False">
                                         <HeaderStyle CssClass="cherryBackground" />
                                         <Columns>
+                                            <asp:BoundField DataField="RequestID" HeaderText="Request ID" />
+                                            <asp:BoundField DataField="ContactName" HeaderText="Contact" />
+                                            <asp:BoundField DataField="ContactPhone" HeaderText="Phone" />
+                                            <asp:BoundField DataField="ContactEmail" HeaderText="Email" />
+                                            <asp:BoundField DataField="Timeline" DataFormatString="{0:d}" HeaderText="Timeline" />
+                                            <asp:BoundField DataField="DateSubmitted" HeaderText="Submitted" />
+                                            <asp:BoundField DataField="RequestStatus" HeaderText="Status" />
                                         </Columns>
                                     </asp:GridView>
                                 </div>

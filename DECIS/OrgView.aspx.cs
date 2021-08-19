@@ -13,7 +13,7 @@ using System.Web.UI.WebControls;
 
 namespace DECIS
 {
-    public partial class OrgView : System.Web.UI.Page
+    public partial class OrgView : Page
     {
         int orgID;
         protected void Page_Load(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace DECIS
                 TogglePanel.ToggleInputs(pnlControls);
             }
         }
-
+        
         protected void btnEdit_Click(object sender, EventArgs e)
         {
             if (ViewState["Editing"] != null && (bool)ViewState["Editing"]) //If we're in edit mode
@@ -70,6 +70,11 @@ namespace DECIS
             string test = hfActiveTab.Value;
             Session["CurrentAsset"] = asset;
             Response.Redirect("./AssetView.aspx");
+        }
+
+        protected void btnDownload_Click(object sender, EventArgs e)
+        {
+            DownloadOrgDocuments.Download(ViewState["Org"] as Organization);
         }
     }
 }

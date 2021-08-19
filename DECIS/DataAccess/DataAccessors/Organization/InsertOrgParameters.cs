@@ -29,6 +29,7 @@ namespace DECIS.DataAccess.DataAccessors.Organization
             new MySqlParameter("@OrgReferer", MySqlDbType.VarChar, 150),
             new MySqlParameter("@ReceivedEquipment", MySqlDbType.Bit, 1),
             new MySqlParameter("@Purpose", MySqlDbType.VarChar, 500),
+            new MySqlParameter("@OrgID", MySqlDbType.Int32),
             };
         }
 
@@ -48,7 +49,7 @@ namespace DECIS.DataAccess.DataAccessors.Organization
             Parameters[11].Value = org.Referer;
             Parameters[12].Value = org.ReceivedEquipment;
             Parameters[13].Value = org.Purpose;
-
+            Parameters[14].Value = org.OrgID;
 
             return Parameters;
 

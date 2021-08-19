@@ -20,6 +20,8 @@ namespace DECIS.PageLogic.CreateRequest
                 if (newReq.OrgID != -1)
                 {
                     org = new Organization(new GetOrgByID().ExecuteCommand(newReq.OrgID).Rows[0]);
+                    UpdateExistingOrg.Update(pg, org);
+                    new UpdateOrg(org).ExecuteCommand();
                 }
                 else
                 {

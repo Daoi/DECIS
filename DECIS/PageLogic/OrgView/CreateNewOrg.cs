@@ -17,6 +17,9 @@ namespace DECIS.PageLogic.OrgView
                 OrgEmail = (FindControl.Find("tbOrgEmail", pg) as TextBox).Text,
                 OrgPhone = (FindControl.Find("tbOrgPhone", pg) as TextBox).Text,
                 OrgZipcode = (FindControl.Find("tbOrgZipcode", pg) as TextBox).Text,
+                Purpose = (FindControl.Find("tbOrgPurpose", pg) as TextBox).Text,
+                Referer = (FindControl.Find("tbOrgReferer", pg) as TextBox).Text,
+                ReceivedEquipment = (FindControl.Find("ddlReceivedEquipment", pg) as DropDownList).SelectedValue == "1",
                 //Primary Contact Info
                 OrgContactPrimary = (FindControl.Find("tbPrimaryContact", pg) as TextBox).Text,
                 OrgPrimaryPhone = (FindControl.Find("tbPrimaryPhone", pg) as TextBox).Text,
@@ -24,6 +27,7 @@ namespace DECIS.PageLogic.OrgView
                 OrgContactSecondary = (FindControl.Find("tbSecondaryContact", pg) as TextBox).Text,
                 OrgSecondaryPhone = (FindControl.Find("tbSecondaryPhone", pg) as TextBox).Text,
                 OrgSecondaryEmail = (FindControl.Find("tbSecondaryEmail", pg) as TextBox).Text,
+
             };
         }
     }
