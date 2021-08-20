@@ -33,7 +33,9 @@ namespace DECIS.PageLogic.RequestView
             (FindControl.Find("tbDateSubmitted", pg) as TextBox).Text = req.DateSubmitted;
 
 
-
+            //If its a new request dont show these
+            (FindControl.Find("pnlPeripheral", pg) as Panel).Visible = req.Status > 1;
+            (FindControl.Find("pnlGVs", pg) as Panel).Visible = req.Status > 1;
 
 
             if (req.Type == 0)

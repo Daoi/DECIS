@@ -310,6 +310,15 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.TextBox tbDate;
         
         /// <summary>
+        /// pnlPeripheral control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlPeripheral;
+        
+        /// <summary>
         /// lblKeyboard control.
         /// </summary>
         /// <remarks>
@@ -382,6 +391,15 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.TextBox tbWifi;
         
         /// <summary>
+        /// pnlButtons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlButtons;
+        
+        /// <summary>
         /// btnEdit control.
         /// </summary>
         /// <remarks>
@@ -409,6 +427,33 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.Button btnViewOrg;
         
         /// <summary>
+        /// btnAddAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddAll;
+        
+        /// <summary>
+        /// btnRemoveAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemoveAll;
+        
+        /// <summary>
+        /// pnlGVs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlGVs;
+        
+        /// <summary>
         /// lblComputerMsg control.
         /// </summary>
         /// <remarks>
@@ -427,48 +472,21 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.GridView gvComputers;
         
         /// <summary>
-        /// lblMonitorsMsg control.
+        /// lblAssignedMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMonitorsMsg;
+        protected global::System.Web.UI.WebControls.Label lblAssignedMsg;
         
         /// <summary>
-        /// gvMonitors control.
+        /// gvAssigned control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMonitors;
-        
-        /// <summary>
-        /// lblOtherMsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOtherMsg;
-        
-        /// <summary>
-        /// gvOther control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvOther;
-        
-        /// <summary>
-        /// hfActiveTab control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfActiveTab;
+        protected global::System.Web.UI.WebControls.GridView gvAssigned;
     }
 }

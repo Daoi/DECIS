@@ -1,10 +1,12 @@
 ﻿using DECIS.ControlLogic.Gridview;
 using DECIS.ControlLogic.Panels;
+using DECIS.DataAccess.DataAccessors;
 using DECIS.DataAccess.DataAccessors.Request;
 using DECIS.DataModels;
 using DECIS.PageLogic.RequestView;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,6 +18,10 @@ namespace DECIS
     {
         int reqID;
         int type; //0 = Org, 1 = Personal
+        List<int> assetsToAdd;
+        List<int> assetsToRemove;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!int.TryParse(Request.QueryString["reqid"], out reqID))
@@ -30,7 +36,10 @@ namespace DECIS
 
             if (!IsPostBack)
             {
+                ViewState["Add"] = new List<int>();
+                ViewState["Remove"] = new List<int>();
                 ViewState["Type"] = type;
+                Session["AssetListDT"] = new GetAllAssets().ExecuteCommand();
                 try
                 {
                     if (type == 0)
@@ -45,15 +54,21 @@ namespace DECIS
                         ViewState["Request"] = req;
                         DisplayRequest.Display(Page, req);
                     }
+
                 }
                 catch(Exception ex)
                 {
                     Response.Redirect("./RequestList.aspx");
                 }
-                HeaderBinding.CreateHeaders(new List<GridView>() { gvComputers, gvMonitors, gvOther });
-                TogglePanel.ToggleInputs(pnlControls);
 
+                assetsToAdd = ViewState["Add"] as List<int>;
+                assetsToRemove = ViewState["Remove"] as List<int>;
+                TogglePanel.ToggleInputs(pnlControls);
+                TogglePanel.ToggleInputs(pnlPeripheral);
             }
+
+            BindGridviews.Bind(Page, reqID);
+            HeaderBinding.CreateHeaders(new List<GridView>() { gvComputers, gvAssigned });
         }
 
 
@@ -76,6 +91,7 @@ namespace DECIS
 
             //Setup display
             TogglePanel.ToggleInputs(pnlControls);
+            TogglePanel.ToggleInputs(pnlPeripheral);
             btnCancelEdit.Visible = !btnCancelEdit.Visible;
             btnEdit.Text = btnEdit.Text == "Edit" ? "Save" : "Edit";
         }
@@ -83,7 +99,8 @@ namespace DECIS
         protected void btnEditCancel_Click(object sender, EventArgs e)
         {
             //Setup display
-            TogglePanel.ToggleInputs(pnlControls, true);
+            TogglePanel.ToggleInputs(pnlControls);
+            TogglePanel.ToggleInputs(pnlPeripheral);
             btnCancelEdit.Visible = false;
             btnEdit.Text = "Edit";
         }
@@ -92,6 +109,30 @@ namespace DECIS
         {
             Request req = ViewState["Request"] as Request;
             Response.Redirect($"./OrgView.aspx?orgid={req.OrgID.ToString()}");
+        }
+
+
+        protected void lnkBtnView_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            DataRow dr = (ViewState["AssetListDT"] as DataTable).Rows[row.DataItemIndex];
+            Asset asset = new Asset(dr);
+            //This should be changed to use querystring or something like other view pages
+            Session["CurrentAsset"] = asset;
+            Response.Redirect("./AssetView.aspx");
+        }
+
+        protected void btnAddAll_Click(object sender, EventArgs e)
+        {
+            assetsToAdd = new List<int>();
+            gvComputers.Rows.OfType<GridViewRow>()
+                .Where(gvr => (gvr.FindControl("cbSelected") as CheckBox).Checked)
+                .ToList()
+                .ForEach(gvr => assetsToAdd.Add(int.Parse((gvr.FindControl("hfAssetID") as HiddenField).Value)));
+            AddAssets.Add(assetsToAdd, reqID);
+            BindGridviews.Bind(Page, reqID);
+            
         }
     }
 }

@@ -521,6 +521,7 @@
     <Compile Include="DataAccess\DataAccessors\Organization\InsertOrgParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrgParameters.cs" />
+    <Compile Include="DataAccess\DataAccessors\Request\GetAllAssetsForRequest.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllOrgRequestsByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllRequests.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetRequestInfoByID.cs" />
@@ -601,8 +602,11 @@
     <Compile Include="PageLogic\OrgView\CreateNewOrg.cs" />
     <Compile Include="PageLogic\OrgView\DownloadOrgDocuments.cs" />
     <Compile Include="PageLogic\OrgView\OrgViewDataDisplay.cs" />
+    <Compile Include="PageLogic\RequestView\AddAssets.cs" />
+    <Compile Include="PageLogic\RequestView\BindGridviews.cs" />
     <Compile Include="PageLogic\RequestView\CreateOrgRequest.cs" />
     <Compile Include="PageLogic\RequestView\DisplayRequest.cs" />
+    <Compile Include="PageLogic\RequestView\UpdateAll.cs" />
     <Compile Include="PageLogic\Settings\SettingsClearLabels.cs" />
     <Compile Include="PageLogic\Settings\SettingsLocation.cs" />
     <Compile Include="PageLogic\Settings\SettingsMake.cs" />
