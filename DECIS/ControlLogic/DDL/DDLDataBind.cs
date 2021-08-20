@@ -3,6 +3,7 @@ using DECIS.DataAccess.DataAccessors.Location;
 using DECIS.DataAccess.DataAccessors.Make;
 using DECIS.DataAccess.DataAccessors.Model;
 using DECIS.DataAccess.DataAccessors.Organization;
+using DECIS.DataAccess.DataAccessors.Request.RequestStatus;
 using DECIS.DataAccess.DataAccessors.Status;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,13 @@ namespace DECIS.CotrolLogic.DDL
 {
     public class DDLDataBind
     {
-        //Key = Name to check for - Value = Method to use for binding
+        //Key = Name to check for - Value = Method to use for binding - If your DDL is using the wrong binding its name is most likely conflicting 
         private static Dictionary<Func<string, bool>, Func<DropDownList, DataTable>> bindings = new Dictionary<Func<string, bool>, Func<DropDownList, DataTable>>()
         { { name => name.ToLower().Contains("make"), AssetMake},
           { name => name.ToLower().Contains("model"), AssetModel},
           { name => name.ToLower().Contains("location"), AssetLocation},
           { name => name.ToLower().Contains("description"), AssetLocationDescription},
+          { name => name.ToLower().Contains("requeststatus"), RequestStatus},
           { name => name.ToLower().Contains("status"), AssetStatus},
           { name => name.ToLower().Contains("type"), AssetType},
           { name => name.ToLower().Contains("org"), Organization}
@@ -152,6 +154,18 @@ namespace DECIS.CotrolLogic.DDL
             ddl.Items.Insert(0, new ListItem("Not Listed", "-1"));
 
             return orgDT;
+        }
+
+        private static DataTable RequestStatus(DropDownList ddl)
+        {
+            DataTable rsDT = new GetAllRequestStatus().ExecuteCommand();
+            rsDT.TableName = "RequestStatus";
+            ddl.DataSource = rsDT;
+            ddl.DataTextField = "RequestStatus";
+            ddl.DataValueField = "RequestStatusID";
+            ddl.DataBind();
+
+            return rsDT;
         }
 
     }

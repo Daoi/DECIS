@@ -7,12 +7,12 @@ using DECIS.DataModels;
 
 namespace DECIS.DataAccess.DataAccessors.Request
 {
-    public class InsertRequestParameters
+    public class OrgRequestParameters
     {
         private MySqlParameter[] Parameters;
 
 
-        public InsertRequestParameters()
+        public OrgRequestParameters()
         {
             Parameters = new MySqlParameter[]
             {

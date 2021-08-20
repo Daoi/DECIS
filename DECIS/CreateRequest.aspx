@@ -101,7 +101,7 @@
                                     <asp:TextBox ID="tbSpecs" MaxLength="400" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblReferer" runat="server" Text="How did you hear about Temple Tech for Philly: " CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbReferer" MaxLength="150" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:Label ID="lblTimeline" runat="server" Text="Please include a possible timeline of when you would need the items:" CssClass="mt-2"></asp:Label>
+                                    <asp:Label ID="lblTimeline" runat="server" Text="Briefly include a possible timeline of when you would need the items:" CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbTimeline" MaxLength="200" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblRecievedEquipment" runat="server" Text="Has your organization recieved equipment from us before?" CssClass="mt-2"></asp:Label>
                                     <asp:DropDownList ID="ddlReceivedEquipment" CssClass="form-control" runat="server">

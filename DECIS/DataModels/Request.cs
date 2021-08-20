@@ -6,11 +6,14 @@ using System.Web;
 
 namespace DECIS.DataModels
 {
+    [Serializable]
     public class Request
     {
         public int RequestID { get; set; }
         public int OrgID { get; set; }
         public int Status { get; set; } //1 = New Item, 2 = Pending, 3 = Scheduled, 4 = Finished, 5 = Cancelled
+        public string RequestStatus { get; set; }
+        public string OrgName { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
@@ -22,18 +25,20 @@ namespace DECIS.DataModels
         public int Mice { get; set; }
         public int Wifi { get; set; }
         public int Webcam { get; set; }
-        public string Docs { get; set; }
+        public int Type { get; set; } //0 = Org, 1 = Personal
 
         public Request() { }
         public Request(DataRow dr)
         {
-            RequestID = int.Parse(dr["RquestID"].ToString());
+            RequestID = int.Parse(dr["RequestID"].ToString());
             OrgID = int.Parse(dr["OrgID"].ToString());
             Status = int.Parse(dr["Status"].ToString());
+            RequestStatus = dr["RequestStatus"].ToString();
+            OrgName = dr["OrgName"].ToString();
             Name = dr["Name"].ToString();
             Phone = dr["Phone"].ToString();
             Email = dr["Email"].ToString();
-            DateSubmitted = string.Format("MM-dd-yyyy", dr["DateSubmitted"]);
+            DateSubmitted = dr["DateSubmitted"].ToString();
             if(dr["DateFinished"] != DBNull.Value)
                 DateFinished = string.Format("MM-dd-yyyy", dr["DateSubmitted"]);
             Keyboard = int.Parse(dr["Keyboard"].ToString());
@@ -41,8 +46,7 @@ namespace DECIS.DataModels
             Wifi = int.Parse(dr["Wifi"].ToString());
             Webcam = int.Parse(dr["Webcam"].ToString());
             Notes = dr["Notes"].ToString();
-            Docs = dr["Docs"].ToString();
-
+            Type = int.Parse(dr["Type"].ToString());
         }
     }
 }
