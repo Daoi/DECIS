@@ -10,20 +10,24 @@ namespace DECIS.PageLogic.RequestView
 {
     public class AddAssets
     {
+        /// <summary>
+        /// Only 500 assets can be added/removed at one time because of MySQLs 1000 query limit.
+        /// Can increase by counting how many assetIDs and then breaking them up into multiple commands
+        /// Very Unlikely to ever do that many at once though.
+        /// </summary>
+        /// <param name="assetIds"></param>
+        /// <param name="reqID"></param>
         public static void Add(List<int> assetIds, int reqID)
         {
-            StringBuilder sCommand = new StringBuilder("INSERT INTO requestItem (RequestID, AssetID) VALUES ");
-            List<string> rows = new List<string>(); //The rows to insert
-            foreach (int i in assetIds)
-            {
-                rows.Add(string.Format($"('{MySqlHelper.EscapeString(reqID.ToString())}'," +
-                    $"'{MySqlHelper.EscapeString(i.ToString())}')"));
-            }
-            sCommand.Append(string.Join(",", rows));
-            sCommand.Append(";");
+
+            var cmdText = assetIds.Aggregate(
+                new StringBuilder(),
+                (sb, id) => sb.AppendLine($"INSERT INTO requestitem (RequestID, AssetID) VALUES " +
+                $"('{MySqlHelper.EscapeString(reqID.ToString())}',{MySqlHelper.EscapeString(id.ToString())}); " +
+                $"UPDATE asset SET Status = '5' WHERE asset.AssetID = '{MySqlHelper.EscapeString(id.ToString())}';")).ToString();
             try
             {
-                new CTextWriter(sCommand.ToString()).ExecuteCommand();
+                new CTextWriter(cmdText).ExecuteCommand();
             }
             catch(Exception ex)
             {

@@ -606,6 +606,7 @@
     <Compile Include="PageLogic\RequestView\BindGridviews.cs" />
     <Compile Include="PageLogic\RequestView\CreateOrgRequest.cs" />
     <Compile Include="PageLogic\RequestView\DisplayRequest.cs" />
+    <Compile Include="PageLogic\RequestView\RemoveAssets.cs" />
     <Compile Include="PageLogic\RequestView\UpdateAll.cs" />
     <Compile Include="PageLogic\Settings\SettingsClearLabels.cs" />
     <Compile Include="PageLogic\Settings\SettingsLocation.cs" />

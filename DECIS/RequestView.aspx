@@ -89,7 +89,7 @@
                             <asp:Button ID="btnAddAll" CssClass="btn btn-primary" runat="server" Text="Add All Selected Assets" OnClick="btnAddAll_Click" />
                         </div>
                         <div class="col-md-3">
-                            <asp:Button ID="btnRemoveAll" CssClass="btn btn-warning" runat="server" Text="Remove Selected Assigned Assets" />
+                            <asp:Button ID="btnRemoveAll" CssClass="btn btn-warning" runat="server" Text="Remove Selected Assigned Assets" OnClick="btnRemoveAll_Click" />
                         </div>
                     </asp:Panel>
                     <%-- Buttons End --%>
@@ -108,8 +108,7 @@
                         <Columns>
                             <asp:TemplateField HeaderText="Select">
                                 <ItemTemplate>
-
-                                    <asp:CheckBox ID="cbSelected" runat="server"/>
+                                    <asp:CheckBox ID="cbSelected" runat="server" />
                                     <asp:HiddenField ID="hfAssetID" runat="server" Value='<%# Eval("AssetID").ToString() %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -126,18 +125,16 @@
                             <asp:BoundField DataField="Location" HeaderText="Location" />
                         </Columns>
                     </asp:GridView>
-
                 </div>
                 <div class="row">
                     <h5>Assigned Assets</h5>
-
                     <asp:Label ID="lblAssignedMsg" runat="server" Text=""></asp:Label>
                     <asp:GridView ID="gvAssigned" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="false">
                         <HeaderStyle CssClass="cherryBackground" />
                         <Columns>
                             <asp:TemplateField HeaderText="Select">
                                 <ItemTemplate>
-                                    <asp:CheckBox ID="cbSelected"  runat="server" />
+                                    <asp:CheckBox ID="cbSelected" runat="server" />
                                     <asp:HiddenField ID="hfAssetID" runat="server" Value='<%# Eval("AssetID").ToString() %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -159,11 +156,10 @@
             </asp:Panel>
         </div>
     </div>
-    <%-- Switch tabs on tab card --%>
     <script type="text/javascript">
-        $(document).ready(function () {
+        function pageLoad() {
             $('#MainContent_gvComputers').DataTable();
             $('#MainContent_gvAssigned').DataTable();
-        });
+        }
     </script>
 </asp:Content>

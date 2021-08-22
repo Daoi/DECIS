@@ -54,9 +54,9 @@ namespace DECIS
                         ViewState["Request"] = req;
                         DisplayRequest.Display(Page, req);
                     }
-
+                    BindGridviews.Bind(Page, reqID);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Response.Redirect("./RequestList.aspx");
                 }
@@ -67,7 +67,6 @@ namespace DECIS
                 TogglePanel.ToggleInputs(pnlPeripheral);
             }
 
-            BindGridviews.Bind(Page, reqID);
             HeaderBinding.CreateHeaders(new List<GridView>() { gvComputers, gvAssigned });
         }
 
@@ -126,13 +125,33 @@ namespace DECIS
         protected void btnAddAll_Click(object sender, EventArgs e)
         {
             assetsToAdd = new List<int>();
-            gvComputers.Rows.OfType<GridViewRow>()
-                .Where(gvr => (gvr.FindControl("cbSelected") as CheckBox).Checked)
-                .ToList()
-                .ForEach(gvr => assetsToAdd.Add(int.Parse((gvr.FindControl("hfAssetID") as HiddenField).Value)));
+            foreach (GridViewRow row in gvComputers.Rows)
+            {
+                CheckBox cb = (CheckBox)row.FindControl("cbSelected");
+
+                if (cb.Checked)
+                {
+                    assetsToAdd.Add(int.Parse((row.FindControl("hfAssetID") as HiddenField).Value));
+                }
+            }
             AddAssets.Add(assetsToAdd, reqID);
-            BindGridviews.Bind(Page, reqID);
-            
+            Response.Redirect($"./RequestView.aspx?reqid={reqID}&type={type}");
+        }
+
+        protected void btnRemoveAll_Click(object sender, EventArgs e)
+        {
+            assetsToRemove = new List<int>();
+            foreach (GridViewRow row in gvAssigned.Rows)
+            {
+                CheckBox cb = (CheckBox)row.FindControl("cbSelected");
+
+                if (cb.Checked)
+                {
+                    assetsToRemove.Add(int.Parse((row.FindControl("hfAssetID") as HiddenField).Value));
+                }
+            }
+            RemoveAssets.Remove(assetsToRemove, reqID);
+            Response.Redirect($"./RequestView.aspx?reqid={reqID}&type={type}");
         }
     }
 }
