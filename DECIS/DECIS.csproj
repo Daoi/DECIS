@@ -361,6 +361,10 @@
     <Content Include="connections.config" />
     <Content Include="Importing\Files\Donor Intake Sheet.xlsx" />
     <Content Include="appSettings.config" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\bower.json" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\changelog.md" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\package.json" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\README.md" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -438,6 +442,22 @@
     <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\.gitignore" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\dist\DjValidator.js" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\dist\DjValidator.min.js" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\dist\locale\DjValidator-es.js" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\dist\locale\djvalidator-ru_ru.js" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\assets\bootstrap\bootstrap.min.css" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\assets\chosen\chosen-sprite.png" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\assets\chosen\chosen.css" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\assets\chosen\chosen.jquery.js" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\custom_style_messages.html" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\custom_ui.html" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\modes.html" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\validators-translation%28espanish%29.html" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\validators.html" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\lib\jquery\jquery.min.js" />
+    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\licence.txt" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.js" />
@@ -521,6 +541,8 @@
     <Compile Include="DataAccess\DataAccessors\Organization\InsertOrgParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrgParameters.cs" />
+    <Compile Include="DataAccess\DataAccessors\Person\InsertPerson.cs" />
+    <Compile Include="DataAccess\DataAccessors\Person\PersonParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllAssetsForRequest.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllOrgRequestsByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllRequests.cs" />
@@ -591,13 +613,14 @@
       <DependentUpon>OrgView.aspx</DependentUpon>
     </Compile>
     <Compile Include="PageLogic\CreateRequest\CollectOrgRequestInfo.cs" />
+    <Compile Include="PageLogic\CreateRequest\CollectPersonalRequestInfo.cs" />
     <Compile Include="PageLogic\CreateRequest\CreateOrg.cs" />
+    <Compile Include="PageLogic\CreateRequest\CreatePerson.cs" />
     <Compile Include="PageLogic\CreateRequest\NonprofitFM.cs" />
     <Compile Include="PageLogic\CreateRequest\CreateRequest.cs" />
     <Compile Include="PageLogic\CreateRequest\DisplayInfo.cs" />
     <Compile Include="PageLogic\CreateRequest\RequestType.cs" />
     <Compile Include="PageLogic\CreateRequest\SameAsRequestor.cs" />
-    <Compile Include="PageLogic\CreateRequest\SaveRequest.cs" />
     <Compile Include="PageLogic\CreateRequest\UpdateExistingOrg.cs" />
     <Compile Include="PageLogic\OrgView\CreateNewOrg.cs" />
     <Compile Include="PageLogic\OrgView\DownloadOrgDocuments.cs" />

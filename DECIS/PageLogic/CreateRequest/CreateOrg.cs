@@ -18,6 +18,7 @@ namespace DECIS.PageLogic.CreateRequest
                 OrgName = (FindControl.FindNM("tbOrgName", pg) as TextBox).Text,
                 Purpose = (FindControl.FindNM("tbOrgPurpose", pg) as TextBox).Text,
                 Referer = (FindControl.FindNM("tbReferer", pg) as TextBox).Text,
+                OrgAddress = (FindControl.FindNM("tbAddress", pg) as TextBox).Text,
                 OrgZipcode = (FindControl.FindNM("tbZipcode", pg) as TextBox).Text,
                 OrgContactPrimary = (FindControl.FindNM("tbName", pg) as TextBox).Text,
                 OrgPrimaryPhone = (FindControl.FindNM("tbPhone", pg) as TextBox).Text,

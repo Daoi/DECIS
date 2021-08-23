@@ -11,6 +11,8 @@ namespace DECIS.DataModels
         public bool Internet { get; set; }
         public int PersonID { get; set; }
 
+        public PersonalRequest() { }
+
         public PersonalRequest(DataRow dr) : base(dr)
         {
             PersonID = int.Parse(dr["Person"].ToString());

@@ -34,10 +34,12 @@ namespace DECIS
             else
                 type = (int)ViewState["Type"]; //Try to prevent people breaking the webpage by manually changing type, kind of dumb/pointless
 
+            HeaderBinding.CreateHeaders(new List<GridView>() { gvComputers, gvAssigned });
+
             if (!IsPostBack)
             {
-                ViewState["Add"] = new List<int>();
-                ViewState["Remove"] = new List<int>();
+                Session["Add"] = new List<int>();
+                Session["Remove"] = new List<int>();
                 ViewState["Type"] = type;
                 Session["AssetListDT"] = new GetAllAssets().ExecuteCommand();
                 try
@@ -61,13 +63,10 @@ namespace DECIS
                     Response.Redirect("./RequestList.aspx");
                 }
 
-                assetsToAdd = ViewState["Add"] as List<int>;
-                assetsToRemove = ViewState["Remove"] as List<int>;
                 TogglePanel.ToggleInputs(pnlControls);
                 TogglePanel.ToggleInputs(pnlPeripheral);
             }
 
-            HeaderBinding.CreateHeaders(new List<GridView>() { gvComputers, gvAssigned });
         }
 
 
@@ -124,34 +123,59 @@ namespace DECIS
 
         protected void btnAddAll_Click(object sender, EventArgs e)
         {
-            assetsToAdd = new List<int>();
-            foreach (GridViewRow row in gvComputers.Rows)
+            if((Session["Add"] as List<int>).Count == 0)
             {
-                CheckBox cb = (CheckBox)row.FindControl("cbSelected");
-
-                if (cb.Checked)
-                {
-                    assetsToAdd.Add(int.Parse((row.FindControl("hfAssetID") as HiddenField).Value));
-                }
+                //Lbl error message none selected
+                return;
             }
-            AddAssets.Add(assetsToAdd, reqID);
+            else
+                AddAssets.Add(Session["Add"] as List<int>, reqID);
+
             Response.Redirect($"./RequestView.aspx?reqid={reqID}&type={type}");
         }
 
         protected void btnRemoveAll_Click(object sender, EventArgs e)
         {
-            assetsToRemove = new List<int>();
-            foreach (GridViewRow row in gvAssigned.Rows)
+            if ((Session["Remove"] as List<int>).Count == 0)
             {
-                CheckBox cb = (CheckBox)row.FindControl("cbSelected");
-
-                if (cb.Checked)
-                {
-                    assetsToRemove.Add(int.Parse((row.FindControl("hfAssetID") as HiddenField).Value));
-                }
+                //Lbl error message none selected
+                return;
             }
-            RemoveAssets.Remove(assetsToRemove, reqID);
+            else
+                RemoveAssets.Remove(Session["Remove"] as List<int>, reqID);
+
             Response.Redirect($"./RequestView.aspx?reqid={reqID}&type={type}");
+        }
+
+        protected void cbSelectedAdd_CheckedChanged(object sender, EventArgs e)
+        {
+            assetsToAdd = (List<int>)Session["Add"];
+
+            CheckBox cb = (CheckBox)sender;
+            int id = int.Parse((cb.Parent.FindControl("hfAssetID") as HiddenField).Value);
+
+            if (cb.Checked && !assetsToAdd.Contains(id))
+                assetsToAdd.Add(id);
+            else if(!cb.Checked && assetsToAdd.Contains(id))
+                assetsToAdd.Remove(id);
+
+            Session["Add"] = assetsToAdd;
+
+        }
+        protected void cbSelectedRemove_CheckedChanged(object sender, EventArgs e)
+        {
+            assetsToRemove = (List<int>)Session["Remove"];
+
+            CheckBox cb = (CheckBox)sender;
+            int id = int.Parse((cb.Parent.FindControl("hfAssetIDR") as HiddenField).Value);
+
+            if (cb.Checked && !assetsToRemove.Contains(id))
+                assetsToRemove.Add(id);
+            else if (!cb.Checked && assetsToRemove.Contains(id))
+                assetsToRemove.Remove(id);
+
+            Session["Remove"] = assetsToRemove;
+
         }
     }
 }

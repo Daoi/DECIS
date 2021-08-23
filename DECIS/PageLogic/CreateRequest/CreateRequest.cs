@@ -26,21 +26,24 @@ namespace DECIS.PageLogic.CreateRequest
                 Purpose = (FindControl.FindNM("tbPurpose", pg) as TextBox).Text,
                 ItemsRequested = (FindControl.FindNM("tbSpecs", pg) as TextBox).Text,
                 Timeline = (FindControl.FindNM("tbTimeline", pg) as TextBox).Text,
+                Type = 0,
                 DateSubmitted = DateTime.Today.ToShortDateString()
             };
 
             return newReq;
         }
 
-        public static Request CreatePersonal(Page pg)
+        public static PersonalRequest CreatePersonal(Page pg)
         {
-            Request newReq = new Request()
+            PersonalRequest newReq = new PersonalRequest()
             {
                 OrgID = int.Parse((FindControl.FindNM("ddlOrg", pg) as DropDownList).SelectedValue),
                 Status = 1,
                 Name = (FindControl.FindNM("tbName", pg) as TextBox).Text,
                 Phone = (FindControl.FindNM("tbPhone", pg) as TextBox).Text,
                 Email = (FindControl.FindNM("tbEmail", pg) as TextBox).Text,
+                Type = 1,
+                Internet = (FindControl.FindNM("tbEmail", pg) as DropDownList).SelectedValue == "1" ? true : false,
                 DateSubmitted = DateTime.Today.ToShortDateString()
             };
 

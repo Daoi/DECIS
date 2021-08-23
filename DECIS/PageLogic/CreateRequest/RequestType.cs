@@ -24,16 +24,30 @@ namespace DECIS.PageLogic.CreateRequest
             {
                 (FindControl.FindNM("pnlPersonal", pg) as Panel).Visible = true;
                 (FindControl.FindNM("pnlOrg", pg) as Panel).Visible = false;
+                (FindControl.FindNM("fuDocuments", pg) as FileUpload).Visible = false;
+                (FindControl.FindNM("lblFU", pg) as Label).Visible = false;
+                (FindControl.FindNM("lblAddress", pg) as TextBox).Visible = false;
+                (FindControl.FindNM("tbAddress", pg) as TextBox).Visible = false;
+                (FindControl.FindNM("lblZipcode", pg) as TextBox).Text = "Zip Code of Primary Residence:";
+
             }
             else if(ddl.SelectedIndex == ORG)
             {
                 (FindControl.FindNM("pnlPersonal", pg) as Panel).Visible = false;
                 (FindControl.FindNM("pnlOrg", pg) as Panel).Visible = true;
+                (FindControl.FindNM("fuDocuments", pg) as FileUpload).Visible = true;
+                (FindControl.FindNM("lblFU", pg) as Label).Visible = true;
+                (FindControl.FindNM("lblAddress", pg) as TextBox).Visible = true;
+                (FindControl.FindNM("tbAddress", pg) as TextBox).Visible = true;
+                (FindControl.FindNM("lblZipcode", pg) as TextBox).Text = "Organization Zip Code:";
+
             }
             else if (ddl.SelectedIndex == NONE)
             {
                 (FindControl.FindNM("pnlPersonal", pg) as Panel).Visible = false;
                 (FindControl.FindNM("pnlOrg", pg) as Panel).Visible = false;
+                (FindControl.FindNM("fuDocuments", pg) as FileUpload).Visible = false;
+                (FindControl.FindNM("lblFU", pg) as Label).Visible = false;
                 ddlOrg.Visible = false;
                 lblOrg.Visible = false;
                 return;

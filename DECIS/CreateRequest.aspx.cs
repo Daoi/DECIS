@@ -76,6 +76,15 @@ namespace DECIS
                     lblSubmitError.Text = "Error: " + ex.Message + " Please email reuse@temple.edu with this message.";
                 }
             }
+            else if(requestType == "Personal")
+            {
+                int orgID = int.Parse(ddlOrg.SelectedValue);
+                
+            }
+            else
+            {
+                lblSubmitError.Text = "Please select a request type and fill out all fields";
+            }
         }
     }
 }

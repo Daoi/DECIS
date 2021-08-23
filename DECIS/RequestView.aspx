@@ -108,8 +108,15 @@
                         <Columns>
                             <asp:TemplateField HeaderText="Select">
                                 <ItemTemplate>
-                                    <asp:CheckBox ID="cbSelected" runat="server" />
+                                    <asp:UpdatePanel ID="upCB" runat="server">
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="cbSelected" EventName="CheckedChanged" />
+                                        </Triggers>
+                                        <ContentTemplate>
+                                    <asp:CheckBox ID="cbSelected" AutoPostBack="true" OnCheckedChanged="cbSelectedAdd_CheckedChanged" ViewStateMode="Enabled" runat="server" />
                                     <asp:HiddenField ID="hfAssetID" runat="server" Value='<%# Eval("AssetID").ToString() %>' />
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="View">
@@ -134,8 +141,15 @@
                         <Columns>
                             <asp:TemplateField HeaderText="Select">
                                 <ItemTemplate>
-                                    <asp:CheckBox ID="cbSelected" runat="server" />
-                                    <asp:HiddenField ID="hfAssetID" runat="server" Value='<%# Eval("AssetID").ToString() %>' />
+                                    <asp:UpdatePanel ID="upCB" runat="server">
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="cbSelectedR" EventName="CheckedChanged" />
+                                        </Triggers>
+                                        <ContentTemplate>
+                                    <asp:CheckBox ID="cbSelectedR" AutoPostBack="true" OnCheckedChanged="cbSelectedRemove_CheckedChanged" ViewStateMode="Enabled" runat="server" />
+                                    <asp:HiddenField ID="hfAssetIDR" runat="server" Value='<%# Eval("AssetID").ToString() %>' />
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="View">
@@ -157,9 +171,9 @@
         </div>
     </div>
     <script type="text/javascript">
-        function pageLoad() {
-            $('#MainContent_gvComputers').DataTable();
-            $('#MainContent_gvAssigned').DataTable();
-        }
+        $(document).ready(function () {
+            $('#MainContent_gvComputers').DataTable({"lengthMenu": [5, 10, 25, 50, "All"] });
+            $('#MainContent_gvAssigned').DataTable({"lengthMenu": [5, 10, 25, 50, "All"] });
+        });
     </script>
 </asp:Content>

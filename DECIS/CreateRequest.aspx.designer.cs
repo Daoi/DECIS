@@ -166,6 +166,24 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.TextBox tbPhone;
         
         /// <summary>
+        /// lblAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddress;
+        
+        /// <summary>
+        /// tbAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbAddress;
+        
+        /// <summary>
         /// lblZipcode control.
         /// </summary>
         /// <remarks>
@@ -247,6 +265,78 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.DropDownList ddlEthnicity;
         
         /// <summary>
+        /// lblNumOfAdults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumOfAdults;
+        
+        /// <summary>
+        /// tbNumOfAdults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbNumOfAdults;
+        
+        /// <summary>
+        /// lblNumOfHS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumOfHS;
+        
+        /// <summary>
+        /// tbNumOfHS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbNumOfHS;
+        
+        /// <summary>
+        /// lblYoungKids control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblYoungKids;
+        
+        /// <summary>
+        /// tbYoungKids control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbYoungKids;
+        
+        /// <summary>
+        /// lblPreSchool control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPreSchool;
+        
+        /// <summary>
+        /// tbPreSchool control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbPreSchool;
+        
+        /// <summary>
         /// lblInternet control.
         /// </summary>
         /// <remarks>
@@ -263,6 +353,24 @@ namespace DECIS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlInternet;
+        
+        /// <summary>
+        /// lblPersonalReasons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPersonalReasons;
+        
+        /// <summary>
+        /// cblReasons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList cblReasons;
         
         /// <summary>
         /// pnlOrg control.
@@ -454,13 +562,13 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.DropDownList ddlReceivedEquipment;
         
         /// <summary>
-        /// divButtons control.
+        /// lblFU control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divButtons;
+        protected global::System.Web.UI.WebControls.Label lblFU;
         
         /// <summary>
         /// fuDocuments control.
@@ -470,6 +578,15 @@ namespace DECIS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuDocuments;
+        
+        /// <summary>
+        /// divButtons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divButtons;
         
         /// <summary>
         /// btnSubmit control.

@@ -19,7 +19,6 @@ namespace DECIS.PageLogic.RequestView
         /// <param name="reqID"></param>
         public static void Add(List<int> assetIds, int reqID)
         {
-
             var cmdText = assetIds.Aggregate(
                 new StringBuilder(),
                 (sb, id) => sb.AppendLine($"INSERT INTO requestitem (RequestID, AssetID) VALUES " +
