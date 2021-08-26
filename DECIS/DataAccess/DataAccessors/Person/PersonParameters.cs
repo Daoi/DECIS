@@ -50,7 +50,7 @@ namespace DECIS.DataAccess.DataAccessors.Person
             Parameters[11].Value = p.K8Student;
             Parameters[12].Value = p.Preschool;
             Parameters[13].Value = p.HouseholdSize;
-            Parameters[14].Value = 1; //Needs to be changed to p.AgeRange when implemented
+            Parameters[14].Value = p.AgeRangeID;
 
             return Parameters;
 

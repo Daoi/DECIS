@@ -35,7 +35,8 @@ namespace DECIS.PageLogic.CreateRequest
                 DropDownList ddlRace = (FindControl.FindNM("ddlRace", pg) as DropDownList);
                 DropDownList ddlGender = (FindControl.FindNM("ddlGender", pg) as DropDownList);
                 DropDownList ddlEthnicity = (FindControl.FindNM("ddlEthnicity", pg) as DropDownList);
-                DDLDataBind.Bind(new List<DropDownList>() { ddlRace, ddlGender, ddlEthnicity });
+                DropDownList ddlAgeRange = (FindControl.FindNM("ddlAgeRange", pg) as DropDownList);
+                DDLDataBind.Bind(new List<DropDownList>() { ddlRace, ddlGender, ddlEthnicity, ddlAgeRange });
                 cblReasons.DataSource = new GetAllReasons().ExecuteCommand();
                 cblReasons.DataTextField = "Reason";
                 cblReasons.DataValueField = "ReasonID";
