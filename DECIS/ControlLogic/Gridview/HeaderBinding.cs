@@ -14,20 +14,26 @@ namespace DECIS.ControlLogic.Gridview
         /// <param name="gv">The GV to use.</param>
         public static void CreateHeaders(GridView gv)
         {
-            gv.DataBound += (object o, EventArgs ev) =>
+            if (gv.Rows.Count > 0)
             {
-                gv.HeaderRow.TableSection = TableRowSection.TableHeader;
-            };
+                gv.DataBound += (object o, EventArgs ev) =>
+                {
+                    gv.HeaderRow.TableSection = TableRowSection.TableHeader;
+                };
+            }
         }
 
         public static void CreateHeaders(List<GridView> gvs)
         {
             foreach (GridView gv in gvs)
             {
-                gv.DataBound += (object o, EventArgs ev) =>
+                if(gv.Rows.Count > 0)
                 {
-                    gv.HeaderRow.TableSection = TableRowSection.TableHeader;
-                };
+                    gv.DataBound += (object o, EventArgs ev) =>
+                    {
+                        gv.HeaderRow.TableSection = TableRowSection.TableHeader;
+                    };
+                }
             }
         }
     }

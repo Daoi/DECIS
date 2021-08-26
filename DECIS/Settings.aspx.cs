@@ -5,6 +5,7 @@ using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DECIS.PageLogic.Settings;
+using DECIS.CotrolLogic.DDL;
 
 namespace DECIS
 {
@@ -22,7 +23,7 @@ namespace DECIS
             if (!IsPostBack)
             {
                 List<DropDownList> ddls = new List<DropDownList>() { ddlAssetType, ddlAssetMake, ddlLocStatus };
-                DataSet dts = DDLDataBind.ddlBind(ddls);
+                DataSet dts = DDLDataBind.Bind(ddls);
             }
         }
 

@@ -121,6 +121,24 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.TextBox tbOrgZipcode;
         
         /// <summary>
+        /// lblRecievedEquipment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRecievedEquipment;
+        
+        /// <summary>
+        /// ddlReceivedEquipment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlReceivedEquipment;
+        
+        /// <summary>
         /// lblPrimaryContact control.
         /// </summary>
         /// <remarks>
@@ -229,6 +247,42 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.TextBox tbSecondaryEmail;
         
         /// <summary>
+        /// lblOrgPurpose control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOrgPurpose;
+        
+        /// <summary>
+        /// tbOrgPurpose control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbOrgPurpose;
+        
+        /// <summary>
+        /// lblReferer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblReferer;
+        
+        /// <summary>
+        /// tbOrgReferer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbOrgReferer;
+        
+        /// <summary>
         /// btnEdit control.
         /// </summary>
         /// <remarks>
@@ -245,6 +299,15 @@ namespace DECIS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelEdit;
+        
+        /// <summary>
+        /// btnDownload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDownload;
         
         /// <summary>
         /// lblOutstandingMsg control.

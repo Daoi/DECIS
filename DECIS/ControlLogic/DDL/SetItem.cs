@@ -9,7 +9,7 @@ namespace DECIS.ControlLogic.DDL
     public class SetItem
     {
         /// <summary>
-        /// Set the selected item of a drop down list control by using a text value
+        /// Set the selected item of a drop down list control by using a text value. Could use list of tuples
         /// </summary>
         /// <param name="ddlData">the drop down list to use</param>
         /// <param name="value">The text value to look for</param>

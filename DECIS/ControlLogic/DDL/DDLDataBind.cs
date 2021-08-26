@@ -2,6 +2,11 @@
 using DECIS.DataAccess.DataAccessors.Location;
 using DECIS.DataAccess.DataAccessors.Make;
 using DECIS.DataAccess.DataAccessors.Model;
+using DECIS.DataAccess.DataAccessors.Organization;
+using DECIS.DataAccess.DataAccessors.Person.Ethnicity;
+using DECIS.DataAccess.DataAccessors.Person.Gender;
+using DECIS.DataAccess.DataAccessors.Person.Race;
+using DECIS.DataAccess.DataAccessors.Request.RequestStatus;
 using DECIS.DataAccess.DataAccessors.Status;
 using System;
 using System.Collections.Generic;
@@ -10,18 +15,24 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 
-namespace DECIS.CotrolLogic
+namespace DECIS.CotrolLogic.DDL
 {
     public class DDLDataBind
     {
-        //Key = Name to check for - Value = Method to use for binding
+        //Key = Name to check for - Value = Method to use for binding - If your DDL is using the wrong binding its name is most likely conflicting 
         private static Dictionary<Func<string, bool>, Func<DropDownList, DataTable>> bindings = new Dictionary<Func<string, bool>, Func<DropDownList, DataTable>>()
         { { name => name.ToLower().Contains("make"), AssetMake},
           { name => name.ToLower().Contains("model"), AssetModel},
           { name => name.ToLower().Contains("location"), AssetLocation},
           { name => name.ToLower().Contains("description"), AssetLocationDescription},
+          { name => name.ToLower().Contains("requeststatus"), RequestStatus},
           { name => name.ToLower().Contains("status"), AssetStatus},
-          { name => name.ToLower().Contains("type"), AssetType}
+          { name => name.ToLower().Contains("type"), AssetType},
+          { name => name.ToLower().Contains("org"), Organization},
+          { name => name.ToLower().Contains("race"), Race},
+          { name => name.ToLower().Contains("gender"), Gender},
+          { name => name.ToLower().Contains("ethnicity"), Ethnicity}
+
         };
 
         /// <summary>
@@ -30,7 +41,7 @@ namespace DECIS.CotrolLogic
         /// <param name="ddls">List of the DDLs to bind</param>
         /// <param name="makeID">Optional parameter for Make where a model is already chosen to filter items put into list</param>
         /// <returns>A list of the data tables used for binding. Index should match the order of ddls in list.</returns>
-        public static DataSet ddlBind(List<DropDownList> ddls, int makeID = -1)
+        public static DataSet Bind(List<DropDownList> ddls, int makeID = -1)
         {
             DataSet dts = new DataSet();
             if (makeID > -1)
@@ -137,6 +148,67 @@ namespace DECIS.CotrolLogic
             ddl.DataBind();
 
             return typeDT;
+        }
+
+        private static DataTable Organization(DropDownList ddl)
+        {
+            DataTable orgDT = new GetAllOrgs().ExecuteCommand();
+            orgDT.TableName = "Org";
+            ddl.DataSource = orgDT;
+            ddl.DataTextField = "OrgName";
+            ddl.DataValueField = "OrgID";
+            ddl.DataBind();
+            ddl.Items.Insert(0, new ListItem("Not Listed", "-1"));
+
+            return orgDT;
+        }
+
+        private static DataTable RequestStatus(DropDownList ddl)
+        {
+            DataTable rsDT = new GetAllRequestStatus().ExecuteCommand();
+            rsDT.TableName = "RequestStatus";
+            ddl.DataSource = rsDT;
+            ddl.DataTextField = "RequestStatus";
+            ddl.DataValueField = "RequestStatusID";
+            ddl.DataBind();
+
+            return rsDT;
+        }
+
+        private static DataTable Race(DropDownList ddl)
+        {
+            DataTable raceDT = new GetAllRace().ExecuteCommand();
+            raceDT.TableName = "Race";
+            ddl.DataSource = raceDT;
+            ddl.DataTextField = "Race";
+            ddl.DataValueField = "RaceID";
+            ddl.DataBind();
+
+            return raceDT;
+        }
+
+        private static DataTable Gender(DropDownList ddl)
+        {
+            DataTable genderDT = new GetAllGender().ExecuteCommand();
+            genderDT.TableName = "Gender";
+            ddl.DataSource = genderDT;
+            ddl.DataTextField = "Gender";
+            ddl.DataValueField = "GenderID";
+            ddl.DataBind();
+
+            return genderDT;
+        }
+
+        private static DataTable Ethnicity(DropDownList ddl)
+        {
+            DataTable ethnicityDT = new GetAllEthnicity().ExecuteCommand();
+            ethnicityDT.TableName = "Ethnicity";
+            ddl.DataSource = ethnicityDT;
+            ddl.DataTextField = "Ethnicity";
+            ddl.DataValueField = "EthnicityID";
+            ddl.DataBind();
+
+            return ethnicityDT;
         }
 
     }
