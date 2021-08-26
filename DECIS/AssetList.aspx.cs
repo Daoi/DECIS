@@ -13,13 +13,10 @@ namespace DECIS
     public partial class AssetList : System.Web.UI.Page
     {
         DataTable dtAssetList;
-        protected void Page_Init(object sender, EventArgs e)
-        {
-            HeaderBinding.CreateHeaders(gvAssetList);
-        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            HeaderBinding.CreateHeaders(gvAssetList);
             if (!IsPostBack)
             {
                 dtAssetList = new GetAllAssets().ExecuteCommand();
@@ -129,7 +126,7 @@ namespace DECIS
             {
                 ddlLocationFilter.Items.Insert(0, new ListItem("Select Location", "-1"));
             }
-          
+
         }
     }
 }

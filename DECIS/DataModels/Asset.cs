@@ -41,6 +41,7 @@ namespace DECIS.DataModels
             Location = dr["Location"].ToString();
             LocationDescription = dr["LocationDescription"].ToString();
             Status = dr["Status"].ToString();
+            StatusID = int.Parse(dr["StatusID"].ToString());
             Make = dr["Make"].ToString();
             Model = dr["Model"].ToString();
             Image = dr["Image"].ToString() == "" ? "No Image Available" : dr["Image"].ToString();

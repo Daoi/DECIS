@@ -46,6 +46,9 @@ namespace DECIS
             SetItem.SetItemByText(ddlLocation, curAsset.Location);
             //Disable on page first load(Not in edit mode yet)
             TogglePanel.ToggleInputs(pnlControls, true);
+            //Hide edit button on uneditable assets
+            if ((curAsset.StatusID == 5 || curAsset.StatusID == 6))
+                btnEdit.Visible = false;
         }
 
         private void RetrieveData()
@@ -58,7 +61,8 @@ namespace DECIS
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
-        {   
+        {
+            
             if (ViewState["Editing"] != null && (bool)ViewState["Editing"]) //If we're in edit mode
             {
                 //Save currently selected values
@@ -95,7 +99,11 @@ namespace DECIS
                 Session["CurrentAsset"] = newAsset;
                 Response.Redirect("./AssetView.aspx");
             }
-
+            
+            //Donated and Recycled Items can't be edited
+            if ((curAsset.StatusID == 5 || curAsset.StatusID == 6))
+                return;
+            
             //Initialize or update Editing State value
             ViewState["Editing"] = ViewState["Edting"] == null ? ViewState["Editing"] = true : !(bool)ViewState["Editing"];
 
