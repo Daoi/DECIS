@@ -30,7 +30,8 @@ namespace DECIS.PageLogic.RequestView
             //Func<DataRow, bool> findMonitors = r => r["Status"].ToString() == "Good" && r["AssetType"].ToString() == "Monitor";
             //Func<DataRow, bool> findOther = r => r["Status"].ToString() == "Good" && (r["AssetType"].ToString() != "Monitor" || r["AssetType"].ToString() != "Computer" || r["AssetType"].ToString() != "Laptop");
 
-            DataTableFilter.Filter(assets, gvComputers, r => r["Status"].ToString() == "Good");
+            gvComputers.DataSource = assets;
+            gvComputers.DataBind();
             gvAssigned.DataSource = new GetAllAssetsForRequest().ExecuteCommand(reqID);
             gvAssigned.DataBind();
 

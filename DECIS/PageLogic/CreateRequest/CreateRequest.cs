@@ -43,7 +43,7 @@ namespace DECIS.PageLogic.CreateRequest
                 Phone = (FindControl.FindNM("tbPhone", pg) as TextBox).Text,
                 Email = (FindControl.FindNM("tbEmail", pg) as TextBox).Text,
                 Type = 1,
-                Internet = (FindControl.FindNM("tbEmail", pg) as DropDownList).SelectedValue == "1" ? true : false,
+                Internet = (FindControl.FindNM("ddlInternet", pg) as DropDownList).SelectedValue == "1" ? true : false,
                 DateSubmitted = DateTime.Today.ToShortDateString()
             };
 

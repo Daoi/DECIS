@@ -28,7 +28,8 @@ namespace DECIS.DataAccess.DataAccessors.Person
                 new MySqlParameter("@HSStudent", MySqlDbType.Int32),
                 new MySqlParameter("@K8Student", MySqlDbType.Int32),
                 new MySqlParameter("@Preschool", MySqlDbType.Int32),
-
+                new MySqlParameter("@HouseholdSize", MySqlDbType.Int32),
+                new MySqlParameter("@AgeRange", MySqlDbType.Int32),
 
             };
         }
@@ -48,6 +49,8 @@ namespace DECIS.DataAccess.DataAccessors.Person
             Parameters[10].Value = p.HSStudent;
             Parameters[11].Value = p.K8Student;
             Parameters[12].Value = p.Preschool;
+            Parameters[13].Value = p.HouseholdSize;
+            Parameters[14].Value = 1; //Needs to be changed to p.AgeRange when implemented
 
             return Parameters;
 

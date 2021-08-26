@@ -510,7 +510,10 @@
     </Compile>
     <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\FilterAssets.cs" />
+    <Compile Include="DataAccess\DataAccessors\Assets\GetAllActiveAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssets.cs" />
+    <Compile Include="DataAccess\DataAccessors\Assets\GetAllGoodAssets.cs" />
+    <Compile Include="DataAccess\DataAccessors\Assets\GetAllInactiveAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAssetsByIntake.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\ImportAsset.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\Types\GetAllAssetTypes.cs" />
@@ -541,18 +544,25 @@
     <Compile Include="DataAccess\DataAccessors\Organization\InsertOrgParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrgParameters.cs" />
+    <Compile Include="DataAccess\DataAccessors\Person\Ethnicity\GetAllEthnicity.cs" />
+    <Compile Include="DataAccess\DataAccessors\Person\Gender\GetAllGender.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\InsertPerson.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\PersonParameters.cs" />
+    <Compile Include="DataAccess\DataAccessors\Person\Race\GetAllRace.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllAssetsForRequest.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllOrgRequestsByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllRequests.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetRequestInfoByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetOrgRequestsByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetOrgRequestsByStatus.cs" />
+    <Compile Include="DataAccess\DataAccessors\Request\InsertPersonalRequest.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\InsertRequest.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\OrgRequestParameters.cs" />
+    <Compile Include="DataAccess\DataAccessors\Request\PersonalRequestParameters.cs" />
+    <Compile Include="DataAccess\DataAccessors\Request\RequestReason\GetAllReasons.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\RequestStatus\GetAllRequestStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\UpdateOrgRequest.cs" />
+    <Compile Include="DataAccess\DataAccessors\Request\UpdatePersonalRequest.cs" />
     <Compile Include="DataAccess\DataAccessors\Status\GetAllStatus.cs" />
     <Compile Include="DataAccess\DataSupport.cs" />
     <Compile Include="DataAccess\ExecuteData.cs" />
@@ -616,6 +626,8 @@
     <Compile Include="PageLogic\CreateRequest\CollectPersonalRequestInfo.cs" />
     <Compile Include="PageLogic\CreateRequest\CreateOrg.cs" />
     <Compile Include="PageLogic\CreateRequest\CreatePerson.cs" />
+    <Compile Include="PageLogic\CreateRequest\CreatePersonalReasons.cs" />
+    <Compile Include="PageLogic\RequestView\CreatePersonalRequest.cs" />
     <Compile Include="PageLogic\CreateRequest\NonprofitFM.cs" />
     <Compile Include="PageLogic\CreateRequest\CreateRequest.cs" />
     <Compile Include="PageLogic\CreateRequest\DisplayInfo.cs" />

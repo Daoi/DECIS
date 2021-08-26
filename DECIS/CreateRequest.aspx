@@ -60,7 +60,7 @@
                                     <asp:Label ID="lblName" runat="server" Text="Name: "></asp:Label>
                                     <asp:TextBox ID="tbName" required="true" data-dj-validator="atext"  Placeholder="Full Name" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblEmail" runat="server" Text="Email Address: " CssClass="mt-2"></asp:Label>
-                                    <asp:TextBox ID="tbEmail" required="true" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="tbEmail" required="true" placeholder="Type none if you do not have one" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblPhone" runat="server" Text="Phone: " CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbPhone" required="true" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblAddress" runat="server" Text="Organization Address: " CssClass="mt-2"></asp:Label>
@@ -92,7 +92,7 @@
                                         <asp:ListItem Value="1">I currently do not have any internet access at my home, and would like an Internet Essential voucher.</asp:ListItem>
                                     </asp:DropDownList>
                                     <asp:Label ID="lblPersonalReasons" CssClass="mt-2" runat="server" Text="Please indicate the reasons why you are requesting a desktop computer, Check all that apply: "></asp:Label>
-                                    <asp:CheckBoxList ID="cblReasons" runat="server"></asp:CheckBoxList>
+                                    <asp:CheckBoxList ID="cblReasons" CssClass="cbl" runat="server"></asp:CheckBoxList>
                                 </asp:Panel>
                                 <%--Personal Request Form End--%>
                                 <%--Org Request Form Start--%>

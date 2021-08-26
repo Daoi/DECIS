@@ -1,4 +1,5 @@
 ﻿using DECIS.DataAccess.DataAccessors.Person;
+using DECIS.DataAccess.DataAccessors.Request;
 using DECIS.DataAccess.Utilities;
 using DECIS.DataModels;
 using DECIS.Utilities;
@@ -21,7 +22,13 @@ namespace DECIS.PageLogic.CreateRequest
             {
                 int pid = RetrieveLastInsertedID.RetrieveID(new InsertPerson(p).ExecuteCommand());
                 req.PersonID = pid;
-                //Insert Request and Link Request/Org/Person
+                int prid = RetrieveLastInsertedID.RetrieveID(new InsertPersonalRequest(req).ExecuteCommand());
+                CheckBoxList cbl = (FindControl.FindNM("cblReasons", pg) as CheckBoxList);
+                List<int> selectedValues = cbl.Items.Cast<ListItem>()
+                   .Where(li => li.Selected)
+                   .Select(li => int.Parse(li.Value))
+                   .ToList();
+                CreatePersonalReasons.Insert(selectedValues, prid);
             }
             catch(Exception e)
             {

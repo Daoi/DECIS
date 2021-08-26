@@ -1,6 +1,7 @@
 ﻿using DECIS.ControlLogic.Gridview;
 using DECIS.ControlLogic.Panels;
 using DECIS.DataAccess.DataAccessors;
+using DECIS.DataAccess.DataAccessors.Assets;
 using DECIS.DataAccess.DataAccessors.Request;
 using DECIS.DataModels;
 using DECIS.PageLogic.RequestView;
@@ -41,7 +42,7 @@ namespace DECIS
                 Session["Add"] = new List<int>();
                 Session["Remove"] = new List<int>();
                 ViewState["Type"] = type;
-                Session["AssetListDT"] = new GetAllAssets().ExecuteCommand();
+                Session["AssetListDT"] = new GetAllGoodAssets().ExecuteCommand();
                 try
                 {
                     if (type == 0)
@@ -52,9 +53,11 @@ namespace DECIS
                     }
                     else
                     {
-                        PersonalRequest req = new PersonalRequest(new GetRequestInfoByID().ExecuteCommand(reqID, type).Rows[0]);
+                        DataRow info = new GetRequestInfoByID().ExecuteCommand(reqID, type).Rows[0];
+                        PersonalRequest req = new PersonalRequest(info);
+                        Person p = new Person(info);
                         ViewState["Request"] = req;
-                        DisplayRequest.Display(Page, req);
+                        DisplayRequest.Display(Page, req, p);
                     }
                     BindGridviews.Bind(Page, reqID);
                 }
@@ -65,6 +68,8 @@ namespace DECIS
 
                 TogglePanel.ToggleInputs(pnlControls);
                 TogglePanel.ToggleInputs(pnlPeripheral);
+                TogglePanel.ToggleInputs(pnlDDLs);
+
             }
 
         }
@@ -78,8 +83,14 @@ namespace DECIS
                 Request orgReq = ViewState["Request"] as Request;
                 if (orgReq.Type == 0)
                 {
-                    OrgRequest newReq = CreateOrgRequest.Create(Page, orgReq.OrgID);
+                    OrgRequest newReq = CreateOrgRequest.Create(Page, orgReq.RequestID);
                     new UpdateOrgRequest(newReq).ExecuteCommand();
+                }
+                else
+                {
+                    PersonalRequest newReq = CreatePersonalRequest.Create(Page, orgReq.RequestID);
+                    new UpdatePersonalRequest(newReq).ExecuteCommand();
+
                 }
                 Response.Redirect($"./RequestView.aspx?reqid={reqID}&type={type}");
             }
@@ -90,6 +101,7 @@ namespace DECIS
             //Setup display
             TogglePanel.ToggleInputs(pnlControls);
             TogglePanel.ToggleInputs(pnlPeripheral);
+            TogglePanel.ToggleInputs(pnlDDLs);
             btnCancelEdit.Visible = !btnCancelEdit.Visible;
             btnEdit.Text = btnEdit.Text == "Edit" ? "Save" : "Edit";
         }
@@ -99,6 +111,7 @@ namespace DECIS
             //Setup display
             TogglePanel.ToggleInputs(pnlControls);
             TogglePanel.ToggleInputs(pnlPeripheral);
+            TogglePanel.ToggleInputs(pnlDDLs);
             btnCancelEdit.Visible = false;
             btnEdit.Text = "Edit";
         }

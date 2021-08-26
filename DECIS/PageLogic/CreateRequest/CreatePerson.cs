@@ -20,6 +20,7 @@ namespace DECIS.PageLogic.CreateRequest
                 LastName = fn[1],
                 ZipCode = (FindControl.FindNM("tbZipcode", pg) as TextBox).Text,
                 Phone = (FindControl.FindNM("tbPhone", pg) as TextBox).Text,
+                Email = (FindControl.FindNM("tbEmail", pg) as TextBox).Text,
                 Gender = int.Parse((FindControl.FindNM("ddlGender", pg) as DropDownList).SelectedValue),
                 Race = int.Parse((FindControl.FindNM("ddlRace", pg) as DropDownList).SelectedValue),
                 Ethnicity = int.Parse((FindControl.FindNM("ddlEthnicity", pg) as DropDownList).SelectedValue),

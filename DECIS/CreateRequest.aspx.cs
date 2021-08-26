@@ -79,7 +79,7 @@ namespace DECIS
             else if(requestType == "Personal")
             {
                 int orgID = int.Parse(ddlOrg.SelectedValue);
-                
+                CollectPersonalRequestInfo.Collect(Page, orgID);
             }
             else
             {

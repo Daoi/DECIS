@@ -1,18 +1,18 @@
-﻿using MySql.Data.MySqlClient;
+﻿using DECIS.DataModels;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using DECIS.DataModels;
 
 namespace DECIS.DataAccess.DataAccessors.Request
 {
-    public class OrgRequestParameters
+    public class PersonalRequestParameters
     {
         private MySqlParameter[] Parameters;
 
 
-        public OrgRequestParameters()
+        public PersonalRequestParameters()
         {
             Parameters = new MySqlParameter[]
             {
@@ -24,12 +24,8 @@ namespace DECIS.DataAccess.DataAccessors.Request
                 new MySqlParameter("@Notes", MySqlDbType.VarChar, 400),
                 new MySqlParameter("@DateSubmitted", MySqlDbType.VarChar, 10),
                 new MySqlParameter("@DateFinished", MySqlDbType.VarChar, 10),
-                new MySqlParameter("@ContactName", MySqlDbType.VarChar, 100),
-                new MySqlParameter("@ContactPhone", MySqlDbType.VarChar, 20),
-                new MySqlParameter("@ContactEmail", MySqlDbType.VarChar, 100),
-                new MySqlParameter("@ItemsRequested", MySqlDbType.VarChar, 400),
-                new MySqlParameter("@Purpose", MySqlDbType.VarChar, 400),
-                new MySqlParameter("@Timeline", MySqlDbType.VarChar, 200),
+                new MySqlParameter("@Internet", MySqlDbType.Bit, 1),
+                new MySqlParameter("@PersonID", MySqlDbType.Int32),
                 new MySqlParameter("@Keyboard", MySqlDbType.Int32),
                 new MySqlParameter("@Mice", MySqlDbType.Int32),
                 new MySqlParameter("@Wifi", MySqlDbType.Int32),
@@ -37,7 +33,7 @@ namespace DECIS.DataAccess.DataAccessors.Request
             };
         }
 
-        public MySqlParameter[] Fill(OrgRequest req)
+        public MySqlParameter[] Fill(PersonalRequest req)
         {
             Parameters[0].Value = req.RequestID;
             Parameters[1].Value = req.Status;
@@ -47,16 +43,12 @@ namespace DECIS.DataAccess.DataAccessors.Request
             Parameters[5].Value = req.Notes;
             Parameters[6].Value = req.DateSubmitted;
             Parameters[7].Value = req.DateFinished;
-            Parameters[8].Value = req.ContactName;
-            Parameters[9].Value = req.ContactPhone;
-            Parameters[10].Value = req.ContactEmail;
-            Parameters[11].Value = req.ItemsRequested;
-            Parameters[12].Value = req.Purpose;
-            Parameters[13].Value = req.Timeline;
-            Parameters[14].Value = req.Keyboard;
-            Parameters[15].Value = req.Mice;
-            Parameters[16].Value = req.Wifi;
-            Parameters[17].Value = req.Webcam;
+            Parameters[8].Value = req.Internet;
+            Parameters[9].Value = req.PersonID;
+            Parameters[10].Value = req.Keyboard;
+            Parameters[11].Value = req.Mice;
+            Parameters[12].Value = req.Wifi;
+            Parameters[13].Value = req.Webcam;
 
             return Parameters;
         }

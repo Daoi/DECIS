@@ -40,7 +40,7 @@ namespace DECIS.DataModels
             Email = dr["Email"].ToString();
             DateSubmitted = dr["DateSubmitted"].ToString();
             if(dr["DateFinished"] != DBNull.Value)
-                DateFinished = string.Format("MM-dd-yyyy", dr["DateSubmitted"]);
+                DateFinished = string.Format("MM-dd-yyyy", dr["DateSubmitted"].ToString());
             Keyboard = int.Parse(dr["Keyboard"].ToString());
             Mice = int.Parse(dr["Mice"].ToString());
             Wifi = int.Parse(dr["Wifi"].ToString());

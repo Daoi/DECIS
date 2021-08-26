@@ -53,3 +53,7 @@
 .createRequestBG {
     background: #E2DBD5;
 }
+
+.cbl label {
+    padding-left: .5rem;
+}

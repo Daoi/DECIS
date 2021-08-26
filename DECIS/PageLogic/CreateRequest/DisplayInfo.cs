@@ -44,8 +44,6 @@ namespace DECIS.PageLogic.CreateRequest
             //Personal Request
             if (personal)
             {
-                tbOrg.Enabled = false;
-                tbOrg.Text = "Must be affiliated with a valid org to recieve equipment";
                 return selectedOrg;
             }
             else

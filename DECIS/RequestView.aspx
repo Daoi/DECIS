@@ -23,26 +23,43 @@
                             <asp:Label ID="lblRequesterEmail" runat="server" Text="Email:"></asp:Label>
                             <asp:TextBox ID="tbRequesterEmail" MaxLength="100" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:Label ID="lblDateSubmitted" runat="server" Text="Submitted:"></asp:Label>
-                            <asp:TextBox ID="tbDateSubmitted" MaxLength="20" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="tbDateSubmitted" TextMode="Date" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:Label ID="lblDateFinished" runat="server" Text="Finished:"></asp:Label>
+                            <asp:TextBox ID="tbDateFinished" TextMode="Date" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:Label ID="lblRequestStatus" runat="server" Text="Request Status:"></asp:Label>
                             <asp:DropDownList ID="ddlRequestStatus" CssClass="form-control" runat="server">
                             </asp:DropDownList>
                         </div>
                         <div class="col-md">
-                            <h5>
-                                <asp:Label runat="server" ID="lblRequestTypeInfo" Text=""></asp:Label></h5>
+                            <h5><asp:Label runat="server" ID="lblRequestTypeInfo" Text=""></asp:Label></h5>
+                            <asp:Panel ID="pnlDDLs" Visible="false" CssClass="" runat="server">
+                                <asp:Label ID="lblRace" runat="server" Text="Race: "></asp:Label>
+                                <asp:DropDownList ID="ddlRace" CssClass="form-control" runat="server">
+                                </asp:DropDownList>
+                                <asp:Label ID="lblGender" runat="server" Text="Gender: "></asp:Label>
+                                <asp:DropDownList ID="ddlGender" CssClass="form-control" runat="server">
+                                </asp:DropDownList>
+                                <asp:Label ID="lblEthnicity" runat="server" Text="Ethnicity: "></asp:Label>
+                                <asp:DropDownList ID="ddlEthnicity" CssClass="form-control" runat="server">
+                                </asp:DropDownList>
+                                <asp:Label ID="lblInternet" runat="server" Text="Does user have internet: "></asp:Label>
+                                <asp:DropDownList ID="ddlInternet" CssClass="form-control mt-2" runat="server">
+                                <asp:ListItem Value="0">User has internet, does not need an Internet Essential Voucher</asp:ListItem>
+                                <asp:ListItem Value="1">User does not have internet, requires an Internet Essential Voucher</asp:ListItem>
+                            </asp:DropDownList>
+                            </asp:Panel>
                             <asp:Label ID="lblOne" runat="server" Text=""></asp:Label>
-                            <asp:TextBox ID="tbOne" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="tbOne" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:Label ID="lblTwo" runat="server" Text=""></asp:Label>
-                            <asp:TextBox ID="tbTwo" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="tbTwo" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:Label ID="lblThree" runat="server" Text=""></asp:Label>
-                            <asp:TextBox ID="tbThree" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="tbThree" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:Label ID="lblFour" runat="server" Text=""></asp:Label>
-                            <asp:TextBox ID="tbFour" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="tbFour" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:Label ID="lblFive" runat="server" Text=""></asp:Label>
-                            <asp:TextBox ID="tbFive" MaxLength="100" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="tbFive" runat="server" CssClass="form-control" MaxLength="100"></asp:TextBox>
                             <asp:Label ID="lblSix" runat="server" Text=""></asp:Label>
-                            <asp:TextBox ID="tbSix" MaxLength="400" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="tbSix" runat="server" CssClass="form-control" MaxLength="400"></asp:TextBox>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-3"></div>
@@ -113,10 +130,10 @@
                                             <asp:AsyncPostBackTrigger ControlID="cbSelected" EventName="CheckedChanged" />
                                         </Triggers>
                                         <ContentTemplate>
-                                    <asp:CheckBox ID="cbSelected" AutoPostBack="true" OnCheckedChanged="cbSelectedAdd_CheckedChanged" ViewStateMode="Enabled" runat="server" />
-                                    <asp:HiddenField ID="hfAssetID" runat="server" Value='<%# Eval("AssetID").ToString() %>' />
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
+                                            <asp:CheckBox ID="cbSelected" AutoPostBack="true" OnCheckedChanged="cbSelectedAdd_CheckedChanged" ViewStateMode="Enabled" runat="server" />
+                                            <asp:HiddenField ID="hfAssetID" runat="server" Value='<%# Eval("AssetID").ToString() %>' />
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="View">
@@ -146,10 +163,10 @@
                                             <asp:AsyncPostBackTrigger ControlID="cbSelectedR" EventName="CheckedChanged" />
                                         </Triggers>
                                         <ContentTemplate>
-                                    <asp:CheckBox ID="cbSelectedR" AutoPostBack="true" OnCheckedChanged="cbSelectedRemove_CheckedChanged" ViewStateMode="Enabled" runat="server" />
-                                    <asp:HiddenField ID="hfAssetIDR" runat="server" Value='<%# Eval("AssetID").ToString() %>' />
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>
+                                            <asp:CheckBox ID="cbSelectedR" AutoPostBack="true" OnCheckedChanged="cbSelectedRemove_CheckedChanged" ViewStateMode="Enabled" runat="server" />
+                                            <asp:HiddenField ID="hfAssetIDR" runat="server" Value='<%# Eval("AssetID").ToString() %>' />
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="View">
@@ -172,8 +189,8 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#MainContent_gvComputers').DataTable({"lengthMenu": [5, 10, 25, 50, "All"] });
-            $('#MainContent_gvAssigned').DataTable({"lengthMenu": [5, 10, 25, 50, "All"] });
+            $('#MainContent_gvComputers').DataTable({ "lengthMenu": [5, 10, 25, 50, "All"] });
+            $('#MainContent_gvAssigned').DataTable({ "lengthMenu": [5, 10, 25, 50, "All"] });
         });
     </script>
 </asp:Content>

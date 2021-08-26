@@ -9,14 +9,13 @@ using System.Web.UI.WebControls;
 
 namespace DECIS.PageLogic.RequestView
 {
-    public class CreateOrgRequest
+    public class CreatePersonalRequest
     {
-        public static OrgRequest Create(Page pg, int requestID)
+        public static PersonalRequest Create(Page pg, int requestID)
         {
-            OrgRequest newRequest = new OrgRequest()
+            PersonalRequest newRequest = new PersonalRequest()
             {
                 RequestID = requestID,
-                OrgName = (FindControl.Find("lblOrgNameText", pg) as Label).Text,
                 Status = int.Parse((FindControl.Find("ddlRequestStatus", pg) as DropDownList).SelectedValue),
                 Name = (FindControl.Find("tbRequesterName", pg) as TextBox).Text,
                 Phone = (FindControl.Find("tbRequesterPhone", pg) as TextBox).Text,
@@ -29,12 +28,7 @@ namespace DECIS.PageLogic.RequestView
                 DateSubmitted = (FindControl.Find("tbDateSubmitted", pg) as TextBox).Text,
                 DateFinished = (FindControl.Find("tbDateFinished", pg) as TextBox).Text,
                 Type = 0,
-                ContactName = (FindControl.Find("tbOne", pg) as TextBox).Text,
-                ContactPhone = (FindControl.Find("tbTwo", pg) as TextBox).Text,
-                ContactEmail = (FindControl.Find("tbThree", pg) as TextBox).Text,
-                Purpose = (FindControl.Find("tbRequestPurpose", pg) as TextBox).Text,
-                Timeline = (FindControl.Find("tbFive", pg) as TextBox).Text,
-                ItemsRequested = (FindControl.Find("tbSix", pg) as TextBox).Text
+                Internet = (FindControl.Find("ddlInternet", pg) as DropDownList).SelectedValue == "1" ? true : false,
             };
 
             return newRequest;

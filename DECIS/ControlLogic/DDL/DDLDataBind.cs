@@ -3,6 +3,9 @@ using DECIS.DataAccess.DataAccessors.Location;
 using DECIS.DataAccess.DataAccessors.Make;
 using DECIS.DataAccess.DataAccessors.Model;
 using DECIS.DataAccess.DataAccessors.Organization;
+using DECIS.DataAccess.DataAccessors.Person.Ethnicity;
+using DECIS.DataAccess.DataAccessors.Person.Gender;
+using DECIS.DataAccess.DataAccessors.Person.Race;
 using DECIS.DataAccess.DataAccessors.Request.RequestStatus;
 using DECIS.DataAccess.DataAccessors.Status;
 using System;
@@ -25,7 +28,11 @@ namespace DECIS.CotrolLogic.DDL
           { name => name.ToLower().Contains("requeststatus"), RequestStatus},
           { name => name.ToLower().Contains("status"), AssetStatus},
           { name => name.ToLower().Contains("type"), AssetType},
-          { name => name.ToLower().Contains("org"), Organization}
+          { name => name.ToLower().Contains("org"), Organization},
+          { name => name.ToLower().Contains("race"), Race},
+          { name => name.ToLower().Contains("gender"), Gender},
+          { name => name.ToLower().Contains("ethnicity"), Ethnicity}
+
         };
 
         /// <summary>
@@ -166,6 +173,42 @@ namespace DECIS.CotrolLogic.DDL
             ddl.DataBind();
 
             return rsDT;
+        }
+
+        private static DataTable Race(DropDownList ddl)
+        {
+            DataTable raceDT = new GetAllRace().ExecuteCommand();
+            raceDT.TableName = "Race";
+            ddl.DataSource = raceDT;
+            ddl.DataTextField = "Race";
+            ddl.DataValueField = "RaceID";
+            ddl.DataBind();
+
+            return raceDT;
+        }
+
+        private static DataTable Gender(DropDownList ddl)
+        {
+            DataTable genderDT = new GetAllGender().ExecuteCommand();
+            genderDT.TableName = "Gender";
+            ddl.DataSource = genderDT;
+            ddl.DataTextField = "Gender";
+            ddl.DataValueField = "GenderID";
+            ddl.DataBind();
+
+            return genderDT;
+        }
+
+        private static DataTable Ethnicity(DropDownList ddl)
+        {
+            DataTable ethnicityDT = new GetAllEthnicity().ExecuteCommand();
+            ethnicityDT.TableName = "Ethnicity";
+            ddl.DataSource = ethnicityDT;
+            ddl.DataTextField = "Ethnicity";
+            ddl.DataValueField = "EthnicityID";
+            ddl.DataBind();
+
+            return ethnicityDT;
         }
 
     }
