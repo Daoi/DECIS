@@ -28,6 +28,7 @@ namespace DECIS.PageLogic.CreateRequest
                 HSStudent = int.Parse((FindControl.FindNM("tbNumOfHS", pg) as TextBox).Text),
                 K8Student = int.Parse((FindControl.FindNM("tbYoungKids", pg) as TextBox).Text),
                 Preschool = int.Parse((FindControl.FindNM("tbPreschool", pg) as TextBox).Text),
+                AgeRangeID = int.Parse((FindControl.FindNM("ddlAgeRange", pg) as DropDownList).SelectedValue),
             };
 
             p.HouseholdSize = p.Adult + p.HSStudent + p.K8Student + p.Preschool;

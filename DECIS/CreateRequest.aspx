@@ -75,6 +75,8 @@
                                     <asp:DropDownList ID="ddlGender" CssClass="form-control mt-2" runat="server"></asp:DropDownList>
                                     <asp:Label ID="lblRace" runat="server" Text="Race: "></asp:Label>
                                     <asp:DropDownList ID="ddlRace" CssClass="form-control mt-2" runat="server"></asp:DropDownList>
+                                    <asp:Label ID="lblAgeRange" runat="server" Text="Age Range: "></asp:Label>
+                                    <asp:DropDownList ID="ddlAgeRange" CssClass="form-control mt-2" runat="server"></asp:DropDownList>
                                     <asp:Label ID="lblEthnicity" runat="server" Text="Ethnicity: "></asp:Label>
                                     <asp:DropDownList ID="ddlEthnicity" CssClass="form-control mt-2" runat="server"></asp:DropDownList>
                                     <asp:Label ID="lblNumOfAdults" runat="server" Text="# Of Adults in Household:" CssClass="mt-2"></asp:Label>

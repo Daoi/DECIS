@@ -544,6 +544,7 @@
     <Compile Include="DataAccess\DataAccessors\Organization\InsertOrgParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrgParameters.cs" />
+    <Compile Include="DataAccess\DataAccessors\Person\AgeRange\GetAllAgeRange.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\Ethnicity\GetAllEthnicity.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\Gender\GetAllGender.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\InsertPerson.cs" />

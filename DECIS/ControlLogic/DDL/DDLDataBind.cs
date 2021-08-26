@@ -3,6 +3,7 @@ using DECIS.DataAccess.DataAccessors.Location;
 using DECIS.DataAccess.DataAccessors.Make;
 using DECIS.DataAccess.DataAccessors.Model;
 using DECIS.DataAccess.DataAccessors.Organization;
+using DECIS.DataAccess.DataAccessors.Person.AgeRange;
 using DECIS.DataAccess.DataAccessors.Person.Ethnicity;
 using DECIS.DataAccess.DataAccessors.Person.Gender;
 using DECIS.DataAccess.DataAccessors.Person.Race;
@@ -12,7 +13,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.UI.WebControls;
 
 namespace DECIS.CotrolLogic.DDL
@@ -31,8 +31,8 @@ namespace DECIS.CotrolLogic.DDL
           { name => name.ToLower().Contains("org"), Organization},
           { name => name.ToLower().Contains("race"), Race},
           { name => name.ToLower().Contains("gender"), Gender},
-          { name => name.ToLower().Contains("ethnicity"), Ethnicity}
-
+          { name => name.ToLower().Contains("ethnicity"), Ethnicity},
+          { name => name.ToLower().Contains("agerange"), AgeRange}
         };
 
         /// <summary>
@@ -209,6 +209,18 @@ namespace DECIS.CotrolLogic.DDL
             ddl.DataBind();
 
             return ethnicityDT;
+        }
+
+        private static DataTable AgeRange(DropDownList ddl)
+        {
+            DataTable ageDT = new GetAllAgeRange().ExecuteCommand();
+            ageDT.TableName = "AgeRange";
+            ddl.DataSource = ageDT;
+            ddl.DataTextField = "Description";
+            ddl.DataValueField = "AgeRangeID";
+            ddl.DataBind();
+
+            return ageDT;
         }
 
     }
