@@ -44,7 +44,7 @@
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
                                 <label class="card-title font-weight-bold h5">View Requests</label>
-                                <p class="text-dark">Place holder text</p>
+                                <p class="text-dark">View a list of all requests</p>
                                 <a class="stretched-link" href="RequestList.aspx"></a>
                             </div>
                         </div>

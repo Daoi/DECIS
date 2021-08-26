@@ -71,6 +71,10 @@ namespace DECIS
                 TogglePanel.ToggleInputs(pnlDDLs);
 
             }
+            int status = (ViewState["Request"] as Request).Status;
+            //If Finished(4) or Cancelled(5)
+            if (status >= 4)
+                btnEdit.Visible = false;
 
         }
 
@@ -94,7 +98,12 @@ namespace DECIS
                 }
                 Response.Redirect($"./RequestView.aspx?reqid={reqID}&type={type}");
             }
+            int status = (ViewState["Request"] as Request).Status;
             
+            //If Finished(4) or Cancelled(5)
+            if (status >= 4)
+                return;
+
             //Initialize or update Editing State value
             ViewState["Editing"] = ViewState["Edting"] == null ? ViewState["Editing"] = true : !(bool)ViewState["Editing"];
 
