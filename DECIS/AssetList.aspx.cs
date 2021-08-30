@@ -46,8 +46,17 @@ namespace DECIS
             //Get the row containing the clicked button
             LinkButton btn = (LinkButton)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
+            DataRow dr;
             //Recreate the Datarow the GVR is bound to
-            DataRow dr = (ViewState["AssetListDT"] as DataTable).Rows[row.DataItemIndex];
+            if (ViewState["FilteredDT"] == null)
+                dr = dtAssetList.Rows[row.DataItemIndex];
+            else
+            {
+                int x = (ViewState["FilteredDT"] as DataTable).Rows[row.DataItemIndex].Field<int>("AssetID");
+                dr = dtAssetList.Rows.OfType<DataRow>().First(r => r.Field<int>("AssetID") == x);
+            }
+                
+
             Asset asset = new Asset(dr);
 
             Session["CurrentAsset"] = asset;
@@ -59,14 +68,17 @@ namespace DECIS
             lblGVMessage.Visible = false;
             LinkButton lb = (LinkButton)sender;
             string status = lb.Text;
-            ViewState["CurrentStatus"] = status;
 
             DataTable filtered = new FilterAssets().ExecuteCommand(status);
             if (filtered.Rows.Count == 0)
             {
-                lblGVMessage.Text = "No matching items found";
+                lblGVMessage.Text = $"No items with status '{status}' found";
                 lblGVMessage.Visible = true;
+                pnlFilters.Controls.OfType<LinkButton>().ToList().ForEach(c => c.Visible = true);
+                upLocationDDL.Update();
+                return;
             }
+            ViewState["FilteredDT"] = filtered;
             gvAssetList.DataSource = filtered;
             gvAssetList.DataBind();
             ViewState["FilterStatus"] = lb.Text;
