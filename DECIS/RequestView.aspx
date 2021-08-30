@@ -168,7 +168,7 @@
                                             <asp:HiddenField ID="hfAssetIDR" runat="server" Value='<%# Eval("AssetID").ToString() %>' />
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
-                                </ItemTemplate>
+                                </ItemTemplate> 
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="View">
                                 <ItemTemplate>
@@ -176,7 +176,7 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:BoundField DataField="SerialNumber" HeaderText="Serial #" />
-                            <asp:BoundField HeaderText="Status" />
+                            <asp:BoundField DataField="Status" HeaderText="Status" />
                             <asp:BoundField DataField="Make" HeaderText="Make" />
                             <asp:BoundField DataField="Model" HeaderText="Model" />
                             <asp:BoundField DataField="AssetType" HeaderText="Type" />
