@@ -61,6 +61,9 @@
     <script type="text/javascript">
         function pageLoad() {
             $('#MainContent_gvAssetList').DataTable();
-        }
+        };
+        $(document).ready(function () {
+            $('#MainContent_gvOrgList').DataTable();
+        });
     </script>
 </asp:Content>
