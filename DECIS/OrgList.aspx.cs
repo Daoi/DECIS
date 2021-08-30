@@ -17,7 +17,6 @@ namespace DECIS
         {
                 if (!IsPostBack)
                 {
-                    HeaderBinding.CreateHeaders(gvOrgList);
                     dtOrgList = new GetAllOrgs().ExecuteCommand();
 
                     if (dtOrgList.Rows.Count == 0)

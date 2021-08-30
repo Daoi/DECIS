@@ -35,8 +35,6 @@ namespace DECIS
             else
                 type = (int)ViewState["Type"]; //Try to prevent people breaking the webpage by manually changing type, kind of dumb/pointless
 
-            HeaderBinding.CreateHeaders(new List<GridView>() { gvComputers, gvAssigned });
-
             if (!IsPostBack)
             {
                 Session["Add"] = new List<int>();

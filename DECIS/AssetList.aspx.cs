@@ -16,7 +16,6 @@ namespace DECIS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            HeaderBinding.CreateHeaders(gvAssetList);
             if (!IsPostBack)
             {
                 dtAssetList = new GetAllAssets().ExecuteCommand();
@@ -93,7 +92,6 @@ namespace DECIS
             pnlFilters.Controls.OfType<LinkButton>().Where(c => c != lb).ToList().ForEach(c => c.Visible = false);
             lbAllAssets.Visible = true;
             upLocationDDL.Update();
-
         }
 
         protected void lbAllAssets_Click(object sender, EventArgs e)

@@ -37,8 +37,8 @@
     </div>
     <div style="margin-top: 2%; height: 2%; width: auto;"></div>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#MainContent_gvOrgList').DataTable();
-        });
+            $('#MainContent_gvOrgList').prepend($("<thead></thead>").append($("#MainContent_gvOrgList").find("tr:first"))).DataTable({
+                stateSave: true,
+            });
     </script>
 </asp:Content>

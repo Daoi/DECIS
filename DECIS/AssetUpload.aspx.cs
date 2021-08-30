@@ -20,7 +20,6 @@ namespace DECIS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            HeaderBinding.CreateHeaders(gvDuplicates);
             if (!IsPostBack)
             {
                 DataTable dtOrgs = new GetAllOrgs().ExecuteCommand();

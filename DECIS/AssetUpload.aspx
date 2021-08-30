@@ -94,8 +94,12 @@
             });
             var table = $('#MainContent_gvDuplicates');
 
-            if (table.is(":visible"))
-                table.DataTable();
+            if (table.is(":visible")) {
+                table.prepend($("<thead></thead>").append(table).find("tr:first"))).DataTable({
+                    stateSave: true,
+                    "lengthMenu": [5, 10, 25, 50, "All"],
+                });
+            }
         };
     </script>
     <script>

@@ -15,7 +15,6 @@ namespace DECIS
         DataTable dtRequestList;
         protected void Page_Load(object sender, EventArgs e)
         {
-            HeaderBinding.CreateHeaders(gvRequestList);
             if (!IsPostBack)
             {
                 dtRequestList = new GetAllRequests().ExecuteCommand();

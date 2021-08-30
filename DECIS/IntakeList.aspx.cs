@@ -18,7 +18,6 @@ namespace DECIS
         {
                 if (!IsPostBack)
                 {
-                    HeaderBinding.CreateHeaders(gvIntakeList);
                     dtIntakeList = new GetAllIntakes().ExecuteCommand();
 
                     if (dtIntakeList.Rows.Count == 0)

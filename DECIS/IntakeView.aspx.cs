@@ -16,14 +16,15 @@ namespace DECIS
     public partial class IntakeView : System.Web.UI.Page
     {
         int intID;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!int.TryParse(Request.QueryString["intid"], out intID))
                 Response.Redirect("./IntakeList.aspx");
 
+
             if (!IsPostBack)
             {
-                HeaderBinding.CreateHeaders(gvAssetList);
 
                 DataRow drInfo = new GetIntakeByID().ExecuteCommand(intID).Rows[0];
                 DataTable dtAssets = new GetAssetsByIntake().ExecuteCommand(intID);
@@ -32,7 +33,6 @@ namespace DECIS
                 //ViewState["org"] = org;
                 ViewState["it"] = it;
                 ViewState["Assets"] = dtAssets;
-
                 gvAssetList.DataSource = dtAssets;
                 gvAssetList.DataBind();
 
@@ -61,7 +61,7 @@ namespace DECIS
             LinkButton btn = (LinkButton)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
             //Recreate the Datarow the GVR is bound to
-            DataRow dr = (ViewState["AssetListDT"] as DataTable).Rows[row.DataItemIndex];
+            DataRow dr = (ViewState["Assets"] as DataTable).Rows[row.DataItemIndex];
             Asset asset = new Asset(dr);
 
             Session["CurrentAsset"] = asset;
