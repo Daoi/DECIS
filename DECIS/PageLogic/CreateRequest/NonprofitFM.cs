@@ -22,9 +22,6 @@ namespace DECIS.PageLogic.CreateRequest
         {
             this.pg = pg;
             this.fu = fu;
-            path = pg.Server.MapPath($"./Importing/Files/") + fu.FileName;
-            fu.SaveAs(path);
-
         }
 
         public bool Verify()
