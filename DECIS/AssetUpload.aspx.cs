@@ -40,10 +40,7 @@ namespace DECIS
             {
                 try
                 {
-                    string path = Server.MapPath($"./Importing/Files/") + fileUpload.FileName;
-                    fileUpload.SaveAs(path);
-
-                    import = new AssetImportReader(path, ddlOrgs.SelectedItem.Text);
+                    import = new AssetImportReader(fileUpload, ddlOrgs.SelectedItem.Text);
                     ViewState["Import"] = import;
                     lblInsertCount.Text = $"Added {import.Successful} of {import.Rows} new Assets";
                     if (import.Duplicates.Count > 0)

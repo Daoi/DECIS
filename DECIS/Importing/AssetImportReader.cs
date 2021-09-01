@@ -15,6 +15,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace DECIS.Importing
 {
@@ -37,9 +38,9 @@ namespace DECIS.Importing
         public int Successful { get; set; }
 
 
-        public AssetImportReader(string filePath, string selectedOrg) {
+        public AssetImportReader(FileUpload fu, string selectedOrg) {
             Successful = 0;
-            using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
+            using (var stream = fu.PostedFile.InputStream)
             {
                 // Auto-detect format, supports:
                 //  - Binary Excel files (2.0-2003 format; *.xls)
