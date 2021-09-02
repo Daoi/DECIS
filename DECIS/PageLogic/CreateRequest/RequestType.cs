@@ -31,6 +31,8 @@ namespace DECIS.PageLogic.CreateRequest
                 (FindControl.FindNM("lblAddress", pg) as Label).Visible = false;
                 (FindControl.FindNM("tbAddress", pg) as TextBox).Visible = false;
                 (FindControl.FindNM("tbOrgName", pg) as TextBox).Enabled = false;
+                (FindControl.FindNM("fuDocuments", pg) as FileUpload).Visible = false;
+                (FindControl.FindNM("lblFU", pg) as Label).Visible = false;
                 CheckBoxList cblReasons = (FindControl.FindNM("cblReasons", pg) as CheckBoxList);
                 DropDownList ddlRace = (FindControl.FindNM("ddlRace", pg) as DropDownList);
                 DropDownList ddlGender = (FindControl.FindNM("ddlGender", pg) as DropDownList);

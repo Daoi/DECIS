@@ -1,5 +1,6 @@
 ﻿using DECIS.ControlLogic.Gridview;
 using DECIS.ControlLogic.Panels;
+using DECIS.DataAccess.DataAccessors;
 using DECIS.DataAccess.DataAccessors.Organization;
 using DECIS.DataModels;
 using DECIS.PageLogic.OrgView;
@@ -16,6 +17,7 @@ namespace DECIS
     public partial class OrgView : Page
     {
         int orgID;
+        BindGridviews binder;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!int.TryParse(Request.QueryString["orgid"], out orgID))
@@ -23,13 +25,17 @@ namespace DECIS
 
             if (!IsPostBack)
             {
+                ViewState["AssetListDT"] = new GetAllAssets().ExecuteCommand();
                 DataRow drInfo = new GetOrgByID().ExecuteCommand(orgID).Rows[0];
                 Organization org = new Organization(drInfo);
-                HeaderBinding.CreateHeaders(new List<GridView>() { gvPeople, gvRequests, gvCompletedRequests }); //Data Doesn't Exist Yet
                 ViewState["Org"] = org;
                 OrgViewDataDisplay.Display(Page, org);
                 TogglePanel.ToggleInputs(pnlControls);
+                binder = new BindGridviews(orgID);
+                binder.Bind(new List<GridView>() {gvRequests, gvPeople } );
+                ViewState["DataBinder"] = binder;
             }
+            binder = ViewState["DataBinder"] as BindGridviews;
         }
         
         protected void btnEdit_Click(object sender, EventArgs e)

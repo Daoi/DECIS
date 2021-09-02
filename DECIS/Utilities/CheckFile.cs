@@ -20,9 +20,10 @@ namespace DECIS.Utilities
             return fileUpload.PostedFile.ContentType == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"; // .xlsx file type
         }
 
-        public static bool Pdf(string path) 
+        public static bool Pdf(FileUpload fileUpload) 
         {
-            return MimeMapping.GetMimeMapping(path).Contains("application/pdf");
+            string x = MimeMapping.GetMimeMapping(fileUpload.PostedFile.ContentType);
+            return x.Contains("application/pdf") || x.Contains("application/octet-stream");
         }
     }
 }

@@ -26,7 +26,7 @@ namespace DECIS.PageLogic.CreateRequest
 
         public bool Verify()
         {
-            return(fu.HasFile && CheckFile.Pdf(path));
+            return(fu.HasFile && CheckFile.Pdf(fu));
         }
 
         public bool Upload(Organization org)

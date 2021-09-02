@@ -129,7 +129,7 @@ namespace DECIS.Importing
             {
                 try
                 {
-                    DataRow result = new ImportAsset().ExecuteCommand(asset, intakeID).Rows[0];
+                    DataRow result = new ImportAsset().ExecuteCommand(asset, intakeID).Rows[0] ?? null;
                     Successful++;
                     if (result != null) //Serial Number Already Exists
                     {
