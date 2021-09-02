@@ -58,7 +58,7 @@
                                     <asp:Label ID="lblOrgName" runat="server" Text="Org name: "></asp:Label>
                                     <asp:TextBox ID="tbOrgName" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblName" runat="server" Text="Name: "></asp:Label>
-                                    <asp:TextBox ID="tbName" required="true" data-dj-validator="atext" Placeholder="Full Name" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="tbName" required="true" data-dj-validator="name" Placeholder="First and Last Name" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblEmail" runat="server" Text="Email Address: " CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbEmail" required="true" placeholder="Type none if you do not have one" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblPhone" runat="server" Text="Phone: " CssClass="mt-2"></asp:Label>
@@ -163,6 +163,15 @@
         $('#form1').djValidator({
 
         });
+
+        $.fn.djValidator.add('name', 'Please include only first and last name, if its still not working email reuse@temple.edu',
+            function ($field, params) {
+                var value = $field.val();
+                const regex = /^[^\s]+( [^\s]+)+$/;
+                if (value.match(regex)) return true;
+                else return false;
+            });
+
     };
 </script>
 <script>
