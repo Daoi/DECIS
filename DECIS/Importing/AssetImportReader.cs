@@ -130,27 +130,26 @@ namespace DECIS.Importing
                 try
                 {
                     DataRow result = new ImportAsset().ExecuteCommand(asset, intakeID).Rows[0] ?? null;
-                    Successful++;
-                    if (result != null) //Serial Number Already Exists
+                    if (result != null)
                     {
-                        Successful--;
                         int x;
-                        if (int.TryParse(result["AssetID"].ToString(), out x))
-                        {
-                            asset.AssetID = x;
-                            asset.Location = result["Location"].ToString();
-                            asset.Status = result["Status"].ToString();
-                        }
-                        else
-                            asset.AssetID = tempID++;
+                        if(int.TryParse(result["AssetID"].ToString(), out x)) { 
 
-                        Duplicates.Add(asset);
-                        //If further error handling is needed later can seperate between duplicates/other errors 
-                        //if (int.TryParse(result["Status"].ToString(), out x))
-                        //    if(x != ) If an item is duplicate serial number and not donated/recycled status something is wrong
-                        //        Errors.Add(asset);
-                        //else
-                        //    Duplicates.Add(asset);
+                            if(result.Table.Columns.Contains("SerialNumber")) //Duplicate asset found
+                            {
+                                Successful--;
+                                asset.AssetID = x;
+                                asset.Location = result["Location"].ToString();
+                                asset.Status = result["Status"].ToString();
+                                Duplicates.Add(asset);
+
+                            }
+                            else
+                            {
+                                asset.AssetID = x; //New assets only return their ID
+                                Successful++;
+                            }
+                        }
                     }
                 }
                 catch(Exception e)
@@ -158,17 +157,19 @@ namespace DECIS.Importing
                     assets.Remove(asset);
                 }
             }
-            //Take duplicates out of asset list
-            foreach(Asset duplicate in Duplicates)
+            foreach(Asset asset in Duplicates)
             {
-                assets.Remove(duplicate);
+                assets.Remove(asset);
             }
-            
+
             return assets;
         }
 
         public void HandleDuplicates(List<Asset> retries)
         {
+            if (Successful < 0)
+                Successful = 0;
+
             foreach(Asset ast in retries)
             {
                 try
@@ -189,7 +190,7 @@ namespace DECIS.Importing
                 }
                 catch(Exception e)
                 {
-                    continue;
+                    Successful--;
                 }
             }
 
