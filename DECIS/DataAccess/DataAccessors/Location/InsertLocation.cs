@@ -15,7 +15,7 @@ namespace DECIS.DataAccess.DataAccessors.Location
         {
             Parameters = new MySqlParameter[3] {
                 new MySqlParameter("Location", location),
-                new MySqlParameter("Description", description),
+                new MySqlParameter("LocationDescription", description),
                 new MySqlParameter("StatusID", status)
             };
             ExecuteQuery eq = new ExecuteQuery(); //Create instance of class that handles command obj
