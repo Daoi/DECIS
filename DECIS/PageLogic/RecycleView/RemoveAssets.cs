@@ -6,18 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace DECIS.PageLogic.RequestView
+namespace DECIS.PageLogic.RecycleView
 {
     public class RemoveAssets
     {
-        public static void Remove(List<int> assetIds, int reqID)
+        public static void Remove(List<int> assetIds, int recID)
         {
 
             var cmdText = assetIds.Aggregate(
                 new StringBuilder(),
-                (sb, id) => sb.AppendLine($"DELETE FROM requestitem WHERE RequestID = " +
-                $"'{MySqlHelper.EscapeString(reqID.ToString())}' AND AssetID = {MySqlHelper.EscapeString(id.ToString())}; " +
-                $"UPDATE asset SET Status = '1' WHERE asset.AssetID = '{MySqlHelper.EscapeString(id.ToString())}';")).ToString(); //Status 1 = GOOD
+                (sb, id) => sb.AppendLine($"DELETE FROM recycleditem WHERE RecycleID = " +
+                $"'{MySqlHelper.EscapeString(recID.ToString())}' AND AssetID = {MySqlHelper.EscapeString(id.ToString())}; " +
+                $"UPDATE asset SET Status = '2' WHERE asset.AssetID = '{MySqlHelper.EscapeString(id.ToString())}';")).ToString(); //Status 2 = BAD
             try
             {
                 new CTextWriter(cmdText).ExecuteCommand();

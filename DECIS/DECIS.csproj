@@ -347,6 +347,8 @@
     <Content Include="IntakeView.aspx" />
     <Content Include="OrgList.aspx" />
     <Content Include="OrgView.aspx" />
+    <Content Include="RecycleList.aspx" />
+    <Content Include="RecycleView.aspx" />
     <Content Include="RequestList.aspx" />
     <Content Include="RequestView.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -512,6 +514,7 @@
     <Compile Include="DataAccess\DataAccessors\Assets\FilterAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllActiveAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssets.cs" />
+    <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssetsByStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllGoodAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllInactiveAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAssetsByIntake.cs" />
@@ -551,6 +554,13 @@
     <Compile Include="DataAccess\DataAccessors\Person\InsertPerson.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\PersonParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\Race\GetAllRace.cs" />
+    <Compile Include="DataAccess\DataAccessors\Recycle\GetAllAssetsForRecycle.cs" />
+    <Compile Include="DataAccess\DataAccessors\Recycle\GetRecycleByID.cs" />
+    <Compile Include="DataAccess\DataAccessors\Recycle\InsertNewRecycle.cs" />
+    <Compile Include="DataAccess\DataAccessors\Recycle\GetAllRecycle.cs" />
+    <Compile Include="DataAccess\DataAccessors\Recycle\RecycleStatus\GetAllRecycleStatus.cs" />
+    <Compile Include="DataAccess\DataAccessors\Recycle\UpdateRecycle.cs" />
+    <Compile Include="DataAccess\DataAccessors\Recycle\UpdateRecycleParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllAssetsForRequest.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllOrgRequestsByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllRequests.cs" />
@@ -579,6 +589,7 @@
     <Compile Include="DataModels\OrgRequest.cs" />
     <Compile Include="DataModels\Person.cs" />
     <Compile Include="DataModels\PersonalRequest.cs" />
+    <Compile Include="DataModels\Recycle.cs" />
     <Compile Include="DataModels\Request.cs" />
     <Compile Include="DECIS.Master.cs">
       <DependentUpon>DECIS.Master</DependentUpon>
@@ -631,6 +642,12 @@
     <Compile Include="PageLogic\CreateRequest\CreatePerson.cs" />
     <Compile Include="PageLogic\CreateRequest\CreatePersonalReasons.cs" />
     <Compile Include="PageLogic\OrgView\BindGridviews.cs" />
+    <Compile Include="PageLogic\RecycleList\CreateNewRecycle.cs" />
+    <Compile Include="PageLogic\RecycleView\AddAssets.cs" />
+    <Compile Include="PageLogic\RecycleView\BindGridviews.cs" />
+    <Compile Include="PageLogic\RecycleView\CreateRecycle.cs" />
+    <Compile Include="PageLogic\RecycleView\Display.cs" />
+    <Compile Include="PageLogic\RecycleView\RemoveAssets.cs" />
     <Compile Include="PageLogic\RequestView\CreatePersonalRequest.cs" />
     <Compile Include="PageLogic\CreateRequest\NonprofitFM.cs" />
     <Compile Include="PageLogic\CreateRequest\CreateRequest.cs" />
@@ -652,6 +669,20 @@
     <Compile Include="PageLogic\Settings\SettingsMake.cs" />
     <Compile Include="PageLogic\Settings\SettingsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecycleList.aspx.cs">
+      <DependentUpon>RecycleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecycleList.aspx.designer.cs">
+      <DependentUpon>RecycleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecycleView.aspx.cs">
+      <DependentUpon>RecycleView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecycleView.aspx.designer.cs">
+      <DependentUpon>RecycleView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RequestList.aspx.cs">
       <DependentUpon>RequestList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -675,6 +706,7 @@
     </Compile>
     <Compile Include="Utilities\CheckFile.cs" />
     <Compile Include="ControlLogic\Gridview\DataTableFilter.cs" />
+    <Compile Include="Utilities\DateTimeString.cs" />
     <Compile Include="Utilities\FindControl.cs" />
     <Compile Include="Utilities\RandomizeString.cs" />
   </ItemGroup>

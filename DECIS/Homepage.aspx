@@ -52,13 +52,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div id="divInteractionList" class="col m-3 homepageCol" runat="server">
+                    <div id="divRecycleList" class="col m-3 homepageCol" runat="server">
                         <%-- Button 5 Start --%>
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">Placeholder</label>
-                                <p class="text-dark">Place holder text</p>
-                                <a class="stretched-link" href="#"></a>
+                                <label class="card-title font-weight-bold h5">Recycle List</label>
+                                <p class="text-dark">View and Create new Recycle Events</p>
+                                <a class="stretched-link" href="RecycleList.aspx"></a>
                             </div>
                         </div>
                         <%-- Button 5 End --%>

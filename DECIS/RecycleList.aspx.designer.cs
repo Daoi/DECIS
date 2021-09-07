@@ -10,78 +10,105 @@
 namespace DECIS {
     
     
-    public partial class Homepage {
+    public partial class RecycleList {
         
         /// <summary>
-        /// divViewOrgs control.
+        /// divNoRows control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divViewOrgs;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNoRows;
         
         /// <summary>
-        /// divViewAllAsset control.
+        /// lblNoRows control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divViewAllAsset;
+        protected global::System.Web.UI.WebControls.Label lblNoRows;
         
         /// <summary>
-        /// divIntakeList control.
+        /// pnlFilters control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divIntakeList;
+        protected global::System.Web.UI.WebControls.Panel pnlFilters;
         
         /// <summary>
-        /// divRequestList control.
+        /// lbAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRequestList;
+        protected global::System.Web.UI.WebControls.LinkButton lbAll;
         
         /// <summary>
-        /// divRecycleList control.
+        /// lbPending control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRecycleList;
+        protected global::System.Web.UI.WebControls.LinkButton lbPending;
         
         /// <summary>
-        /// divAssetUpload control.
+        /// lbFinished control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAssetUpload;
+        protected global::System.Web.UI.WebControls.LinkButton lbFinished;
         
         /// <summary>
-        /// divSettings control.
+        /// lbCancelled control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSettings;
+        protected global::System.Web.UI.WebControls.LinkButton lbCancelled;
         
         /// <summary>
-        /// div1 control.
+        /// lblGVMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
+        protected global::System.Web.UI.WebControls.Label lblGVMessage;
+        
+        /// <summary>
+        /// gvRecycleList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvRecycleList;
+        
+        /// <summary>
+        /// btnCreateRecycle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCreateRecycle;
+        
+        /// <summary>
+        /// lblNewRecycle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNewRecycle;
     }
 }

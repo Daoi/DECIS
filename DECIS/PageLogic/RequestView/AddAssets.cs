@@ -23,7 +23,7 @@ namespace DECIS.PageLogic.RequestView
                 new StringBuilder(),
                 (sb, id) => sb.AppendLine($"INSERT INTO requestitem (RequestID, AssetID) VALUES " +
                 $"('{MySqlHelper.EscapeString(reqID.ToString())}',{MySqlHelper.EscapeString(id.ToString())}); " +
-                $"UPDATE asset SET Status = '5' WHERE asset.AssetID = '{MySqlHelper.EscapeString(id.ToString())}';")).ToString();
+                $"UPDATE asset SET Status = '5' WHERE asset.AssetID = '{MySqlHelper.EscapeString(id.ToString())}';")).ToString(); //Status 5 = Donated
             try
             {
                 new CTextWriter(cmdText).ExecuteCommand();
