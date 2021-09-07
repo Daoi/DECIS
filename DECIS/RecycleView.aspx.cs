@@ -1,7 +1,10 @@
 ﻿using DECIS.ControlLogic.Gridview;
 using DECIS.ControlLogic.Panels;
+using DECIS.CotrolLogic.DDL;
 using DECIS.DataAccess.DataAccessors.Assets;
+using DECIS.DataAccess.DataAccessors.Recycle;
 using DECIS.DataModels;
+using DECIS.PageLogic.RecycleView;
 using System;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
@@ -21,16 +24,16 @@ namespace DECIS
                 Response.Redirect("./RecycleList.aspx");
 
 
-            HeaderBinding.CreateHeaders(new List<GridView>() { gvComputers, gvAssigned });
 
             if (!IsPostBack)
             {
                 Session["Add"] = new List<int>();
                 Session["Remove"] = new List<int>();
-                Session["BadAssets"] = new GetAllAssetsByStatus().ExecuteCommand(2); // 2 = bad - Getting all bad assets
                 try
                 {
-
+                    BindGridviews.Bind(Page, ID);
+                    ViewState["Recycle"] = new Recycle(new GetRecycleByID().ExecuteCommand(ID).Rows[0]);
+                    DDLDataBind.Bind(new List<DropDownList>() { ddlRecycleStatus, ddlRecycleOrg });
                 }
                 catch (Exception ex)
                 {
@@ -42,8 +45,11 @@ namespace DECIS
             }
             int status = (ViewState["Recycle"] as Recycle).RecycleStatus;
             //If Finished(2) or Cancelled(3) disable editing
-            if (status >= 1)
-                btnEdit.Visible = false;
+            if (status > 1)
+            {
+                pnlButtons.Visible = false;
+                gvComputers.Visible = false;
+            }
 
         }
 
@@ -55,9 +61,9 @@ namespace DECIS
                 return;
             }
             else
-                AddAssets.Add(Session["Add"] as List<int>, reqID);
+                AddAssets.Add(Session["Add"] as List<int>, ID);
 
-            Response.Redirect($"./RequestView.aspx?reqid={reqID}&type={type}");
+            Response.Redirect($"./RecycleView.aspx?id={ID}");
         }
 
         protected void btnRemoveAll_Click(object sender, EventArgs e)
@@ -129,8 +135,6 @@ namespace DECIS
         {
             //Setup display
             TogglePanel.ToggleInputs(pnlControls);
-            TogglePanel.ToggleInputs(pnlPeripheral);
-            TogglePanel.ToggleInputs(pnlDDLs);
             btnCancelEdit.Visible = false;
             btnEdit.Text = "Edit";
         }

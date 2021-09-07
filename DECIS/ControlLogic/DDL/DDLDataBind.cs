@@ -7,6 +7,7 @@ using DECIS.DataAccess.DataAccessors.Person.AgeRange;
 using DECIS.DataAccess.DataAccessors.Person.Ethnicity;
 using DECIS.DataAccess.DataAccessors.Person.Gender;
 using DECIS.DataAccess.DataAccessors.Person.Race;
+using DECIS.DataAccess.DataAccessors.Recycle.RecycleStatus;
 using DECIS.DataAccess.DataAccessors.Request.RequestStatus;
 using DECIS.DataAccess.DataAccessors.Status;
 using System;
@@ -25,6 +26,8 @@ namespace DECIS.CotrolLogic.DDL
           { name => name.ToLower().Contains("model"), AssetModel},
           { name => name.ToLower().Contains("location"), AssetLocation},
           { name => name.ToLower().Contains("description"), AssetLocationDescription},
+          { name => name.ToLower().Contains("recyclestatus"), RecycleStatus},
+          { name => name.ToLower().Contains("recycleorg"), RecycleOrg},
           { name => name.ToLower().Contains("requeststatus"), RequestStatus},
           { name => name.ToLower().Contains("status"), AssetStatus},
           { name => name.ToLower().Contains("type"), AssetType},
@@ -163,6 +166,17 @@ namespace DECIS.CotrolLogic.DDL
             return orgDT;
         }
 
+        private static DataTable RecycleOrg(DropDownList ddl)
+        {
+            DataTable orgDT = new GetAllOrgs().ExecuteCommand();
+            orgDT.TableName = "RecycleOrg";
+            ddl.DataSource = orgDT;
+            ddl.DataTextField = "RecycleOrgName";
+            ddl.DataValueField = "RecycleOrgID";
+            ddl.DataBind();
+            return orgDT;
+        }
+
         private static DataTable RequestStatus(DropDownList ddl)
         {
             DataTable rsDT = new GetAllRequestStatus().ExecuteCommand();
@@ -170,6 +184,17 @@ namespace DECIS.CotrolLogic.DDL
             ddl.DataSource = rsDT;
             ddl.DataTextField = "RequestStatus";
             ddl.DataValueField = "RequestStatusID";
+            ddl.DataBind();
+
+            return rsDT;
+        }
+        private static DataTable RecycleStatus(DropDownList ddl)
+        {
+            DataTable rsDT = new GetAllRecycleStatus().ExecuteCommand();
+            rsDT.TableName = "RecycleStatus";
+            ddl.DataSource = rsDT;
+            ddl.DataTextField = "RecycleStatus";
+            ddl.DataValueField = "RecycleStatusID";
             ddl.DataBind();
 
             return rsDT;

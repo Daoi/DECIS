@@ -49,13 +49,13 @@ namespace DECIS {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRequestList;
         
         /// <summary>
-        /// divInteractionList control.
+        /// divRecycleList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInteractionList;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRecycleList;
         
         /// <summary>
         /// divAssetUpload control.

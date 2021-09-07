@@ -34,11 +34,18 @@
                                 <asp:BoundField DataField="Recycler" HeaderText="Recycled By" />
                                 <asp:BoundField DataField="RecycleDate" DataFormatString="{0:MM-dd-yyyy}" HeaderText="Date" />
                                 <asp:BoundField DataField="RecycleOrgName" HeaderText="Sent To" />
-                                <asp:BoundField DataField="StatusText"  HeaderText="Status" />
+                                <asp:BoundField DataField="StatusText" HeaderText="Status" />
                             </Columns>
                             <RowStyle HorizontalAlign="Center" />
                         </asp:GridView>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <asp:Button ID="btnCreateRecycle" CssClass="btn btn-primary" runat="server" Text="Start new Recycle Form" OnClick="btnCreateRecycle_Click" />
+                        <asp:Label ID="lblNewRecycle" runat="server" Text=""></asp:Label>
+                    </div>
+                    <div class="col-md-8"></div>
                 </div>
             </div>
         </div>
@@ -46,7 +53,9 @@
     <div style="margin-top: 2%; height: 2%; width: auto;"></div>
     <script type="text/javascript">
         function pageLoad() {
-            $('#MainContent_gvRecycleList').DataTable();
-        }
+            $('#MainContent_gvRecycleList').prepend($("<thead></thead>").append($("#MainContent_gvRecycleList").find("tr:first"))).DataTable({
+                stateSave: true,
+            });
+        };
     </script>
 </asp:Content>

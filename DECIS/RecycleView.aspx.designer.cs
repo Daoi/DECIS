@@ -31,58 +31,40 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.Panel pnlControls;
         
         /// <summary>
-        /// lblOrgName control.
+        /// lblOrg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOrgName;
+        protected global::System.Web.UI.WebControls.Label lblOrg;
         
         /// <summary>
-        /// lblOrgNameText control.
+        /// ddlRecycleOrg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOrgNameText;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRecycleOrg;
         
         /// <summary>
-        /// lblRequesterName control.
+        /// lblRecycleDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRequesterName;
+        protected global::System.Web.UI.WebControls.Label lblRecycleDate;
         
         /// <summary>
-        /// tbRequesterName control.
+        /// tbRecycleDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbRequesterName;
-        
-        /// <summary>
-        /// lblDateFinished control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDateFinished;
-        
-        /// <summary>
-        /// tbDateFinished control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbDateFinished;
+        protected global::System.Web.UI.WebControls.TextBox tbRecycleDate;
         
         /// <summary>
         /// lblRecycleStatus control.
@@ -101,69 +83,6 @@ namespace DECIS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlRecycleStatus;
-        
-        /// <summary>
-        /// lblRequestTypeInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRequestTypeInfo;
-        
-        /// <summary>
-        /// lblOne control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOne;
-        
-        /// <summary>
-        /// tbOne control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbOne;
-        
-        /// <summary>
-        /// lblTwo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTwo;
-        
-        /// <summary>
-        /// tbTwo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbTwo;
-        
-        /// <summary>
-        /// lblThree control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblThree;
-        
-        /// <summary>
-        /// tbThree control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbThree;
         
         /// <summary>
         /// pnlButtons control.

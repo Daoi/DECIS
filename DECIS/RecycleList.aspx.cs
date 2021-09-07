@@ -1,5 +1,6 @@
 ﻿using DECIS.ControlLogic.Gridview;
 using DECIS.DataAccess.DataAccessors.Recycle;
+using DECIS.PageLogic.RecycleList;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,7 +17,6 @@ namespace DECIS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            HeaderBinding.CreateHeaders(gvRecycleList);
             if (!IsPostBack)
             {
                 dtRecycleList = new GetAllRecycle().ExecuteCommand();
@@ -24,7 +24,9 @@ namespace DECIS
                 if (dtRecycleList.Rows.Count == 0)
                 {
                     lblGVMessage.Text = "Couldn't find any intakes to display.";
+                    pnlFilters.Visible = false;
                     divNoRows.Visible = true;
+
                     return;
                 }
                 gvRecycleList.DataSource = dtRecycleList;
@@ -44,7 +46,7 @@ namespace DECIS
             //Recreate the Datarow the GVR is bound to
             DataRow dr = (ViewState["RecycleListDT"] as DataTable).Rows[row.DataItemIndex];
 
-            Response.Redirect($"./RecycleView.aspx?id={dr["RequestID"].ToString()}");
+            Response.Redirect($"./RecycleView.aspx?id={dr["RecycleID"].ToString()}");
         }
 
         protected void lb_Click(object sender, EventArgs e)
@@ -73,6 +75,19 @@ namespace DECIS
                 lblGVMessage.Visible = true;
                 lblGVMessage.Text = $"Couldn't find any recycle reports with status {lb.Text}";
                 gvRecycleList.Visible = false;
+            }
+        }
+
+        protected void btnCreateRecycle_Click(object sender, EventArgs e)
+        {
+            int newID = CreateNewRecycle.Create();
+            if(newID != -1)
+            {
+                Response.Redirect($"./RecycleView.aspx?id={newID}");
+            }
+            else
+            {
+                lblNewRecycle.Text = "Couldn't create new Recycle Form, try again later.";
             }
         }
     }
