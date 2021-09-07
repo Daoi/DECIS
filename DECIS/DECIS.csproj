@@ -550,6 +550,7 @@
     <Compile Include="DataAccess\DataAccessors\Person\AgeRange\GetAllAgeRange.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\Ethnicity\GetAllEthnicity.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\Gender\GetAllGender.cs" />
+    <Compile Include="DataAccess\DataAccessors\Person\GetAssociatedPeople.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\InsertPerson.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\PersonParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\Race\GetAllRace.cs" />
@@ -557,6 +558,7 @@
     <Compile Include="DataAccess\DataAccessors\Request\GetAllAssetsForRequest.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllOrgRequestsByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllRequests.cs" />
+    <Compile Include="DataAccess\DataAccessors\Request\GetAllRequestsForOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetRequestInfoByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetOrgRequestsByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetOrgRequestsByStatus.cs" />
@@ -633,6 +635,7 @@
     <Compile Include="PageLogic\CreateRequest\CreateOrg.cs" />
     <Compile Include="PageLogic\CreateRequest\CreatePerson.cs" />
     <Compile Include="PageLogic\CreateRequest\CreatePersonalReasons.cs" />
+    <Compile Include="PageLogic\OrgView\BindGridviews.cs" />
     <Compile Include="PageLogic\RequestView\CreatePersonalRequest.cs" />
     <Compile Include="PageLogic\CreateRequest\NonprofitFM.cs" />
     <Compile Include="PageLogic\CreateRequest\CreateRequest.cs" />

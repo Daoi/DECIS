@@ -122,6 +122,9 @@
                                     <asp:GridView ID="gvCompletedRequests" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="False">
                                         <HeaderStyle CssClass="cherryBackground" />
                                         <Columns>
+                                            <asp:BoundField DataField="RequestID" HeaderText="Request ID" />
+                                            <asp:BoundField DataField="DateSubmitted" HeaderText="Submitted" />
+                                            <asp:BoundField DataField="DateFinished" HeaderText="Finished" />
                                         </Columns>
                                     </asp:GridView>
                                 </div>
@@ -130,6 +133,12 @@
                                     <asp:GridView ID="gvPeople" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="True">
                                         <HeaderStyle CssClass="cherryBackground" />
                                         <Columns>
+                                            <asp:BoundField DataField="RequestID" HeaderText="Request ID" />
+                                            <asp:BoundField DataField="Name" HeaderText="Contact" />
+                                            <asp:BoundField DataField="Phone" HeaderText="Phone" />
+                                            <asp:BoundField DataField="Email" HeaderText="Email" />
+                                            <asp:BoundField DataField="DateSubmitted" HeaderText="Submitted" />
+                                            <asp:BoundField DataField="RequestStatus" HeaderText="Status" />
                                         </Columns>
                                     </asp:GridView>
                                 </div>
@@ -163,8 +172,10 @@
         });
     </script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#MainContent_gvAssetList').DataTable();
-        });
+        function pageLoad() {
+            $('#MainContent_gvAssetList').prepend($("<thead></thead>").append($("#MainContent_gvAssetList").find("tr:first"))).DataTable({
+                stateSave: true,
+            });
+        };
     </script>
 </asp:Content>

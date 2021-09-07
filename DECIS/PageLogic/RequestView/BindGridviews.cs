@@ -1,5 +1,6 @@
 ﻿using DECIS.ControlLogic.Gridview;
 using DECIS.DataAccess.DataAccessors;
+using DECIS.DataAccess.DataAccessors.Assets;
 using DECIS.DataAccess.DataAccessors.Request;
 using DECIS.Utilities;
 using System;
@@ -23,20 +24,17 @@ namespace DECIS.PageLogic.RequestView
             GridView gvComputers = (FindControl.Find("gvComputers", pg) as GridView);
             GridView gvAssigned = (FindControl.Find("gvAssigned", pg) as GridView);
             //Asset List
-            DataTable assets = HttpContext.Current.Session["AssetListDT"] as DataTable;
 
             //Create Filters
             //Func<DataRow, bool> findComputers = r => r["Status"].ToString() == "Good" && (r["AssetType"].ToString() == "Computer" || r["AssetType"].ToString() == "Laptop");
             //Func<DataRow, bool> findMonitors = r => r["Status"].ToString() == "Good" && r["AssetType"].ToString() == "Monitor";
             //Func<DataRow, bool> findOther = r => r["Status"].ToString() == "Good" && (r["AssetType"].ToString() != "Monitor" || r["AssetType"].ToString() != "Computer" || r["AssetType"].ToString() != "Laptop");
 
-            gvComputers.DataSource = assets;
+            gvComputers.DataSource = new GetAllGoodAssets().ExecuteCommand();
             gvComputers.DataBind();
             gvAssigned.DataSource = new GetAllAssetsForRequest().ExecuteCommand(reqID);
             gvAssigned.DataBind();
 
-
-            
         }
     }
 }

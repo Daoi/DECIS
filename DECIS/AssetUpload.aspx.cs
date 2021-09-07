@@ -20,7 +20,6 @@ namespace DECIS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            HeaderBinding.CreateHeaders(gvDuplicates);
             if (!IsPostBack)
             {
                 DataTable dtOrgs = new GetAllOrgs().ExecuteCommand();
@@ -41,12 +40,9 @@ namespace DECIS
             {
                 try
                 {
-                    string path = Server.MapPath($"./Importing/Files/") + fileUpload.FileName;
-                    fileUpload.SaveAs(path);
-
-                    import = new AssetImportReader(path, ddlOrgs.SelectedItem.Text);
+                    import = new AssetImportReader(fileUpload, ddlOrgs.SelectedItem.Text);
                     ViewState["Import"] = import;
-                    lblInsertCount.Text = $"Added {import.Successful} of {import.Rows} new Assets";
+                    lblInsertCount.Text = $"Added {(import.Successful > 0 ? import.Successful : 0 )} of {import.Rows} new Assets";
                     if (import.Duplicates.Count > 0)
                     {
                         lblInsertCount.Text += $"<br /> Found {import.Duplicates.Count} duplicate serial number(s): ";

@@ -58,7 +58,7 @@
                                     <asp:Label ID="lblOrgName" runat="server" Text="Org name: "></asp:Label>
                                     <asp:TextBox ID="tbOrgName" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblName" runat="server" Text="Name: "></asp:Label>
-                                    <asp:TextBox ID="tbName" required="true" data-dj-validator="atext"  Placeholder="Full Name" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="tbName" required="true" data-dj-validator="name" Placeholder="First and Last Name" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblEmail" runat="server" Text="Email Address: " CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbEmail" required="true" placeholder="Type none if you do not have one" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblPhone" runat="server" Text="Phone: " CssClass="mt-2"></asp:Label>
@@ -81,10 +81,10 @@
                                     <asp:DropDownList ID="ddlEthnicity" CssClass="form-control mt-2" runat="server"></asp:DropDownList>
                                     <asp:Label ID="lblNumOfAdults" runat="server" Text="# Of Adults in Household:" CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbNumOfAdults" required="true" TextMode="Number" min="0" data-dj-validator="int,0,10" runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:Label ID="lblNumOfHS"  runat="server" Text="# Of High School Students:" CssClass="mt-2"></asp:Label>
+                                    <asp:Label ID="lblNumOfHS" runat="server" Text="# Of High School Students:" CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbNumOfHS" required="true" TextMode="Number" min="0" data-dj-validator="int,0,10" runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:Label ID="lblYoungKids" runat="server"  Text="# of Kindergarten to Grade 8 Students:" CssClass="mt-2"></asp:Label>
-                                    <asp:TextBox ID="tbYoungKids" required="true" TextMode="Number" min="0" data-dj-validator="int,0,10"  runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:Label ID="lblYoungKids" runat="server" Text="# of Kindergarten to Grade 8 Students:" CssClass="mt-2"></asp:Label>
+                                    <asp:TextBox ID="tbYoungKids" required="true" TextMode="Number" min="0" data-dj-validator="int,0,10" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblPreSchool" runat="server" Text="# of Preschool Children (not in Kindergarten)" CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbPreSchool" required="true" TextMode="Number" min="0" data-dj-validator="int,0,10" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblInternet" CssClass="mt-2" runat="server" Text="Please indicate if you would like a six month voucher for Comcast Internet Essentials: "></asp:Label>
@@ -115,7 +115,7 @@
                                     <asp:Label ID="lblSpecs" runat="server" Text="Number of and type of computer equipment desired (Include minimal specs required): " CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbSpecs" required="true" MaxLength="400" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblReferer" runat="server" Text="How did you hear about Temple Tech for Philly: " CssClass="mt-2"></asp:Label>
-                                    <asp:TextBox ID="tbReferer"  MaxLength="150" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="tbReferer" MaxLength="150" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblTimeline" runat="server" Text="Briefly include a possible timeline of when you would need the items:" CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbTimeline" required="true" MaxLength="200" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblRecievedEquipment" runat="server" Text="Has your organization recieved equipment from us before?" CssClass="mt-2"></asp:Label>
@@ -127,14 +127,6 @@
                                 <%--Org Request Form End--%>
                             </div>
                             <div class="col-2"></div>
-                            <div class="row">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
-                                    <asp:Label ID="lblFU" Visible="false" runat="server" Text="Please upload a PDF file containing documents verifying non-profit status. Please also include pictures of the space the computers will be used in." CssClass="mt-2"></asp:Label>
-                                    <asp:FileUpload ID="fuDocuments" Visible="false" CssClass="form-control" runat="server" />
-                                </div>
-                                <div class="col-md-2"></div>
-                            </div>
                             <div runat="server" id="divButtons" class="row mb-3" visible="true">
                                 <div class="col-4"></div>
                                 <div class="col-4">
@@ -146,6 +138,14 @@
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
+                <div class="row mt-3 pb-3">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <asp:Label ID="lblFU" runat="server" Text="Please upload a PDF file containing documents verifying non-profit status. Please also include pictures of the space the computers will be used in." CssClass="mt-2"></asp:Label>
+                        <asp:FileUpload ID="fuDocuments" CssClass="form-control" runat="server" />
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
                 <%-- Main Form End--%>
             </div>
             <div class="pb-5" style="margin-top: 2%; height: 2%; width: auto;"></div>
@@ -163,7 +163,36 @@
         $('#form1').djValidator({
 
         });
+
+        $.fn.djValidator.add('name', 'Please include only first and last name, if its still not working email reuse@temple.edu',
+            function ($field, params) {
+                var value = $field.val();
+                const regex = /^[^\s]+( [^\s]+)+$/;
+                if (value.match(regex)) return true;
+                else return false;
+            });
+
     };
+</script>
+<script>
+    $(document).ready(function () {
+        $('#fuDocuments').hide();
+        $('#lblFU').hide();
+        $('#ddlRequestType').on("change", function () {
+            var x = $("#ddlRequestType").prop('selectedIndex');
+            console.log(x);
+            console.log(x < 2);
+            if (x < 2) {
+                $('#fuDocuments').hide();
+                $('#lblFU').hide();
+
+            }
+            else {
+                $('#fuDocuments').show();
+                $('#lblFU').show();
+            }
+        });
+    });
 </script>
 <script>
     //Change file label to file uploaded

@@ -38,6 +38,7 @@
                                         <asp:Label ID="lblType" runat="server" Text='<%# Eval("Type").ToString() == "0" ? "Organization" : "Personal" %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:BoundField DataField="RequestID" HeaderText="ID" />
                                 <asp:BoundField DataField="OrgName" HeaderText="Org" />
                                 <asp:BoundField DataField="Name" HeaderText="Requester" />
                                 <asp:BoundField DataField="RequestStatus" HeaderText="Status" />
@@ -53,8 +54,10 @@
     </div>
     <div style="margin-top: 2%; height: 2%; width: auto;"></div>
     <script type="text/javascript">
-        function pageLoad() {
-            $('#MainContent_gvRequestList').DataTable();
-        }
+            function pageLoad() {
+                $('#MainContent_gvRequestList').prepend($("<thead></thead>").append($("#MainContent_gvRequestList").find("tr:first"))).DataTable({
+                    stateSave: true,
+                });
+            };
     </script>
 </asp:Content>

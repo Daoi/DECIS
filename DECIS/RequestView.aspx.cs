@@ -35,14 +35,12 @@ namespace DECIS
             else
                 type = (int)ViewState["Type"]; //Try to prevent people breaking the webpage by manually changing type, kind of dumb/pointless
 
-            HeaderBinding.CreateHeaders(new List<GridView>() { gvComputers, gvAssigned });
-
             if (!IsPostBack)
             {
                 Session["Add"] = new List<int>();
                 Session["Remove"] = new List<int>();
                 ViewState["Type"] = type;
-                Session["AssetListDT"] = new GetAllGoodAssets().ExecuteCommand();
+                Session["AssetListDT"] = new GetAllAssets().ExecuteCommand();
                 try
                 {
                     if (type == 0)
@@ -136,7 +134,8 @@ namespace DECIS
         {
             LinkButton btn = (LinkButton)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
-            DataRow dr = (ViewState["AssetListDT"] as DataTable).Rows[row.DataItemIndex];
+            int x = int.Parse((row.Cells[0].FindControl("hfAssetID") as HiddenField ?? row.Cells[0].FindControl("hfAssetIDR") as HiddenField).Value);
+            DataRow dr = (Session["AssetListDT"] as DataTable).AsEnumerable().First(r => r.Field<int>("AssetID") == x);
             Asset asset = new Asset(dr);
             //This should be changed to use querystring or something like other view pages
             Session["CurrentAsset"] = asset;

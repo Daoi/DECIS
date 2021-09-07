@@ -31,7 +31,8 @@
                             </asp:DropDownList>
                         </div>
                         <div class="col-md">
-                            <h5><asp:Label runat="server" ID="lblRequestTypeInfo" Text=""></asp:Label></h5>
+                            <h5>
+                                <asp:Label runat="server" ID="lblRequestTypeInfo" Text=""></asp:Label></h5>
                             <asp:Panel ID="pnlDDLs" Visible="false" CssClass="" runat="server">
                                 <asp:Label ID="lblRace" runat="server" Text="Race: "></asp:Label>
                                 <asp:DropDownList ID="ddlRace" CssClass="form-control" runat="server">
@@ -44,9 +45,9 @@
                                 </asp:DropDownList>
                                 <asp:Label ID="lblInternet" runat="server" Text="Does user have internet: "></asp:Label>
                                 <asp:DropDownList ID="ddlInternet" CssClass="form-control mt-2" runat="server">
-                                <asp:ListItem Value="0">User has internet, does not need an Internet Essential Voucher</asp:ListItem>
-                                <asp:ListItem Value="1">User does not have internet, requires an Internet Essential Voucher</asp:ListItem>
-                            </asp:DropDownList>
+                                    <asp:ListItem Value="0">User has internet, does not need an Internet Essential Voucher</asp:ListItem>
+                                    <asp:ListItem Value="1">User does not have internet, requires an Internet Essential Voucher</asp:ListItem>
+                                </asp:DropDownList>
                             </asp:Panel>
                             <asp:Label ID="lblOne" runat="server" Text=""></asp:Label>
                             <asp:TextBox ID="tbOne" runat="server" CssClass="form-control"></asp:TextBox>
@@ -167,7 +168,7 @@
                                             <asp:HiddenField ID="hfAssetIDR" runat="server" Value='<%# Eval("AssetID").ToString() %>' />
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
-                                </ItemTemplate>
+                                </ItemTemplate> 
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="View">
                                 <ItemTemplate>
@@ -175,7 +176,7 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:BoundField DataField="SerialNumber" HeaderText="Serial #" />
-                            <asp:BoundField HeaderText="Status" />
+                            <asp:BoundField DataField="Status" HeaderText="Status" />
                             <asp:BoundField DataField="Make" HeaderText="Make" />
                             <asp:BoundField DataField="Model" HeaderText="Model" />
                             <asp:BoundField DataField="AssetType" HeaderText="Type" />
@@ -188,9 +189,15 @@
         </div>
     </div>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#MainContent_gvComputers').DataTable({ "lengthMenu": [5, 10, 25, 50, "All"] });
-            $('#MainContent_gvAssigned').DataTable({ "lengthMenu": [5, 10, 25, 50, "All"] });
-        });
+        function pageLoad() {
+            $('#MainContent_gvComputers').prepend($("<thead></thead>").append($("#MainContent_gvComputers").find("tr:first"))).DataTable({
+                stateSave: true,
+                "lengthMenu": [5, 10, 25, 50, "All"],
+            });
+            $('#MainContent_gvAssigned').prepend($("<thead></thead>").append($("#MainContent_gvAssigned").find("tr:first"))).DataTable({
+                stateSave: true,
+                "lengthMenu": [5, 10, 25, 50, "All"],
+            });
+        };
     </script>
 </asp:Content>

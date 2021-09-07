@@ -67,7 +67,7 @@
                         <ItemTemplate>
                             <asp:LinkButton ID="lnkBtnView" runat="server" OnClick="lnkBtnView_Click">
                                     <i class="fas fa-eye"></i>
-                                </asp:LinkButton>
+                            </asp:LinkButton>
                         </ItemTemplate>
                         <ItemStyle CssClass="align-items-center"></ItemStyle>
                     </asp:TemplateField>
@@ -85,8 +85,10 @@
         </div>
     </div>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#MainContent_gvAssetList').DataTable();
-        });
+        function pageLoad() {
+            $('#MainContent_gvAssetList').prepend($("<thead></thead>").append($("#MainContent_gvAssetList").find("tr:first"))).DataTable({
+                stateSave: true,
+            });
+        };
     </script>
 </asp:Content>

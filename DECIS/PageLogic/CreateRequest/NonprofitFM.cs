@@ -22,14 +22,11 @@ namespace DECIS.PageLogic.CreateRequest
         {
             this.pg = pg;
             this.fu = fu;
-            path = pg.Server.MapPath($"./Importing/Files/") + fu.FileName;
-            fu.SaveAs(path);
-
         }
 
         public bool Verify()
         {
-            return(fu.HasFile && CheckFile.Pdf(path));
+            return(fu.HasFile && CheckFile.Pdf(fu));
         }
 
         public bool Upload(Organization org)

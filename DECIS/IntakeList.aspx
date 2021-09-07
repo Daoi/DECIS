@@ -38,8 +38,10 @@
     </div>
     <div style="margin-top: 2%; height: 2%; width: auto;"></div>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#MainContent_gvIntakeList').DataTable();
-        });
+        function pageLoad() {
+            $('#MainContent_gvIntakeList').prepend($("<thead></thead>").append($("#MainContent_gvIntakeList").find("tr:first"))).DataTable({
+                stateSave: true,
+            });
+        };
     </script>
 </asp:Content>
