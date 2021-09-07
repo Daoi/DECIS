@@ -19,6 +19,7 @@ namespace DECIS.DataAccess.DataAccessors.Recycle
             new MySqlParameter("@RecycleDate", MySqlDbType.VarChar, 20),
             new MySqlParameter("@RecycleStatus", MySqlDbType.Int32),
             new MySqlParameter("@RecycleReceiver", MySqlDbType.Int32),
+            new MySqlParameter("@Recycler",  MySqlDbType.VarChar, 100),
 
             };
         }
@@ -29,6 +30,7 @@ namespace DECIS.DataAccess.DataAccessors.Recycle
             Parameters[1].Value = r.Date;
             Parameters[2].Value = r.RecycleStatus;
             Parameters[3].Value = r.RecycleReceiver;
+            Parameters[4].Value = r.Recycler;
 
             return Parameters;
         }

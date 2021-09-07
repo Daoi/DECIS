@@ -13,14 +13,14 @@ namespace DECIS
 {
     public partial class RecycleView : System.Web.UI.Page
     {
-        int ID;
+        int rcID;
         List<int> assetsToAdd;
         List<int> assetsToRemove;
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!int.TryParse(Request.QueryString["id"], out ID))
+            if (!int.TryParse(Request.QueryString["id"], out rcID))
                 Response.Redirect("./RecycleList.aspx");
 
 
@@ -31,8 +31,8 @@ namespace DECIS
                 Session["Remove"] = new List<int>();
                 try
                 {
-                    BindGridviews.Bind(Page, ID);
-                    ViewState["Recycle"] = new Recycle(new GetRecycleByID().ExecuteCommand(ID).Rows[0]);
+                    BindGridviews.Bind(Page, rcID);
+                    ViewState["Recycle"] = new Recycle(new GetRecycleByID().ExecuteCommand(rcID).Rows[0]);
                     DDLDataBind.Bind(new List<DropDownList>() { ddlRecycleStatus, ddlRecycleOrg });
                 }
                 catch (Exception ex)
@@ -61,9 +61,9 @@ namespace DECIS
                 return;
             }
             else
-                AddAssets.Add(Session["Add"] as List<int>, ID);
+                AddAssets.Add(Session["Add"] as List<int>, rcID);
 
-            Response.Redirect($"./RecycleView.aspx?id={ID}");
+            Response.Redirect($"./RecycleView.aspx?id={rcID}");
         }
 
         protected void btnRemoveAll_Click(object sender, EventArgs e)
@@ -74,9 +74,9 @@ namespace DECIS
                 return;
             }
             else
-                RemoveAssets.Remove(Session["Remove"] as List<int>, ID);
+                RemoveAssets.Remove(Session["Remove"] as List<int>, rcID);
 
-            Response.Redirect($"./RecycleView.aspx?id={ID}");
+            Response.Redirect($"./RecycleView.aspx?id={rcID}");
         }
 
         protected void cbSelectedAdd_CheckedChanged(object sender, EventArgs e)
@@ -114,8 +114,18 @@ namespace DECIS
         {
             if (ViewState["Editing"] != null && (bool)ViewState["Editing"]) //If we're in edit mode
             {
-                //Save currently selected values
-                Response.Redirect($"./RecycleView.aspx?id={ID}");
+                try
+                {
+                    Recycle newRecycle = CreateRecycle.Create(Page);
+                    new UpdateRecycle(newRecycle).ExecuteCommand();
+                    Response.Redirect($"./RecycleView.aspx?id={rcID}");
+                }
+                catch(Exception ex)
+                {
+                    lblComputerMsg.Text = ex.Message;
+                    lblComputerMsg.Visible = true;
+                }
+
             }
             int status = (ViewState["Recycle"] as Recycle).RecycleStatus;
             //If Finished(2) or Cancelled(3)

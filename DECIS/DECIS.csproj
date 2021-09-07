@@ -645,6 +645,7 @@
     <Compile Include="PageLogic\RecycleList\CreateNewRecycle.cs" />
     <Compile Include="PageLogic\RecycleView\AddAssets.cs" />
     <Compile Include="PageLogic\RecycleView\BindGridviews.cs" />
+    <Compile Include="PageLogic\RecycleView\CreateRecycle.cs" />
     <Compile Include="PageLogic\RecycleView\Display.cs" />
     <Compile Include="PageLogic\RecycleView\RemoveAssets.cs" />
     <Compile Include="PageLogic\RequestView\CreatePersonalRequest.cs" />
