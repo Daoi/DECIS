@@ -49,7 +49,7 @@
                             <div class="col-2"></div>
                             <div class="col-8 mb-5" style="color: black">
                                 <asp:Label ID="lblRequestType" runat="server" Text="Select Request Type:" CssClass=""></asp:Label>
-                                <asp:DropDownList ID="ddlRequestType" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged">
+                                <asp:DropDownList ID="ddlRequestType"  CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged">
                                     <asp:ListItem Selected="True" Value="-1">Select Request Type</asp:ListItem>
                                     <asp:ListItem Value="Personal">Personal (Equipment for an individual/home)</asp:ListItem>
                                     <asp:ListItem Value="Organization">Organization</asp:ListItem>
@@ -57,7 +57,7 @@
                                 <%--Shared Request Form Start--%>
                                 <asp:Panel ID="pnlShared" runat="server">
                                     <asp:Label ID="lblOrganization" Visible="false" runat="server" Text="Select Affiliated Organization:" CssClass=""></asp:Label>
-                                    <asp:DropDownList ID="ddlOrg" Visible="false" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged" CssClass="form-control"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlOrg" data-dj-validator="org" Visible="false" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged" CssClass="form-control"></asp:DropDownList>
                                     <asp:Label ID="lblOrgName" runat="server" Text="Org name: "></asp:Label>
                                     <asp:TextBox ID="tbOrgName" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblName" runat="server" Text="Name: "></asp:Label>
@@ -174,7 +174,6 @@
                 if (value.match(regex)) return true;
                 else return false;
             });
-
     };
 </script>
 <script>
