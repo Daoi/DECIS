@@ -42,6 +42,9 @@
                         <asp:PostBackTrigger ControlID="btnSubmit" />
                     </Triggers>
                     <ContentTemplate>
+                        <div id="divMsg" class="row mt-5 text-center" visible="true" runat="server">
+                            <h4><asp:Label ID="lblMsg" runat="server" Text=""></asp:Label></h4>
+                        </div>
                         <div class="row mt-5">
                             <div class="col-2"></div>
                             <div class="col-8 mb-5" style="color: black">

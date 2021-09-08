@@ -1,4 +1,5 @@
-﻿using DECIS.CotrolLogic.DDL;
+﻿using DECIS.ControlLogic.Panels;
+using DECIS.CotrolLogic.DDL;
 using DECIS.DataAccess.DataAccessors.Request;
 using DECIS.DataModels;
 using DECIS.PageLogic.CreateRequest;
@@ -62,7 +63,9 @@ namespace DECIS
                         (Organization org, OrgRequest req) values = CollectOrgRequestInfo.Collect(Page, ddlOrg.SelectedValue != "-1");
                         new InsertRequest(values.req).ExecuteCommand();
                         fm.Upload(values.org);
-                        lblSubmitError.Text = "Successfully submitted request. You will be emailed with any updates";
+                        lblMsg.Text = "Successfully submitted request. You will be emailed with any updates. Reach out to reuse@temple.edu with questions";
+                        divMsg.Visible = true;
+                        ClearPanel.ClearTBs(new List<Panel>() { pnlShared, pnlOrg });
                     }
                     else
                     {
@@ -80,6 +83,9 @@ namespace DECIS
             {
                 int orgID = int.Parse(ddlOrg.SelectedValue);
                 CollectPersonalRequestInfo.Collect(Page, orgID);
+                lblMsg.Text = "Successfully submitted request. You will be emailed with any updates. Reach out to reuse@temple.edu with questions";
+                divMsg.Visible = true;
+                ClearPanel.ClearTBs(new List<Panel>() { pnlShared, pnlPersonal });
             }
             else
             {
