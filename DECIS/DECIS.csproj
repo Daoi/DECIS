@@ -516,6 +516,7 @@
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllActiveAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssetsByStatus.cs" />
+    <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssetsByStatusWithIntake.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllGoodAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllInactiveAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAssetsByIntake.cs" />

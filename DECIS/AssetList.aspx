@@ -23,8 +23,6 @@
                                     <asp:LinkButton runat="server" ID="lbRecycled" CssClass="form-control-sm" Text="Recycled" OnClick="lb_Click"></asp:LinkButton>
                                     <asp:LinkButton runat="server" ID="lbStorage" CssClass="form-control-sm" Text="Storage" OnClick="lb_Click"></asp:LinkButton>
                                 </asp:Panel>
-                                <br />
-                                <asp:DropDownList ID="ddlLocationFilter" CssClass="form-control-sm" Visible="false" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlLocationFilter_SelectedIndexChanged" OnDataBound="ddlLocationFilter_DataBound"></asp:DropDownList>
                             </div>
                             <div class="col-md-11">
                                 <asp:Label ID="lblGVMessage" runat="server" Visible="False"></asp:Label>

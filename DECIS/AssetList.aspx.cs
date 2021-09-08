@@ -47,14 +47,11 @@ namespace DECIS
             GridViewRow row = (GridViewRow)btn.NamingContainer;
             DataRow dr;
             //Recreate the Datarow the GVR is bound to
-            if (ViewState["FilteredDT"] == null)
-                dr = dtAssetList.Rows[row.DataItemIndex];
+            if (ViewState["Filter"] == null)
+                dr = (ViewState["AssetListDT"] as DataTable).Rows[row.DataItemIndex];
             else
-            {
-                int x = (ViewState["FilteredDT"] as DataTable).Rows[row.DataItemIndex].Field<int>("AssetID");
-                dr = dtAssetList.Rows.OfType<DataRow>().First(r => r.Field<int>("AssetID") == x);
-            }
-                
+                dr = (ViewState[$"{ViewState["Filter"].ToString()}"] as DataTable).Rows[row.DataItemIndex];
+
 
             Asset asset = new Asset(dr);
 
@@ -64,34 +61,49 @@ namespace DECIS
 
         protected void lb_Click(object sender, EventArgs e)
         {
-            lblGVMessage.Visible = false;
             LinkButton lb = (LinkButton)sender;
-            string status = lb.Text;
+            DataTable result = null;
+            int status = 0;
+            //Display
+            gvAssetList.Visible = true;
+            lblGVMessage.Text = "";
+            lblGVMessage.Visible = false;
+            ViewState["Filter"] = lb.ID;
+            //Filter 
 
-            DataTable filtered = new FilterAssets().ExecuteCommand(status);
-            if (filtered.Rows.Count == 0)
+                if (lb.ID == lbGoodStatus.ID)
+                    status = 1;
+                else if (lb.ID == lbBad.ID)
+                    status = 2;
+                else if (lb.ID == lbTestingStatus.ID)
+                    status = 3;
+                else if (lb.ID == lbStorage.ID)
+                    status = 4;
+                else if (lb.ID == lbDonated.ID)
+                    status = 5;
+                else if (lb.ID == lbRecycled.ID)
+                    status = 6;
+                else if (lb.ID == lbNewItems.ID)
+                    status = 7;
+
+            if (ViewState[$"{lb.ID}"] == null)
+                {
+                    ViewState[$"{lb.ID}"] = new GetAllAssetsByStatusWithIntake().ExecuteCommand(status);
+                    result = ViewState[$"{lb.ID}"] as DataTable;
+                }
+                else
+                    result = ViewState[$"{lb.ID}"] as DataTable;
+
+                gvAssetList.DataSource = result;
+                gvAssetList.DataBind();
+            
+
+            if (result == null || result.Rows.Count == 0)
             {
-                lblGVMessage.Text = $"No items with status '{status}' found";
                 lblGVMessage.Visible = true;
-                pnlFilters.Controls.OfType<LinkButton>().ToList().ForEach(c => c.Visible = true);
-                upLocationDDL.Update();
-                return;
+                lblGVMessage.Text = $"Couldn't find any requests with status {lb.Text}";
+                gvAssetList.Visible = false;
             }
-            ViewState["FilteredDT"] = filtered;
-            gvAssetList.DataSource = filtered;
-            gvAssetList.DataBind();
-            ViewState["FilterStatus"] = lb.Text;
-
-            DataTable locs = new GetLocationByStatus().ExecuteCommand(status);
-
-            ddlLocationFilter.DataSource = locs;
-            ddlLocationFilter.DataTextField = "Location";
-            ddlLocationFilter.DataValueField = "Location";
-            ddlLocationFilter.DataBind();
-            ddlLocationFilter.Visible = true;
-            pnlFilters.Controls.OfType<LinkButton>().Where(c => c != lb).ToList().ForEach(c => c.Visible = false);
-            lbAllAssets.Visible = true;
-            upLocationDDL.Update();
         }
 
         protected void lbAllAssets_Click(object sender, EventArgs e)
@@ -101,42 +113,8 @@ namespace DECIS
             gvAssetList.DataSource = ViewState["AssetListDT"] as DataTable;
             gvAssetList.DataBind();
             pnlFilters.Controls.OfType<LinkButton>().ToList().ForEach(c => c.Visible = true);
-            ddlLocationFilter.Visible = false;
             upLocationDDL.Update();
         }
 
-        protected void ddlLocationFilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lblGVMessage.Visible = false;
-
-            string status = ViewState["FilterStatus"].ToString() ?? "%";
-            DataTable filtered = new FilterAssets().ExecuteCommand(status, ddlLocationFilter.SelectedItem.Text);
-            gvAssetList.DataSource = filtered;
-            gvAssetList.DataBind();
-
-            if (filtered.Rows.Count == 0)
-            {
-                lblGVMessage.Text = "No matching items found";
-                lblGVMessage.Visible = true;
-            }
-
-            upLocationDDL.Update();
-
-        }
-
-        protected void ddlLocationFilter_DataBound(object sender, EventArgs e)
-        {
-            try
-            {
-                ddlLocationFilter.SelectedValue = "-1";
-                ddlLocationFilter.Items.RemoveAt(ddlLocationFilter.SelectedIndex);
-                ddlLocationFilter.Items.Insert(0, new ListItem("Select Location", "-1"));
-            }
-            catch (Exception ex)
-            {
-                ddlLocationFilter.Items.Insert(0, new ListItem("Select Location", "-1"));
-            }
-
-        }
     }
 }
