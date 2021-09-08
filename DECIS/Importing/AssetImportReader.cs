@@ -8,6 +8,7 @@ using DECIS.DataAccess.DataAccessors.Model;
 using DECIS.DataAccess.DataAccessors.Status;
 using DECIS.DataAccess.Utilities;
 using DECIS.DataModels;
+using DECIS.PageLogic.AssetUpload;
 using ExcelDataReader;
 using System;
 using System.Collections.Generic;
@@ -116,6 +117,7 @@ namespace DECIS.Importing
                         IntakeID = new List<int>(),
                         AssetID = tempID++
                     };
+                    SetAssetType.SetMake(curAsset);
                     curAsset.IntakeID.Add(intakeID);
                     assets.Add(curAsset);
                 }
