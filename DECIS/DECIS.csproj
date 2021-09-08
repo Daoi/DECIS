@@ -564,6 +564,7 @@
     <Compile Include="DataAccess\DataAccessors\Recycle\UpdateRecycleParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllAssetsForRequest.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllOrgRequestsByID.cs" />
+    <Compile Include="DataAccess\DataAccessors\Request\GetAllRequestByStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllRequests.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllRequestsForOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetRequestInfoByID.cs" />
