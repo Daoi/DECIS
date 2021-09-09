@@ -72,7 +72,12 @@ namespace DECIS
             int status = (ViewState["Request"] as Request).Status;
             //If Finished(4) or Cancelled(5)
             if (status >= 4)
+            {
                 btnEdit.Visible = false;
+                btnAddAll.Visible = false;
+                btnRemoveAll.Visible = false;
+                gvComputers.Visible = false;
+            }
 
         }
 
@@ -82,15 +87,19 @@ namespace DECIS
             if (ViewState["Editing"] != null && (bool)ViewState["Editing"]) //If we're in edit mode
             {
                 //Save currently selected values
-                Request orgReq = ViewState["Request"] as Request;
-                if (orgReq.Type == 0)
+                Request req = ViewState["Request"] as Request;
+                if (req.Type == 0)
                 {
-                    OrgRequest newReq = CreateOrgRequest.Create(Page, orgReq.RequestID);
+                    OrgRequest newReq = CreateOrgRequest.Create(Page, req.RequestID);
+                    if (!string.IsNullOrWhiteSpace(newReq.DateScheduled) && newReq.Status != 3)
+                        newReq.Status = 3;
                     new UpdateOrgRequest(newReq).ExecuteCommand();
                 }
                 else
                 {
-                    PersonalRequest newReq = CreatePersonalRequest.Create(Page, orgReq.RequestID);
+                    PersonalRequest newReq = CreatePersonalRequest.Create(Page, req.RequestID);
+                    if (!string.IsNullOrWhiteSpace(newReq.DateScheduled) && newReq.Status != 3)
+                        newReq.Status = 3;
                     new UpdatePersonalRequest(newReq).ExecuteCommand();
 
                 }

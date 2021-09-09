@@ -22,7 +22,7 @@ namespace DECIS.PageLogic.RequestView
             DropDownList ddlRequestStatus = (FindControl.Find("ddlRequestStatus", pg) as DropDownList);
             DDLDataBind.Bind(new List<DropDownList>() { ddlRequestStatus });
             ddlRequestStatus.SelectedValue = req.Status.ToString();
-
+            (FindControl.Find("lblCardTitle", pg) as Label).Text = $"Request ID: {req.RequestID}";
             (FindControl.Find("lblOrgNameText", pg) as Label).Text = req.OrgName;
             (FindControl.Find("tbRequesterName", pg) as TextBox).Text = req.Name;
             (FindControl.Find("tbRequesterPhone", pg) as TextBox).Text = req.Phone;

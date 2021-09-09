@@ -34,7 +34,8 @@ namespace DECIS.DataAccess.DataAccessors.Request
                 new MySqlParameter("@Mice", MySqlDbType.Int32),
                 new MySqlParameter("@Wifi", MySqlDbType.Int32),
                 new MySqlParameter("@Webcam", MySqlDbType.Int32),
-                new MySqlParameter("@OrgID", MySqlDbType.Int32)
+                new MySqlParameter("@OrgID", MySqlDbType.Int32),
+                new MySqlParameter("@DateScheduled", MySqlDbType.VarChar, 10),
             };
         }
 
@@ -59,6 +60,7 @@ namespace DECIS.DataAccess.DataAccessors.Request
             Parameters[16].Value = req.Wifi;
             Parameters[17].Value = req.Webcam;
             Parameters[18].Value = req.OrgID;
+            Parameters[19].Value = req.DateScheduled;
 
             return Parameters;
         }
