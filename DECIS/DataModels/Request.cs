@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DECIS.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace DECIS.DataModels
 
         public string DateSubmitted { get; set; }
         public string DateFinished { get; set; }
+        public string DateScheduled { get; set; }
         public string Notes { get; set; }
         public int Keyboard { get; set; }
         public int Mice { get; set; }
@@ -38,9 +40,9 @@ namespace DECIS.DataModels
             Name = dr["Name"].ToString();
             Phone = dr["Phone"].ToString();
             Email = dr["Email"].ToString();
-            DateSubmitted = dr["DateSubmitted"].ToString();
-            if(dr["DateFinished"] != DBNull.Value)
-                DateFinished = string.Format("MM-dd-yyyy", dr["DateSubmitted"].ToString());
+            DateSubmitted = DateTimeString.GetDateString(dr["DateSubmitted"].ToString());
+            DateFinished = DateTimeString.GetDateString(dr["DateFinished"].ToString());
+            DateScheduled = DateTimeString.GetDateString(dr["DateScheduled"].ToString());
             Keyboard = int.Parse(dr["Keyboard"].ToString());
             Mice = int.Parse(dr["Mice"].ToString());
             Wifi = int.Parse(dr["Wifi"].ToString());

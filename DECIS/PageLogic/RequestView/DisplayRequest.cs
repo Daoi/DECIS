@@ -32,8 +32,9 @@ namespace DECIS.PageLogic.RequestView
             (FindControl.Find("tbMice", pg) as TextBox).Text = req.Mice.ToString();
             (FindControl.Find("tbWifi", pg) as TextBox).Text = req.Wifi.ToString();
             (FindControl.Find("tbWebcam", pg) as TextBox).Text = req.Webcam.ToString();
-            (FindControl.Find("tbDateSubmitted", pg) as TextBox).Text = req.DateSubmitted;
-            (FindControl.Find("tbDateFinished", pg) as TextBox).Text = req.DateFinished;
+            (FindControl.Find("tbDateSubmitted", pg) as TextBox).Text = DateTimeString.GetDateString(req.DateSubmitted, true);
+            (FindControl.Find("tbDateFinished", pg) as TextBox).Text = DateTimeString.GetDateString(req.DateFinished, true);
+            (FindControl.Find("tbDateScheduled", pg) as TextBox).Text = DateTimeString.GetDateString(req.DateScheduled, true);
 
 
             //If its a new request dont show these
