@@ -47,7 +47,7 @@ namespace DECIS
             //Disable on page first load(Not in edit mode yet)
             TogglePanel.ToggleInputs(pnlControls, true);
             //Hide edit button on uneditable assets
-            if ((curAsset.StatusID == 5 || curAsset.StatusID == 6))
+            if (curAsset.StatusID == 5 || curAsset.StatusID == 6)
                 btnEdit.Visible = false;
         }
 
@@ -55,7 +55,6 @@ namespace DECIS
         {
             List<DropDownList> ddls = new List<DropDownList>() { ddlAssetMake, ddlAssetModel, ddlAssetStatus, ddlLocation };
             DataSet dts = DDLDataBind.Bind(ddls, curAsset.MakeID);
-
             ViewState["Models"] = dts.Tables["Model"];
             ViewState["Locations"] = dts.Tables["Location"];
         }
