@@ -28,7 +28,7 @@
                                 </Triggers>
                                 <ContentTemplate>
                                     <asp:Label ID="lblAssetStatus" runat="server" Text="Asset Status:"></asp:Label>
-                                    <asp:DropDownList ID="ddlAssetStatus" CssClass="form-control" runat="server" OnSelectedIndexChanged="ddlAssetStatus_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlAssetStatus" data-dj-validator="index" CssClass="form-control" runat="server" OnSelectedIndexChanged="ddlAssetStatus_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                                     <asp:Label ID="lblAssetMake" runat="server" Text="Asset Make:">
                                     </asp:Label>
                                     <asp:DropDownList ID="ddlAssetMake" CssClass="form-control" runat="server" OnSelectedIndexChanged="ddlAssetMake_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
@@ -58,13 +58,13 @@
                     <%--Buttons Start--%>
                     <div class="row mt-3">
                         <div class="col-md-3">
-                            <asp:Button ID="btnEdit" CssClass="btn-primary btn w-25" runat="server" Text="Edit" OnClick="btnEdit_Click" />
-                            <asp:Button ID="btnCancelEdit" Visible="false" CssClass="btn-warning btn w-25" runat="server" Text="Cancel" OnClick="btnEditCancel_Click" />
+                            <asp:Button ID="btnEdit" OnClientClick="validateAll();" CssClass="btn-primary btn w-25" runat="server" Text="Edit" OnClick="btnEdit_Click" />
+                            <asp:Button ID="btnCancelEdit" OnClientClick="clientCancel();" Visible="false" CssClass="btn-warning btn w-25" runat="server" Text="Cancel" OnClick="btnEditCancel_Click" />
                         </div>
                         <div class="col-md-3">
                         </div>
                         <div class="col-md-3">
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>    
                         </div>
                         <div class="col-md-3">
                             <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -77,4 +77,26 @@
         </div>
     </div>
     <div style="margin-top: 2%; height: 2%; width: auto;"></div>
+    <script>
+
+        $('#frmMain').djValidator({ blur: true });
+
+        function validateAll() {
+            resp = $('#frmMain').djValidator({ mode: "function" });
+            if (resp == true) {
+                sendForm($('#frmMain'));
+            }
+        };
+
+        function pageLoad() {
+            $.fn.djValidator.add('index', 'Cannot set donated or recycled status from here.',
+                function ($field, params) {
+                    var value = $("#MainContent_ddlAssetStatus").prop('selectedIndex');
+                    if (value == 4 || value == 5) {
+                        return false;
+                    }
+                    return true;
+                });
+        };
+    </script>
 </asp:Content>

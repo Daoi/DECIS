@@ -190,14 +190,18 @@
     </div>
     <script type="text/javascript">
         function pageLoad() {
-            $('#MainContent_gvComputers').prepend($("<thead></thead>").append($("#MainContent_gvComputers").find("tr:first"))).DataTable({
-                stateSave: true,
-                "lengthMenu": [5, 10, 25, 50, "All"],
-            });
-            $('#MainContent_gvAssigned').prepend($("<thead></thead>").append($("#MainContent_gvAssigned").find("tr:first"))).DataTable({
-                stateSave: true,
-                "lengthMenu": [5, 10, 25, 50, "All"],
-            });
+            if (!$.fn.dataTable.isDataTable('#MainContent_gvComputers')) {
+                $('#MainContent_gvComputers').prepend($("<thead></thead>").append($("#MainContent_gvComputers").find("tr:first"))).DataTable({
+                    stateSave: true,
+                    "lengthMenu": [5, 10, 25, 50, "All"],
+                });
+            }
+            if (!$.fn.dataTable.isDataTable('#MainContent_gvAssigned')) {
+                $('#MainContent_gvAssigned').prepend($("<thead></thead>").append($("#MainContent_gvAssigned").find("tr:first"))).DataTable({
+                    stateSave: true,
+                    "lengthMenu": [5, 10, 25, 50, "All"],
+                });
+            }
         };
     </script>
 </asp:Content>

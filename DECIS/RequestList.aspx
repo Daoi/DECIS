@@ -44,6 +44,7 @@
                                 <asp:BoundField DataField="RequestStatus" HeaderText="Status" />
                                 <asp:BoundField DataField="DateSubmitted" DataFormatString="{0:MM-dd-yyyy}" HeaderText="Date Submitted" />
                                 <asp:BoundField DataField="DateFinished" DataFormatString="{0:MM-dd-yyyy}" HeaderText="Finished" />
+                                <asp:BoundField DataField="DateScheduled" DataFormatString="{0:MM-dd-yyyy}" HeaderText="Scheduled" />
                             </Columns>
                             <RowStyle HorizontalAlign="Center" />
                         </asp:GridView>
