@@ -70,7 +70,7 @@
                                 <asp:Label ID="lblRequestPurpose" runat="server" CssClass="mt-2" Text="Purpose"></asp:Label>
                                 <asp:TextBox ID="tbRequestPurpose" TextMode="MultiLine" MaxLength="400" CssClass="form-control" runat="server"></asp:TextBox>
                                 <asp:Label ID="lblDate" runat="server" CssClass="mt-2" Text="Date Scheduled:"></asp:Label>
-                                <asp:TextBox ID="tbDate" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="tbDateScheduled" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-md-3"></div>
                         </div>

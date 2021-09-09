@@ -8,18 +8,24 @@ namespace DECIS.Utilities
     public class DateTimeString
     {
         /// <summary>
-        /// Format a date string for asp.net textmode textbox
+        /// 
         /// </summary>
-        /// <param name="str">The date string</param>
+        /// <param name="str"></param>
+        /// <param name="tb">If true returns yyyy-MM-dd format for textboxes, otherwise MM-dd-yyyy</param>
         /// <returns></returns>
-        public static string GetDateString(string str)
+        public static string GetDateString(string str, bool tb = false)
         {
             DateTime date;
 
             if (DateTime.TryParse(str, out date))
-                return date.ToString("MM-dd-yyyy");
+                if (tb)
+                    return date.ToString("yyyy-MM-dd");
+                else
+                    return date.ToString("MM-dd-yyyy");
             else
                 return "";
         }
+
+
     }
 }
