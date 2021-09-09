@@ -502,6 +502,7 @@
     <Compile Include="ControlLogic\FileUp\ValidateFile.cs" />
     <Compile Include="ControlLogic\Gridview\BoundFieldFormatter.cs" />
     <Compile Include="ControlLogic\Gridview\HeaderBinding.cs" />
+    <Compile Include="ControlLogic\Panels\ClearPanel.cs" />
     <Compile Include="ControlLogic\Panels\TogglePanel.cs" />
     <Compile Include="CreateRequest.aspx.cs">
       <DependentUpon>CreateRequest.aspx</DependentUpon>
@@ -515,6 +516,7 @@
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllActiveAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssetsByStatus.cs" />
+    <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssetsByStatusWithIntake.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllGoodAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllInactiveAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAssetsByIntake.cs" />
@@ -563,6 +565,7 @@
     <Compile Include="DataAccess\DataAccessors\Recycle\UpdateRecycleParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllAssetsForRequest.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllOrgRequestsByID.cs" />
+    <Compile Include="DataAccess\DataAccessors\Request\GetAllRequestByStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllRequests.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllRequestsForOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetRequestInfoByID.cs" />
@@ -636,6 +639,7 @@
     <Compile Include="OrgView.aspx.designer.cs">
       <DependentUpon>OrgView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PageLogic\AssetUpload\SetAssetType.cs" />
     <Compile Include="PageLogic\CreateRequest\CollectOrgRequestInfo.cs" />
     <Compile Include="PageLogic\CreateRequest\CollectPersonalRequestInfo.cs" />
     <Compile Include="PageLogic\CreateRequest\CreateOrg.cs" />

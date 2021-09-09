@@ -30,7 +30,8 @@ namespace DECIS.PageLogic.CreateRequest
                 (FindControl.FindNM("lblZipcode", pg) as Label).Text = "Zip Code of Primary Residence:";
                 (FindControl.FindNM("lblAddress", pg) as Label).Visible = false;
                 (FindControl.FindNM("tbAddress", pg) as TextBox).Visible = false;
-                (FindControl.FindNM("tbOrgName", pg) as TextBox).Enabled = false;
+                (FindControl.FindNM("tbOrgName", pg) as TextBox).Visible = false;
+                (FindControl.FindNM("lblOrgName", pg) as Label).Visible = false;
                 (FindControl.FindNM("fuDocuments", pg) as FileUpload).Visible = false;
                 (FindControl.FindNM("lblFU", pg) as Label).Visible = false;
                 CheckBoxList cblReasons = (FindControl.FindNM("cblReasons", pg) as CheckBoxList);
@@ -55,11 +56,15 @@ namespace DECIS.PageLogic.CreateRequest
                 (FindControl.FindNM("lblAddress", pg) as Label).Visible = true;
                 (FindControl.FindNM("tbAddress", pg) as TextBox).Visible = true;
                 (FindControl.FindNM("lblZipcode", pg) as Label).Text = "Organization Zip Code:";
-                (FindControl.FindNM("tbOrgName", pg) as TextBox).Enabled = true;
+                (FindControl.FindNM("tbOrgName", pg) as TextBox).Visible = true;
+                (FindControl.FindNM("lblOrgName", pg) as Label).Visible = true;
+
 
             }
             else if (ddl.SelectedIndex == NONE)
             {
+                (FindControl.FindNM("tbOrgName", pg) as TextBox).Visible = true;
+                (FindControl.FindNM("lblOrgName", pg) as Label).Visible = true;
                 (FindControl.FindNM("pnlPersonal", pg) as Panel).Visible = false;
                 (FindControl.FindNM("pnlOrg", pg) as Panel).Visible = false;
                 (FindControl.FindNM("fuDocuments", pg) as FileUpload).Visible = false;

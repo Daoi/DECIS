@@ -48,7 +48,7 @@ namespace DECIS.DataModels
             HSStudent = int.Parse(dr["HSStudent"].ToString());
             Adult = int.Parse(dr["Adult"].ToString());
             Preschool = int.Parse(dr["Preschool"].ToString());
-            K8Student = int.Parse(dr["HouseholdSize"].ToString());
+            K8Student = int.Parse(dr["K8Student"].ToString());
             ZipCode = dr["Zipcode"].ToString();
             Phone = dr["Phone"].ToString();
             Email = dr["Email"].ToString();
