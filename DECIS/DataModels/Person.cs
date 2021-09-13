@@ -41,9 +41,12 @@ namespace DECIS.DataModels
             LastName = dr["Name"].ToString().Split(' ')[1];
             AgeRangeID = int.Parse(dr["AgeRange"].ToString());
             AgeGroup = dr["ARDescription"].ToString();
-            GenderT = dr["Gender"].ToString();
-            RaceT = dr["Race"].ToString();
-            EthnicityT = dr["Ethnicity"].ToString();
+            GenderT = dr["GenderT"].ToString();
+            RaceT = dr["RaceT"].ToString();
+            EthnicityT = dr["EthnicityT"].ToString();
+            Gender = int.Parse(dr["Gender"].ToString());
+            Race = int.Parse(dr["Race"].ToString());
+            Ethnicity = int.Parse(dr["Ethnicity"].ToString());
             HouseholdSize = int.Parse(dr["HouseholdSize"].ToString());
             HSStudent = int.Parse(dr["HSStudent"].ToString());
             Adult = int.Parse(dr["Adult"].ToString());

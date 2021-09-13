@@ -347,6 +347,7 @@
     <Content Include="IntakeView.aspx" />
     <Content Include="OrgList.aspx" />
     <Content Include="OrgView.aspx" />
+    <Content Include="PersonList.aspx" />
     <Content Include="RecycleList.aspx" />
     <Content Include="RecycleView.aspx" />
     <Content Include="RequestList.aspx" />
@@ -552,6 +553,7 @@
     <Compile Include="DataAccess\DataAccessors\Person\AgeRange\GetAllAgeRange.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\Ethnicity\GetAllEthnicity.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\Gender\GetAllGender.cs" />
+    <Compile Include="DataAccess\DataAccessors\Person\GetAllPeople.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\GetAssociatedPeople.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\InsertPerson.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\PersonParameters.cs" />
@@ -672,6 +674,13 @@
     <Compile Include="PageLogic\Settings\SettingsLocation.cs" />
     <Compile Include="PageLogic\Settings\SettingsMake.cs" />
     <Compile Include="PageLogic\Settings\SettingsModel.cs" />
+    <Compile Include="PersonList.aspx.cs">
+      <DependentUpon>PersonList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PersonList.aspx.designer.cs">
+      <DependentUpon>PersonList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecycleList.aspx.cs">
       <DependentUpon>RecycleList.aspx</DependentUpon>
