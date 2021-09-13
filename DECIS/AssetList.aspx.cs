@@ -110,7 +110,7 @@ namespace DECIS
         {
             lblGVMessage.Visible = false;
             gvAssetList.Visible = true;
-            ViewState["FilterStatus"] = null;
+            ViewState["Filter"] = null;
             gvAssetList.DataSource = ViewState["AssetListDT"] as DataTable;
             gvAssetList.DataBind();
             pnlFilters.Controls.OfType<LinkButton>().ToList().ForEach(c => c.Visible = true);
