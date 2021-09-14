@@ -57,3 +57,21 @@
 .cbl label {
     padding-left: .5rem;
 }
+
+.cherryBackground {
+    color: white;
+    background-color: #A41E35;
+}
+
+.cherryFont {
+    color: #A41E35;
+}
+
+    .cherryFont:active {
+        color: black;
+    }
+
+.documentHeader {
+    color: #00ace6;
+    font-weight: bold;
+}
