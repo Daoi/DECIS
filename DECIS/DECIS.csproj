@@ -352,6 +352,7 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="CreateAccount.aspx" />
     <Content Include="CreateRequest.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Images\CRC.png" />
@@ -519,6 +520,13 @@
     <Compile Include="ControlLogic\Gridview\HeaderBinding.cs" />
     <Compile Include="ControlLogic\Panels\ClearPanel.cs" />
     <Compile Include="ControlLogic\Panels\TogglePanel.cs" />
+    <Compile Include="CreateAccount.aspx.cs">
+      <DependentUpon>CreateAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateAccount.aspx.designer.cs">
+      <DependentUpon>CreateAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreateRequest.aspx.cs">
       <DependentUpon>CreateRequest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -527,6 +535,9 @@
       <DependentUpon>CreateRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\DataAccess.cs" />
+    <Compile Include="DataAccess\DataAccessors\Account\GetAccount.cs" />
+    <Compile Include="DataAccess\DataAccessors\Account\GetRoles.cs" />
+    <Compile Include="DataAccess\DataAccessors\Account\InsertAccount.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\FilterAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllActiveAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssets.cs" />
@@ -609,6 +620,7 @@
     <Compile Include="DataModels\PersonalRequest.cs" />
     <Compile Include="DataModels\Recycle.cs" />
     <Compile Include="DataModels\Request.cs" />
+    <Compile Include="DataModels\User.cs" />
     <Compile Include="DECIS.Master.cs">
       <DependentUpon>DECIS.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="DECIS.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" Async="true" CodeBehind="Login.aspx.cs" Inherits="DECIS.Login" %>
 
 <!DOCTYPE html>
 
@@ -34,16 +34,16 @@
                         <asp:Label ID="lblError" runat="server" CssClass="errorLabel" Visible="false"></asp:Label>
                         <div class="form-group row justify-content-center">
                             <div class="col-md-8 mt-3">
-                                <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
+                                <asp:TextBox ID="tbEmail" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
                             </div>
                         </div>
                         <br />
                         <div class="form-group row justify-content-center">
                             <div class="col-md-8">
-                                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Password"></asp:TextBox>
+                                <asp:TextBox ID="tbPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="Password"></asp:TextBox>
                             </div>
                         </div>
-                        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-primary mt-2" />
+                        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn btn-primary mt-2" />
                         <br />
                         <asp:Button ID="btnForgotPassword" runat="server" CssClass="btn btn-link font-weight-bold cherryFont" Text="Forgot Password?" />
                     </asp:Panel>

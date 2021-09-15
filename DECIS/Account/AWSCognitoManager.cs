@@ -72,8 +72,8 @@ namespace DECIS.Account
                 this.userAttributes = await this.GetUserDetailsAsync();
 
                 // get correct user permissions
-                string poolID = this.userAttributes["custom:is_admin"] == "1" ? _adminIDPoolID : _userIDPoolID;
-                this.credentials = this.user.GetCognitoAWSCredentials(poolID, RegionEndpoint.USEast1);
+                string poolID = this.userAttributes["custom:role"] == "2" ? _adminIDPoolID : _userIDPoolID;
+                this.credentials = this.user.GetCognitoAWSCredentials(poolID, RegionEndpoint.USEast2);
 
                 return authResponse;
             }
@@ -114,14 +114,14 @@ namespace DECIS.Account
 
                 var attrIsAdmin = new AttributeType
                 {
-                    Name = "custom:is_admin",
+                    Name = "custom:role",
                     Value = isAdmin.ToString()
                 };
                 req.UserAttributes.Add(attrIsAdmin);
 
                 var resp = await client.AdminCreateUserAsync(req);
 
-                if (isAdmin == 1)
+                if (isAdmin == 2)
                 {
                     await this.GrantUserAdminAsync(username);
                 }
@@ -389,7 +389,7 @@ namespace DECIS.Account
         /// </summary>
         public int IsAdmin
         {
-            get { return int.Parse(this.userAttributes["custom:is_admin"]); }
+            get { return int.Parse(this.userAttributes["custom:role"]); }
         }
 
         /// <summary>
@@ -406,7 +406,7 @@ namespace DECIS.Account
         /// <returns>Cognito client</returns>
         private AmazonCognitoIdentityProviderClient GetClient()
         {
-            return new AmazonCognitoIdentityProviderClient(this.credentials, RegionEndpoint.USEast1);
+            return new AmazonCognitoIdentityProviderClient(this.credentials, RegionEndpoint.USEast2);
         }
     }
 }

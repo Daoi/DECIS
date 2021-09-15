@@ -1,4 +1,5 @@
-﻿using DECIS.DataAccess.DataAccessors.Assets.Types;
+﻿using DECIS.DataAccess.DataAccessors.Account;
+using DECIS.DataAccess.DataAccessors.Assets.Types;
 using DECIS.DataAccess.DataAccessors.Location;
 using DECIS.DataAccess.DataAccessors.Make;
 using DECIS.DataAccess.DataAccessors.Model;
@@ -35,7 +36,8 @@ namespace DECIS.CotrolLogic.DDL
           { name => name.ToLower().Contains("race"), Race},
           { name => name.ToLower().Contains("gender"), Gender},
           { name => name.ToLower().Contains("ethnicity"), Ethnicity},
-          { name => name.ToLower().Contains("agerange"), AgeRange}
+          { name => name.ToLower().Contains("agerange"), AgeRange},
+          { name => name.ToLower().Contains("role"), Role}
         };
 
         /// <summary>
@@ -246,6 +248,18 @@ namespace DECIS.CotrolLogic.DDL
             ddl.DataBind();
 
             return ageDT;
+        }
+
+        private static DataTable Role(DropDownList ddl)
+        {
+            DataTable roleDT = new GetRoles().ExecuteCommand();
+            roleDT.TableName = "Role";
+            ddl.DataSource = roleDT;
+            ddl.DataTextField = "Role";
+            ddl.DataValueField = "RoleID";
+            ddl.DataBind();
+
+            return roleDT;
         }
 
     }
