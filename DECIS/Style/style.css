@@ -50,6 +50,10 @@
     color: #E9E9E9;
 }
 
+.cherryBackground{
+
+}
+
 .createRequestBG {
     background: #E2DBD5;
 }
@@ -57,3 +61,43 @@
 .cbl label {
     padding-left: .5rem;
 }
+
+.loginContainer {
+    overflow: auto;
+    min-height: 100vh;
+    background-image: url("../img/master-wen-lpLRwDZigvc-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.loginCard {
+    height: auto;
+    background-color: white;
+    width: 50vw;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.verifyCard {
+    height: auto;
+    background-color: white;
+    width: 65vw;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.cherryBackground {
+    color: white;
+    background-color: #A41E35;
+}
+
+.cherryFont {
+    color: #A41E35;
+}
+
+    .cherryFont:active {
+        color: black;
+    }

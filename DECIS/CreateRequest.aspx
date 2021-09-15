@@ -182,12 +182,9 @@
         $('#lblFU').hide();
         $('#ddlRequestType').on("change", function () {
             var x = $("#ddlRequestType").prop('selectedIndex');
-            console.log(x);
-            console.log(x < 2);
             if (x < 2) {
                 $('#fuDocuments').hide();
                 $('#lblFU').hide();
-
             }
             else {
                 $('#fuDocuments').show();
