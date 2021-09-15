@@ -20,7 +20,7 @@ namespace DECIS
             if (Request.QueryString["usr"] != null && Request.QueryString["pwd"] != null)
             {
                 usr = Request.QueryString["usr"];
-                pwd = Request.QueryString["pwd"];
+                pwd = Request.Url.AbsoluteUri.Split(new string[] { "pwd=" }, StringSplitOptions.None)[1]; //AWS occasionally uses & in their temp passwords which breaks the querystring
             }
             else
             {

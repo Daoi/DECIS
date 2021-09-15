@@ -88,7 +88,7 @@ namespace DECIS.Account
         /// <param name="email"></param>
         /// <param name="isAdmin">0: CHW, 1: Supervisors, Directors</param>
         /// <returns></returns>
-        public async Task<AdminCreateUserResponse> CreateUserAsync(string username, string email, int isAdmin = 0)
+        public async Task<AdminCreateUserResponse> CreateUserAsync(string username, string email, string name, int isAdmin = 0)
         {
             using (var client = this.GetClient())
             {
@@ -118,6 +118,13 @@ namespace DECIS.Account
                     Value = isAdmin.ToString()
                 };
                 req.UserAttributes.Add(attrIsAdmin);
+
+                var attrName = new AttributeType
+                {
+                    Name = "name",
+                    Value = name
+                };
+                req.UserAttributes.Add(attrName);
 
                 var resp = await client.AdminCreateUserAsync(req);
 

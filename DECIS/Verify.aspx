@@ -50,7 +50,7 @@
                                 <asp:TextBox ID="txtRetypePassword" TextMode="Password" runat="server" CssClass="form-control mt-2" placeholder="Confirm New Password"></asp:TextBox>
                             </div>
                         </div>
-                        <asp:Button ID="btnConfirm" runat="server" Text="Verify" CssClass="btn btn-primary mt-3" />
+                        <asp:Button ID="btnConfirm" runat="server" Text="Verify" OnClick="btnConfirm_Click" CssClass="btn btn-primary mt-3" />
 
                     </div>
                     <div class="col-sm-3"></div>

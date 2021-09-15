@@ -27,8 +27,8 @@ namespace DECIS
 
             try
             {
-
-                var res = await man.CreateUserAsync(tbEmail.Text, tbEmail.Text, int.Parse(ddlRole.SelectedValue));
+                string name = $"{tbFirstName.Text} {tbLastName.Text}";
+                var res = await man.CreateUserAsync(tbEmail.Text, tbEmail.Text, name, int.Parse(ddlRole.SelectedValue));
 
                 if (res != null)
                 {
