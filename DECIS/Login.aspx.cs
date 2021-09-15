@@ -16,7 +16,15 @@ namespace DECIS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            man = new AWSCognitoManager();
+
+            if (Session["CognitoManager"] == null)
+            {
+                man = new AWSCognitoManager();
+                Session["CognitoManager"] = man;
+            }
+            else
+                man = Session["CognitoManager"] as AWSCognitoManager;
+
         }
 
         protected async void btnLogin_Click(object sender, EventArgs e)
@@ -40,11 +48,11 @@ namespace DECIS
                     lblError.Text = "";
 
                     // get user data from db
-                   
-                    Session["User"] = new User(new GetAccount().ExecuteCommand(tbEmail.Text).Rows[0]);
+                   User curUser = new User(new GetAccount().ExecuteCommand(tbEmail.Text).Rows[0]);
+                    Session["User"] = curUser;
                     Session["CognitoManager"] = man;
-
                     Response.Redirect("./Homepage.aspx", false);
+
                 }
                 else
                 {

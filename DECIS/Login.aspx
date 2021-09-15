@@ -49,7 +49,9 @@
                     </asp:Panel>
                     <!-- Password Reset Panel -->
                     <asp:Panel ID="pnlPasswordReset" runat="server" Visible="false">
-                        
+                    </asp:Panel>
+                    <asp:Panel ID="pnlSetupPassword" runat="server" Visible="false">
+
                     </asp:Panel>
                 </div>
                 <div class="card-footer text-muted">
