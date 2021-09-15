@@ -1,5 +1,4 @@
-﻿using DECIS.DataAccess.DataAccessors.Account;
-using DECIS.DataAccess.DataAccessors.Assets.Types;
+﻿using DECIS.DataAccess.DataAccessors.Assets.Types;
 using DECIS.DataAccess.DataAccessors.Location;
 using DECIS.DataAccess.DataAccessors.Make;
 using DECIS.DataAccess.DataAccessors.Model;
@@ -8,6 +7,7 @@ using DECIS.DataAccess.DataAccessors.Person.AgeRange;
 using DECIS.DataAccess.DataAccessors.Person.Ethnicity;
 using DECIS.DataAccess.DataAccessors.Person.Gender;
 using DECIS.DataAccess.DataAccessors.Person.Race;
+using DECIS.DataAccess.DataAccessors.Recycle.RecycleOrg;
 using DECIS.DataAccess.DataAccessors.Recycle.RecycleStatus;
 using DECIS.DataAccess.DataAccessors.Request.RequestStatus;
 using DECIS.DataAccess.DataAccessors.Status;
@@ -23,21 +23,20 @@ namespace DECIS.CotrolLogic.DDL
     {
         //Key = Name to check for - Value = Method to use for binding - If your DDL is using the wrong binding its name is most likely conflicting 
         private static Dictionary<Func<string, bool>, Func<DropDownList, DataTable>> bindings = new Dictionary<Func<string, bool>, Func<DropDownList, DataTable>>()
-        { { name => name.ToLower().Contains("make"), AssetMake},
-          { name => name.ToLower().Contains("model"), AssetModel},
-          { name => name.ToLower().Contains("location"), AssetLocation},
-          { name => name.ToLower().Contains("description"), AssetLocationDescription},
-          { name => name.ToLower().Contains("recyclestatus"), RecycleStatus},
-          { name => name.ToLower().Contains("recycleorg"), RecycleOrg},
-          { name => name.ToLower().Contains("requeststatus"), RequestStatus},
-          { name => name.ToLower().Contains("status"), AssetStatus},
-          { name => name.ToLower().Contains("type"), AssetType},
-          { name => name.ToLower().Contains("org"), Organization},
-          { name => name.ToLower().Contains("race"), Race},
-          { name => name.ToLower().Contains("gender"), Gender},
-          { name => name.ToLower().Contains("ethnicity"), Ethnicity},
-          { name => name.ToLower().Contains("agerange"), AgeRange},
-          { name => name.ToLower().Contains("role"), Role}
+        { { name => name == "ddlAssetMake", AssetMake},
+          { name => name == "ddlAssetModel", AssetModel},
+          { name => name == "ddlLocation", AssetLocation},
+          { name => name == "ddlLocationDescription", AssetLocationDescription},
+          { name => name == "ddlRecycleStatus", RecycleStatus},
+          { name => name == "ddlRecycleOrg", RecycleOrg},
+          { name => name == "ddlRequestStatus", RequestStatus},
+          { name => name == "ddlAssetStatus", AssetStatus},
+          { name => name == "ddlAssetType", AssetType},
+          { name => name == "ddlOrganization", Organization},
+          { name => name == "ddlRace", Race},
+          { name => name == "ddlGender", Gender},
+          { name => name == "ddlEthnicity", Ethnicity},
+          { name => name == "ddlAgeRange", AgeRange}
         };
 
         /// <summary>
@@ -170,7 +169,7 @@ namespace DECIS.CotrolLogic.DDL
 
         private static DataTable RecycleOrg(DropDownList ddl)
         {
-            DataTable orgDT = new GetAllOrgs().ExecuteCommand();
+            DataTable orgDT = new GetAllRecycleOrg().ExecuteCommand();
             orgDT.TableName = "RecycleOrg";
             ddl.DataSource = orgDT;
             ddl.DataTextField = "RecycleOrgName";
@@ -248,18 +247,6 @@ namespace DECIS.CotrolLogic.DDL
             ddl.DataBind();
 
             return ageDT;
-        }
-
-        private static DataTable Role(DropDownList ddl)
-        {
-            DataTable roleDT = new GetRoles().ExecuteCommand();
-            roleDT.TableName = "Role";
-            ddl.DataSource = roleDT;
-            ddl.DataTextField = "Role";
-            ddl.DataValueField = "RoleID";
-            ddl.DataBind();
-
-            return roleDT;
         }
 
     }

@@ -586,6 +586,7 @@
     <Compile Include="DataAccess\DataAccessors\Recycle\GetRecycleByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\InsertNewRecycle.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\GetAllRecycle.cs" />
+    <Compile Include="DataAccess\DataAccessors\Recycle\RecycleOrg\GetAllRecycleOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\RecycleStatus\GetAllRecycleStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\UpdateRecycle.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\UpdateRecycleParameters.cs" />

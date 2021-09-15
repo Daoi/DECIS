@@ -4,13 +4,13 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
-namespace DECIS.DataAccess.DataAccessors.Recycle.RecycleStatus
+namespace DECIS.DataAccess.DataAccessors.Recycle.RecycleOrg
 {
-    public class GetAllRecycleStatus : DataSupport, IData
+    public class GetAllRecycleOrg : DataSupport, IData
     {
-        public GetAllRecycleStatus()
+        public GetAllRecycleOrg()
         {
-            CommandText = "GetAllRecycleStatus";
+            CommandText = "GetAllRecycleOrg";
             CommandType = CommandType.StoredProcedure;
         }
 
