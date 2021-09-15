@@ -27,6 +27,7 @@ namespace DECIS.PageLogic.RequestView
                 Webcam = int.Parse((FindControl.Find("tbWebcam", pg) as TextBox).Text),
                 DateSubmitted = (FindControl.Find("tbDateSubmitted", pg) as TextBox).Text,
                 DateFinished = (FindControl.Find("tbDateFinished", pg) as TextBox).Text,
+                DateScheduled = (FindControl.Find("tbDateScheduled", pg) as TextBox).Text,
                 Type = 0,
                 Internet = (FindControl.Find("ddlInternet", pg) as DropDownList).SelectedValue == "1" ? true : false,
             };
