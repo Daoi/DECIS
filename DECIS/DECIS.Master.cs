@@ -25,12 +25,20 @@ namespace DECIS
                 currentUser = Session["User"] as User;
                 man = Session["CognitoManager"] as AWSCognitoManager;
             }
+
+            if (currentUser.Role != (int)Permission.Admin)
+                lnkBtnCreateAccount.Visible = false;
         }
 
         protected void lnkBtnLogout_Click(object sender, EventArgs e)
         {
             Session.Abandon();
             Response.Redirect("~/Login.aspx");
+        }
+
+        protected void lnkBtnCreateAccount_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/CreateAccount.aspx");
         }
     }
 }

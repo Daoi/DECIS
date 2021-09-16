@@ -49,6 +49,15 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.LinkButton lnkBtnLogout;
         
         /// <summary>
+        /// lnkBtnCreateAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkBtnCreateAccount;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>
