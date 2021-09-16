@@ -14,9 +14,9 @@ namespace DECIS
         User currentUser;
         AWSCognitoManager man;
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_init(object sender, EventArgs e)
         {
-            if(Session["CognitoManager"] == null || Session["User"] == null)
+            if (Session["CognitoManager"] == null || Session["User"] == null)
             {
                 Response.Redirect("~/Login.aspx");
             }
@@ -25,7 +25,10 @@ namespace DECIS
                 currentUser = Session["User"] as User;
                 man = Session["CognitoManager"] as AWSCognitoManager;
             }
+        }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
             if (currentUser.Role != (int)Permission.Admin)
                 lnkBtnCreateAccount.Visible = false;
         }

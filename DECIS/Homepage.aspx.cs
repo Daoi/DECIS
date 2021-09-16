@@ -12,6 +12,7 @@ namespace DECIS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if((Session["User"] as User).Role == (int)Permission.Basic)
             {
                 divSettings.Visible = false;
