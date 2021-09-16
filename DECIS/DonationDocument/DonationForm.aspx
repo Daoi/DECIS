@@ -16,7 +16,7 @@
         <div class="jumbotron jumbotron-fluid text-center">
             <div class="container cherryBackground">
                 <h3 class="display-4">Digital Equity Center Donation Release Form</h3>
-                <p class="lead">Placeholder Text</p>
+                <p class="lead"></p>
             </div>
         </div>
         <div class="container ">
@@ -72,7 +72,7 @@
             <div class="row mt-5">
                 <h4 class="fw-bolder">Insurance Waiver and Assumption of Risk</h4>
                 <p class="text-break fw-bold">
-                    In consideration for<asp:Label ID="lblWaverName" runat="server" Text=" Sean John "></asp:Label>being permitted to take part in the Temple Tech for Philly
+                    In consideration for <asp:Label ID="lblWaiverName" runat="server" Text=""></asp:Label> being permitted to take part in the Temple Tech for Philly
                     surplus equipment program and understanding that there are some health and bodily risks in connection with said program, I hereby indemnify, defend, and save
                     harmless Temple University of the Commonwealth System of Higher Education and its officers and employees and agents from any and all claims whatsoever arising
                     out of in any way related to the undersigned participating in the above referenced activity.
@@ -97,37 +97,21 @@
             <div class="row mt-5">
                 <div class="row">
                     <p class="text-break">
-                        Acquisition of equipment is "as is", with no warranty of any kind, expressed or implied.<asp:Label ID="lblAcquName" runat="server" Text=" Sean John "></asp:Label>agrees to
+                        Acquisition of equipment is "as is", with no warranty of any kind, expressed or implied. <asp:Label ID="lblAcquName" runat="server" Text=""></asp:Label> agrees to
                         dispose of all equipment in such a manner as to abide by any applicable laws, as well as abide by any current environmental standards.
                     </p>
                 </div>
                 <div class="row">
                     <div class="col-md-6 fw-bold">Temple University, as Administrator</div>
-                    <div class="col-md-6 fw-bold">Personal</div>
+                    <div class="col-md-6">Signature: __________________________________________________</div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-6">Signature: __________________________________________________________</div>
-                    <div class="col-md-6">Signature: __________________________________________________________</div>
+                    <div class="col-md-6 fw-bold">Personal</div>
+                    <div class="col-md-6">Signature: __________________________________________________</div>
                 </div>
             </div>
             <%-- Signature End --%>
         </div>
-        <div class="row">
-            <asp:Button ID="btnDownload" CssClass="btn btn-primary" runat="server" Text="Download" OnClick="btnDownload_Click" />
-        </div>
     </form>
 </body>
-<script>
-    const puppeteer = require('puppeteer')
-
-    async function printPDF(url) {
-        const browser = await puppeteer.launch({ headless: true });
-        const page = await browser.newPage();
-        await page.goto(url, { waitUntil: 'networkidle0' });
-        const pdf = await page.pdf({ format: 'A4' });
-
-        await browser.close();
-        return pdf
-    })
-</script>
 </html>

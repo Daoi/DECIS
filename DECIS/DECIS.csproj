@@ -586,6 +586,8 @@
     <Compile Include="DataAccess\DataAccessors\CTextWriter.cs" />
     <Compile Include="DataAccess\DataAccessors\Documents\GetDocumentsByOrgID.cs" />
     <Compile Include="DataAccess\DataAccessors\Documents\InsertDocument.cs" />
+    <Compile Include="DataAccess\DataAccessors\Donations\GetDonationReleaseFormAssets.cs" />
+    <Compile Include="DataAccess\DataAccessors\Donations\GetDonationReleaseFormData.cs" />
     <Compile Include="DataAccess\DataAccessors\Intake\GetAllIntakes.cs" />
     <Compile Include="DataAccess\DataAccessors\Intake\GetIntakeByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Intake\InsertIntake.cs" />
@@ -665,7 +667,6 @@
     <Compile Include="DonationDocument\DonationForm.aspx.designer.cs">
       <DependentUpon>DonationForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FileWriter\PDFWriter.cs" />
     <Compile Include="Homepage.aspx.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -710,6 +711,7 @@
     <Compile Include="PageLogic\CreateRequest\CreateOrg.cs" />
     <Compile Include="PageLogic\CreateRequest\CreatePerson.cs" />
     <Compile Include="PageLogic\CreateRequest\CreatePersonalReasons.cs" />
+    <Compile Include="PageLogic\DonationForm\Display.cs" />
     <Compile Include="PageLogic\OrgView\BindGridviews.cs" />
     <Compile Include="PageLogic\RecycleList\CreateNewRecycle.cs" />
     <Compile Include="PageLogic\RecycleView\AddAssets.cs" />

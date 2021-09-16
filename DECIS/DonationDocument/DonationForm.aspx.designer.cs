@@ -166,13 +166,13 @@ namespace DECIS.DonationDocument {
         protected global::System.Web.UI.WebControls.Label lblPhoneNumberText;
         
         /// <summary>
-        /// lblWaverName control.
+        /// lblWaiverName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWaverName;
+        protected global::System.Web.UI.WebControls.Label lblWaiverName;
         
         /// <summary>
         /// gvEquipment control.
@@ -191,14 +191,5 @@ namespace DECIS.DonationDocument {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAcquName;
-        
-        /// <summary>
-        /// btnDownload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDownload;
     }
 }
