@@ -42,12 +42,6 @@ namespace DECIS
                 return;
             }
 
-            if (false)
-            {
-                lblError.Text = "The new password does not fit the requirements.";
-                return;
-            }
-
             // AWS Cognito Login
             AWSCognitoManager man = new AWSCognitoManager();
 
