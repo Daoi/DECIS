@@ -175,13 +175,13 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.TextBox tbLocationDesc;
         
         /// <summary>
-        /// ddlLocStatus control.
+        /// ddlAssetStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLocStatus;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAssetStatus;
         
         /// <summary>
         /// btnAddLocation control.

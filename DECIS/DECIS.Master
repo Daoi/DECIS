@@ -40,7 +40,8 @@
                 <div class="collapse navbar-collapse font-weight-bold text-right" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">
                         <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/Homepage.aspx" CssClass="nav-item nav-link text-black">Dashboard</asp:HyperLink>
-                        <asp:LinkButton ID="lnkBtnLogout" runat="server" Enabled="false" Visible="false" CssClass="nav-item nav-link text-white ml-4" OnClick="lnkBtnLogout_Click">Logout</asp:LinkButton>
+                        <asp:LinkButton ID="lnkBtnLogout" runat="server" CssClass="nav-item nav-link text-white ml-4" OnClick="lnkBtnLogout_Click">Logout</asp:LinkButton>
+                        <asp:LinkButton ID="lnkBtnCreateAccount" runat="server" CssClass="nav-item nav-link text-white ml-4" OnClick="lnkBtnCreateAccount_Click" >Create Account</asp:LinkButton>
                     </div>
                 </div>
             </nav>

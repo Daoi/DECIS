@@ -22,7 +22,7 @@ namespace DECIS
         {
             if (!IsPostBack)
             {
-                List<DropDownList> ddls = new List<DropDownList>() { ddlAssetType, ddlAssetMake, ddlLocStatus };
+                List<DropDownList> ddls = new List<DropDownList>() { ddlAssetType, ddlAssetMake, ddlAssetStatus };
                 DataSet dts = DDLDataBind.Bind(ddls);
             }
         }

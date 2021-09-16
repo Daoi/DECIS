@@ -1,5 +1,6 @@
 ﻿using DECIS.ControlLogic.Gridview;
 using DECIS.DataAccess.DataAccessors.Recycle;
+using DECIS.DataModels;
 using DECIS.PageLogic.RecycleList;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,9 @@ namespace DECIS
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((Session["User"] as User).Role != (int)Permission.Admin)
+                Response.Redirect("~/Homepage.aspx");
+
             if (!IsPostBack)
             {
                 dtRecycleList = new GetAllRecycle().ExecuteCommand();

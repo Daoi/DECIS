@@ -43,8 +43,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Amazon.Extensions.CognitoAuthentication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Amazon.Extensions.CognitoAuthentication.2.2.2\lib\netstandard2.0\Amazon.Extensions.CognitoAuthentication.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CognitoIdentity, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.CognitoIdentity.3.7.0.64\lib\net45\AWSSDK.CognitoIdentity.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CognitoIdentityProvider, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.CognitoIdentityProvider.3.7.1.36\lib\net45\AWSSDK.CognitoIdentityProvider.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.Core.3.7.1.4\lib\net45\AWSSDK.Core.dll</HintPath>
+      <HintPath>..\packages\AWSSDK.Core.3.7.3.4\lib\net45\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticBeanstalk, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.ElasticBeanstalk.3.7.0.45\lib\net45\AWSSDK.ElasticBeanstalk.dll</HintPath>
@@ -54,6 +63,9 @@
     </Reference>
     <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.S3.3.7.1.20\lib\net45\AWSSDK.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SecurityToken, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.SecurityToken.3.7.1.54\lib\net45\AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SQS, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.SQS.3.7.0.46\lib\net45\AWSSDK.SQS.dll</HintPath>
@@ -396,12 +408,14 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="CreateAccount.aspx" />
     <Content Include="CreateRequest.aspx" />
     <Content Include="DonationDocument\DonationForm.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Images\CRC.png" />
     <Content Include="IntakeList.aspx" />
     <Content Include="IntakeView.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="OrgList.aspx" />
     <Content Include="OrgView.aspx" />
     <Content Include="RecycleList.aspx" />
@@ -523,9 +537,11 @@
     <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <Content Include="Settings.aspx" />
     <Content Include="Style\style.css" />
+    <Content Include="Verify.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\AWSCognitoManager.cs" />
     <Compile Include="AssetForm.aspx.cs">
       <DependentUpon>AssetForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -561,6 +577,13 @@
     <Compile Include="ControlLogic\Gridview\HeaderBinding.cs" />
     <Compile Include="ControlLogic\Panels\ClearPanel.cs" />
     <Compile Include="ControlLogic\Panels\TogglePanel.cs" />
+    <Compile Include="CreateAccount.aspx.cs">
+      <DependentUpon>CreateAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateAccount.aspx.designer.cs">
+      <DependentUpon>CreateAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreateRequest.aspx.cs">
       <DependentUpon>CreateRequest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -569,6 +592,9 @@
       <DependentUpon>CreateRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\DataAccess.cs" />
+    <Compile Include="DataAccess\DataAccessors\Account\GetAccount.cs" />
+    <Compile Include="DataAccess\DataAccessors\Account\GetRoles.cs" />
+    <Compile Include="DataAccess\DataAccessors\Account\InsertAccount.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\FilterAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllActiveAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssets.cs" />
@@ -619,6 +645,7 @@
     <Compile Include="DataAccess\DataAccessors\Recycle\GetRecycleByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\InsertNewRecycle.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\GetAllRecycle.cs" />
+    <Compile Include="DataAccess\DataAccessors\Recycle\RecycleOrg\GetAllRecycleOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\RecycleStatus\GetAllRecycleStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\UpdateRecycle.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\UpdateRecycleParameters.cs" />
@@ -653,6 +680,7 @@
     <Compile Include="DataModels\PersonalRequest.cs" />
     <Compile Include="DataModels\Recycle.cs" />
     <Compile Include="DataModels\Request.cs" />
+    <Compile Include="DataModels\User.cs" />
     <Compile Include="DECIS.Master.cs">
       <DependentUpon>DECIS.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -690,6 +718,13 @@
     </Compile>
     <Compile Include="IntakeView.aspx.designer.cs">
       <DependentUpon>IntakeView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="OrgList.aspx.cs">
       <DependentUpon>OrgList.aspx</DependentUpon>
@@ -780,6 +815,13 @@
     <Compile Include="Utilities\DateTimeString.cs" />
     <Compile Include="Utilities\FindControl.cs" />
     <Compile Include="Utilities\RandomizeString.cs" />
+    <Compile Include="Verify.aspx.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Verify.aspx.designer.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="DECIS.Master" />
@@ -819,8 +861,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.CognitoIdentity.3.7.0.64\analyzers\dotnet\cs\AWSSDK.CognitoIdentity.CodeAnalysis.dll" />
+    <Analyzer Include="..\packages\AWSSDK.CognitoIdentityProvider.3.7.1.36\analyzers\dotnet\cs\AWSSDK.CognitoIdentityProvider.CodeAnalysis.dll" />
     <Analyzer Include="..\packages\AWSSDK.ElasticBeanstalk.3.7.0.45\analyzers\dotnet\cs\AWSSDK.ElasticBeanstalk.CodeAnalysis.dll" />
     <Analyzer Include="..\packages\AWSSDK.S3.3.7.1.20\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
+    <Analyzer Include="..\packages\AWSSDK.SecurityToken.3.7.1.54\analyzers\dotnet\cs\AWSSDK.SecurityToken.CodeAnalysis.dll" />
     <Analyzer Include="..\packages\AWSSDK.SQS.3.7.0.46\analyzers\dotnet\cs\AWSSDK.SQS.CodeAnalysis.dll" />
   </ItemGroup>
   <PropertyGroup>
