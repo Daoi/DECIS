@@ -78,6 +78,11 @@ namespace DECIS
                 btnRemoveAll.Visible = false;
                 gvComputers.Visible = false;
             }
+            
+            if(status >= 3)
+            {
+                btnViewForm.Visible = true;
+            }
 
         }
 
@@ -206,6 +211,11 @@ namespace DECIS
 
             Session["Remove"] = assetsToRemove;
 
+        }
+
+        protected void btnViewForm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect($"./DonationDocument/DonationForm.aspx?id={reqID}&type={type}");
         }
     }
 }
