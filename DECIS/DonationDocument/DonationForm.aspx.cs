@@ -20,9 +20,9 @@ namespace DECIS.DonationDocument
             int type;
 
             if (!int.TryParse(Request.QueryString["id"], out requestID))
-                Response.Redirect("./RequestList.aspx");
+                Response.Redirect("../RequestList.aspx");
             if (!int.TryParse(Request.QueryString["type"], out type))
-                Response.Redirect("./RequestList.aspx");
+                Response.Redirect("../RequestList.aspx");
 
             if (!IsPostBack)
             {
