@@ -16,7 +16,6 @@ namespace DECIS.PageLogic.RecycleView
             (FindControl.Find("ddlRecycleOrg", pg) as DropDownList).SelectedValue = r.RecycleReceiver.ToString();
             (FindControl.Find("ddlRecycleStatus", pg) as DropDownList).SelectedValue = r.RecycleStatus.ToString();
             (FindControl.Find("tbRecycleDate", pg) as TextBox).Text = DateTimeString.GetDateString(r.Date, true);
-            (FindControl.Find("tbRecycler", pg) as TextBox).Text = r.Recycler;
         }
     }
 }

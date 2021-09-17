@@ -11,14 +11,14 @@ namespace DECIS.PageLogic.RecycleView
 {
     public class CreateRecycle
     {
-        public static Recycle Create(Page pg)
+        public static Recycle Create(Page pg, int rcID)
         {
             Recycle r = new Recycle()
             {
+                RecycleID = rcID,
                 RecycleReceiver = int.Parse((FindControl.Find("ddlRecycleOrg", pg) as DropDownList).SelectedValue),
                 RecycleStatus = int.Parse((FindControl.Find("ddlRecycleStatus", pg) as DropDownList).SelectedValue),
                 Date = (FindControl.Find("tbRecycleDate", pg) as TextBox).Text,
-                Recycler = (FindControl.Find("tbRecycler", pg) as TextBox).Text,
             };
 
             return r;

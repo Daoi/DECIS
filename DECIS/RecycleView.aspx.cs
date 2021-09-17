@@ -118,7 +118,7 @@ namespace DECIS
             {
                 try
                 {
-                    Recycle newRecycle = CreateRecycle.Create(Page);
+                    Recycle newRecycle = CreateRecycle.Create(Page, rcID);
                     new UpdateRecycle(newRecycle).ExecuteCommand();
                     Response.Redirect($"./RecycleView.aspx?id={rcID}");
                 }
