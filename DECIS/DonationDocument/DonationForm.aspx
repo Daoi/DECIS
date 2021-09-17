@@ -13,13 +13,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="jumbotron jumbotron-fluid text-center">
-            <div class="container cherryBackground">
-                <h3 class="display-4">Digital Equity Center Donation Release Form</h3>
-                <p class="lead"></p>
+        <div class="row text-center">
+            <div class="container-fluid cherryBackground">
+                <p style="font-size: 2rem;" class="display-4 pb-2">Digital Equity Center Donation Release Form</p>
             </div>
         </div>
-        <div class="container ">
+        <div class="container-fluid ">
             <%-- Heading Info --%>
             <%-- Row 1 --%>
             <div class="row text-center">
@@ -70,8 +69,8 @@
             <%-- Heading Info End --%>
             <%-- Insurance Waiver --%>
             <div class="row mt-5">
-                <h4 class="fw-bolder">Insurance Waiver and Assumption of Risk</h4>
-                <p class="text-break fw-bold">
+                <h5 class="fw-bolder">Insurance Waiver and Assumption of Risk</h5>
+                <p class="text-break waiverText">
                     In consideration for <asp:Label ID="lblWaiverName" runat="server" Text=""></asp:Label> being permitted to take part in the Temple Tech for Philly
                     surplus equipment program and understanding that there are some health and bodily risks in connection with said program, I hereby indemnify, defend, and save
                     harmless Temple University of the Commonwealth System of Higher Education and its officers and employees and agents from any and all claims whatsoever arising
@@ -80,7 +79,7 @@
             </div>
             <%-- Insurance End --%>
             <%-- Equipment Start --%>
-            <div class="row mt-5">
+            <div class="row mt-3">
                 <h4>Equipment Information</h4>
                 <asp:GridView ID="gvEquipment" CssClass="table" runat="server" AutoGenerateColumns="false">
                     <HeaderStyle CssClass="documentHeader" />
@@ -94,14 +93,14 @@
             </div>
             <%-- Equipment End --%>
             <%-- Signature Start --%>
-            <div class="row mt-5">
+            <div class="row mt-3">
                 <div class="row">
-                    <p class="text-break">
+                    <p class="text-break waiverText">
                         Acquisition of equipment is "as is", with no warranty of any kind, expressed or implied. <asp:Label ID="lblAcquName" runat="server" Text=""></asp:Label> agrees to
                         dispose of all equipment in such a manner as to abide by any applicable laws, as well as abide by any current environmental standards.
                     </p>
                 </div>
-                <div class="row mt-5">
+                <div class="row mt-3">
                     <div class="col-sm-6 fw-bold">Temple University, as Administrator</div>
                     <div class="col-sm-6">Signature: __________________________________________________</div>
                 </div>
