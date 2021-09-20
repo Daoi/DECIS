@@ -6,8 +6,7 @@ using System.Web;
 
 namespace DECIS.DataModels
 {
-    [Serializable]
-    public class Asset : ICloneable
+    public class Asset
     {
         public int AssetID { get; set; }
         public string SerialNumber { get; set; }
@@ -24,12 +23,11 @@ namespace DECIS.DataModels
         public string Model { get; set; }
         public int ModelID { get; set; }
         public string Image { get; set; }
-        public List<int> IntakeID { get; set; } //Keep track of where item came from eventually
+        public int IntakeID { get; set; } //Keep track of where item came from eventually
         public string OrgName { get; set; }
 
         public Asset()
         {
-            IntakeID = new List<int>();
         }
 
         public Asset(DataRow dr)
@@ -41,31 +39,12 @@ namespace DECIS.DataModels
             Location = dr["Location"].ToString();
             LocationDescription = dr["LocationDescription"].ToString();
             Status = dr["Status"].ToString();
-            StatusID = int.Parse(dr["StatusID"].ToString());
             Make = dr["Make"].ToString();
             Model = dr["Model"].ToString();
             Image = dr["Image"].ToString() == "" ? "No Image Available" : dr["Image"].ToString();
             MakeID = dr["MakeID"] == DBNull.Value ? -1 : int.Parse(dr["MakeID"].ToString());
-            if (dr["IntakeID"] != DBNull.Value)
-                IntakeID = FormatIDs(dr);
+            IntakeID = dr["IntakeID"] == DBNull.Value ? -1 : int.Parse(dr["IntakeID"].ToString());
             OrgName = dr["OrgName"].ToString();
-        }
-
-        private List<int> FormatIDs(DataRow dr) {
-            List<int> ids = new List<int>();
-            string[] values = dr["IntakeID"].ToString().Split(',');
-            values.ToList().ForEach(v => ids.Add(int.Parse(v)));
-            return ids;
-        }
-
-        /// <summary>
-        /// Create shallow copy of asset
-        /// </summary>
-        /// <returns></returns>
-        public object Clone()
-        {
-            Asset asset = (Asset)MemberwiseClone();
-            return asset;
         }
     }
 }

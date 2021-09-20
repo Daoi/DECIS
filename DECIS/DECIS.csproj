@@ -43,17 +43,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Amazon.Extensions.CognitoAuthentication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Amazon.Extensions.CognitoAuthentication.2.2.2\lib\netstandard2.0\Amazon.Extensions.CognitoAuthentication.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CognitoIdentity, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.CognitoIdentity.3.7.0.64\lib\net45\AWSSDK.CognitoIdentity.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CognitoIdentityProvider, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.CognitoIdentityProvider.3.7.1.36\lib\net45\AWSSDK.CognitoIdentityProvider.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.Core.3.7.3.4\lib\net45\AWSSDK.Core.dll</HintPath>
+      <HintPath>..\packages\AWSSDK.Core.3.7.1.1\lib\net45\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticBeanstalk, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.ElasticBeanstalk.3.7.0.45\lib\net45\AWSSDK.ElasticBeanstalk.dll</HintPath>
@@ -62,10 +53,7 @@
       <HintPath>..\packages\AWSSDK.Extensions.NETCore.Setup.3.7.1\lib\netstandard2.0\AWSSDK.Extensions.NETCore.Setup.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.S3.3.7.1.20\lib\net45\AWSSDK.S3.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SecurityToken, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.SecurityToken.3.7.1.54\lib\net45\AWSSDK.SecurityToken.dll</HintPath>
+      <HintPath>..\packages\AWSSDK.S3.3.7.1.17\lib\net45\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SQS, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.SQS.3.7.0.46\lib\net45\AWSSDK.SQS.dll</HintPath>
@@ -85,12 +73,6 @@
     <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlRenderer, Version=1.5.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HtmlRenderer.Core.1.5.0.5\lib\net45\HtmlRenderer.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.1.9, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpZipLib.1.3.1\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
     </Reference>
@@ -100,12 +82,6 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.0.2\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
@@ -113,94 +89,33 @@
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Extensions.Logging, Version=2.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.Logging.2.0.2\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.0.2\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Options, Version=2.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.Options.2.0.2\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Primitives, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Net.Http.Headers, Version=2.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.0.2\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
-    </Reference>
     <Reference Include="MySql.Data, Version=8.0.25.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.25\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp.Charting, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.Charting.dll</HintPath>
-    </Reference>
-    <Reference Include="PuppeteerSharp, Version=5.0.0.0, Culture=neutral, PublicKeyToken=db12f80f85d8ba23, processorArchitecture=MSIL">
-      <HintPath>..\packages\PuppeteerSharp.5.0.0\lib\netstandard2.0\PuppeteerSharp.dll</HintPath>
-    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Collections.Immutable.5.0.0\lib\net461\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.IO.Compression, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
-      <Private>True</Private>
-      <Private>True</Private>
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
-      <Private>True</Private>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
-      <Private>True</Private>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
-      <Private>True</Private>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
-      <Private>True</Private>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -210,7 +125,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -408,22 +322,9 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
-    <Content Include="CreateAccount.aspx" />
-    <Content Include="CreateRequest.aspx" />
-    <Content Include="DonationDocument\DonationForm.aspx" />
     <Content Include="Homepage.aspx" />
-    <Content Include="Images\CRC.png" />
-    <Content Include="IntakeList.aspx" />
-    <Content Include="IntakeView.aspx" />
-    <Content Include="Login.aspx" />
-    <Content Include="OrgList.aspx" />
-    <Content Include="OrgView.aspx" />
-    <Content Include="PersonList.aspx" />
-    <Content Include="PersonView.aspx" />
-    <Content Include="RecycleList.aspx" />
-    <Content Include="RecycleView.aspx" />
-    <Content Include="RequestList.aspx" />
-    <Content Include="RequestView.aspx" />
+    <Content Include="Images\71m1pA4JteL._AC_SL1500_.jpg" />
+    <Content Include="Images\Optiplex 990.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -435,11 +336,6 @@
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="connections.config" />
     <Content Include="Importing\Files\Donor Intake Sheet.xlsx" />
-    <Content Include="appSettings.config" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\bower.json" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\changelog.md" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\package.json" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\README.md" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -517,33 +413,14 @@
     <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\.gitignore" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\dist\DjValidator.js" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\dist\DjValidator.min.js" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\dist\locale\DjValidator-es.js" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\dist\locale\djvalidator-ru_ru.js" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\assets\bootstrap\bootstrap.min.css" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\assets\chosen\chosen-sprite.png" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\assets\chosen\chosen.css" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\assets\chosen\chosen.jquery.js" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\custom_style_messages.html" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\custom_ui.html" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\modes.html" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\validators-translation%28espanish%29.html" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\examples\validators.html" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\lib\jquery\jquery.min.js" />
-    <Content Include="Scripts\HTML5-Form-Validation-DjValidator\licence.txt" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
-    <Content Include="Settings.aspx" />
     <Content Include="Style\style.css" />
-    <Content Include="Verify.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\AWSCognitoManager.cs" />
     <Compile Include="AssetForm.aspx.cs">
       <DependentUpon>AssetForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -575,101 +452,22 @@
     <Compile Include="ControlLogic\DDL\SetItem.cs" />
     <Compile Include="ControlLogic\FileUp\SaveFile.cs" />
     <Compile Include="ControlLogic\FileUp\ValidateFile.cs" />
-    <Compile Include="ControlLogic\Gridview\BoundFieldFormatter.cs" />
-    <Compile Include="ControlLogic\Gridview\HeaderBinding.cs" />
-    <Compile Include="ControlLogic\Panels\ClearPanel.cs" />
     <Compile Include="ControlLogic\Panels\TogglePanel.cs" />
-    <Compile Include="CreateAccount.aspx.cs">
-      <DependentUpon>CreateAccount.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CreateAccount.aspx.designer.cs">
-      <DependentUpon>CreateAccount.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CreateRequest.aspx.cs">
-      <DependentUpon>CreateRequest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CreateRequest.aspx.designer.cs">
-      <DependentUpon>CreateRequest.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DataAccess\DataAccess.cs" />
-    <Compile Include="DataAccess\DataAccessors\Account\GetAccount.cs" />
-    <Compile Include="DataAccess\DataAccessors\Account\GetRoles.cs" />
-    <Compile Include="DataAccess\DataAccessors\Account\InsertAccount.cs" />
-    <Compile Include="DataAccess\DataAccessors\Assets\FilterAssets.cs" />
-    <Compile Include="DataAccess\DataAccessors\Assets\GetAllActiveAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssets.cs" />
-    <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssetsByStatus.cs" />
-    <Compile Include="DataAccess\DataAccessors\Assets\GetAllAssetsByStatusWithIntake.cs" />
-    <Compile Include="DataAccess\DataAccessors\Assets\GetAllGoodAssets.cs" />
-    <Compile Include="DataAccess\DataAccessors\Assets\GetAllInactiveAssets.cs" />
-    <Compile Include="DataAccess\DataAccessors\Assets\GetAssetsByIntake.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\ImportAsset.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\Types\GetAllAssetTypes.cs" />
-    <Compile Include="DataAccess\DataAccessors\Assets\Types\InsertAssetType.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAsset.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAssetParameters.cs" />
-    <Compile Include="DataAccess\DataAccessors\Assets\UpdateAssetStatusOnImport.cs" />
-    <Compile Include="DataAccess\DataAccessors\CTextWriter.cs" />
-    <Compile Include="DataAccess\DataAccessors\Documents\GetDocumentsByOrgID.cs" />
-    <Compile Include="DataAccess\DataAccessors\Documents\InsertDocument.cs" />
-    <Compile Include="DataAccess\DataAccessors\Donations\GetDonationReleaseFormAssets.cs" />
-    <Compile Include="DataAccess\DataAccessors\Donations\GetDonationReleaseFormData.cs" />
-    <Compile Include="DataAccess\DataAccessors\Intake\GetAllIntakes.cs" />
-    <Compile Include="DataAccess\DataAccessors\Intake\GetIntakeByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Intake\InsertIntake.cs" />
-    <Compile Include="DataAccess\DataAccessors\Intake\UpdateIntake.cs" />
     <Compile Include="DataAccess\DataAccessors\Location\GetAllLocation.cs" />
-    <Compile Include="DataAccess\DataAccessors\Location\GetLocationByStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Location\GetLocationInfoByID.cs" />
-    <Compile Include="DataAccess\DataAccessors\Location\InsertLocation.cs" />
     <Compile Include="DataAccess\DataAccessors\Make\GetAllMake.cs" />
-    <Compile Include="DataAccess\DataAccessors\Make\InsertMake.cs" />
     <Compile Include="DataAccess\DataAccessors\Model\GetAllModel.cs" />
     <Compile Include="DataAccess\DataAccessors\Model\GetModelInfoByID.cs" />
-    <Compile Include="DataAccess\DataAccessors\Model\InsertModel.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\GetAllOrgs.cs" />
-    <Compile Include="DataAccess\DataAccessors\Organization\GetOrgByID.cs" />
-    <Compile Include="DataAccess\DataAccessors\Organization\GetOrgNameByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\InsertOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Organization\InsertOrgParameters.cs" />
-    <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrg.cs" />
-    <Compile Include="DataAccess\DataAccessors\Organization\UpdateOrgParameters.cs" />
-    <Compile Include="DataAccess\DataAccessors\Person\AgeRange\GetAllAgeRange.cs" />
-    <Compile Include="DataAccess\DataAccessors\Person\Ethnicity\GetAllEthnicity.cs" />
-    <Compile Include="DataAccess\DataAccessors\Person\Gender\GetAllGender.cs" />
-    <Compile Include="DataAccess\DataAccessors\Person\GetAllPeople.cs" />
-    <Compile Include="DataAccess\DataAccessors\Person\GetAssociatedPeople.cs" />
-    <Compile Include="DataAccess\DataAccessors\Person\GetPersonByID.cs" />
-    <Compile Include="DataAccess\DataAccessors\Person\InsertPerson.cs" />
-    <Compile Include="DataAccess\DataAccessors\Person\PersonParameters.cs" />
-    <Compile Include="DataAccess\DataAccessors\Person\Race\GetAllRace.cs" />
-    <Compile Include="DataAccess\DataAccessors\Recycle\GetAllAssetsForRecycle.cs" />
-    <Compile Include="DataAccess\DataAccessors\Recycle\GetAllRecycleByStatus.cs" />
-    <Compile Include="DataAccess\DataAccessors\Recycle\GetRecycleByID.cs" />
-    <Compile Include="DataAccess\DataAccessors\Recycle\InsertNewRecycle.cs" />
-    <Compile Include="DataAccess\DataAccessors\Recycle\GetAllRecycle.cs" />
-    <Compile Include="DataAccess\DataAccessors\Recycle\RecycleOrg\GetAllRecycleOrg.cs" />
-    <Compile Include="DataAccess\DataAccessors\Recycle\RecycleStatus\GetAllRecycleStatus.cs" />
-    <Compile Include="DataAccess\DataAccessors\Recycle\UpdateRecycle.cs" />
-    <Compile Include="DataAccess\DataAccessors\Recycle\UpdateRecycleParameters.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\GetAllAssetsForRequest.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\GetAllOrgRequestsByID.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\GetAllRequestByStatus.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\GetAllRequests.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\GetAllRequestsForOrg.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\GetRequestInfoByID.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\GetOrgRequestsByID.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\GetOrgRequestsByStatus.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\InsertPersonalRequest.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\InsertRequest.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\OrgRequestParameters.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\PersonalRequestParameters.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\RequestReason\GetAllReasons.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\RequestStatus\GetAllRequestStatus.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\UpdateOrgRequest.cs" />
-    <Compile Include="DataAccess\DataAccessors\Request\UpdatePersonalRequest.cs" />
     <Compile Include="DataAccess\DataAccessors\Status\GetAllStatus.cs" />
     <Compile Include="DataAccess\DataSupport.cs" />
     <Compile Include="DataAccess\ExecuteData.cs" />
@@ -678,27 +476,14 @@
     <Compile Include="DataModels\Asset.cs" />
     <Compile Include="DataModels\Donation.cs" />
     <Compile Include="DataModels\Intake.cs" />
-    <Compile Include="DataModels\Model.cs" />
+    <Compile Include="DataModels\OrderRequest.cs" />
     <Compile Include="DataModels\Organization.cs" />
-    <Compile Include="DataModels\OrgRequest.cs" />
-    <Compile Include="DataModels\Person.cs" />
-    <Compile Include="DataModels\PersonalRequest.cs" />
-    <Compile Include="DataModels\Recycle.cs" />
-    <Compile Include="DataModels\Request.cs" />
-    <Compile Include="DataModels\User.cs" />
     <Compile Include="DECIS.Master.cs">
       <DependentUpon>DECIS.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DECIS.Master.designer.cs">
       <DependentUpon>DECIS.Master</DependentUpon>
-    </Compile>
-    <Compile Include="DonationDocument\DonationForm.aspx.cs">
-      <DependentUpon>DonationForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DonationDocument\DonationForm.aspx.designer.cs">
-      <DependentUpon>DonationForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Homepage.aspx.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
@@ -708,140 +493,8 @@
       <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ControlLogic\DDL\DDLDataBind.cs" />
-    <Compile Include="Importing\AmazonUploader.cs" />
     <Compile Include="Importing\AssetImportReader.cs" />
-    <Compile Include="IntakeList.aspx.cs">
-      <DependentUpon>IntakeList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="IntakeList.aspx.designer.cs">
-      <DependentUpon>IntakeList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="IntakeView.aspx.cs">
-      <DependentUpon>IntakeView.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="IntakeView.aspx.designer.cs">
-      <DependentUpon>IntakeView.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="OrgList.aspx.cs">
-      <DependentUpon>OrgList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="OrgList.aspx.designer.cs">
-      <DependentUpon>OrgList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="OrgView.aspx.cs">
-      <DependentUpon>OrgView.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="OrgView.aspx.designer.cs">
-      <DependentUpon>OrgView.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PageLogic\AssetUpload\SetAssetType.cs" />
-    <Compile Include="PageLogic\CreateRequest\CollectOrgRequestInfo.cs" />
-    <Compile Include="PageLogic\CreateRequest\CollectPersonalRequestInfo.cs" />
-    <Compile Include="PageLogic\CreateRequest\CreateOrg.cs" />
-    <Compile Include="PageLogic\CreateRequest\CreatePerson.cs" />
-    <Compile Include="PageLogic\CreateRequest\CreatePersonalReasons.cs" />
-    <Compile Include="PageLogic\DonationForm\Display.cs" />
-    <Compile Include="PageLogic\OrgView\BindGridviews.cs" />
-    <Compile Include="PageLogic\PersonView\Display.cs" />
-    <Compile Include="PageLogic\RecycleList\CreateNewRecycle.cs" />
-    <Compile Include="PageLogic\RecycleView\AddAssets.cs" />
-    <Compile Include="PageLogic\RecycleView\BindGridviews.cs" />
-    <Compile Include="PageLogic\RecycleView\CreateRecycle.cs" />
-    <Compile Include="PageLogic\RecycleView\Display.cs" />
-    <Compile Include="PageLogic\RecycleView\RemoveAssets.cs" />
-    <Compile Include="PageLogic\RequestView\CreatePersonalRequest.cs" />
-    <Compile Include="PageLogic\CreateRequest\NonprofitFM.cs" />
-    <Compile Include="PageLogic\CreateRequest\CreateRequest.cs" />
-    <Compile Include="PageLogic\CreateRequest\DisplayInfo.cs" />
-    <Compile Include="PageLogic\CreateRequest\RequestType.cs" />
-    <Compile Include="PageLogic\CreateRequest\SameAsRequestor.cs" />
-    <Compile Include="PageLogic\CreateRequest\UpdateExistingOrg.cs" />
-    <Compile Include="PageLogic\OrgView\CreateNewOrg.cs" />
-    <Compile Include="PageLogic\OrgView\DownloadOrgDocuments.cs" />
-    <Compile Include="PageLogic\OrgView\OrgViewDataDisplay.cs" />
-    <Compile Include="PageLogic\RequestView\AddAssets.cs" />
-    <Compile Include="PageLogic\RequestView\BindGridviews.cs" />
-    <Compile Include="PageLogic\RequestView\CreateOrgRequest.cs" />
-    <Compile Include="PageLogic\RequestView\DisplayRequest.cs" />
-    <Compile Include="PageLogic\RequestView\RemoveAssets.cs" />
-    <Compile Include="PageLogic\RequestView\UpdateAll.cs" />
-    <Compile Include="PageLogic\Settings\SettingsClearLabels.cs" />
-    <Compile Include="PageLogic\Settings\SettingsLocation.cs" />
-    <Compile Include="PageLogic\Settings\SettingsMake.cs" />
-    <Compile Include="PageLogic\Settings\SettingsModel.cs" />
-    <Compile Include="PersonList.aspx.cs">
-      <DependentUpon>PersonList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PersonList.aspx.designer.cs">
-      <DependentUpon>PersonList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PersonView.aspx.cs">
-      <DependentUpon>PersonView.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PersonView.aspx.designer.cs">
-      <DependentUpon>PersonView.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecycleList.aspx.cs">
-      <DependentUpon>RecycleList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RecycleList.aspx.designer.cs">
-      <DependentUpon>RecycleList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RecycleView.aspx.cs">
-      <DependentUpon>RecycleView.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RecycleView.aspx.designer.cs">
-      <DependentUpon>RecycleView.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RequestList.aspx.cs">
-      <DependentUpon>RequestList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RequestList.aspx.designer.cs">
-      <DependentUpon>RequestList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RequestView.aspx.cs">
-      <DependentUpon>RequestView.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RequestView.aspx.designer.cs">
-      <DependentUpon>RequestView.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Settings.aspx.cs">
-      <DependentUpon>Settings.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Settings.aspx.designer.cs">
-      <DependentUpon>Settings.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Utilities\CheckFile.cs" />
-    <Compile Include="ControlLogic\Gridview\DataTableFilter.cs" />
-    <Compile Include="Utilities\DateTimeString.cs" />
-    <Compile Include="Utilities\FindControl.cs" />
-    <Compile Include="Utilities\RandomizeString.cs" />
-    <Compile Include="Verify.aspx.cs">
-      <DependentUpon>Verify.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Verify.aspx.designer.cs">
-      <DependentUpon>Verify.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="DECIS.Master" />
@@ -879,13 +532,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Analyzer Include="..\packages\AWSSDK.CognitoIdentity.3.7.0.64\analyzers\dotnet\cs\AWSSDK.CognitoIdentity.CodeAnalysis.dll" />
-    <Analyzer Include="..\packages\AWSSDK.CognitoIdentityProvider.3.7.1.36\analyzers\dotnet\cs\AWSSDK.CognitoIdentityProvider.CodeAnalysis.dll" />
+    <Folder Include="PageLogic\" />
+  </ItemGroup>
+  <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.ElasticBeanstalk.3.7.0.45\analyzers\dotnet\cs\AWSSDK.ElasticBeanstalk.CodeAnalysis.dll" />
-    <Analyzer Include="..\packages\AWSSDK.S3.3.7.1.20\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
-    <Analyzer Include="..\packages\AWSSDK.SecurityToken.3.7.1.54\analyzers\dotnet\cs\AWSSDK.SecurityToken.CodeAnalysis.dll" />
+    <Analyzer Include="..\packages\AWSSDK.S3.3.7.1.17\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
     <Analyzer Include="..\packages\AWSSDK.SQS.3.7.0.46\analyzers\dotnet\cs\AWSSDK.SQS.CodeAnalysis.dll" />
   </ItemGroup>
   <PropertyGroup>

@@ -1,4 +1,4 @@
-﻿using DECIS.CotrolLogic.DDL;
+﻿using DECIS.CotrolLogic;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,7 +20,7 @@ namespace DECIS
         private void RetrieveData()
         {
             List<DropDownList> ddls = new List<DropDownList>() { ddlAssetMake, ddlAssetModel, ddlAssetStatus, ddlLocation, ddlAssetType };
-            DataSet dts = DDLDataBind.Bind(ddls);
+            DataSet dts = DDLDataBind.ddlBind(ddls);
 
             ViewState["Make"] = dts.Tables["Make"];
             ViewState["Models"] = dts.Tables["Model"];

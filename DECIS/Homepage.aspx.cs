@@ -1,5 +1,4 @@
-﻿using DECIS.DataModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,10 +12,6 @@ namespace DECIS
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if((Session["User"] as User).Role == (int)Permission.Basic)
-            {
-                divSettings.Visible = false;
-            }
         }
 
         protected void lnkHome_Click(object sender, EventArgs e)
