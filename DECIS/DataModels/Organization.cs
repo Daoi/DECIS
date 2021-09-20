@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using MySql.Data;
 
 namespace DECIS.DataModels
 {
+    [Serializable]
     public class Organization
     {
         public int OrgID { get; set; }
@@ -20,6 +22,9 @@ namespace DECIS.DataModels
         public string OrgContactSecondary { get; set; }
         public string OrgSecondaryPhone { get; set; }
         public string OrgSecondaryEmail { get; set; }
+        public string Referer { get; set; }
+        public bool ReceivedEquipment { get; set; }
+        public string Purpose { get; set; }
 
         public Organization()
         {
@@ -40,6 +45,9 @@ namespace DECIS.DataModels
             OrgContactSecondary = dr["OrgContactSecondary"].ToString();
             OrgSecondaryEmail = dr["OrgSecondaryEmail"].ToString();
             OrgSecondaryPhone = dr["OrgSecondaryPhone"].ToString();
+            Referer = dr["OrgReferer"].ToString();
+            Purpose = dr["Purpose"].ToString();
+            ReceivedEquipment = dr["ReceivedEquipment"] == DBNull.Value ? false : (bool)dr["ReceivedEquipment"];
         }
 
         public static Organization ImportOrg(DataRow dr)

@@ -6,6 +6,7 @@ using System.Web;
 namespace DECIS.DataModels
 {
     public class Donation
-    {
+    {    
+
     }
 }

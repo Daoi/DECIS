@@ -13,57 +13,75 @@ namespace DECIS {
     public partial class Homepage {
         
         /// <summary>
-        /// divCreateCHW control.
+        /// divViewOrgs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCreateCHW;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divViewOrgs;
         
         /// <summary>
-        /// divViewAll control.
+        /// divViewAllAsset control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divViewAll;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divViewAllAsset;
         
         /// <summary>
-        /// divCreateEvent control.
+        /// divIntakeList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCreateEvent;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divIntakeList;
         
         /// <summary>
-        /// divInteractionList control.
+        /// divRequestList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInteractionList;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRequestList;
         
         /// <summary>
-        /// divResidentList control.
+        /// divRecycleList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divResidentList;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRecycleList;
         
         /// <summary>
-        /// divEventList control.
+        /// divAssetUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divEventList;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAssetUpload;
+        
+        /// <summary>
+        /// divSettings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSettings;
+        
+        /// <summary>
+        /// div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
     }
 }
