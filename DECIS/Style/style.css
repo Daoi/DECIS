@@ -24,6 +24,11 @@
     background-color: #E9ECEF;
 }
 
+.errorText{
+    color: red;
+    font-weight: bolder;
+}
+
 .ice{
     background-color: #99D3DF;
 }
