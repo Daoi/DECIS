@@ -36,6 +36,9 @@
     </div>
     <div style="margin-top: 2%; height: 2%; width: auto;"></div>
     <script type="text/javascript">
-            $('#MainContent_gvPersonList').prepend($("<thead></thead>").append($("#MainContent_gvPersonList").find("tr:first"))).DataTable({});
+        function pageLoad() {
+            var tables = ['#MainContent_gvPersonList'];
+            InitDT(tables);
+        };
     </script>
 </asp:Content>

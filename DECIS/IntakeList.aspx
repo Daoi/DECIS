@@ -39,9 +39,8 @@
     <div style="margin-top: 2%; height: 2%; width: auto;"></div>
     <script type="text/javascript">
         function pageLoad() {
-            $('#MainContent_gvIntakeList').prepend($("<thead></thead>").append($("#MainContent_gvIntakeList").find("tr:first"))).DataTable({
-                stateSave: true,
-            });
+            var tables = ['#MainContent_gvIntakeList'];
+            InitDT(tables);
         };
     </script>
 </asp:Content>

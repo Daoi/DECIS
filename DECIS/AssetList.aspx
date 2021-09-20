@@ -58,9 +58,8 @@
     <div style="margin-top: 2%; height: 2%; width: auto;"></div>
     <script type="text/javascript">
         function pageLoad() {
-            $('#MainContent_gvAssetList').prepend($("<thead></thead>").append($("#MainContent_gvAssetList").find("tr:first"))).DataTable({
-                stateSave: true,
-            });
+            var tables = ['#MainContent_gvAssetList'];
+            InitDT(tables);
         };
     </script>
 </asp:Content>

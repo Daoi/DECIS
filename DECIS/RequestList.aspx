@@ -54,11 +54,11 @@
         </div>
     </div>
     <div style="margin-top: 2%; height: 2%; width: auto;"></div>
+    
     <script type="text/javascript">
-            function pageLoad() {
-                $('#MainContent_gvRequestList').prepend($("<thead></thead>").append($("#MainContent_gvRequestList").find("tr:first"))).DataTable({
-                    stateSave: true,
-                });
-            };
+        function pageLoad() {
+            var tables = ['#MainContent_gvRequestList'];
+            InitDT(tables);
+        };
     </script>
 </asp:Content>

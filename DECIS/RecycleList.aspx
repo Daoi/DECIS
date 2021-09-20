@@ -52,9 +52,8 @@
     <div style="margin-top: 2%; height: 2%; width: auto;"></div>
     <script type="text/javascript">
         function pageLoad() {
-            $('#MainContent_gvRecycleList').prepend($("<thead></thead>").append($("#MainContent_gvRecycleList").find("tr:first"))).DataTable({
-                stateSave: true,
-            });
+            var tables = ['#MainContent_gvRecycleList'];
+            InitDT(tables);
         };
     </script>
 </asp:Content>
