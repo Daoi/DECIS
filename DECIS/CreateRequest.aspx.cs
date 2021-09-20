@@ -31,11 +31,11 @@ namespace DECIS
                 RequestType.SetRequest(ddl, Page);
                 ViewState["Type"] = ddlRequestType.SelectedValue;
             }
-            else if (ddl.ID == ddlOrg.ID && ddlRequestType.SelectedValue == "Organization")//If its an org request type
+            else if (ddl.ID == ddlOrganization.ID && ddlRequestType.SelectedValue == "Organization")//If its an org request type
             {
                 ViewState["SelectedOrg"] = DisplayInfo.DisplayOrgInfo(ddl.SelectedValue, Page);
             }
-            else if (ddl.ID == ddlOrg.ID && ddlRequestType.SelectedValue == "Personal")//If its a personal request type
+            else if (ddl.ID == ddlOrganization.ID && ddlRequestType.SelectedValue == "Personal")//If its a personal request type
             {
                 ViewState["SelectedOrg"] =  DisplayInfo.DisplayOrgInfo(ddl.SelectedValue, Page, true);
             }
@@ -60,7 +60,7 @@ namespace DECIS
                     NonprofitFM fm = new NonprofitFM(Page, fuDocuments);
                     if (fm.Verify())
                     {
-                        (Organization org, OrgRequest req) values = CollectOrgRequestInfo.Collect(Page, ddlOrg.SelectedValue != "-1");
+                        (Organization org, OrgRequest req) values = CollectOrgRequestInfo.Collect(Page, ddlOrganization.SelectedValue != "-1");
                         new InsertRequest(values.req).ExecuteCommand();
                         fm.Upload(values.org);
                         lblMsg.Text = "Successfully submitted request. You will be emailed with any updates. Reach out to reuse@temple.edu with questions";
@@ -81,7 +81,7 @@ namespace DECIS
             }
             else if(requestType == "Personal")
             {
-                int orgID = int.Parse(ddlOrg.SelectedValue);
+                int orgID = int.Parse(ddlOrganization.SelectedValue);
                 CollectPersonalRequestInfo.Collect(Page, orgID);
                 lblMsg.Text = "Successfully submitted request. You will be emailed with any updates. Reach out to reuse@temple.edu with questions";
                 divMsg.Visible = true;
