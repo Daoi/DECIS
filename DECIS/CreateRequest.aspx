@@ -57,7 +57,7 @@
                                 <%--Shared Request Form Start--%>
                                 <asp:Panel ID="pnlShared" runat="server">
                                     <asp:Label ID="lblOrganization" Visible="false" runat="server" Text="Select Affiliated Organization:" CssClass=""></asp:Label>
-                                    <asp:DropDownList ID="ddlOrg" data-dj-validator="org" Visible="false" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged" CssClass="form-control"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlOrganization" data-dj-validator="org" Visible="false" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged" CssClass="form-control"></asp:DropDownList>
                                     <asp:Label ID="lblOrgName" runat="server" Text="Org name: "></asp:Label>
                                     <asp:TextBox ID="tbOrgName" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblName" runat="server" Text="Name: "></asp:Label>
@@ -182,12 +182,9 @@
         $('#lblFU').hide();
         $('#ddlRequestType').on("change", function () {
             var x = $("#ddlRequestType").prop('selectedIndex');
-            console.log(x);
-            console.log(x < 2);
             if (x < 2) {
                 $('#fuDocuments').hide();
                 $('#lblFU').hide();
-
             }
             else {
                 $('#fuDocuments').show();

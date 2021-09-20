@@ -9,7 +9,6 @@ namespace DECIS.DataModels
     [Serializable]
     public class Recycle
     {
-        public string Recycler { get; set; }
         public string Date { get; set; }
         public int RecycleID { get; set; }
         public int RecycleReceiver { get; set; }
@@ -21,7 +20,6 @@ namespace DECIS.DataModels
         public Recycle(DataRow dr)
         {
             RecycleID = int.Parse(dr["RecycleID"].ToString());
-            Recycler = dr["Recycler"].ToString();
             Date = dr["RecycleDate"].ToString();
             RecycleStatus = int.Parse(dr["RecycleStatus"].ToString());
             RecycleReceiver = int.Parse(dr["RecycleReceiver"].ToString());

@@ -89,7 +89,7 @@
                         <%-- Button 8 Start --%>
                         <div class="card text-center homepageCard">
                             <div class="card-body shadow">
-                                <label class="card-title font-weight-bold h5">Settings</label>
+                                <label class="card-title font-weight-bold h5">Placeholder</label>
                                 <p class="text-dark">Placeholder</p>
                                 <a class="stretched-link" href="#"></a>
                             </div>

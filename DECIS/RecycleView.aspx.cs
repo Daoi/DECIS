@@ -16,14 +16,16 @@ namespace DECIS
         int rcID;
         List<int> assetsToAdd;
         List<int> assetsToRemove;
+        User currentUser;
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((Session["User"] as User).Role != (int)Permission.Admin)
+                Response.Redirect("~/Homepage.aspx");
+
             if (!int.TryParse(Request.QueryString["id"], out rcID))
                 Response.Redirect("./RecycleList.aspx");
-
-
 
             if (!IsPostBack)
             {
@@ -45,7 +47,7 @@ namespace DECIS
             }
             int status = (ViewState["Recycle"] as Recycle).RecycleStatus;
             //If Finished(2) or Cancelled(3) disable editing
-            if (status > 1)
+            if (status > 1 && (Session["User"] as User).Role != (int)Permission.Admin)
             {
                 pnlButtons.Visible = false;
                 gvComputers.Visible = false;
@@ -116,7 +118,7 @@ namespace DECIS
             {
                 try
                 {
-                    Recycle newRecycle = CreateRecycle.Create(Page);
+                    Recycle newRecycle = CreateRecycle.Create(Page, rcID);
                     new UpdateRecycle(newRecycle).ExecuteCommand();
                     Response.Redirect($"./RecycleView.aspx?id={rcID}");
                 }

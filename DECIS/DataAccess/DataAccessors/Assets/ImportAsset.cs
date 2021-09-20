@@ -22,7 +22,7 @@ namespace DECIS.DataAccess.DataAccessors.Assets
                 new MySqlParameter("SerialNumber", ast.SerialNumber),
                 new MySqlParameter("Description", ast.Description),
                 new MySqlParameter("IntakeID", intakeID),
-                new MySqlParameter("ModelID", ast.ModelID),
+                new MySqlParameter("Model", ast.ModelID),
             };
             ExecuteQuery eq = new ExecuteQuery(); //Create instance of class that handles command obj
             return eq.ExecuteAdapter(this); //Run the command

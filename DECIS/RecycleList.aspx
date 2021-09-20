@@ -31,7 +31,6 @@
                                     </ItemTemplate>
                                     <ItemStyle CssClass="align-items-center"></ItemStyle>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="Recycler" HeaderText="Recycled By" />
                                 <asp:BoundField DataField="RecycleDate" DataFormatString="{0:MM-dd-yyyy}" HeaderText="Date" />
                                 <asp:BoundField DataField="RecycleOrgName" HeaderText="Sent To" />
                                 <asp:BoundField DataField="StatusText" HeaderText="Status" />

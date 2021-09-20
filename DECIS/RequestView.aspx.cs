@@ -71,12 +71,17 @@ namespace DECIS
             }
             int status = (ViewState["Request"] as Request).Status;
             //If Finished(4) or Cancelled(5)
-            if (status >= 4)
+            if (status >= 4 && (Session["User"] as User).Role != (int)Permission.Admin)
             {
                 btnEdit.Visible = false;
                 btnAddAll.Visible = false;
                 btnRemoveAll.Visible = false;
                 gvComputers.Visible = false;
+            }
+            
+            if(status >= 3)
+            {
+                btnViewForm.Visible = true;
             }
 
         }
@@ -98,7 +103,7 @@ namespace DECIS
                 else
                 {
                     PersonalRequest newReq = CreatePersonalRequest.Create(Page, req.RequestID);
-                    if (!string.IsNullOrWhiteSpace(newReq.DateScheduled) && newReq.Status != 3)
+                    if (!string.IsNullOrWhiteSpace(newReq.DateScheduled) && newReq.Status < 3)
                         newReq.Status = 3;
                     new UpdatePersonalRequest(newReq).ExecuteCommand();
 
@@ -206,6 +211,11 @@ namespace DECIS
 
             Session["Remove"] = assetsToRemove;
 
+        }
+
+        protected void btnViewForm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect($"./DonationDocument/DonationForm.aspx?id={reqID}&type={type}");
         }
     }
 }

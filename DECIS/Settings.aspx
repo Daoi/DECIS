@@ -80,7 +80,7 @@
                                 <br />
                                 <asp:TextBox ID="tbLocationName" runat="server" placeholder="Location Name (100 ch)" CssClass="form-control mt-1"></asp:TextBox>
                                 <asp:TextBox ID="tbLocationDesc" runat="server" placeholder="Location Description(250 ch)" CssClass="form-control mt-1" TextMode="MultiLine"></asp:TextBox>
-                                <asp:DropDownList ID="ddlLocStatus" CssClass="form-control mt-1" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlAssetStatus" CssClass="form-control mt-1" runat="server"></asp:DropDownList>
                                 <asp:Button ID="btnAddLocation" runat="server" Text="Add New Option" CssClass="btn btn-primary mt-3" OnClick="btnAdd_Click" />
                             </ContentTemplate>
                         </asp:UpdatePanel>

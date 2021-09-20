@@ -526,6 +526,15 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.Button btnViewOrg;
         
         /// <summary>
+        /// btnViewForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnViewForm;
+        
+        /// <summary>
         /// btnAddAll control.
         /// </summary>
         /// <remarks>
