@@ -34,16 +34,20 @@ namespace DECIS.DataModels
         public Person()
         { }
 
-        public Person(DataRow dr)
+        public Person(DataRow dr, bool request = true)
         {
+            PersonID = int.Parse(dr["PersonID"].ToString());
             FullName = dr["Name"].ToString();
             FirstName = dr["Name"].ToString().Split(' ')[0];
             LastName = dr["Name"].ToString().Split(' ')[1];
             AgeRangeID = int.Parse(dr["AgeRange"].ToString());
             AgeGroup = dr["ARDescription"].ToString();
-            GenderT = dr["Gender"].ToString();
-            RaceT = dr["Race"].ToString();
-            EthnicityT = dr["Ethnicity"].ToString();
+            GenderT = dr["GenderT"].ToString();
+            RaceT = dr["RaceT"].ToString();
+            EthnicityT = dr["EthnicityT"].ToString();
+            Gender = int.Parse(dr["Gender"].ToString());
+            Race = int.Parse(dr["Race"].ToString());
+            Ethnicity = int.Parse(dr["Ethnicity"].ToString());
             HouseholdSize = int.Parse(dr["HouseholdSize"].ToString());
             HSStudent = int.Parse(dr["HSStudent"].ToString());
             Adult = int.Parse(dr["Adult"].ToString());
@@ -52,7 +56,8 @@ namespace DECIS.DataModels
             ZipCode = dr["Zipcode"].ToString();
             Phone = dr["Phone"].ToString();
             Email = dr["Email"].ToString();
-            Reasons = new List<string>(dr["Reasons"].ToString().Split(','));
+            if(request)
+                Reasons = new List<string>(dr["Reasons"].ToString().Split(','));
         }
 
 

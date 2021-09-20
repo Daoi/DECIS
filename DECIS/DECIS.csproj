@@ -418,6 +418,8 @@
     <Content Include="Login.aspx" />
     <Content Include="OrgList.aspx" />
     <Content Include="OrgView.aspx" />
+    <Content Include="PersonList.aspx" />
+    <Content Include="PersonView.aspx" />
     <Content Include="RecycleList.aspx" />
     <Content Include="RecycleView.aspx" />
     <Content Include="RequestList.aspx" />
@@ -637,7 +639,9 @@
     <Compile Include="DataAccess\DataAccessors\Person\AgeRange\GetAllAgeRange.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\Ethnicity\GetAllEthnicity.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\Gender\GetAllGender.cs" />
+    <Compile Include="DataAccess\DataAccessors\Person\GetAllPeople.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\GetAssociatedPeople.cs" />
+    <Compile Include="DataAccess\DataAccessors\Person\GetPersonByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\InsertPerson.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\PersonParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\Race\GetAllRace.cs" />
@@ -749,6 +753,7 @@
     <Compile Include="PageLogic\CreateRequest\CreatePersonalReasons.cs" />
     <Compile Include="PageLogic\DonationForm\Display.cs" />
     <Compile Include="PageLogic\OrgView\BindGridviews.cs" />
+    <Compile Include="PageLogic\PersonView\Display.cs" />
     <Compile Include="PageLogic\RecycleList\CreateNewRecycle.cs" />
     <Compile Include="PageLogic\RecycleView\AddAssets.cs" />
     <Compile Include="PageLogic\RecycleView\BindGridviews.cs" />
@@ -775,6 +780,20 @@
     <Compile Include="PageLogic\Settings\SettingsLocation.cs" />
     <Compile Include="PageLogic\Settings\SettingsMake.cs" />
     <Compile Include="PageLogic\Settings\SettingsModel.cs" />
+    <Compile Include="PersonList.aspx.cs">
+      <DependentUpon>PersonList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PersonList.aspx.designer.cs">
+      <DependentUpon>PersonList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PersonView.aspx.cs">
+      <DependentUpon>PersonView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PersonView.aspx.designer.cs">
+      <DependentUpon>PersonView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecycleList.aspx.cs">
       <DependentUpon>RecycleList.aspx</DependentUpon>
