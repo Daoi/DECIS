@@ -642,6 +642,7 @@
     <Compile Include="DataAccess\DataAccessors\Person\PersonParameters.cs" />
     <Compile Include="DataAccess\DataAccessors\Person\Race\GetAllRace.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\GetAllAssetsForRecycle.cs" />
+    <Compile Include="DataAccess\DataAccessors\Recycle\GetAllRecycleByStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\GetRecycleByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\InsertNewRecycle.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\GetAllRecycle.cs" />

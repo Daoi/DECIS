@@ -20,8 +20,6 @@
                             <asp:DropDownList ID="ddlRecycleOrg"  CssClass="form-control" runat="server"></asp:DropDownList>
                             <asp:Label ID="lblRecycleDate" runat="server" Text="Recycle Date:"></asp:Label>
                             <asp:TextBox ID="tbRecycleDate" TextMode="Date" runat="server" CssClass="form-control"></asp:TextBox>
-                            <asp:Label ID="lblRecycler" runat="server" Text="Recycler:"></asp:Label>
-                            <asp:TextBox ID="tbRecycler" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:Label ID="lblRecycleStatus" runat="server" Text="Recycle Status:"></asp:Label>
                             <asp:DropDownList ID="ddlRecycleStatus" CssClass="form-control" runat="server">
                             </asp:DropDownList>
