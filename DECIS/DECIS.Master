@@ -10,18 +10,24 @@
     <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>  
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/r-2.2.6/datatables.min.css" />
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/r-2.2.6/datatables.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="Scripts/Utilities/InitDT.js"></script>
     <link href="style/style.css" rel="stylesheet" />
     <script src="js/prefixfree.min.js" type="application/javascript"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous" />
+    
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"/>
-    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.962.0.min.js"></script>
+    
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.962.0.min.js"></script>  
+    
     <script src="Scripts/HTML5-Form-Validation-DjValidator/dist/DjValidator.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.11.2/b-2.0.0/b-colvis-2.0.0/b-html5-2.0.0/cr-1.5.4/datatables.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.11.2/b-2.0.0/b-colvis-2.0.0/b-html5-2.0.0/cr-1.5.4/datatables.min.js"></script>
+
 </head>
 <body>
     <form id="frmMain" runat="server" class="backgroundImage">
@@ -29,7 +35,7 @@
         <header class="ice">
             <div class="container-fluid">
                 <a href="Homepage.aspx">
-                    <img class="brandLogo my-2" src=""/>
+                    <img class="brandLogo my-2" src="" />
                 </a>
             </div>
             <nav class="navbar navbar-expand-lg navbar-light">
@@ -41,17 +47,17 @@
                     <div class="navbar-nav ml-auto">
                         <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/Homepage.aspx" CssClass="nav-item nav-link text-black">Dashboard</asp:HyperLink>
                         <asp:LinkButton ID="lnkBtnLogout" runat="server" CssClass="nav-item nav-link text-white ml-4" OnClick="lnkBtnLogout_Click">Logout</asp:LinkButton>
-                        <asp:LinkButton ID="lnkBtnCreateAccount" runat="server" CssClass="nav-item nav-link text-white ml-4" OnClick="lnkBtnCreateAccount_Click" >Create Account</asp:LinkButton>
+                        <asp:LinkButton ID="lnkBtnCreateAccount" runat="server" CssClass="nav-item nav-link text-white ml-4" OnClick="lnkBtnCreateAccount_Click">Create Account</asp:LinkButton>
                     </div>
                 </div>
             </nav>
         </header>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
     </form>
-        <footer>
+    <footer>
         <div class="footerCon ice text-center">
-             <span class="footer-notice pt-4" style="font-weight: bold">Digital Equity Center</span>
+            <span class="footer-notice pt-4" style="font-weight: bold">Digital Equity Center</span>
         </div>
     </footer>
 </body>

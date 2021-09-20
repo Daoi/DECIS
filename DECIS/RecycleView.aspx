@@ -66,7 +66,7 @@
                     <h5>Unassigned Bad Assets</h5>
                     <asp:Label ID="lblComputerMsg" runat="server" Text=""></asp:Label>
                     <asp:GridView ID="gvComputers" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="False">
-                        <HeaderStyle CssClass="cherryBackground" />
+                        <HeaderStyle CssClass="text-info" />
                         <Columns>
                             <asp:TemplateField HeaderText="Select">
                                 <ItemTemplate>
@@ -94,7 +94,7 @@
                     <h5>Assigned Assets</h5>
                     <asp:Label ID="lblAssignedMsg" runat="server" Text=""></asp:Label>
                     <asp:GridView ID="gvAssigned" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="false">
-                        <HeaderStyle CssClass="cherryBackground" />
+                        <HeaderStyle CssClass="text-info" />
                         <Columns>
                             <asp:TemplateField HeaderText="Select">
                                 <ItemTemplate>
@@ -123,9 +123,15 @@
         </div>
     </div>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#MainContent_gvComputers').DataTable({ "lengthMenu": [5, 10, 25, 50, "All"] });
-            $('#MainContent_gvAssigned').DataTable({ "lengthMenu": [5, 10, 25, 50, "All"] });
-        });
+        function pageLoad() {
+            if (!$.fn.dataTable.isDataTable('#MainContent_gvComputers')) {
+                var tables = ['#MainContent_gvComputers'];
+                InitDT(tables);
+            }
+            if (!$.fn.dataTable.isDataTable('#MainContent_gvAssigned')) {
+                var tables = ['#MainContent_gvAssigned'];
+                InitDT(tables);
+            }
+        };
     </script>
 </asp:Content>

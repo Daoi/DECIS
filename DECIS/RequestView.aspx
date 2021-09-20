@@ -134,7 +134,7 @@
                     <h5>Unassigned Good Assets</h5>
                     <asp:Label ID="lblComputerMsg" runat="server" Text=""></asp:Label>
                     <asp:GridView ID="gvComputers" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="False">
-                        <HeaderStyle CssClass="cherryBackground" />
+                        <HeaderStyle CssClass="text-info" />
                         <Columns>
                             <asp:TemplateField HeaderText="Select">
                                 <ItemTemplate>
@@ -167,7 +167,7 @@
                     <h5>Assigned Assets</h5>
                     <asp:Label ID="lblAssignedMsg" runat="server" Text=""></asp:Label>
                     <asp:GridView ID="gvAssigned" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="false">
-                        <HeaderStyle CssClass="cherryBackground" />
+                        <HeaderStyle CssClass="text-info" />
                         <Columns>
                             <asp:TemplateField HeaderText="Select">
                                 <ItemTemplate>
@@ -203,16 +203,12 @@
     <script type="text/javascript">
         function pageLoad() {
             if (!$.fn.dataTable.isDataTable('#MainContent_gvComputers')) {
-                $('#MainContent_gvComputers').prepend($("<thead></thead>").append($("#MainContent_gvComputers").find("tr:first"))).DataTable({
-                    stateSave: true,
-                    "lengthMenu": [5, 10, 25, 50, "All"],
-                });
+                var tables = ['#MainContent_gvComputers'];
+                InitDT(tables);
             }
             if (!$.fn.dataTable.isDataTable('#MainContent_gvAssigned')) {
-                $('#MainContent_gvAssigned').prepend($("<thead></thead>").append($("#MainContent_gvAssigned").find("tr:first"))).DataTable({
-                    stateSave: true,
-                    "lengthMenu": [5, 10, 25, 50, "All"],
-                });
+                var tables = ['#MainContent_gvAssigned'];
+                InitDT(tables);
             }
         };
     </script>
