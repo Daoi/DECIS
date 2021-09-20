@@ -18,7 +18,7 @@ namespace DECIS.PageLogic.CreateRequest
 
         public static void SetRequest(DropDownList ddl, Page pg)
         {
-            DropDownList ddlOrg = (FindControl.FindNM("ddlOrg", pg) as DropDownList);
+            DropDownList ddlOrganization = (FindControl.FindNM("ddlOrganization", pg) as DropDownList);
             Label lblOrg = (FindControl.FindNM("lblOrganization", pg) as Label);
 
             if (ddl.SelectedIndex == PERSONAL)
@@ -69,14 +69,14 @@ namespace DECIS.PageLogic.CreateRequest
                 (FindControl.FindNM("pnlOrg", pg) as Panel).Visible = false;
                 (FindControl.FindNM("fuDocuments", pg) as FileUpload).Visible = false;
                 (FindControl.FindNM("lblFU", pg) as Label).Visible = false;
-                ddlOrg.Visible = false;
+                ddlOrganization.Visible = false;
                 lblOrg.Visible = false;
                 return;
             }
 
-            ddlOrg.Visible = true;
+            ddlOrganization.Visible = true;
             lblOrg.Visible = true;
-            List<DropDownList> ddls = new List<DropDownList>() { ddlOrg };
+            List<DropDownList> ddls = new List<DropDownList>() { ddlOrganization };
             DDLDataBind.Bind(ddls);
         }
     }
