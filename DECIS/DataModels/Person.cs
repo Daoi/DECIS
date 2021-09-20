@@ -34,8 +34,9 @@ namespace DECIS.DataModels
         public Person()
         { }
 
-        public Person(DataRow dr)
+        public Person(DataRow dr, bool request = true)
         {
+            PersonID = int.Parse(dr["PersonID"].ToString());
             FullName = dr["Name"].ToString();
             FirstName = dr["Name"].ToString().Split(' ')[0];
             LastName = dr["Name"].ToString().Split(' ')[1];
@@ -55,7 +56,8 @@ namespace DECIS.DataModels
             ZipCode = dr["Zipcode"].ToString();
             Phone = dr["Phone"].ToString();
             Email = dr["Email"].ToString();
-            Reasons = new List<string>(dr["Reasons"].ToString().Split(','));
+            if(request)
+                Reasons = new List<string>(dr["Reasons"].ToString().Split(','));
         }
 
 

@@ -34,7 +34,7 @@
 .homepageCard {
     margin: auto;
     height: 170px;
-    background-color: whitemdoke;
+    background-color: whitesmoke;
 }
 
 .homepage {
@@ -50,8 +50,8 @@
     color: #E9E9E9;
 }
 
-.cherryBackground{
-
+.cherryBackground {
+    color: blue;
 }
 
 .createRequestBG {

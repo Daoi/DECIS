@@ -11,7 +11,7 @@
                 <div class="row">
                     <asp:Label ID="lblGVMessage" runat="server" Visible="False"></asp:Label>
                     <asp:GridView ID="gvPersonList" Width="100%" runat="server" CssClass="table table-light table-striped table-bordered thead-dark" AutoGenerateColumns="False">
-                        <HeaderStyle CssClass="cherryBackground" />
+                        <HeaderStyle CssClass=" text-info" />
                         <Columns>
                             <asp:TemplateField HeaderText="View" ItemStyle-CssClass="align-items-center">
                                 <ItemTemplate>
