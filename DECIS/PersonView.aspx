@@ -5,6 +5,17 @@
         <div class="row modal-header offwhiteBackground p-0" style="height: 50px; padding-left: 0!important; padding-right: 0!important; font-size: large;">
         </div>
         <div class="container-fluid mt-2">
+            <div class="row" style="height: 7%; font-size: large">
+                <nav aria-label="breadcrumb" class="mb-n3 ml-2">
+                    <ol class="breadcrumb bg-white">
+                        <li class="breadcrumb-item" style="color: deepskyblue">
+                            <asp:LinkButton ID="lnkHome" href="Homepage.aspx" runat="server">Dashboard</asp:LinkButton></li>
+                        <li class="breadcrumb-item" style="color: deepskyblue">
+                            <asp:LinkButton ID="lnkList" href="PersonList.aspx" runat="server">Person List</asp:LinkButton></li>
+                        <li class="breadcrumb-item active bg-white" aria-current="page">Person View</li>
+                    </ol>
+                </nav>
+            </div>
             <%-- Start Asset Card --%>
             <div class="card my-auto mx-auto h-75 w-90">
                 <div class="card-body">

@@ -19,7 +19,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="d-flex loginContainer">
+        <div class="d-flex loginContainer linen">
             <asp:Panel ID="pnlCard" runat="server" CssClass="card mx-auto my-auto text-center loginCard">
                 <div class="card-header cherryBackground">
                     DEC Inventory System
@@ -30,8 +30,12 @@
                 <div class="card-body">
                     <!-- Login Panel -->
                     <asp:Panel ID="pnlLogin" runat="server">
-                        <asp:Label ID="lblInstructions" runat="server" CssClass="cherryFont mt-2" Text="Enter your username and password."></asp:Label>
-                        <asp:Label ID="lblError" runat="server" CssClass="errorLabel" Visible="false"></asp:Label>
+                        <div class="row">
+                            <asp:Label ID="lblInstructions" runat="server" CssClass="cherryFont mt-2" Text="Enter your username and password."></asp:Label>
+                        </div>
+                        <div class="row mt-2">
+                            <asp:Label ID="lblError" runat="server" CssClass="errorText" Visible="false"></asp:Label>
+                        </div>
                         <div class="form-group row justify-content-center">
                             <div class="col-md-8 mt-3">
                                 <asp:TextBox ID="tbEmail" runat="server" CssClass="form-control" placeholder="Username"></asp:TextBox>
@@ -51,7 +55,6 @@
                     <asp:Panel ID="pnlPasswordReset" runat="server" Visible="false">
                     </asp:Panel>
                     <asp:Panel ID="pnlSetupPassword" runat="server" Visible="false">
-
                     </asp:Panel>
                 </div>
                 <div class="card-footer text-muted">
