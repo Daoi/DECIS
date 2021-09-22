@@ -40,6 +40,15 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.Label lblTitle;
         
         /// <summary>
+        /// lblDuplicate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDuplicate;
+        
+        /// <summary>
         /// pnlControls control.
         /// </summary>
         /// <remarks>

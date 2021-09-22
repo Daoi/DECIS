@@ -21,6 +21,8 @@ namespace DECIS
         {
             if (!int.TryParse(Request.QueryString["pid"], out pid))
                 Response.Redirect("./PersonList.aspx");
+            if (Request.QueryString["dup"] == "True")
+                lblDuplicate.Visible = true;
 
             if (!IsPostBack)
             {

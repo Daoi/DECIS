@@ -24,6 +24,9 @@
                         <asp:Label ID="lblTitle" CssClass="card-title" runat="server" Text="">
                         </asp:Label>
                     </h4>
+                    <div class="row">
+                        <asp:Label ID="lblDuplicate" CssClass="text-warning" runat="server" Text="This persons phone number is present multiple times" Visible="false"></asp:Label>
+                    </div>
                     <asp:Panel ID="pnlControls" CssClass="row form-group h-100" runat="server">
                         <div class="col-md">
                             <asp:Label ID="lblFirstName" runat="server" Text="First Name: "></asp:Label>
