@@ -25,6 +25,7 @@ namespace DECIS.PageLogic.RequestView
                 Keyboard = int.Parse((FindControl.Find("tbKeyboard", pg) as TextBox).Text),
                 Mice = int.Parse((FindControl.Find("tbMice", pg) as TextBox).Text),
                 Wifi = int.Parse((FindControl.Find("tbWifi", pg) as TextBox).Text),
+                Headset = int.Parse((FindControl.Find("tbHeadset", pg) as TextBox).Text),
                 Webcam = int.Parse((FindControl.Find("tbWebcam", pg) as TextBox).Text),
                 DateSubmitted = (FindControl.Find("tbDateSubmitted", pg) as TextBox).Text,
                 DateFinished = (FindControl.Find("tbDateFinished", pg) as TextBox).Text,

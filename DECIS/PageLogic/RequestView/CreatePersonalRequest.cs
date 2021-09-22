@@ -30,6 +30,8 @@ namespace DECIS.PageLogic.RequestView
                 DateScheduled = (FindControl.Find("tbDateScheduled", pg) as TextBox).Text,
                 Type = 0,
                 Internet = (FindControl.Find("ddlInternet", pg) as DropDownList).SelectedValue == "1" ? true : false,
+                Headset = int.Parse((FindControl.Find("tbHeadset", pg) as TextBox).Text),
+
             };
 
             return newRequest;

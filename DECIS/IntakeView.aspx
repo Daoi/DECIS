@@ -71,7 +71,7 @@
         <div class="row">
             <h5>All Assets in this Intake</h5>
             <asp:GridView ID="gvAssetList" Width="100%" runat="server" CssClass="table table-light table-striped table-bordered thead-dark" AutoGenerateColumns="false">
-                <HeaderStyle CssClass="cherryBackground" />
+                <HeaderStyle CssClass="text-info" />
                 <Columns>
                     <asp:TemplateField HeaderText="View" ItemStyle-CssClass="align-items-center">
                         <ItemTemplate>
@@ -96,9 +96,8 @@
     </div>
     <script type="text/javascript">
         function pageLoad() {
-            $('#MainContent_gvAssetList').prepend($("<thead></thead>").append($("#MainContent_gvAssetList").find("tr:first"))).DataTable({
-                stateSave: true,
-            });
+            var tables = ['#MainContent_gvAssetList'];
+            InitDT(tables);
         };
     </script>
 </asp:Content>

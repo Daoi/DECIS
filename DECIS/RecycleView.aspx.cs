@@ -135,7 +135,7 @@ namespace DECIS
             }
             int status = (ViewState["Recycle"] as Recycle).RecycleStatus;
             //If Finished(2) or Cancelled(3)
-            if (status > 1)
+            if (status > 1 && (Session["User"] as User).Role != (int)Permission.Admin)
                 return;
 
             //Initialize or update Editing State value

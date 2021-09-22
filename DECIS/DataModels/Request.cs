@@ -27,6 +27,7 @@ namespace DECIS.DataModels
         public int Mice { get; set; }
         public int Wifi { get; set; }
         public int Webcam { get; set; }
+        public int Headset { get; set; }
         public int Type { get; set; } //0 = Org, 1 = Personal
 
         public Request() { }
@@ -47,6 +48,7 @@ namespace DECIS.DataModels
             Mice = int.Parse(dr["Mice"].ToString());
             Wifi = int.Parse(dr["Wifi"].ToString());
             Webcam = int.Parse(dr["Webcam"].ToString());
+            Headset = int.Parse(dr["Headset"].ToString());
             Notes = dr["Notes"].ToString();
             Type = int.Parse(dr["Type"].ToString());
         }

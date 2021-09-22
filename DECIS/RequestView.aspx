@@ -86,22 +86,28 @@
                             <div class="col-md-3"></div>
                         </div>
                         <asp:Panel CssClass="row mt-3" ID="pnlPeripheral" runat="server">
-                            <div class="col-md-3">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
                                 <asp:Label ID="lblKeyboard" runat="server" Text="Keyboard:"></asp:Label>
                                 <asp:TextBox ID="tbKeyboard" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <asp:Label ID="lblMice" runat="server" Text="Mice:"></asp:Label>
                                 <asp:TextBox ID="tbMice" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <asp:Label ID="lblWebcam" runat="server" Text="Webcam:"></asp:Label>
                                 <asp:TextBox ID="tbWebcam" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <asp:Label ID="lblWifi" runat="server" Text="Wifi Device:"></asp:Label>
                                 <asp:TextBox ID="tbWifi" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
+                            <div class="col-md-2">
+                                <asp:Label ID="lblHeadset" runat="server" Text="Headset:"></asp:Label>
+                                <asp:TextBox ID="tbHeadset" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="col-md-1"></div>
                         </asp:Panel>
                     </asp:Panel>
                     <%-- Content End --%>
@@ -113,7 +119,7 @@
                         </div>
                         <div class="col-md-3">
                             <asp:Button ID="btnViewOrg" runat="server" CssClass="btn-primary btn" Text="View Org" OnClick="btnViewOrg_Click" OnClientClick="target ='_blank';" />
-                            <asp:Button ID="btnViewForm" Visible="false" CssClass="btn btn-primary" runat="server" Text="View Release Form" OnClick="btnViewForm_Click"/>
+                            <asp:Button ID="btnViewForm" Visible="false" CssClass="btn btn-primary" runat="server" Text="View Release Form" OnClick="btnViewForm_Click" />
                         </div>
                         <div class="col-md-3">
                             <asp:Button ID="btnAddAll" CssClass="btn btn-primary" runat="server" Text="Add All Selected Assets" OnClick="btnAddAll_Click" />
@@ -180,7 +186,7 @@
                                             <asp:HiddenField ID="hfAssetIDR" runat="server" Value='<%# Eval("AssetID").ToString() %>' />
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
-                                </ItemTemplate> 
+                                </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="View">
                                 <ItemTemplate>
