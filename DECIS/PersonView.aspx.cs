@@ -27,7 +27,7 @@ namespace DECIS
                 Person p = new Person(new GetPersonByID().ExecuteCommand(pid).Rows[0], false);
                 DDLDataBind.Bind(new List<DropDownList>() { ddlAgeRange, ddlEthnicity, ddlGender, ddlRace });
                 Display.DisplayPerson(Page, p);
-                
+                TogglePanel.ToggleInputs(pnlControls);
             }
         }
 
