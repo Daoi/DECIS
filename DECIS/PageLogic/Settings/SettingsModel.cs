@@ -20,8 +20,15 @@ namespace DECIS.PageLogic.Settings
         {
             //Find Controls
             FileUpload fuModelImage = FindControl.Find("fuModelImage", pg) as FileUpload;
-            UpdatePanel upModel = FindControl.Find("upModel", pg) as UpdatePanel;
             Label lblModelMsg = FindControl.Find("lblModelMsg", pg) as Label;
+            UpdatePanel upModel = FindControl.Find("upModel", pg) as UpdatePanel;
+
+            if (!fuModelImage.HasFile)
+            {
+                lblModelMsg.Text = "Must upload an image file to add a model.";
+                upModel.Update();
+                return -1;
+            }
             TextBox tbModelName = FindControl.Find("tbModelName", pg) as TextBox;
             DropDownList ddlAssetType = FindControl.Find("ddlAssetType", pg) as DropDownList;
             DropDownList ddlAssetMake = FindControl.Find("ddlAssetMake", pg) as DropDownList;

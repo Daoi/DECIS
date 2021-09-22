@@ -508,6 +508,24 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.TextBox tbWifi;
         
         /// <summary>
+        /// lblHeadset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHeadset;
+        
+        /// <summary>
+        /// tbHeadset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbHeadset;
+        
+        /// <summary>
         /// pnlButtons control.
         /// </summary>
         /// <remarks>

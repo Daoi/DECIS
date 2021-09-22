@@ -21,13 +21,15 @@ namespace DECIS
         {
             if (!int.TryParse(Request.QueryString["pid"], out pid))
                 Response.Redirect("./PersonList.aspx");
+            if (Request.QueryString["dup"] == "True")
+                lblDuplicate.Visible = true;
 
             if (!IsPostBack)
             {
                 Person p = new Person(new GetPersonByID().ExecuteCommand(pid).Rows[0], false);
                 DDLDataBind.Bind(new List<DropDownList>() { ddlAgeRange, ddlEthnicity, ddlGender, ddlRace });
                 Display.DisplayPerson(Page, p);
-                
+                TogglePanel.ToggleInputs(pnlControls);
             }
         }
 

@@ -17,7 +17,7 @@ namespace DECIS.PageLogic.Settings
             TextBox tbLocation = FindControl.Find("tbLocationName", pg) as TextBox;
             TextBox tbLocationDesc = FindControl.Find("tbLocationDesc", pg) as TextBox;
             Label lblLocMsg = FindControl.Find("lblLocMsg", pg) as Label;
-            DropDownList ddlLocStatus = FindControl.Find("ddlLocStatus", pg) as DropDownList;
+            DropDownList ddlLocStatus = FindControl.Find("ddlAssetStatus", pg) as DropDownList;
             UpdatePanel upLocation = FindControl.Find("upLocation", pg) as UpdatePanel;
 
             try

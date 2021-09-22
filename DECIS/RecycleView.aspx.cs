@@ -17,6 +17,7 @@ namespace DECIS
         List<int> assetsToAdd;
         List<int> assetsToRemove;
         User currentUser;
+        Recycle currentRecycle;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -34,14 +35,17 @@ namespace DECIS
                 try
                 {
                     BindGridviews.Bind(Page, rcID);
-                    ViewState["Recycle"] = new Recycle(new GetRecycleByID().ExecuteCommand(rcID).Rows[0]);
+                    currentRecycle = new Recycle(new GetRecycleByID().ExecuteCommand(rcID).Rows[0]);
+                    ViewState["Recycle"] = currentRecycle;
                     DDLDataBind.Bind(new List<DropDownList>() { ddlRecycleStatus, ddlRecycleOrg });
+                    Display.DisplayRecycle(Page, currentRecycle);
                 }
                 catch (Exception ex)
                 {
                     Response.Redirect("./RecycleList.aspx");
                 }
 
+                currentRecycle = ViewState["currentRecycle"] as Recycle;
                 TogglePanel.ToggleInputs(pnlControls);
 
             }
@@ -131,7 +135,7 @@ namespace DECIS
             }
             int status = (ViewState["Recycle"] as Recycle).RecycleStatus;
             //If Finished(2) or Cancelled(3)
-            if (status > 1)
+            if (status > 1 && (Session["User"] as User).Role != (int)Permission.Admin)
                 return;
 
             //Initialize or update Editing State value

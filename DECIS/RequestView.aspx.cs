@@ -113,7 +113,7 @@ namespace DECIS
             int status = (ViewState["Request"] as Request).Status;
             
             //If Finished(4) or Cancelled(5)
-            if (status >= 4)
+            if (status >= 4 && (Session["User"] as User).Role != (int)Permission.Admin)
                 return;
 
             //Initialize or update Editing State value

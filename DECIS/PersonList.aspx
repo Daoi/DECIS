@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DECIS.Master" AutoEventWireup="true" CodeBehind="PersonList.aspx.cs" Inherits="DECIS.PersonList" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-        <div class="container-fluid homepage">
+    <div class="container-fluid homepage">
         <div class="row modal-header offwhiteBackground p-0" style="height: 50px; padding-left: 0!important; padding-right: 0!important; font-size: large;">
         </div>
         <div class="table-responsive tableContainer">
