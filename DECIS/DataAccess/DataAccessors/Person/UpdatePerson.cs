@@ -6,19 +6,19 @@ using System.Web;
 
 namespace DECIS.DataAccess.DataAccessors.Person
 {
-    public class InsertPerson : DataSupport, IData
+    public class UpdatePerson : DataSupport, IData
     {
-        public InsertPerson(DataModels.Person p)
+        public UpdatePerson(DataModels.Person p)
         {
-            CommandText = "InsertPerson";
+            CommandText = "UpdatePerson";
             CommandType = CommandType.StoredProcedure;
             Parameters = new PersonParameters().Fill(p);
         }
 
-        public int ExecuteCommand()
+        public DataTable ExecuteCommand()
         {
             ExecuteQuery eq = new ExecuteQuery();
-            return eq.ExecuteNonQuery(this);
+            return eq.ExecuteAdapter(this);
         }
     }
 }

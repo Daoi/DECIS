@@ -651,6 +651,7 @@
     <Compile Include="PageLogic\CreateRequest\CreatePersonalReasons.cs" />
     <Compile Include="PageLogic\DonationForm\Display.cs" />
     <Compile Include="PageLogic\OrgView\BindGridviews.cs" />
+    <Compile Include="PageLogic\PersonView\CreatePerson.cs" />
     <Compile Include="PageLogic\PersonView\Display.cs" />
     <Compile Include="PageLogic\RecycleList\CreateNewRecycle.cs" />
     <Compile Include="PageLogic\RecycleView\AddAssets.cs" />

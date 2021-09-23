@@ -38,7 +38,8 @@ namespace DECIS
             if (ViewState["Editing"] != null && (bool)ViewState["Editing"]) //If we're in edit mode
             {
                 //Save currently selected values
-
+                Person updatedPerson = CreatePerson.Create(Page, pid);
+                new UpdatePerson(updatedPerson).ExecuteCommand();
             }
 
             //Initialize or update Editing State value
