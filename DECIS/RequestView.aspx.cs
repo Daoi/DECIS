@@ -158,28 +158,46 @@ namespace DECIS
 
         protected void btnAddAll_Click(object sender, EventArgs e)
         {
-            if((Session["Add"] as List<int>).Count == 0)
+            try
             {
-                //Lbl error message none selected
-                return;
-            }
-            else
-                AddAssets.Add(Session["Add"] as List<int>, reqID);
+                if((Session["Add"] as List<int>).Count == 0)
+                {
+                    lblComputerMsg.Visible = true;
+                    lblComputerMsg.Text = "Must select at least one asset to add.";
+                    return;
+                }
+                else
+                    AddAssets.Add(Session["Add"] as List<int>, reqID);
 
-            Response.Redirect($"./RequestView.aspx?reqid={reqID}&type={type}");
+                Response.Redirect($"./RequestView.aspx?reqid={reqID}&type={type}");
+            }
+            catch(Exception ex)
+            {
+                lblComputerMsg.Visible = true;
+                lblComputerMsg.Text = $"Error adding assets: {ex.Message}";
+            }
         }
 
         protected void btnRemoveAll_Click(object sender, EventArgs e)
         {
-            if ((Session["Remove"] as List<int>).Count == 0)
+            try
             {
-                //Lbl error message none selected
-                return;
-            }
-            else
-                RemoveAssets.Remove(Session["Remove"] as List<int>, reqID);
+                if ((Session["Remove"] as List<int>).Count == 0)
+                {
+                    lblAssignedMsg.Visible = true;
+                    lblAssignedMsg.Text = "Must select at least one asset to remove.";
+                    return;
+                }
+                else
+                    RemoveAssets.Remove(Session["Remove"] as List<int>, reqID);
 
-            Response.Redirect($"./RequestView.aspx?reqid={reqID}&type={type}");
+                Response.Redirect($"./RequestView.aspx?reqid={reqID}&type={type}");
+            }
+            catch(Exception ex)
+            {
+                lblAssignedMsg.Visible = true;
+                lblAssignedMsg.Text = $"Error removing assets: {ex.Message}";
+            }
         }
 
         protected void cbSelectedAdd_CheckedChanged(object sender, EventArgs e)

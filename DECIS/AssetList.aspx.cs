@@ -85,6 +85,8 @@ namespace DECIS
                     status = 6;
                 else if (lb.ID == lbNewItems.ID)
                     status = 7;
+                else if (lb.ID == lbInUse.ID)
+                    status = 8;
 
             if (ViewState[$"{lb.ID}"] == null)
                 {
