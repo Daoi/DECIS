@@ -22,6 +22,7 @@
                                     <asp:LinkButton runat="server" ID="lbDonated" CssClass="form-control-sm" Text="Donated" OnClick="lb_Click"></asp:LinkButton>
                                     <asp:LinkButton runat="server" ID="lbRecycled" CssClass="form-control-sm" Text="Recycled" OnClick="lb_Click"></asp:LinkButton>
                                     <asp:LinkButton runat="server" ID="lbStorage" CssClass="form-control-sm" Text="Storage" OnClick="lb_Click"></asp:LinkButton>
+                                    <asp:LinkButton runat="server" ID="lbInUse" CssClass="form-control-sm" Text="In Use" OnClick="lb_Click"></asp:LinkButton>
                                 </asp:Panel>
                             </div>
                             <div class="col-md-11">
