@@ -15,7 +15,7 @@ namespace DECIS.PageLogic.CreateRequest
         {
             OrgRequest newReq = new OrgRequest()
             {
-                OrgID = int.Parse((FindControl.FindNM("ddlOrg", pg) as DropDownList).SelectedValue),
+                OrgID = int.Parse((FindControl.FindNM("ddlOrganization", pg) as DropDownList).SelectedValue),
                 Status = 1,
                 Name = (FindControl.FindNM("tbName", pg) as TextBox).Text,
                 Phone = (FindControl.FindNM("tbPhone", pg) as TextBox).Text,
