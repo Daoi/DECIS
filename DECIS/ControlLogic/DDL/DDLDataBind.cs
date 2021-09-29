@@ -52,7 +52,7 @@ namespace DECIS.CotrolLogic.DDL
             DataSet dts = new DataSet();
             if (makeID > -1)
             {
-                DropDownList model = ddls.First(ddl => ddl.ID.ToLower().Contains("model")) as DropDownList;
+                DropDownList model = ddls.First(ddl => ddl.ID == "ddlAssetModel") as DropDownList;
                 dts.Tables.Add(AssetModel(model, makeID));
                 ddls.Remove(model);
             }

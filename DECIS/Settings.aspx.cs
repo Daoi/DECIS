@@ -15,7 +15,8 @@ namespace DECIS
         private static Dictionary<string, Func<Page, int>> eh = new Dictionary<string, Func<Page, int>>()
         {   { "btnAddModel", SettingsModel.Add},
             { "btnAddMake", SettingsMake.Add},
-            { "btnAddLocation", SettingsLocation.Add}
+            { "btnAddLocation", SettingsLocation.Add},
+            { "btnEditModel", SettingsEditModel.Edit}
         };
 
         protected void Page_Load(object sender, EventArgs e)
@@ -23,6 +24,7 @@ namespace DECIS
             if (!IsPostBack)
             {
                 List<DropDownList> ddls = new List<DropDownList>() { ddlAssetType, ddlAssetMake, ddlAssetStatus };
+                BindGridViews.Bind(Page);
                 DataSet dts = DDLDataBind.Bind(ddls);
             }
         }
