@@ -71,6 +71,10 @@
                             <asp:Button ID="btnCancelEdit" OnClientClick="clientCancel();" Visible="false" CssClass="btn-warning btn w-25" runat="server" Text="Cancel" OnClick="btnEditCancel_Click" />
                         </div>
                         <div class="col-md-3">
+<<<<<<< Updated upstream
+=======
+                            <asp:Button ID="btnViewIntake" CssClass="btn btn-primary" runat="server" Text="View Intake" />
+>>>>>>> Stashed changes
                         </div>
                         <div class="col-md-3">
                             <a href="#" class="btn btn-primary">Go somewhere</a>
