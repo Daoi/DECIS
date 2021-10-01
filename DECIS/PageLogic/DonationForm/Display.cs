@@ -23,7 +23,7 @@ namespace DECIS.PageLogic.DonationForm
             if (type == 0)
                 DisplayOrg();
             else
-            DisplayPersonal();
+                DisplayPersonal();
         }
 
         private static void DisplayPersonal()
@@ -43,7 +43,16 @@ namespace DECIS.PageLogic.DonationForm
 
         private static void DisplayOrg()
         {
-
+            (FindControl.FindNM("lblSubmissionDateText", page) as Label).Text = info.Field<string>("DateSubmitted");
+            (FindControl.FindNM("lblRequestIDText", page) as Label).Text = info.Field<int>("RequestID").ToString();
+            (FindControl.FindNM("lblOrganizationText", page) as Label).Text = info.Field<string>("OrgName");
+            (FindControl.FindNM("lblEmailText", page) as Label).Text = info.Field<string>("ContactEmail");
+            (FindControl.FindNM("lblContactPersonText", page) as Label).Text = info.Field<string>("ContactName");
+            (FindControl.FindNM("lblAddressText", page) as Label).Text = info.Field<string>("OrgAddress");
+            (FindControl.FindNM("lblZipCodeText", page) as Label).Text = info.Field<string>("OrgZipcode");
+            (FindControl.FindNM("lblPhoneNumberText", page) as Label).Text = info.Field<string>("Phone");
+            (FindControl.FindNM("lblWaiverName", page) as Label).Text = info.Field<string>("ContactName");
+            (FindControl.FindNM("lblAcquName", page) as Label).Text = info.Field<string>("ContactName");
         }
     }
 }

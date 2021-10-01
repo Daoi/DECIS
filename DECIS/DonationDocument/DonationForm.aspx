@@ -6,7 +6,7 @@
 <head runat="server">
     <link href="../Style/style.css" media="all" rel="stylesheet" />
     <script src="../Scripts/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -48,22 +48,22 @@
                 <div class="col-sm-3">
                     <asp:Label ID="lblContactPerson" CssClass="documentHeader" runat="server" Text="Contact "></asp:Label>
                     <br />
-                    <asp:Label ID="lblContactPersonText" runat="server" Text="John Sean"></asp:Label>
+                    <asp:Label ID="lblContactPersonText" runat="server" ></asp:Label>
                 </div>
                 <div class="col-sm-3">
                     <asp:Label ID="lblAddress" CssClass="documentHeader" runat="server" Text="Address "></asp:Label>
                     <br />
-                    <asp:Label ID="lblAddressText" runat="server" Text="123 street road"></asp:Label>
+                    <asp:Label ID="lblAddressText" runat="server" ></asp:Label>
                 </div>
                 <div class="col-sm-3">
                     <asp:Label ID="lblZipCode" CssClass="documentHeader" runat="server" Text="Zip Code "></asp:Label>
                     <br />
-                    <asp:Label ID="lblZipCodeText" runat="server" Text="144141"></asp:Label>
+                    <asp:Label ID="lblZipCodeText" runat="server"></asp:Label>
                 </div>
                 <div class="col-sm-3">
                     <asp:Label ID="lblPhoneNumber" CssClass="documentHeader" runat="server" Text="Phone"></asp:Label>
                     <br />
-                    <asp:Label ID="lblPhoneNumberText" runat="server" Text="123-123-1234"></asp:Label>
+                    <asp:Label ID="lblPhoneNumberText" runat="server"></asp:Label>
                 </div>
             </div>
             <%-- Heading Info End --%>
@@ -71,7 +71,7 @@
             <div class="row mt-5">
                 <h5 class="fw-bolder">Insurance Waiver and Assumption of Risk</h5>
                 <p class="text-break waiverText">
-                    In consideration for <asp:Label ID="lblWaiverName" runat="server" Text=""></asp:Label> being permitted to take part in the Temple Tech for Philly
+                    In consideration for <asp:Label ID="lblWaiverName" CssClass="text-info" runat="server" Text=""></asp:Label> being permitted to take part in the Temple Tech for Philly
                     surplus equipment program and understanding that there are some health and bodily risks in connection with said program, I hereby indemnify, defend, and save
                     harmless Temple University of the Commonwealth System of Higher Education and its officers and employees and agents from any and all claims whatsoever arising
                     out of in any way related to the undersigned participating in the above referenced activity.
@@ -96,7 +96,7 @@
             <div class="row mt-3">
                 <div class="row">
                     <p class="text-break waiverText">
-                        Acquisition of equipment is "as is", with no warranty of any kind, expressed or implied. <asp:Label ID="lblAcquName" runat="server" Text=""></asp:Label> agrees to
+                        Acquisition of equipment is "as is", with no warranty of any kind, expressed or implied. <asp:Label ID="lblAcquName" CssClass="text-info" runat="server" Text=""></asp:Label> agrees to
                         dispose of all equipment in such a manner as to abide by any applicable laws, as well as abide by any current environmental standards.
                     </p>
                 </div>
