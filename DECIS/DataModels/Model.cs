@@ -8,6 +8,7 @@ namespace DECIS.DataModels
 {
     public class Model
     {
+        public int ModelID { get; set; }
         public int MakeID { get; set; }
         public string Make { get; set; }
         public int AssetTypeID { get; set; }

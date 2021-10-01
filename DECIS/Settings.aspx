@@ -12,20 +12,30 @@
                                 <asp:GridView ID="gvModels" runat="server" AutoGenerateColumns="False" CssClass="table table-light table-striped table-bordered thead-dark">
                                     <HeaderStyle CssClass="freshwater" />
                                     <Columns>
+                                        <asp:BoundField DataField="ModelID" HeaderText="ID" />
+                                        <asp:BoundField DataField="Model" HeaderText="Name" />
+                                        <asp:BoundField DataField="AssetTypeT" HeaderText="Type" />
+                                        <asp:BoundField DataField="MakeT" HeaderText="Make" />
                                     </Columns>
                                 </asp:GridView>
                                 </div>
                     <div class="col pt-2">
                         <div class="card mt-4">
                             <div class="card-body mb-2">
-                                <p class="card-text">Enter the text for the new option you'd like to add and then click the Add New Option button.</p>
+                                <p class="card-text">
+                                    Adding New Models: Enter just the model name(no id), select the Make and Asset Type and then click Add New Model<br /><br />
+                                    Editing Models: Enter the name of the model followed by the ID of the model. Example: Optiplex 990,5 <br />
+                                    You must also select the values for Make and Asset Type you want the model to have. <br />
+                                    If Image is left blank when editing it will continue to use the same Image. Uploading a new image will delete the old image.
+                                </p>
                                 <asp:Label ID="lblModelMsg" runat="server" Text=""></asp:Label>
                                 <br />
-                                <asp:TextBox ID="tbModelName" runat="server" placeholder="Model Name" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox ID="tbModelName" runat="server" placeholder="Model Name,ID" CssClass="form-control"></asp:TextBox>
                                 <asp:DropDownList ID="ddlAssetMake" CssClass="form-control mt-1" runat="server"></asp:DropDownList>
                                 <asp:DropDownList ID="ddlAssetType" CssClass="form-control mt-1" runat="server"></asp:DropDownList>
                                 <asp:FileUpload ID="fuModelImage" CssClass="form-control mt-1" runat="server" />
-                                <asp:Button ID="btnAddModel" runat="server" Text="Add New Model" CssClass="btn btn-primary mt-3" OnClick="btnAdd_Click" />
+                                <asp:Button ID="btnAddModel" runat="server" Text="Add New Model" CssClass="btn-sm btn-primary mt-3" OnClick="btnAdd_Click" />
+                                <asp:Button ID="btnEditModel" runat="server" Text="Edit Model" CssClass="btn-sm btn-secondary mt-3" OnClick="btnAdd_Click" />
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
@@ -104,5 +114,10 @@
             <%-- End --%>
         </div>
     </div>
-
+        <script type="text/javascript">
+        function pageLoad() {
+            var tables = ['#MainContent_gvModels'];
+            InitDT(tables);
+        };
+    </script>
 </asp:Content>

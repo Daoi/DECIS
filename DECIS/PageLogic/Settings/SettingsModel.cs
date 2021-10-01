@@ -35,7 +35,7 @@ namespace DECIS.PageLogic.Settings
 
             Stream s = fuModelImage.PostedFile.InputStream;
             string[] image = fuModelImage.FileName.Split('.');
-            string imageName = $"{image[0]}{RandomizeString.RandomString(5)}.{image[1]}"; //Try to prevent duplicate names
+            string imageName = $"{tbModelName.Text}{DateTime.Today.ToShortDateString().Replace("/", "")}.{image[1]}"; //Try to prevent duplicate names
             AmazonUploader myUploader = new AmazonUploader();
             string url;
 

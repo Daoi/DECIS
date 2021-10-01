@@ -11,11 +11,16 @@ namespace DECIS.Importing
     {
         IAmazonS3 client = new AmazonS3Client(RegionEndpoint.USEast2);
 
-        public bool UploadFileToS3Public(System.IO.Stream fs, string alias, string key, out string path, string folder = "")
+        public bool UploadFileToS3Public(System.IO.Stream fs, string alias, string key, out string path, string folder = "", string delete = "")
         {
-            key = key.Substring(0, 10);
             if (folder != "")
                 key = $"{folder}/{key}";
+
+            if(delete != "")
+            {
+                var deleteResponse = client.DeleteObject(new DeleteObjectRequest() { BucketName = alias, Key = delete });
+            }
+                
 
             TransferUtility utility = new TransferUtility(client);
             TransferUtilityUploadRequest request = new TransferUtilityUploadRequest();
@@ -25,7 +30,7 @@ namespace DECIS.Importing
             utility.Upload(request); //commensing the transfer  
             var response = client.GetObject(alias ,key);
             var code = response.HttpStatusCode;
-            path = $"https://{alias}.s3.us-east-2.amazonaws.com/{key}"; //public url format for s3 (don store sensitive info here)
+            path = $"https://{alias}.s3.us-east-2.amazonaws.com/{key}"; //public url format for s3 (dont store sensitive info here)
             if (code == System.Net.HttpStatusCode.OK)
                 return true; //indicate that the file was sent  
             else
