@@ -48,12 +48,12 @@
                 <div class="col-sm-3">
                     <asp:Label ID="lblContactPerson" CssClass="documentHeader" runat="server" Text="Contact "></asp:Label>
                     <br />
-                    <asp:Label ID="lblContactPersonText" runat="server" ></asp:Label>
+                    <asp:Label ID="lblContactPersonText" runat="server"></asp:Label>
                 </div>
                 <div class="col-sm-3">
                     <asp:Label ID="lblAddress" CssClass="documentHeader" runat="server" Text="Address "></asp:Label>
                     <br />
-                    <asp:Label ID="lblAddressText" runat="server" ></asp:Label>
+                    <asp:Label ID="lblAddressText" runat="server"></asp:Label>
                 </div>
                 <div class="col-sm-3">
                     <asp:Label ID="lblZipCode" CssClass="documentHeader" runat="server" Text="Zip Code "></asp:Label>
@@ -69,13 +69,34 @@
             <%-- Heading Info End --%>
             <%-- Insurance Waiver --%>
             <div class="row mt-5">
-                <h5 class="fw-bolder">Insurance Waiver and Assumption of Risk</h5>
-                <p class="text-break waiverText">
-                    In consideration for <asp:Label ID="lblWaiverName" CssClass="text-info" runat="server" Text=""></asp:Label> being permitted to take part in the Temple Tech for Philly
+                <div class="col-sm-9">
+                    <h5 class="fw-bolder">Insurance Waiver and Assumption of Risk</h5>
+                    <p class="text-break waiverText">
+                        In consideration for
+                        <asp:Label ID="lblWaiverName" CssClass="text-info" runat="server" Text=""></asp:Label>
+                        being permitted to take part in the Temple Tech for Philly
                     surplus equipment program and understanding that there are some health and bodily risks in connection with said program, I hereby indemnify, defend, and save
                     harmless Temple University of the Commonwealth System of Higher Education and its officers and employees and agents from any and all claims whatsoever arising
                     out of in any way related to the undersigned participating in the above referenced activity.
-                </p>
+                    </p>
+                </div>
+                <div class="col-sm-2">
+                    <h6 style="font-weight: bold;">Classes completed</h6>
+                    <p style="font-size: .9rem">
+                     Computer Basics <br />
+                     Windows <br />
+                     Internet <br />
+                     Digital Footprint<br />
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    <br />
+                    <input type="checkbox"/> <br />
+                    <input type="checkbox"/> <br />
+                    <input type="checkbox"/> <br />
+                    <input type="checkbox"/> <br />
+                </div>
+
             </div>
             <%-- Insurance End --%>
             <%-- Equipment Start --%>
@@ -96,7 +117,9 @@
             <div class="row mt-3">
                 <div class="row">
                     <p class="text-break waiverText">
-                        Acquisition of equipment is "as is", with no warranty of any kind, expressed or implied. <asp:Label ID="lblAcquName" CssClass="text-info" runat="server" Text=""></asp:Label> agrees to
+                        Acquisition of equipment is "as is", with no warranty of any kind, expressed or implied.
+                        <asp:Label ID="lblAcquName" CssClass="text-info" runat="server" Text=""></asp:Label>
+                        agrees to
                         dispose of all equipment in such a manner as to abide by any applicable laws, as well as abide by any current environmental standards.
                     </p>
                 </div>
