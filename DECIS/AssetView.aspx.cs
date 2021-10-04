@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using DECIS.DataAccess.DataAccessors.Assets;
 using DECIS.CotrolLogic;
 using DECIS.CotrolLogic.DDL;
+using DECIS.PageLogic.AssetView;
 
 namespace DECIS
 {
@@ -27,28 +28,9 @@ namespace DECIS
             if (!IsPostBack)
             {
                 RetrieveData();
-                DisplayData();
+                DisplayAsset.Display(Page, curAsset);
             }
 
-        }
-
-        private void DisplayData()
-        {
-            //Setup asset info display
-            crdAssetImage.Src = curAsset.Image;
-            lblSerialNumber.Text = $"Serial Number: {curAsset.SerialNumber} | Asset ID: {curAsset.AssetID} | Intake ID(s): {string.Join(",", curAsset.IntakeID)}";
-            tbAssetDescription.Text = curAsset.Description;
-            lblAssetTypeText.Text = curAsset.AssetType;
-            lblLocationDescriptionText.Text = curAsset.LocationDescription;
-            SetItem.SetItemByText(ddlAssetMake, curAsset.Make);
-            SetItem.SetItemByText(ddlAssetModel, curAsset.Model);
-            SetItem.SetItemByText(ddlAssetStatus, curAsset.Status);
-            SetItem.SetItemByText(ddlLocation, curAsset.Location);
-            //Disable on page first load(Not in edit mode yet)
-            TogglePanel.ToggleInputs(pnlControls, true);
-            //Hide edit button on uneditable assets
-            if (curAsset.StatusID == 5 || curAsset.StatusID == 6)
-                btnEdit.Visible = false;
         }
 
         private void RetrieveData()
@@ -100,7 +82,7 @@ namespace DECIS
             }
             
             //Donated and Recycled Items can't be edited
-            if ((curAsset.StatusID == 5 || curAsset.StatusID == 6))
+            if (curAsset.StatusID == 5 || curAsset.StatusID == 6)
                 return;
             
             //Initialize or update Editing State value
@@ -117,7 +99,7 @@ namespace DECIS
             //Setup display
             btnCancelEdit.Visible = false;
             btnEdit.Text = "Edit";
-            DisplayData();
+            DisplayAsset.Display(Page, curAsset);
             //reset model drop down
             List<DropDownList> l = new List<DropDownList>() { ddlAssetModel };
             DDLDataBind.Bind(l, curAsset.MakeID);
@@ -156,7 +138,6 @@ namespace DECIS
 
             ddlAssetModel.SelectedIndex = 0;
             upMakeModel.Update();
-
         }
 
         protected void ddlLocation_SelectedIndexChanged(object sender, EventArgs e)

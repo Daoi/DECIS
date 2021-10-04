@@ -68,7 +68,7 @@
                     <div class="row mt-3">
                         <div class="col-md-3">
                             <asp:Button ID="btnEdit" OnClientClick="validateAll();" CssClass="btn-primary btn w-25" runat="server" Text="Edit" OnClick="btnEdit_Click" />
-                            <asp:Button ID="btnCancelEdit" OnClientClick="clientCancel();" Visible="false" CssClass="btn-warning btn w-25" runat="server" Text="Cancel" OnClick="btnEditCancel_Click" />
+                            <asp:Button ID="btnCancelEdit" Visible="false" CssClass="btn-warning btn w-25" runat="server" Text="Cancel" OnClick="btnEditCancel_Click" />
                         </div>
                         <div class="col-md-3">
                             <asp:Button ID="btnViewIntake" Visible="false" CssClass="btn btn-primary" runat="server" Text="View Intake" />
@@ -85,8 +85,8 @@
         </div>
     </div>
     <div style="margin-top: 2%; height: 2%; width: auto;"></div>
+    <script src="Scripts/Utilities/InitSelect2.js"></script>
     <script>
-
         $('#frmMain').djValidator({ blur: true });
 
         function validateAll() {
@@ -105,6 +105,9 @@
                     }
                     return true;
                 });
+
+            $('#MainContent_ddlAssetModel').select2();
+            $('#MainContent_ddlAssetMake').select2();
         };
     </script>
 </asp:Content>
