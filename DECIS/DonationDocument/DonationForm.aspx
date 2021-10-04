@@ -80,7 +80,7 @@
                     out of in any way related to the undersigned participating in the above referenced activity.
                     </p>
                 </div>
-                <div class="col-sm-2">
+                <asp:Panel runat="server" id="divClasses" visible="false" class="col-sm-2">
                     <h6 style="font-weight: bold;">Classes completed</h6>
                     <p style="font-size: .9rem">
                      Computer Basics <br />
@@ -88,7 +88,7 @@
                      Internet <br />
                      Digital Footprint<br />
                     </p>
-                </div>
+                </asp:Panel>
                 <div class="col-sm-1">
                     <br />
                     <input type="checkbox"/> <br />
