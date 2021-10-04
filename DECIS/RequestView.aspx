@@ -118,8 +118,8 @@
                             <asp:Button ID="btnCancelEdit" Visible="false" CssClass="btn-warning btn" runat="server" Text="Cancel" OnClick="btnEditCancel_Click" />
                         </div>
                         <div class="col-md-3">
-                            <asp:Button ID="btnViewOrg" runat="server" CssClass="btn-primary btn" Text="View Org" OnClick="btnViewOrg_Click" OnClientClick="target ='_blank';" />
-                            <asp:Button ID="btnViewForm" Visible="false" CssClass="btn btn-primary" runat="server" Text="View Release Form" OnClick="btnViewForm_Click" />
+                            <asp:Button ID="btnViewOrg" runat="server" CssClass="btn-primary w-25 btn" Text="View Org" OnClick="btnViewOrg_Click" OnClientClick="target ='_blank';" />
+                            <asp:Button ID="btnViewForm" Visible="false" CssClass="btn w-25 btn-primary" runat="server" Text="View Form" OnClick="btnViewForm_Click" />
                         </div>
                         <div class="col-md-3">
                             <asp:Button ID="btnAddAll" CssClass="btn btn-primary" runat="server" Text="Add All Selected Assets" OnClick="btnAddAll_Click" />
