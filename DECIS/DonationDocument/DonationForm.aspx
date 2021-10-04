@@ -80,60 +80,69 @@
                     out of in any way related to the undersigned participating in the above referenced activity.
                     </p>
                 </div>
-                <asp:Panel runat="server" id="divClasses" visible="false" class="col-sm-2">
-                    <h6 style="font-weight: bold;">Classes completed</h6>
-                    <p style="font-size: .9rem">
-                     Computer Basics <br />
-                     Windows <br />
-                     Internet <br />
-                     Digital Footprint<br />
-                    </p>
+                <%--Classes start--%>
+                <asp:Panel ID="pnlClasses" Visible="false" runat="server">
+                    <div class="col-sm-2">
+                        <h6 style="font-weight: bold;">Classes completed</h6>
+                        <p style="font-size: .9rem">
+                            Computer Basics
+                            <br />
+                            Windows
+                            <br />
+                            Internet
+                            <br />
+                            Digital Footprint<br />
+                        </p>
+                    </div>
+                    <div class="col-sm-1">
+                        <br />
+                        <input type="checkbox" />
+                        <br />
+                        <input type="checkbox" />
+                        <br />
+                        <input type="checkbox" />
+                        <br />
+                        <input type="checkbox" />
+                        <br />
+                    </div>
                 </asp:Panel>
-                <div class="col-sm-1">
-                    <br />
-                    <input type="checkbox"/> <br />
-                    <input type="checkbox"/> <br />
-                    <input type="checkbox"/> <br />
-                    <input type="checkbox"/> <br />
+                <%-- Classes End --%>
+                <%-- Insurance End --%>
+                <%-- Equipment Start --%>
+                <div class="row mt-3">
+                    <h4>Equipment Information</h4>
+                    <asp:GridView ID="gvEquipment" CssClass="table" runat="server" AutoGenerateColumns="false">
+                        <HeaderStyle CssClass="documentHeader" />
+                        <Columns>
+                            <asp:BoundField DataField="AssetType" HeaderText="Equipment Type" />
+                            <asp:BoundField DataField="SerialNumber" HeaderText="Serial Number" />
+                            <asp:BoundField DataField="Make" HeaderText="Make" />
+                            <asp:BoundField DataField="Model" HeaderText="Model" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
-
-            </div>
-            <%-- Insurance End --%>
-            <%-- Equipment Start --%>
-            <div class="row mt-3">
-                <h4>Equipment Information</h4>
-                <asp:GridView ID="gvEquipment" CssClass="table" runat="server" AutoGenerateColumns="false">
-                    <HeaderStyle CssClass="documentHeader" />
-                    <Columns>
-                        <asp:BoundField DataField="AssetType" HeaderText="Equipment Type" />
-                        <asp:BoundField DataField="SerialNumber" HeaderText="Serial Number" />
-                        <asp:BoundField DataField="Make" HeaderText="Make" />
-                        <asp:BoundField DataField="Model" HeaderText="Model" />
-                    </Columns>
-                </asp:GridView>
-            </div>
-            <%-- Equipment End --%>
-            <%-- Signature Start --%>
-            <div class="row mt-3">
-                <div class="row">
-                    <p class="text-break waiverText">
-                        Acquisition of equipment is "as is", with no warranty of any kind, expressed or implied.
+                <%-- Equipment End --%>
+                <%-- Signature Start --%>
+                <div class="row mt-3">
+                    <div class="row">
+                        <p class="text-break waiverText">
+                            Acquisition of equipment is "as is", with no warranty of any kind, expressed or implied.
                         <asp:Label ID="lblAcquName" CssClass="text-info" runat="server" Text=""></asp:Label>
-                        agrees to
+                            agrees to
                         dispose of all equipment in such a manner as to abide by any applicable laws, as well as abide by any current environmental standards.
-                    </p>
+                        </p>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-6 fw-bold">Temple University, as Administrator</div>
+                        <div class="col-sm-6">Signature: __________________________________________________</div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-sm-6 fw-bold">Personal</div>
+                        <div class="col-sm-6">Signature: __________________________________________________</div>
+                    </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-sm-6 fw-bold">Temple University, as Administrator</div>
-                    <div class="col-sm-6">Signature: __________________________________________________</div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-sm-6 fw-bold">Personal</div>
-                    <div class="col-sm-6">Signature: __________________________________________________</div>
-                </div>
+                <%-- Signature End --%>
             </div>
-            <%-- Signature End --%>
-        </div>
     </form>
 </body>
 </html>

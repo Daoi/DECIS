@@ -38,7 +38,7 @@ namespace DECIS.PageLogic.DonationForm
             (FindControl.FindNM("lblPhoneNumberText", page) as Label).Text = info.Field<string>("Phone");
             (FindControl.FindNM("lblWaiverName", page) as Label).Text = info.Field<string>("Name");
             (FindControl.FindNM("lblAcquName", page) as Label).Text = info.Field<string>("Name");
-            (FindControl.FindNM("divClasses", page) as Panel).Visible = true;
+            (FindControl.FindNM("pnlClasses", page) as Panel).Visible = true;
 
         }
 
