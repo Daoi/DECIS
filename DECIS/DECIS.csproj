@@ -435,6 +435,7 @@
     <Content Include="Scripts\jquery-3.6.0.slim.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
     <Content Include="Scripts\Utilities\InitDT.js" />
+    <Content Include="Scripts\Utilities\InitSelect2.js" />
     <Content Include="Settings.aspx" />
     <Content Include="Style\style.css" />
     <Content Include="Verify.aspx" />
@@ -646,6 +647,7 @@
       <DependentUpon>OrgView.aspx</DependentUpon>
     </Compile>
     <Compile Include="PageLogic\AssetUpload\SetAssetType.cs" />
+    <Compile Include="PageLogic\AssetView\DisplayAsset.cs" />
     <Compile Include="PageLogic\CreateRequest\CollectOrgRequestInfo.cs" />
     <Compile Include="PageLogic\CreateRequest\CollectPersonalRequestInfo.cs" />
     <Compile Include="PageLogic\CreateRequest\CreateOrg.cs" />
