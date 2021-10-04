@@ -175,6 +175,15 @@ namespace DECIS.DonationDocument {
         protected global::System.Web.UI.WebControls.Label lblWaiverName;
         
         /// <summary>
+        /// pnlClasses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlClasses;
+        
+        /// <summary>
         /// gvEquipment control.
         /// </summary>
         /// <remarks>
