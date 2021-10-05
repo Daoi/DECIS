@@ -10,7 +10,16 @@ namespace DECIS.Importing
     public class AmazonUploader
     {
         IAmazonS3 client = new AmazonS3Client(RegionEndpoint.USEast2);
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fs">File stream</param>
+        /// <param name="alias">Name of the S3 Bucket</param>
+        /// <param name="key">File Name</param>
+        /// <param name="path">Path for where to save file</param>
+        /// <param name="folder">optional subfolder</param>
+        /// <param name="delete">optional path of older file to delete, i.e. when you want to overwrite a file</param>
+        /// <returns></returns>
         public bool UploadFileToS3Public(System.IO.Stream fs, string alias, string key, out string path, string folder = "", string delete = "")
         {
             if (folder != "")
