@@ -99,6 +99,9 @@ namespace DECIS
                     if (!string.IsNullOrWhiteSpace(newReq.DateScheduled) && newReq.Status != 3)
                         newReq.Status = 3;
                     new UpdateOrgRequest(newReq).ExecuteCommand();
+                    if (newReq.Status == 4) //Finished
+                        MoveAssets();
+
                 }
                 else
                 {
@@ -106,6 +109,8 @@ namespace DECIS
                     if (!string.IsNullOrWhiteSpace(newReq.DateScheduled) && newReq.Status < 3)
                         newReq.Status = 3;
                     new UpdatePersonalRequest(newReq).ExecuteCommand();
+                    if (newReq.Status == 4) //Finished
+                        MoveAssets();
 
                 }
                 Response.Redirect($"./RequestView.aspx?reqid={reqID}&type={type}");
@@ -234,6 +239,16 @@ namespace DECIS
         protected void btnViewForm_Click(object sender, EventArgs e)
         {
             Response.Redirect($"./DonationDocument/DonationForm.aspx?id={reqID}&type={type}");
+        }
+
+        private void MoveAssets()
+        {
+            List<int> assetIDs = new GetAllAssetsForRequest().ExecuteCommand(reqID)
+                .Rows.OfType<DataRow>()
+                .Select(dr => dr.Field<int>("AssetID"))
+                .ToList();
+
+            MoveAssetsByID.Move(assetIDs, 47);
         }
     }
 }
