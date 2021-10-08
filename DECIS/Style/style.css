@@ -181,8 +181,8 @@
     }
 
     @page {
-        size: A4;
-        margin: 0mm;
+        size: letter;
+        margin: auto;
     }
 
     html, body {
@@ -190,7 +190,7 @@
     }
 
     body {
-        margin: 0 auto;
+        margin: 15rem;
         line-height: 1em;
         word-spacing: 1px;
         letter-spacing: 0.2px;
@@ -245,16 +245,12 @@
     }
 
     @page {
-        size: A4;
-        margin: 0mm;
+        size: letter;
     }
 
     html, body {
-        width: 1024px;
+        width: 1000px;
     }
 
-    body {
-        margin: 0 auto;
-    }
 }
 
