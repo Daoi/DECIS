@@ -7,6 +7,8 @@ using DECIS.DataModels;
 using DECIS.PageLogic.RecycleView;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Web.UI.WebControls;
 
 namespace DECIS
@@ -30,6 +32,7 @@ namespace DECIS
 
             if (!IsPostBack)
             {
+                ViewState["Editing"] = false;
                 Session["Add"] = new List<int>();
                 Session["Remove"] = new List<int>();
                 try
@@ -118,28 +121,32 @@ namespace DECIS
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            if (ViewState["Editing"] != null && (bool)ViewState["Editing"]) //If we're in edit mode
+
+            if ((bool)ViewState["Editing"]) //If we're in edit mode we want to save when edit button is clicked
             {
                 try
                 {
                     Recycle newRecycle = CreateRecycle.Create(Page, rcID);
                     new UpdateRecycle(newRecycle).ExecuteCommand();
-                    Response.Redirect($"./RecycleView.aspx?id={rcID}");
+                    if (newRecycle.RecycleStatus == 2) //Finished
+                        MoveAssets();
+                    Response.Redirect($"./RecycleView.aspx?id={rcID}"); //Causes back button to work poorly when redirecting, should just reinitialize page
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     lblComputerMsg.Text = ex.Message;
                     lblComputerMsg.Visible = true;
                 }
 
             }
+
             int status = (ViewState["Recycle"] as Recycle).RecycleStatus;
             //If Finished(2) or Cancelled(3)
             if (status > 1 && (Session["User"] as User).Role != (int)Permission.Admin)
                 return;
 
             //Initialize or update Editing State value
-            ViewState["Editing"] = ViewState["Edting"] == null ? ViewState["Editing"] = true : !(bool)ViewState["Editing"];
+            ViewState["Editing"] = !(bool)ViewState["Editing"]; 
 
             //Setup display
             TogglePanel.ToggleInputs(pnlControls);
@@ -151,9 +158,20 @@ namespace DECIS
         {
             //Setup display
             TogglePanel.ToggleInputs(pnlControls);
+            ViewState["Editing"] = false;
             btnCancelEdit.Visible = false;
             btnEdit.Text = "Edit";
         }
 
+        private void MoveAssets()
+        {
+            List<int> assetIDs = new GetAllAssetsForRecycle().ExecuteCommand(rcID)
+                .Rows.OfType<DataRow>()
+                .Select(dr => dr.Field<int>("AssetID"))
+                .ToList();
+
+            MoveAssetsByID.Move(assetIDs, 52);
+        }
     }
+
 }

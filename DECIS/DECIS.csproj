@@ -505,6 +505,7 @@
     <Compile Include="DataAccess\DataAccessors\Assets\GetAllInactiveAssets.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\GetAssetsByIntake.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\ImportAsset.cs" />
+    <Compile Include="DataAccess\DataAccessors\Assets\MoveAssetsByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\Types\GetAllAssetTypes.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\Types\InsertAssetType.cs" />
     <Compile Include="DataAccess\DataAccessors\Assets\UpdateAsset.cs" />
