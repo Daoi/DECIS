@@ -34,7 +34,7 @@
                             <asp:Label ID="lblInstructions" runat="server" CssClass="cherryFont mt-2" Text="Enter your username and password."></asp:Label>
                         </div>
                         <div class="row mt-2">
-                            <asp:Label ID="lblError" runat="server" CssClass="errorText" Visible="false"></asp:Label>
+                            <asp:Label ID="lblError" runat="server" CssClass="cherryFont" Visible="false"></asp:Label>
                         </div>
                         <div class="form-group row justify-content-center">
                             <div class="col-md-8 mt-3">
@@ -49,12 +49,62 @@
                         </div>
                         <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn btn-primary mt-2" />
                         <br />
-                        <asp:Button ID="btnForgotPassword" runat="server" CssClass="btn btn-link font-weight-bold cherryFont" Text="Forgot Password?" />
+                        <asp:Button ID="btnForgotPassword" runat="server" OnClick="switchPanels" CssClass="btn btn-link font-weight-bold cherryFont" Text="Forgot Password?" />
                     </asp:Panel>
                     <!-- Password Reset Panel -->
+                    <!-- Password Reset Panel -->
                     <asp:Panel ID="pnlPasswordReset" runat="server" Visible="false">
-                    </asp:Panel>
-                    <asp:Panel ID="pnlSetupPassword" runat="server" Visible="false">
+                        <asp:Label ID="lblPRInstructions" runat="server" CssClass="text-black-50" Text="Enter your email to receive a verification code."></asp:Label>
+                        <div class="row">
+                            <div class="col-sm-3 text-left my-auto">
+                                <h5 class="text-body fw-bold">Password Requirements:</h5>
+                                <h6 class="text-body fw-bold">Use at least 12 characters</h6>
+                                <h6 class="text-body fw-bold">Include one uppercase letter</h6>
+                                <h6 class="text-body fw-bold">Include one lowercase letter</h6>
+                            </div>
+                            <div class="col">
+                                <br />
+                                <asp:Label ID="lblPRError" runat="server" CssClass="cherryFont" Visible="false"></asp:Label>
+                                <br />
+                                <br />
+                                <div class="form-group row justify-content-center">
+                                    <div class="col-md-9">
+                                        <asp:TextBox ID="txtPRUsername" runat="server" CssClass="form-control" placeholder="Email"></asp:TextBox>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="form-group row justify-content-center">
+                                    <div class="col-md-9">
+                                        <asp:TextBox ID="txtPRVerificationCode" runat="server" CssClass="form-control" placeholder="Verification Code" Enabled="false"></asp:TextBox>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="form-group row justify-content-center">
+                                    <div class="col-md-9">
+                                        <asp:TextBox ID="txtPRNewPassword" runat="server" TextMode="Password" CssClass="form-control" placeholder="New Password" Enabled="false"></asp:TextBox>
+                                    </div>
+                                </div>
+
+                                <br />
+                                <div class="form-group row justify-content-center">
+                                    <div class="col-md-9">
+                                        <asp:TextBox ID="txtPRRetypePassword" runat="server" TextMode="Password" CssClass="form-control" placeholder=" Retype Password" Enabled="false"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <br />
+                                <asp:Button ID="btnPRConfirm" runat="server" Text="Change Password" CssClass="btn btn-primary mt-2" OnClick="btnPRConfirm_Click" Enabled="false" />
+                                <br />
+                                <asp:Button ID="btnPRGoBack" runat="server" CssClass="btn btn-warning mt-2" Text="Back to Login" OnClick="switchPanels" />
+                            </div>
+                            <div class="col-sm-3 text-left">
+                                <br />
+                                <br />
+                                <br />
+                                <asp:Button ID="btnPRSendCode" runat="server" CssClass="buttonStyle" Text="Send Code" OnClick="btnPRSendCode_Click" />
+                            </div>
+                        </div>
                     </asp:Panel>
                 </div>
                 <div class="card-footer text-muted">

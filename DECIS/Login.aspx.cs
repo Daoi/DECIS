@@ -1,21 +1,26 @@
 ﻿using DECIS.Account;
 using DECIS.DataAccess.DataAccessors.Account;
 using DECIS.DataModels;
+using DECIS.PageLogic.Login;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace DECIS
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : Page
     {
         AWSCognitoManager man;
+        PanelLogic pl;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["PaneLogic"] != null)
+                pl = Session["PanelLogic"] as PanelLogic;
+            else
+            {
+                pl = new PanelLogic(Page);
+                Session["PanelLogic"] = pl;
+            }
 
             if (Session["CognitoManager"] == null)
             {
@@ -46,9 +51,8 @@ namespace DECIS
                 if (authResponse != null)
                 {
                     lblError.Text = "";
-
                     // get user data from db
-                   User curUser = new User(new GetAccount().ExecuteCommand(tbEmail.Text).Rows[0]);
+                    User curUser = new User(new GetAccount().ExecuteCommand(tbEmail.Text).Rows[0]);
                     Session["User"] = curUser;
                     Session["CognitoManager"] = man;
                     Response.Redirect("./Homepage.aspx", false);
@@ -66,5 +70,50 @@ namespace DECIS
                 lblError.Text = ex.Message;
             }
         }
+
+        protected void switchPanels(object sender, EventArgs e)
+        {
+            if (pnlLogin.Visible)
+            {
+                pl.ClearLoginPanel();
+                pnlPasswordReset.Visible = true;
+            }
+            else
+            {
+                pl.ClearPasswordResetPanel();
+                pnlLogin.Visible = true;
+            }
+        }
+
+
+        // request verification code
+        protected async void btnPRSendCode_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPRUsername.Text))
+            {
+                lblPRError.Visible = true;
+                lblPRError.Text = "Enter your Username.";
+                return;
+            }
+
+            try
+            {
+                await man.SendForgotPasswordCodeAsync(txtPRUsername.Text);
+
+                pl.SetUpPasswordResetPanel();// enable the rest of the controls
+            }
+            catch (Exception ex)
+            {
+                lblPRError.Visible = true;
+                lblPRError.Text = ex.Message;
+            }
+        }
+
+        // change password
+        protected async void btnPRConfirm_Click(object sender, EventArgs e)
+        {
+            CodeConfirm.ConfirmCode(Page, man, pl);
+        }
+
     }
 }
