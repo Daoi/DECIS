@@ -14,6 +14,7 @@ using Amazon.SecurityToken.Model;
 using System.Threading.Tasks;
 using System.Configuration;
 using Amazon.CognitoIdentity.Model;
+using System.Net;
 
 namespace DECIS.Account
 {
@@ -414,6 +415,49 @@ namespace DECIS.Account
         private AmazonCognitoIdentityProviderClient GetClient()
         {
             return new AmazonCognitoIdentityProviderClient(this.credentials, RegionEndpoint.USEast2);
+        }
+
+
+        public async Task<ChangePasswordResponse> TryChangePasswordAsync(string newPassword, string currentPassword)
+        {
+            try
+            {
+                // Check if the current Password is correct
+                var client = this.GetClient();
+                var authRequest = new InitiateSrpAuthRequest()
+                {
+                    Password = currentPassword
+                };
+
+                var authResponse = await user.StartWithSrpAuthAsync(authRequest);
+                var result = authResponse.AuthenticationResult;
+
+                var request = new ChangePasswordRequest
+                {
+                    AccessToken = result.AccessToken,
+                    PreviousPassword = currentPassword,
+                    ProposedPassword = newPassword
+                };
+
+                var response = await client.ChangePasswordAsync(request);
+                return response;
+            }
+            catch (UserNotFoundException)
+            {
+                // occurs when the provided emailAddress doesn't exist
+                return new ChangePasswordResponse
+                {
+                    HttpStatusCode = HttpStatusCode.NotFound
+                };
+            }
+            catch (Amazon.CognitoIdentity.Model.NotAuthorizedException)
+            {
+                // occurs when the provided current password is invalid
+                return new ChangePasswordResponse
+                {
+                    HttpStatusCode = HttpStatusCode.Forbidden
+                };
+            }
         }
     }
 }
