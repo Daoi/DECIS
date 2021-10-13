@@ -121,5 +121,9 @@ namespace DECIS.PageLogic.AssetView
                 fieldArray[i].SetValue(this, Convert.ChangeType(control, fieldType));
             }
         }
+
+        //Todo - Update function to gather controls that are null in cases where they're not rendered on first pass
+        //Use linq where to get properties where value = null and then retry searching for those
+
     }
 }
