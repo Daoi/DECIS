@@ -14,25 +14,25 @@ namespace DECIS.PageLogic.AssetView
 {
     public class DisplayAsset
     {
-        public static bool Display(Page pg, Asset curAsset)
+        public static bool Display(AssetPage pageContainer, Asset curAsset)
         {
             try
             {
                 //Setup asset info display
-                (FindControl.Find("crdAssetImage", pg) as HtmlImage).Src = curAsset.Image;
-                (FindControl.Find("lblSerialNumber", pg) as Label).Text = $"Serial Number: {curAsset.SerialNumber} | Asset ID: {curAsset.AssetID} | Intake ID(s): {string.Join(",", curAsset.IntakeID)}";
-                (FindControl.Find("tbAssetDescription", pg) as TextBox).Text = curAsset.Description;
-                (FindControl.Find("lblAssetTypeText", pg) as Label).Text = curAsset.AssetType;
-                (FindControl.Find("lblLocationDescriptionText", pg) as Label).Text = curAsset.LocationDescription;
-                SetItem.SetItemByText(FindControl.Find("ddlAssetMake", pg) as DropDownList, curAsset.Make);
-                SetItem.SetItemByText(FindControl.Find("ddlAssetModel", pg) as DropDownList, curAsset.Model);
-                SetItem.SetItemByText(FindControl.Find("ddlAssetStatus", pg) as DropDownList, curAsset.Status);
-                SetItem.SetItemByText(FindControl.Find("ddlLocation", pg) as DropDownList, curAsset.Location);
+                pageContainer.crdAssetImage.Src = curAsset.Image;
+                pageContainer.lblSerialNumber.Text = $"Serial Number: {curAsset.SerialNumber} | Asset ID: {curAsset.AssetID} | Intake ID(s): {string.Join(",", curAsset.IntakeID)}";
+                pageContainer.tbAssetDescription.Text = curAsset.Description;
+                pageContainer.lblAssetTypeText.Text = curAsset.AssetType;
+                pageContainer.lblLocationDescriptionText.Text = curAsset.LocationDescription;
+                SetItem.SetItemByText(pageContainer.ddlAssetMake, curAsset.Make);
+                SetItem.SetItemByText(pageContainer.ddlAssetModel, curAsset.Model);
+                SetItem.SetItemByText(pageContainer.ddlAssetStatus, curAsset.Status);
+                SetItem.SetItemByText(pageContainer.ddlLocation, curAsset.Location);
                 //Disable on page first load(Not in edit mode yet)
-                TogglePanel.ToggleInputs(FindControl.Find("pnlControls", pg) as Panel, true);
+                TogglePanel.ToggleInputs(pageContainer.pnlControls, true);
                 //Hide edit button on uneditable assets
                 if (curAsset.StatusID == 5 || curAsset.StatusID == 6)
-                    (FindControl.Find("btnEdit", pg) as Button).Visible = false;
+                    pageContainer.btnEdit.Visible = false;
                 return true;
             }
             catch(NullReferenceException ex)

@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="Asset View" Language="C#" MasterPageFile="~/DECIS.Master" AutoEventWireup="true" CodeBehind="AssetView.aspx.cs" Inherits="DECIS.AssetView" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:HiddenField ID="hfAssetID"  runat="server" />
+    <asp:HiddenField ID="hfSerialNumber" runat="server" />
+
     <div class="container-fluid homepage">
         <div class="container-fluid mt-2">
             <%-- Start Asset Card --%>

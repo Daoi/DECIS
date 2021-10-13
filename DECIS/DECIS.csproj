@@ -649,6 +649,7 @@
     </Compile>
     <Compile Include="PageLogic\AssetUpload\SetAssetType.cs" />
     <Compile Include="PageLogic\AssetView\AssetPage.cs" />
+    <Compile Include="PageLogic\AssetView\CreateAsset.cs" />
     <Compile Include="PageLogic\AssetView\DisplayAsset.cs" />
     <Compile Include="PageLogic\CreateRequest\CollectOrgRequestInfo.cs" />
     <Compile Include="PageLogic\CreateRequest\CollectPersonalRequestInfo.cs" />

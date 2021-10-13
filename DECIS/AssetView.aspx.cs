@@ -17,22 +17,35 @@ namespace DECIS
 {
     public partial class AssetView : System.Web.UI.Page
     {
-        Asset curAsset;
-        protected void Page_Load(object sender, EventArgs e)
+        public Asset curAsset;
+        AssetPage pageContainer;
+        protected void Page_Init(object sender, EventArgs e)
         {
-            new AssetPage(Page);
-
             if (Session["CurrentAsset"] != null)
                 curAsset = Session["CurrentAsset"] as Asset;
             else
                 Response.Redirect("./AssetList.aspx");
 
+            
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["AssetViewContainer"] == null)
+            {
+                pageContainer = new AssetPage(Page);
+                Session["AssetViewContainer"] = pageContainer;
+            }
+            else
+                pageContainer = Session["AssetViewContainer"] as AssetPage;
+
             if (!IsPostBack)
             {
+                hfAssetID.Value = curAsset.AssetType;
+                hfSerialNumber.Value = curAsset.SerialNumber;
                 RetrieveData();
-                DisplayAsset.Display(Page, curAsset);
+                DisplayAsset.Display(pageContainer, curAsset);
             }
-
         }
 
         private void RetrieveData()
@@ -58,24 +71,9 @@ namespace DECIS
 
                 DataTable modelInfoDT = new GetModelInfoByID().ExecuteCommand(int.Parse(ddlAssetModel.SelectedValue));
                 DataTable locationInfoDT = new GetLocationInfoByID().ExecuteCommand(int.Parse(ddlLocation.SelectedValue));
-                Asset newAsset = new Asset()
-                {
-                    AssetID = curAsset.AssetID,
-                    SerialNumber = curAsset.SerialNumber,
-                    Model = ddlAssetModel.SelectedItem.ToString(),
-                    ModelID = int.Parse(ddlAssetModel.SelectedValue),
-                    Make = ddlAssetMake.SelectedItem.ToString(),
-                    MakeID = int.Parse(ddlAssetMake.SelectedValue),
-                    AssetType = modelInfoDT.Rows[0].Field<string>("AssetType"),
-                    Description = tbAssetDescription.Text,
-                    Location = ddlLocation.SelectedItem.ToString(),
-                    LocationID = int.Parse(ddlLocation.SelectedValue),
-                    LocationDescription = locationInfoDT.Rows[0].Field<string>("LocationDescription"),
-                    Status = ddlAssetStatus.SelectedItem.ToString(),
-                    StatusID = int.Parse(ddlAssetStatus.SelectedValue),
-                    Image = modelInfoDT.Rows[0].Field<string>("Image"),
-                    IntakeID = curAsset.IntakeID
-                };
+
+                Asset newAsset = new CreateAsset(pageContainer).Create();
+                newAsset.IntakeID = curAsset.IntakeID;
 
                 int x = new UpdateAsset(newAsset).ExecuteCommand(); //variable is unused currently, can be used to check success/failure
 
@@ -101,7 +99,7 @@ namespace DECIS
             //Setup display
             btnCancelEdit.Visible = false;
             btnEdit.Text = "Edit";
-            DisplayAsset.Display(Page, curAsset);
+            DisplayAsset.Display(pageContainer, curAsset);
             //reset model drop down
             List<DropDownList> l = new List<DropDownList>() { ddlAssetModel };
             DDLDataBind.Bind(l, curAsset.MakeID);
