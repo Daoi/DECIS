@@ -104,19 +104,21 @@
                 <div class="row">
                     <div class="col m-3">
                         <%-- Upcoming Tracker Start --%>
-                        <div class="card-body border text-dark offwhiteBackground">
+                        <div class="card-body border offwhiteBackground">
                             <h4 class="card-title">
                                 <asp:Label ID="lblUpcoming" runat="server" Text="   "></asp:Label></h4>
                             <div class="card mt-5">
-                                <div class="card-body UCEventsCard">
+                                <div class="card-body">
                                     <asp:Label ID="lblEventMsg" runat="server" Text=""></asp:Label>
                                     <asp:GridView ID="gvUpcoming" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="False">
                                         <HeaderStyle CssClass="cherryBackground" />
                                         <Columns>
                                             <asp:TemplateField HeaderText="View Request"></asp:TemplateField>
-                                            <asp:BoundField DataField="DateScheduled" HeaderText="Date Scheduled" />
+                                            <asp:BoundField DataField="DateSubmitted" HeaderText="Date Submitted" />
+                                            <asp:BoundField DataField="OrgName" HeaderText="Org" />
                                             <asp:BoundField DataField="Name" HeaderText="Name" />
                                             <asp:BoundField DataField="Email" HeaderText="Email" />
+                                            <asp:BoundField DataField="Type" HeaderText="Request Type" />
                                         </Columns>
                                     </asp:GridView>
                                 </div>

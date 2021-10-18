@@ -7,6 +7,21 @@ using System.Web;
 
 namespace DECIS.DataModels
 {
+    public enum RequestStatus
+    {
+        New = 1,
+        Pending = 2,
+        Scheduled = 3,
+        Finished = 4,
+        Cancelled = 5
+    }
+
+    public enum RequestType
+    {
+        Organization = 0,
+        Personal = 1
+    }
+
     [Serializable]
     public class Request
     {

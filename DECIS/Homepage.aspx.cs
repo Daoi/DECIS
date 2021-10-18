@@ -20,7 +20,7 @@ namespace DECIS
             }
             if (!IsPostBack)
             {
-                gvUpcoming.DataSource = new GetUpcomingRequests().ExecuteCommand(DateTime.Today, DateTime.Today.AddDays(7));
+                gvUpcoming.DataSource = new GetAllRequestByStatus().ExecuteCommand((int)RequestStatus.New);
                 gvUpcoming.DataBind();
             }
         }
