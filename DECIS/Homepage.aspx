@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DECIS.Master" AutoEventWireup="true" CodeBehind="Homepage.aspx.cs" Inherits="DECIS.Homepage" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid mainbg">
         <div class="row p-0" style="height: 50px;">
@@ -95,6 +96,32 @@
                             </div>
                         </div>
                         <%-- Button 8 End --%>
+                    </div>
+                </div>
+            </div>
+            <%-- End Button Container --%>
+            <div class="container-fluid mt-5">
+                <div class="row">
+                    <div class="col m-3">
+                        <%-- Upcoming Tracker Start --%>
+                        <div class="card-body border text-dark offwhiteBackground">
+                            <h4 class="card-title">
+                                <asp:Label ID="lblUpcoming" runat="server" Text="   "></asp:Label></h4>
+                            <div class="card mt-5">
+                                <div class="card-body UCEventsCard">
+                                    <asp:Label ID="lblEventMsg" runat="server" Text=""></asp:Label>
+                                    <asp:GridView ID="gvUpcoming" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="False">
+                                        <HeaderStyle CssClass="cherryBackground" />
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="View Request"></asp:TemplateField>
+                                            <asp:BoundField DataField="DateScheduled" HeaderText="Date Scheduled" />
+                                            <asp:BoundField DataField="Name" HeaderText="Name" />
+                                            <asp:BoundField DataField="Email" HeaderText="Email" />
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

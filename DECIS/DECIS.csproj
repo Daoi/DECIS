@@ -564,6 +564,7 @@
     <Compile Include="DataAccess\DataAccessors\Request\GetRequestInfoByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetOrgRequestsByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetOrgRequestsByStatus.cs" />
+    <Compile Include="DataAccess\DataAccessors\Request\GetUpcomingRequests.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\InsertPersonalRequest.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\InsertRequest.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\OrgRequestParameters.cs" />
