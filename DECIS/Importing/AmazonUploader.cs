@@ -56,7 +56,7 @@ namespace DECIS.Importing
             request.BucketName = alias;
             request.Key = key; //file name  
             request.InputStream = fs;
-            utility.Upload(request); //commensing the transfer  
+            utility.Upload(request); //transfer file 
             var response = client.GetObject(alias, key);
             var code = response.HttpStatusCode;
 
