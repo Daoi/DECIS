@@ -35,8 +35,7 @@ namespace DECIS.PageLogic.CreateRequest
             {
                 AmazonUploader myUploader = new AmazonUploader();
                 Stream s = fu.PostedFile.InputStream;
-                string[] fn = fu.FileName.Split('.');
-                string key = $"{fn[0]}{org.OrgName}{DateTime.Today.ToString("MM-dd-yyyy")}.{fn[1]}"; //Add org name and todays date to files
+                string key = $"{org.OrgName}{DateTime.Today.ToString("yyyy-MM-dd")}.pdf"; //Add org name and todays date to files
                 string awsInfo;
                 bool a = myUploader.UploadFileToS3Private(s, BUCKET, key, out awsInfo, "Documents");
                 if (a)
