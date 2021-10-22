@@ -43,13 +43,14 @@
                     </Triggers>
                     <ContentTemplate>
                         <div id="divMsg" class="row mt-5 text-center" visible="true" runat="server">
-                            <h4><asp:Label ID="lblMsg" runat="server" Text=""></asp:Label></h4>
+                            <h4>
+                                <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label></h4>
                         </div>
                         <div class="row mt-5">
                             <div class="col-2"></div>
                             <div class="col-8 mb-5" style="color: black">
                                 <asp:Label ID="lblRequestType" runat="server" Text="Select Request Type:" CssClass=""></asp:Label>
-                                <asp:DropDownList ID="ddlRequestType"  CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged">
+                                <asp:DropDownList ID="ddlRequestType" CssClass="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged">
                                     <asp:ListItem Selected="True" Value="-1">Select Request Type</asp:ListItem>
                                     <asp:ListItem Value="Personal">Personal (Equipment for an individual/home)</asp:ListItem>
                                     <asp:ListItem Value="Organization">Organization</asp:ListItem>
@@ -111,10 +112,10 @@
                                     <asp:TextBox ID="tbContactEmail" required="true" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblContactPhone" runat="server" Text="Contact Phone: " CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbContactPhone" required="true" runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:Label ID="lblOrgPurpose" runat="server" Text="Describe the organization and its purpose:" CssClass="mt-2"></asp:Label>
-                                    <asp:TextBox ID="tbOrgPurpose" required="true" MaxLength="500" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
-                                    <asp:Label ID="lblPurpose" runat="server" Text="Intended purpose and targeted users of the computer equipment: " CssClass="mt-2"></asp:Label>
-                                    <asp:TextBox ID="tbPurpose" required="true" MaxLength="500" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:Label ID="lblOrgPurpose" runat="server" Text="Describe the organization and its purpose:" CssClass="mt-2"></asp:Label><asp:Label ID="lblOrgPurposeCharCount" for="tbOrgPurpose" runat="server" CssClass="charCountLabel m-1"></asp:Label>
+                                    <asp:TextBox ID="tbOrgPurpose" onkeyup="countChar(this)" required="true" MaxLength="750" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:Label ID="lblPurpose" runat="server" Text="Intended purpose and targeted users of the computer equipment: " CssClass="mt-2"></asp:Label><asp:Label ID="lblPurposeCharCount" for="tbPurpose" runat="server" CssClass="charCountLabel"></asp:Label>
+                                    <asp:TextBox ID="tbPurpose" onkeyup="countChar(this)" required="true" MaxLength="750" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblSpecs" runat="server" Text="Number of and type of computer equipment desired (Include minimal specs required): " CssClass="mt-2"></asp:Label>
                                     <asp:TextBox ID="tbSpecs" required="true" MaxLength="400" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblReferer" runat="server" Text="How did you hear about Temple Tech for Philly: " CssClass="mt-2"></asp:Label>
@@ -200,4 +201,15 @@
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
 </script>
+<script>
+    function countChar(val) {
+        var len = val.value.length;
+        if (len >= 750) {
+            val.value = val.value.substring(0, 750);
+        } else {
+            $(`.charCountLabel[for=${val.id}]`).text(750 - len + ' / 750 characters');
+        }
+    };
+</script>
+
 </html>

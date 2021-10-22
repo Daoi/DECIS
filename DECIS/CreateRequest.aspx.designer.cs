@@ -499,6 +499,15 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.Label lblOrgPurpose;
         
         /// <summary>
+        /// lblOrgPurposeCharCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOrgPurposeCharCount;
+        
+        /// <summary>
         /// tbOrgPurpose control.
         /// </summary>
         /// <remarks>
@@ -515,6 +524,15 @@ namespace DECIS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPurpose;
+        
+        /// <summary>
+        /// lblPurposeCharCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPurposeCharCount;
         
         /// <summary>
         /// tbPurpose control.
