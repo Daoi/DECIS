@@ -1,4 +1,5 @@
-﻿using DECIS.DataModels;
+﻿using DECIS.DataAccess.DataAccessors.Request;
+using DECIS.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,11 @@ namespace DECIS
             if((Session["User"] as User).Role == (int)Permission.Basic)
             {
                 divSettings.Visible = false;
+            }
+            if (!IsPostBack)
+            {
+                gvUpcoming.DataSource = new GetAllRequestByStatus().ExecuteCommand((int)RequestStatus.New);
+                gvUpcoming.DataBind();
             }
         }
 
