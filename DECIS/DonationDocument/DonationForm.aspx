@@ -133,12 +133,14 @@
                         </p>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-sm-6 fw-bold">Temple University, as Administrator</div>
-                        <div class="col-sm-6">Signature: __________________________________________________</div>
+                        <div class="col-sm-3 fw-bold">Temple University, as Administrator</div>
+                        <div class="col-sm-6">Signature: ____________________________________</div>
+                        <div class="col-sm-3">Date: ____________________________</div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-sm-6 fw-bold">Personal</div>
-                        <div class="col-sm-6">Signature: __________________________________________________</div>
+                        <div class="col-sm-3 fw-bold">Personal</div>
+                        <div class="col-sm-6">Signature: ____________________________________</div>
+                        <div class="col-sm-3">Date: ____________________________</div>
                     </div>
                 </div>
                 <%-- Signature End --%>
