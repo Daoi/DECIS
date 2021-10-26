@@ -15,9 +15,9 @@ namespace DECIS.PageLogic.AssetView
     /// <summary>
     /// Class to access controls that are modifiable outside the page, pass the instance of this class instead of the entire page
     /// </summary>
-    public class AssetPage
+    public class AssetPage : ControlContainerBase.ControlContainer
     {
-        private Page pg;
+        private Page page;
         //Label props
         public Label lblSerialNumber { get => _lblSerialNumber; }
         public Label lblAssetTypeText { get => _lblAssetTypeText; }
@@ -89,10 +89,10 @@ namespace DECIS.PageLogic.AssetView
         /// <summary>
         /// Access controls from a speific page externally
         /// </summary>
-        /// <param name="pg">The Asset View Page</param>
-        public AssetPage(Page pg)
+        /// <param name="page">The Asset View Page</param>
+        public AssetPage(Page page) : base(page)
         {
-            if (pg.Title != "Asset View")
+            if (page.Title != "Asset View")
                 throw new ArgumentException("Page must be an instance of AssetView.aspx");
 
             TextBox = new List<TextBox>();
@@ -100,27 +100,10 @@ namespace DECIS.PageLogic.AssetView
             Label = new List<Label>();
             DropDownList = new List<DropDownList>();
 
-            this.pg = pg;
             InitializeControls();
         }
 
-        private void InitializeControls()
-        {
-            var fieldArray = GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
-
-            for (int i = 0; i < fieldArray.Length; i++)
-            {
-                //Try to find a control matching the property name
-                var control = FindControl.Find($"{fieldArray[i].Name.Replace("_", "")}", pg);
-                if (control == null)
-                    continue; //Can't find the control, just skip, might not be visible/rendered yet
-
-                Type fieldType = fieldArray[i].FieldType;
-                IList list = GetType().GetProperty(fieldType.Name, BindingFlags.Instance)?.GetValue(this) as IList;
-                list?.Add(control);
-                fieldArray[i].SetValue(this, Convert.ChangeType(control, fieldType));
-            }
-        }
+        
 
         //Todo - Update function to gather controls that are null in cases where they're not rendered on first pass
         //Use linq where to get properties where value = null and then retry searching for those

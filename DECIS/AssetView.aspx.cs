@@ -12,6 +12,8 @@ using DECIS.DataAccess.DataAccessors.Assets;
 using DECIS.CotrolLogic;
 using DECIS.CotrolLogic.DDL;
 using DECIS.PageLogic.AssetView;
+using DECIS.PageLogic.DisplayStrategy;
+using DECIS.PageLogic.ControlContainerBase;
 
 namespace DECIS
 {
@@ -19,33 +21,34 @@ namespace DECIS
     {
         public Asset curAsset;
         AssetPage pageContainer;
+        DisplayContext displayContext;
+
         protected void Page_Init(object sender, EventArgs e)
         {
             if (Session["CurrentAsset"] != null)
                 curAsset = Session["CurrentAsset"] as Asset;
             else
                 Response.Redirect("./AssetList.aspx");
-
-            
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["AssetViewContainer"] == null)
+
+            pageContainer = new AssetPage(Page);
+
+            if (ViewState["DisplayContext"] == null)
             {
-                pageContainer = new AssetPage(Page);
-                Session["AssetViewContainer"] = pageContainer;
+                displayContext = new DisplayContext(new AssetDisplayStrategy(), pageContainer ?? (Session["AssetViewContainer"] as ControlContainer), curAsset);
             }
-            else
-                pageContainer = Session["AssetViewContainer"] as AssetPage;
 
             if (!IsPostBack)
             {
                 hfAssetID.Value = curAsset.AssetType;
                 hfSerialNumber.Value = curAsset.SerialNumber;
                 RetrieveData();
-                DisplayAsset.Display(pageContainer, curAsset);
+                displayContext.Display();
             }
+
         }
 
         private void RetrieveData()
@@ -99,7 +102,7 @@ namespace DECIS
             //Setup display
             btnCancelEdit.Visible = false;
             btnEdit.Text = "Edit";
-            DisplayAsset.Display(pageContainer, curAsset);
+            displayContext.Display();
             //reset model drop down
             List<DropDownList> l = new List<DropDownList>() { ddlAssetModel };
             DDLDataBind.Bind(l, curAsset.MakeID);

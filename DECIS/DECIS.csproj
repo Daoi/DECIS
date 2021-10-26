@@ -651,11 +651,15 @@
     <Compile Include="PageLogic\AssetView\AssetPage.cs" />
     <Compile Include="PageLogic\AssetView\CreateAsset.cs" />
     <Compile Include="PageLogic\AssetView\DisplayAsset.cs" />
+    <Compile Include="PageLogic\ControlContainerBase\ControlContainer.cs" />
     <Compile Include="PageLogic\CreateRequest\CollectOrgRequestInfo.cs" />
     <Compile Include="PageLogic\CreateRequest\CollectPersonalRequestInfo.cs" />
     <Compile Include="PageLogic\CreateRequest\CreateOrg.cs" />
     <Compile Include="PageLogic\CreateRequest\CreatePerson.cs" />
     <Compile Include="PageLogic\CreateRequest\CreatePersonalReasons.cs" />
+    <Compile Include="PageLogic\DisplayStrategy\AssetDisplayStrategy.cs" />
+    <Compile Include="PageLogic\DisplayStrategy\DisplayContext.cs" />
+    <Compile Include="PageLogic\DisplayStrategy\IDisplayStrategy.cs" />
     <Compile Include="PageLogic\DonationForm\Display.cs" />
     <Compile Include="PageLogic\Login\CodeConfirm.cs" />
     <Compile Include="PageLogic\Login\PanelLogic.cs" />

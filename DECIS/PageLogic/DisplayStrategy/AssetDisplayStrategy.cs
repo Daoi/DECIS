@@ -1,23 +1,29 @@
 ﻿using DECIS.ControlLogic.DDL;
 using DECIS.ControlLogic.Panels;
 using DECIS.DataModels;
-using DECIS.Utilities;
+using DECIS.PageLogic.AssetView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
+using DECIS.PageLogic.ControlContainerBase;
 
-namespace DECIS.PageLogic.AssetView
+namespace DECIS.PageLogic.DisplayStrategy
 {
-    public class DisplayAsset
+    public class AssetDisplayStrategy : IDisplayStrategy
     {
-        public static bool Display(AssetPage _controlContainer, Asset _dataModel)
+
+        public AssetDisplayStrategy()
+        {
+        }
+
+
+        public bool Display(ControlContainer controlContainer, object dataModel)
         {
             try
             {
+                Asset _dataModel = (Asset)dataModel;
+                AssetPage _controlContainer = (AssetPage)controlContainer;
                 //Setup asset info display
                 _controlContainer.crdAssetImage.Src = _dataModel.Image;
                 _controlContainer.lblSerialNumber.Text = $"Serial Number: {_dataModel.SerialNumber} | Asset ID: {_dataModel.AssetID} | Intake ID(s): {string.Join(",", _dataModel.IntakeID)}";
@@ -35,9 +41,9 @@ namespace DECIS.PageLogic.AssetView
                     _controlContainer.btnEdit.Visible = false;
                 return true;
             }
-            catch(NullReferenceException ex)
+            catch (NullReferenceException ex)
             {
-                throw new NullReferenceException($"{ex.Message} + Control not found");
+                throw new NullReferenceException($"{ex.Message} + Control not found?");
             }
         }
     }
