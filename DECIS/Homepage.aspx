@@ -5,7 +5,7 @@
         <div class="row p-0" style="height: 50px;">
         </div>
         <div class="jumbotron vertical-center linen h-75">
-            <div class="container-fluid plaster">
+            <div class="container-fluid plaster ">
                 <div class="row homepageCol">
                     <div id="divViewOrgs" class="col m-3 homepageCol" runat="server">
                         <!-- Button 1 Start -->
@@ -98,35 +98,38 @@
                         <%-- Button 8 End --%>
                     </div>
                 </div>
+                <%-- Upcoming Tracker Start --%>
             </div>
-            <%-- End Button Container --%>
-            <div class="container-fluid mt-5">
-                <div class="row">
-                    <div class="col m-3">
-                        <%-- Upcoming Tracker Start --%>
-                        <div class="card-body border offwhiteBackground">
-                            <h4 class="card-title">
-                                <asp:Label ID="lblUpcoming" runat="server" Text="   "></asp:Label></h4>
-                            <div class="card mt-5">
-                                <div class="card-body">
-                                    <asp:Label ID="lblEventMsg" runat="server" Text=""></asp:Label>
-                                    <asp:GridView ID="gvUpcoming" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="False">
-                                        <HeaderStyle CssClass="cherryBackground" />
-                                        <Columns>
-                                            <asp:TemplateField HeaderText="View Request"></asp:TemplateField>
-                                            <asp:BoundField DataField="DateSubmitted" HeaderText="Date Submitted" />
-                                            <asp:BoundField DataField="OrgName" HeaderText="Org" />
-                                            <asp:BoundField DataField="Name" HeaderText="Name" />
-                                            <asp:BoundField DataField="Email" HeaderText="Email" />
-                                            <asp:BoundField DataField="Type" HeaderText="Request Type" />
-                                        </Columns>
-                                    </asp:GridView>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row bg-white mt-1 mx-auto " style="width: 100%;">
+                <h5>
+                    <asp:Label ID="lblUpcoming" runat="server" Text="New Requests"></asp:Label></h5>
+                <div>
+                    <asp:GridView ID="gvUpcoming" CssClass="table table-striped table-bordered thead-dark" runat="server" AutoGenerateColumns="False">
+                        <HeaderStyle CssClass="cherryBackground" />
+                        <Columns>
+                            <asp:TemplateField HeaderText="View Request">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkBtnView" runat="server" OnClick="lnkBtnView_Click">
+                                    <i class="fas fa-eye"></i>
+                                    </asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="DateSubmitted" HeaderText="Date Submitted" />
+                            <asp:BoundField DataField="OrgName" HeaderText="Org" />
+                            <asp:BoundField DataField="Name" HeaderText="Name" />
+                            <asp:BoundField DataField="Email" HeaderText="Email" />
+                            <asp:BoundField DataField="Type" HeaderText="Request Type" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
             </div>
         </div>
+        <%-- End Button Container --%>
     </div>
+    <script type="text/javascript">
+        function pageLoad() {
+            var tables = ['#MainContent_gvUpcoming'];
+            InitDT(tables);
+        };
+    </script>
 </asp:Content>
