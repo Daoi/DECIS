@@ -133,9 +133,10 @@
                             <div class="col-2"></div>
                             <div runat="server" id="divButtons" class="row mb-3" visible="true">
                                 <div class="col-4"></div>
-                                <div class="col-4">
+                                <div class="col-4 text-center">
                                     <asp:Button ID="btnSubmit" CssClass="btn btn-primary mt-3" runat="server" Text="Submit Request" OnClick="btnSubmit_Click" />
-                                    <asp:Label ID="lblSubmitError" runat="server" Text=""></asp:Label>
+                                    <br />
+                                    <asp:Label ID="lblSubmitError" runat="server" CssClass="text-danger" Text=""></asp:Label>
                                 </div>
                                 <div class="col-4"></div>
                             </div>
