@@ -131,15 +131,6 @@
                                 <%--Org Request Form End--%>
                             </div>
                             <div class="col-2"></div>
-                            <div runat="server" id="divButtons" class="row mb-3" visible="true">
-                                <div class="col-4"></div>
-                                <div class="col-4 text-center">
-                                    <asp:Button ID="btnSubmit" CssClass="btn btn-primary mt-3" runat="server" Text="Submit Request" OnClick="btnSubmit_Click" />
-                                    <br />
-                                    <asp:Label ID="lblSubmitError" runat="server" CssClass="text-danger" Text=""></asp:Label>
-                                </div>
-                                <div class="col-4"></div>
-                            </div>
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
@@ -148,6 +139,21 @@
                     <div class="col-md-8">
                         <asp:Label ID="lblFU" runat="server" Text="Please upload a PDF file containing documents verifying non-profit status. Please also include pictures of the space the computers will be used in." CssClass="mt-2"></asp:Label>
                         <asp:FileUpload ID="fuDocuments" CssClass="form-control" runat="server" />
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row mt-3 pb-3">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div runat="server" id="divButtons" class="row mb-3" visible="true">
+                            <div class="col-4"></div>
+                            <div class="col-4 text-center">
+                                <asp:Button ID="btnSubmit" CssClass="btn btn-primary mt-3" runat="server" Text="Submit Request" OnClick="btnSubmit_Click" />
+                                <br />
+                                <asp:Label ID="lblSubmitError" runat="server" CssClass="text-danger" Text=""></asp:Label>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
                     </div>
                     <div class="col-md-2"></div>
                 </div>
@@ -176,24 +182,16 @@
                 if (value.match(regex)) return true;
                 else return false;
             });
+
+        if ($("#ddlRequestType").prop('selectedIndex') === 2) {
+            $("#lblFU").show();
+            $("#fuDocuments").show();
+        }
+        else {
+            $("#lblFU").hide();
+            $("#fuDocuments").hide();
+        }
     };
-</script>
-<script>
-    $(document).ready(function () {
-        $('#fuDocuments').hide();
-        $('#lblFU').hide();
-        $('#ddlRequestType').on("change", function () {
-            var x = $("#ddlRequestType").prop('selectedIndex');
-            if (x < 2) {
-                $('#fuDocuments').hide();
-                $('#lblFU').hide();
-            }
-            else {
-                $('#fuDocuments').show();
-                $('#lblFU').show();
-            }
-        });
-    });
 </script>
 <script>
     //Change file label to file uploaded
