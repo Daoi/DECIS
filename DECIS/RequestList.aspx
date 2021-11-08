@@ -12,9 +12,10 @@
                 <div class="row">
                     <div class="col-md-1">
                         <asp:Panel ID="pnlFilters" Style="white-space: pre-line" runat="server">
-                            <asp:LinkButton runat="server" ID="lbAll" CssClass="form-control-sm" Text="All" OnClick="lb_Click"></asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lbAll" CssClass="form-control-sm" Text="All" OnClick="lbAllRequests_Click"></asp:LinkButton>
                             <asp:LinkButton runat="server" ID="lbNew" CssClass="form-control-sm" Text="New" OnClick="lb_Click"></asp:LinkButton>
                             <asp:LinkButton runat="server" ID="lbPending" CssClass="form-control-sm" Text="Pending" OnClick="lb_Click"></asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lbInClass" CssClass="form-control-sm" Text="In Class" OnClick="lb_Click"></asp:LinkButton>
                             <asp:LinkButton runat="server" ID="lbScheduled" CssClass="form-control-sm" Text="Scheduled" OnClick="lb_Click"></asp:LinkButton>
                             <asp:LinkButton runat="server" ID="lbFinished" CssClass="form-control-sm" Text="Finished" OnClick="lb_Click"></asp:LinkButton>
                             <asp:LinkButton runat="server" ID="lbCancelled" CssClass="form-control-sm" Text="Canceled" OnClick="lb_Click"></asp:LinkButton>

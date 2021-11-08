@@ -13,7 +13,8 @@ namespace DECIS.DataModels
         Pending = 2,
         Scheduled = 3,
         Finished = 4,
-        Cancelled = 5
+        Cancelled = 5,
+        InClass = 6
     }
 
     public enum RequestType
@@ -27,7 +28,7 @@ namespace DECIS.DataModels
     {
         public int RequestID { get; set; }
         public int OrgID { get; set; }
-        public int Status { get; set; } //1 = New Item, 2 = Pending, 3 = Scheduled, 4 = Finished, 5 = Cancelled
+        public int Status { get; set; } //1 = New Item, 2 = Pending, 3 = Scheduled, 4 = Finished, 5 = Cancelled, 6 = In Class
         public string RequestStatus { get; set; }
         public string OrgName { get; set; }
         public string Name { get; set; }

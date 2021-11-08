@@ -71,6 +71,8 @@ namespace DECIS
                     status = 1;
                 else if (lb.ID == lbPending.ID)
                     status = 2;
+                else if (lb.ID == lbInClass.ID)
+                    status = 6;
                 else if (lb.ID == lbScheduled.ID)
                     status = 3;
                 else if (lb.ID == lbFinished.ID)
@@ -96,6 +98,15 @@ namespace DECIS
                 lblGVMessage.Text = $"Couldn't find any requests with status {lb.Text}";
                 gvRequestList.Visible = false;
             }
+        }
+
+        protected void lbAllRequests_Click(object sender, EventArgs e)
+        {
+            lblGVMessage.Visible = false;
+            gvRequestList.Visible = true;
+            ViewState["Filter"] = null;
+            gvRequestList.DataSource = ViewState["RequestListDT"] as DataTable;
+            gvRequestList.DataBind();
         }
     }
 }
