@@ -742,6 +742,7 @@
     <Compile Include="ControlLogic\Gridview\DataTableFilter.cs" />
     <Compile Include="Utilities\DateTimeString.cs" />
     <Compile Include="Utilities\FindControl.cs" />
+    <Compile Include="Utilities\Gridviews\RequestTypeFormatter.cs" />
     <Compile Include="Utilities\RandomizeString.cs" />
     <Compile Include="Verify.aspx.cs">
       <DependentUpon>Verify.aspx</DependentUpon>
