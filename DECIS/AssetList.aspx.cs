@@ -1,7 +1,5 @@
-using DECIS.ControlLogic.Gridview;
 using DECIS.DataAccess.DataAccessors;
 using DECIS.DataAccess.DataAccessors.Assets;
-using DECIS.DataAccess.DataAccessors.Location;
 using DECIS.DataModels;
 using System;
 using System.Data;

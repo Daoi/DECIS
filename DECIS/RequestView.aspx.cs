@@ -71,7 +71,7 @@ namespace DECIS
             }
             int status = (ViewState["Request"] as Request).Status;
             //If Finished(4) or Cancelled(5)
-            if (status >= 4 && (Session["User"] as User).Role != (int)Permission.Admin)
+            if (!IsEditable.Check(status) && (Session["User"] as User).Role != (int)Permission.Admin)
             {
                 btnEdit.Visible = false;
                 btnAddAll.Visible = false;
@@ -79,7 +79,7 @@ namespace DECIS
                 gvComputers.Visible = false;
             }
             
-            if(status >= 3)
+            if(status >= 3) //If its at least pending
             {
                 btnViewForm.Visible = true;
             }
@@ -93,17 +93,17 @@ namespace DECIS
             {
                 //Save currently selected values
                 Request req = ViewState["Request"] as Request;
-                if (req.Type == 0)
+                if (req.Type == 0) //Organization
                 {
                     OrgRequest newReq = CreateOrgRequest.Create(Page, req.RequestID);
-                    if (!string.IsNullOrWhiteSpace(newReq.DateScheduled) && newReq.Status != 3)
+                    if (!string.IsNullOrWhiteSpace(newReq.DateScheduled) && newReq.Status < 3)
                         newReq.Status = 3;
                     new UpdateOrgRequest(newReq).ExecuteCommand();
                     if (newReq.Status == 4) //Finished
                         MoveAssets();
 
                 }
-                else
+                else //Personal
                 {
                     PersonalRequest newReq = CreatePersonalRequest.Create(Page, req.RequestID);
                     if (!string.IsNullOrWhiteSpace(newReq.DateScheduled) && newReq.Status < 3)
@@ -118,7 +118,7 @@ namespace DECIS
             int status = (ViewState["Request"] as Request).Status;
             
             //If Finished(4) or Cancelled(5)
-            if (status >= 4 && (Session["User"] as User).Role != (int)Permission.Admin)
+            if (!IsEditable.Check(status) && (Session["User"] as User).Role != (int)Permission.Admin)
                 return;
 
             //Initialize or update Editing State value
