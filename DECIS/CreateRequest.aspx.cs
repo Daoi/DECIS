@@ -64,7 +64,7 @@ namespace DECIS
                         (Organization org, OrgRequest req) values = CollectOrgRequestInfo.Collect(Page, ddlOrganization.SelectedValue != "-1");
                         new InsertRequest(values.req).ExecuteCommand();
                         fm.Upload(values.org);
-                        lblMsg.Text = "Successfully submitted request. You will be emailed with any updates. Reach out to reuse@temple.edu with questions";
+                        lblMsg.Text = "Successfully submitted request. You will be contacted via the phone number or email provided to verify your request. Please email us at techforphilly@temple.edu if you have any questions.";
                         divMsg.Visible = true;
                         ClearPanel.ClearTBs(new List<Panel>() { pnlShared, pnlOrg });
                     }

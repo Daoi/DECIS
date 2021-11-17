@@ -106,10 +106,20 @@
                 <div class="col-md-6">
                     <asp:Label ID="lbExport" runat="server" Text="Export Table"></asp:Label>
                     <br />
-                    <asp:DropDownList ID="ddlTables" runat="server" CssClass="form-control w-50" AppendDataBoundItems="True">
-                    </asp:DropDownList>
-                    <asp:Button ID="btnExportTable" runat="server" Text="Export Selected Table" CssClass="btn btn-primary mt-3" />
+                    <asp:Label ID="lblStartDate" runat="server" Text="Start Date"></asp:Label>
+                    <asp:TextBox ID="tbStartDate" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblEndDate" runat="server" Text="End Date"></asp:Label>
+                    <asp:TextBox ID="tbEndDate" CssClass="form-control" runat="server"></asp:TextBox>
+                    <br />
+                    <asp:Button ID="btnReport" runat="server" Text="View Report Tables" CssClass="btn btn-primary mt-3" />
                 </div>
+                <asp:GridView ID="gvPersonalReport" runat="server">
+
+                </asp:GridView>
+                <br />
+                <asp:GridView ID="gvOrganizationReport" runat="server">
+
+                </asp:GridView>
             </div>
             <%-- End --%>
         </div>

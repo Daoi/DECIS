@@ -37,7 +37,7 @@
                             <asp:DropDownList ID="ddlRace" CssClass="form-control" runat="server"></asp:DropDownList>
                             <asp:Label ID="lblEthnicity" runat="server" Text="Ethnicity:"></asp:Label>
                             <asp:DropDownList ID="ddlEthnicity" CssClass="form-control" runat="server"></asp:DropDownList>
-                            <asp:Label ID="lblGender" runat="server" Text="Race:"></asp:Label>
+                            <asp:Label ID="lblGender" runat="server" Text="Gender:"></asp:Label>
                             <asp:DropDownList ID="ddlGender" CssClass="form-control" runat="server"></asp:DropDownList>
                             <asp:Label ID="lblAgeRange" runat="server" Text="Age Range:"></asp:Label>
                             <asp:DropDownList ID="ddlAgeRange" CssClass="form-control" runat="server"></asp:DropDownList>

@@ -84,13 +84,13 @@
                                     <asp:Label ID="lblEthnicity" runat="server" Text="Ethnicity: "></asp:Label>
                                     <asp:DropDownList ID="ddlEthnicity" CssClass="form-control mt-2" runat="server"></asp:DropDownList>
                                     <asp:Label ID="lblNumOfAdults" runat="server" Text="# Of Adults in Household:" CssClass="mt-2"></asp:Label>
-                                    <asp:TextBox ID="tbNumOfAdults" required="true" TextMode="Number" min="0" data-dj-validator="int,0,10" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="tbNumOfAdults" required="true" Text="0" TextMode="Number" min="0" data-dj-validator="int,0,10" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblNumOfHS" runat="server" Text="# Of High School Students:" CssClass="mt-2"></asp:Label>
-                                    <asp:TextBox ID="tbNumOfHS" required="true" TextMode="Number" min="0" data-dj-validator="int,0,10" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="tbNumOfHS" required="true" Text="0" TextMode="Number" min="0" data-dj-validator="int,0,10" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblYoungKids" runat="server" Text="# of Kindergarten to Grade 8 Students:" CssClass="mt-2"></asp:Label>
-                                    <asp:TextBox ID="tbYoungKids" required="true" TextMode="Number" min="0" data-dj-validator="int,0,10" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="tbYoungKids" required="true" TextMode="Number" min="0" data-dj-validator="int,0,10" Text="0" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblPreSchool" runat="server" Text="# of Preschool Children (not in Kindergarten)" CssClass="mt-2"></asp:Label>
-                                    <asp:TextBox ID="tbPreSchool" required="true" TextMode="Number" min="0" data-dj-validator="int,0,10" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="tbPreSchool" required="true" TextMode="Number" Text="0" min="0" data-dj-validator="int,0,10" runat="server" CssClass="form-control"></asp:TextBox>
                                     <asp:Label ID="lblInternet" CssClass="mt-2" runat="server" Text="Please indicate if you would like a six month voucher for Comcast Internet Essentials: "></asp:Label>
                                     <asp:DropDownList ID="ddlInternet" CssClass="form-control mt-2" runat="server">
                                         <asp:ListItem Value="-1" Selected="True">Select Answer</asp:ListItem>

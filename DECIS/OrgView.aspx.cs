@@ -32,7 +32,7 @@ namespace DECIS
                 OrgViewDataDisplay.Display(Page, org);
                 TogglePanel.ToggleInputs(pnlControls);
                 binder = new BindGridviews(orgID);
-                binder.Bind(new List<GridView>() {gvRequests, gvPeople } );
+                binder.Bind(new List<GridView>() {gvRequests, gvPeople, gvCompletedRequests } );
                 ViewState["DataBinder"] = binder;
             }
             binder = ViewState["DataBinder"] as BindGridviews;

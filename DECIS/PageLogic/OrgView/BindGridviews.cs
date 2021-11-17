@@ -12,7 +12,8 @@ namespace DECIS.PageLogic.OrgView
     [Serializable]
     public class BindGridviews
     {
-        private DataTable gvRequestDT;
+        private DataTable gvIncompleteRequests;
+        private DataTable gvCompletedRequestDT;
         private DataTable gvPeopleDT;
         private const int ORG = 0;
         private const int PERSONAL = 1;
@@ -20,10 +21,11 @@ namespace DECIS.PageLogic.OrgView
 
         public BindGridviews(int orgID)
         {
-            gvRequestDT = new GetAllRequestsForOrg().ExecuteCommand(orgID, ORG);
+            gvIncompleteRequests = new GetAllIncompleteRequestsForOrg().ExecuteCommand(orgID);
+            gvCompletedRequestDT = new GetAllCompletedRequestsForOrg().ExecuteCommand(orgID);
             gvPeopleDT = new GetAssociatedPeople().ExecuteCommand(orgID);
         }
-        
+
         public bool Bind(List<GridView> gvs) 
         {
             try
@@ -32,12 +34,17 @@ namespace DECIS.PageLogic.OrgView
                 {
                     if (gv.ID == "gvRequests")
                     {
-                        gv.DataSource = gvRequestDT;
+                        gv.DataSource = gvIncompleteRequests;
                         gv.DataBind();
                     }
-                    else
+                    else if (gv.ID == "gvPeople")
                     {
                         gv.DataSource = gvPeopleDT;
+                        gv.DataBind();
+                    }
+                    else if (gv.ID == "gvCompletedRequests")
+                    {
+                        gv.DataSource = gvCompletedRequestDT;
                         gv.DataBind();
                     }
                 }
