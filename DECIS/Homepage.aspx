@@ -100,31 +100,37 @@
                 </div>
                 <%-- Upcoming Tracker Start --%>
             </div>
-            <div class="row bg-white mt-1 mx-auto " style="width: 100%;">
-                <h5>
-                    <asp:Label ID="lblUpcoming" runat="server" Text="New Requests"></asp:Label></h5>
-                <div>
-                    <asp:GridView ID="gvUpcoming" CssClass="table table-striped table-bordered thead-dark" runat="server" AutoGenerateColumns="False">
-                        <HeaderStyle CssClass="cherryBackground" />
-                        <Columns>
-                            <asp:TemplateField HeaderText="View Request">
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lnkBtnView" runat="server" OnClick="lnkBtnView_Click">
+        </div>
+    </div>
+    <%-- End Button Container --%>
+    <div class="row bg-white mt-1 mx-auto " style="width: 100%;">
+        <div>
+            <h5>
+                <asp:Label ID="lblUpcoming" runat="server" Text="New Requests"></asp:Label></h5>
+            <div>
+                <asp:GridView ID="gvUpcoming" CssClass="table table-striped table-bordered thead-dark" runat="server" AutoGenerateColumns="False">
+                    <HeaderStyle CssClass="cherryBackground" />
+                    <Columns>
+                        <asp:TemplateField HeaderText="View Request">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkBtnView" runat="server" OnClick="lnkBtnView_Click">
                                     <i class="fas fa-eye"></i>
-                                    </asp:LinkButton>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="DateSubmitted" HeaderText="Date Submitted" />
-                            <asp:BoundField DataField="OrgName" HeaderText="Org" />
-                            <asp:BoundField DataField="Name" HeaderText="Name" />
-                            <asp:BoundField DataField="Email" HeaderText="Email" />
-                            <asp:BoundField DataField="Type" HeaderText="Request Type" />
-                        </Columns>
-                    </asp:GridView>
-                </div>
+                                </asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="DateSubmitted" HeaderText="Date Submitted" />
+                        <asp:BoundField DataField="OrgName" HeaderText="Org" />
+                        <asp:BoundField DataField="Name" HeaderText="Name" />
+                        <asp:BoundField DataField="Email" HeaderText="Email" />
+                        <asp:TemplateField HeaderText="Request Type">
+                            <ItemTemplate>
+                                <asp:Label ID="lblRequestType" runat="server" Text=' <%# DECIS.Utilities.Gridviews.RequestTypeFormatter.GetText(Eval("Type").ToString()) %>' ></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
             </div>
         </div>
-        <%-- End Button Container --%>
     </div>
     <script type="text/javascript">
         function pageLoad() {

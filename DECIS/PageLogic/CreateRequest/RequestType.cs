@@ -25,8 +25,6 @@ namespace DECIS.PageLogic.CreateRequest
             {
                 (FindControl.FindNM("pnlPersonal", pg) as Panel).Visible = true;
                 (FindControl.FindNM("pnlOrg", pg) as Panel).Visible = false;
-                (FindControl.FindNM("fuDocuments", pg) as FileUpload).Visible = false;
-                (FindControl.FindNM("lblFU", pg) as Label).Visible = false;
                 (FindControl.FindNM("lblZipcode", pg) as Label).Text = "Zip Code of Primary Residence:";
                 (FindControl.FindNM("lblAddress", pg) as Label).Visible = false;
                 (FindControl.FindNM("tbAddress", pg) as TextBox).Visible = false;
@@ -51,8 +49,6 @@ namespace DECIS.PageLogic.CreateRequest
             {
                 (FindControl.FindNM("pnlPersonal", pg) as Panel).Visible = false;
                 (FindControl.FindNM("pnlOrg", pg) as Panel).Visible = true;
-                (FindControl.FindNM("fuDocuments", pg) as FileUpload).Visible = true;
-                (FindControl.FindNM("lblFU", pg) as Label).Visible = true;
                 (FindControl.FindNM("lblAddress", pg) as Label).Visible = true;
                 (FindControl.FindNM("tbAddress", pg) as TextBox).Visible = true;
                 (FindControl.FindNM("lblZipcode", pg) as Label).Text = "Organization Zip Code:";
@@ -67,8 +63,6 @@ namespace DECIS.PageLogic.CreateRequest
                 (FindControl.FindNM("lblOrgName", pg) as Label).Visible = true;
                 (FindControl.FindNM("pnlPersonal", pg) as Panel).Visible = false;
                 (FindControl.FindNM("pnlOrg", pg) as Panel).Visible = false;
-                (FindControl.FindNM("fuDocuments", pg) as FileUpload).Visible = false;
-                (FindControl.FindNM("lblFU", pg) as Label).Visible = false;
                 ddlOrganization.Visible = false;
                 lblOrg.Visible = false;
                 return;

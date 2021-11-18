@@ -7,12 +7,8 @@
     <title>DEC Inventory System</title>
     <link rel="icon" href=".ico" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" runat="server" />
-    <script src="Scripts/jquery-3.0.0.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/r-2.2.6/datatables.min.css" />
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/r-2.2.6/datatables.min.js"></script>
     <link href="style/style.css" rel="stylesheet" />
     <script src="js/prefixfree.min.js" type="application/javascript"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous" />
@@ -131,14 +127,6 @@
                                 <%--Org Request Form End--%>
                             </div>
                             <div class="col-2"></div>
-                            <div runat="server" id="divButtons" class="row mb-3" visible="true">
-                                <div class="col-4"></div>
-                                <div class="col-4">
-                                    <asp:Button ID="btnSubmit" CssClass="btn btn-primary mt-3" runat="server" Text="Submit Request" OnClick="btnSubmit_Click" />
-                                    <asp:Label ID="lblSubmitError" runat="server" Text=""></asp:Label>
-                                </div>
-                                <div class="col-4"></div>
-                            </div>
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
@@ -147,6 +135,21 @@
                     <div class="col-md-8">
                         <asp:Label ID="lblFU" runat="server" Text="Please upload a PDF file containing documents verifying non-profit status. Please also include pictures of the space the computers will be used in." CssClass="mt-2"></asp:Label>
                         <asp:FileUpload ID="fuDocuments" CssClass="form-control" runat="server" />
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row mt-3 pb-3">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div runat="server" id="divButtons" class="row mb-3" visible="true">
+                            <div class="col-4"></div>
+                            <div class="col-4 text-center">
+                                <asp:Button ID="btnSubmit" CssClass="btn btn-primary mt-3" runat="server" Text="Submit Request" OnClick="btnSubmit_Click" />
+                                <br />
+                                <asp:Label ID="lblSubmitError" runat="server" CssClass="text-danger" Text=""></asp:Label>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
                     </div>
                     <div class="col-md-2"></div>
                 </div>
@@ -175,24 +178,16 @@
                 if (value.match(regex)) return true;
                 else return false;
             });
+
+        if ($("#ddlRequestType").prop('selectedIndex') === 2) {
+            $("#lblFU").show();
+            $("#fuDocuments").show();
+        }
+        else {
+            $("#lblFU").hide();
+            $("#fuDocuments").hide();
+        }
     };
-</script>
-<script>
-    $(document).ready(function () {
-        $('#fuDocuments').hide();
-        $('#lblFU').hide();
-        $('#ddlRequestType').on("change", function () {
-            var x = $("#ddlRequestType").prop('selectedIndex');
-            if (x < 2) {
-                $('#fuDocuments').hide();
-                $('#lblFU').hide();
-            }
-            else {
-                $('#fuDocuments').show();
-                $('#lblFU').show();
-            }
-        });
-    });
 </script>
 <script>
     //Change file label to file uploaded

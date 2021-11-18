@@ -682,6 +682,7 @@
     <Compile Include="PageLogic\RequestView\BindGridviews.cs" />
     <Compile Include="PageLogic\RequestView\CreateOrgRequest.cs" />
     <Compile Include="PageLogic\RequestView\DisplayRequest.cs" />
+    <Compile Include="PageLogic\RequestView\IsEditable.cs" />
     <Compile Include="PageLogic\RequestView\RemoveAssets.cs" />
     <Compile Include="PageLogic\RequestView\UpdateAll.cs" />
     <Compile Include="PageLogic\Settings\BindGridViews.cs" />
@@ -744,6 +745,7 @@
     <Compile Include="ControlLogic\Gridview\DataTableFilter.cs" />
     <Compile Include="Utilities\DateTimeString.cs" />
     <Compile Include="Utilities\FindControl.cs" />
+    <Compile Include="Utilities\Gridviews\RequestTypeFormatter.cs" />
     <Compile Include="Utilities\RandomizeString.cs" />
     <Compile Include="Verify.aspx.cs">
       <DependentUpon>Verify.aspx</DependentUpon>

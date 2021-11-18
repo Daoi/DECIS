@@ -616,6 +616,24 @@ namespace DECIS {
         protected global::System.Web.UI.WebControls.DropDownList ddlReceivedEquipment;
         
         /// <summary>
+        /// lblFU control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFU;
+        
+        /// <summary>
+        /// fuDocuments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuDocuments;
+        
+        /// <summary>
         /// divButtons control.
         /// </summary>
         /// <remarks>
@@ -641,23 +659,5 @@ namespace DECIS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSubmitError;
-        
-        /// <summary>
-        /// lblFU control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFU;
-        
-        /// <summary>
-        /// fuDocuments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuDocuments;
     }
 }

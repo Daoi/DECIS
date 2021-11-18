@@ -1,4 +1,4 @@
-﻿using DECIS.ControlLogic.Panels;
+using DECIS.ControlLogic.Panels;
 using DECIS.CotrolLogic.DDL;
 using DECIS.DataAccess.DataAccessors.Request;
 using DECIS.DataModels;
@@ -52,8 +52,21 @@ namespace DECIS
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string requestType = ViewState["Type"].ToString();
-            upForm.Update();
+            string requestType;
+            if (ViewState["Type"] == null)
+            {
+                lblSubmitError.Text = "You must choose a request type and fill out the entire form before submitting.";
+                upForm.Update();
+                return;
+            }
+            else
+            {
+                requestType = ViewState["Type"].ToString();
+                lblSubmitError.Text = "";
+                upForm.Update();
+            }
+
+
             if (requestType == "Organization")
             {
                 try
@@ -77,20 +90,24 @@ namespace DECIS
                 }
                 catch (Exception ex)
                 {
-                    lblSubmitError.Text = "Error: " + ex.Message + " Please email reuse@temple.edu with this message.";
+                    lblSubmitError.Text = "Error: " + ex.Message + " Please email techforphilly@temple.edu with this message.";
                 }
             }
             else if(requestType == "Personal")
             {
-                int orgID = int.Parse(ddlOrganization.SelectedValue);
-                CollectPersonalRequestInfo.Collect(Page, orgID);
-                lblMsg.Text = "Successfully submitted request. You will be emailed with any updates. Reach out to reuse@temple.edu with questions";
-                divMsg.Visible = true;
-                ClearPanel.ClearTBs(new List<Panel>() { pnlShared, pnlPersonal });
-            }
-            else
-            {
-                lblSubmitError.Text = "Please select a request type and fill out all fields";
+                try
+                {
+                    int orgID = int.Parse(ddlOrganization.SelectedValue);
+                    CollectPersonalRequestInfo.Collect(Page, orgID);
+                    lblMsg.Text = "Successfully submitted request. You will be emailed with any updates. Reach out to techforphilly@temple.edu with questions";
+                    divMsg.Visible = true;
+                    ClearPanel.ClearTBs(new List<Panel>() { pnlShared, pnlPersonal });
+                }
+                catch(Exception ex)
+                {
+                    lblSubmitError.Text = "Error: " + ex.Message + " Please email techforphilly@temple.edu with this message.";
+                }
+
             }
         }
     }
