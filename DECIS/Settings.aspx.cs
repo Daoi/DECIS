@@ -16,7 +16,8 @@ namespace DECIS
         {   { "btnAddModel", SettingsModel.Add},
             { "btnAddMake", SettingsMake.Add},
             { "btnAddLocation", SettingsLocation.Add},
-            { "btnEditModel", SettingsEditModel.Edit}
+            { "btnEditModel", SettingsEditModel.Edit},
+            { "btnReport", SettingsReport.Report}
         };
 
         protected void Page_Load(object sender, EventArgs e)
