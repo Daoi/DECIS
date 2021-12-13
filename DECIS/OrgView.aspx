@@ -37,7 +37,7 @@
                             </asp:Label>
                             <asp:TextBox ID="tbOrgZipcode" MaxLength="20" runat="server" CssClass="form-control"></asp:TextBox>
                             <asp:Label ID="lblRecievedEquipment" runat="server" Text="Has Recieved Equipment Before: "></asp:Label>
-                            <asp:DropDownList ID="ddlReceivedEquipment" CssClass="form-control" runat="server">                                        
+                            <asp:DropDownList ID="ddlReceivedEquipment" CssClass="form-control" runat="server">
                                 <asp:ListItem Value="0">Hasn't Recieved Equipment</asp:ListItem>
                                 <asp:ListItem Value="1">Has Recieved Equipment</asp:ListItem>
                             </asp:DropDownList>
@@ -60,10 +60,10 @@
                         <div class="row mt-3">
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
-                            <asp:Label ID="lblOrgPurpose" runat="server" Text="Purpose:"></asp:Label>
-                            <asp:TextBox ID="tbOrgPurpose" TextMode="MultiLine" MaxLength="500" CssClass="form-control" runat="server"></asp:TextBox>
-                            <asp:Label ID="lblReferer" runat="server" CssClass="mt-2" Text="Refered By:"></asp:Label>
-                            <asp:TextBox ID="tbOrgReferer" TextMode="MultiLine" MaxLength="150" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:Label ID="lblOrgPurpose" runat="server" Text="Purpose:"></asp:Label>
+                                <asp:TextBox ID="tbOrgPurpose" TextMode="MultiLine" MaxLength="500" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:Label ID="lblReferer" runat="server" CssClass="mt-2" Text="Refered By:"></asp:Label>
+                                <asp:TextBox ID="tbOrgReferer" TextMode="MultiLine" MaxLength="150" CssClass="form-control" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-md-3"></div>
                         </div>
@@ -76,7 +76,7 @@
                             <asp:Button ID="btnCancelEdit" Visible="false" CssClass="btn-warning btn w-25" runat="server" Text="Cancel" OnClick="btnEditCancel_Click" />
                         </div>
                         <div class="col-md-3">
-                            <asp:Button ID="btnDownload" CssClass="btn-primary btn" runat="server" Text="View Documents" OnClick="btnDownload_Click" OnClientClick="target ='_blank';"/>
+                            <asp:Button ID="btnDownload" CssClass="btn-primary btn" runat="server" Text="View Documents" OnClick="btnDownload_Click" OnClientClick="target ='_blank';" />
                         </div>
                         <div class="col-md-3">
                             <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -93,100 +93,52 @@
         <%-- Requests Card Start --%>
         <div class="container-fluid mt-5">
             <div class="row">
-                <div class="col m-3">
-                    <div class="card w-100">
-                        <div class="card-header offwhiteBackground">
-                            <div class="row pl-1">
-                                <ul class="nav nav-tabs card-header-tabs" id="tab-card" role="tablist">
-                                    <li class="nav-item cherryFont">
-                                        <a class="nav-link active" href="#Requests" role="tab" aria-controls="Requests" aria-selected="true">Requests</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#CompletedRequests" role="tab" aria-controls="CompletedRequests" aria-selected="false">Completed Requests</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#People" role="tab" aria-controls="People" aria-selected="false">People</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body text-dark">
-                            <h4 id="headerTabCard" class="card-title">Requests from Org</h4>
-                            <div class="tab-content mt-3">
-                                <div class="tab-pane active" id="Requests" role="tabpanel">
-                                    <asp:Label ID="lblOutstandingMsg" runat="server" Text=""></asp:Label>
-                                    <asp:GridView ID="gvRequests" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="False">
-                                        <HeaderStyle CssClass="cherryBackground" />
-                                        <Columns>
-                                            <asp:BoundField DataField="RequestID" HeaderText="Request ID" />
-                                            <asp:BoundField DataField="ContactName" HeaderText="Contact" />
-                                            <asp:BoundField DataField="ContactPhone" HeaderText="Phone" />
-                                            <asp:BoundField DataField="ContactEmail" HeaderText="Email" />
-                                            <asp:BoundField DataField="Timeline" DataFormatString="{0:d}" HeaderText="Timeline" />
-                                            <asp:BoundField DataField="DateSubmitted" HeaderText="Submitted" />
-                                            <asp:BoundField DataField="RequestStatus" HeaderText="Status" />
-                                        </Columns>
-                                    </asp:GridView>
-                                </div>
-                                <div class="tab-pane" id="CompletedRequests" role="tabpanel">
-                                    <asp:Label ID="lblCompletedMsg" runat="server" Text=""></asp:Label>
-                                    <asp:GridView ID="gvCompletedRequests" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="False">
-                                        <HeaderStyle CssClass="cherryBackground" />
-                                        <Columns>
-                                            <asp:BoundField DataField="RequestID" HeaderText="Request ID" />
-                                            <asp:BoundField DataField="DateSubmitted" HeaderText="Submitted" />
-                                            <asp:BoundField DataField="DateFinished" HeaderText="Finished" />
-                                        </Columns>
-                                    </asp:GridView>
-                                </div>
-                                <div class="tab-pane" id="People" role="tabpanel">
-                                    <asp:Label ID="lblPeopleMsg" runat="server" Text=""></asp:Label>
-                                    <asp:GridView ID="gvPeople" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="True">
-                                        <HeaderStyle CssClass="cherryBackground" />
-                                        <Columns>
-                                            <asp:BoundField DataField="RequestID" HeaderText="Request ID" />
-                                            <asp:BoundField DataField="Name" HeaderText="Contact" />
-                                            <asp:BoundField DataField="Phone" HeaderText="Phone" />
-                                            <asp:BoundField DataField="Email" HeaderText="Email" />
-                                            <asp:BoundField DataField="DateSubmitted" HeaderText="Submitted" />
-                                            <asp:BoundField DataField="RequestStatus" HeaderText="Status" />
-                                        </Columns>
-                                    </asp:GridView>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <%-- Requests Card End --%>
-                </div>
+                <asp:Label ID="lblOutstandingMsg" runat="server" Text="Incomplete Requests"></asp:Label>
+                <asp:GridView ID="gvRequests" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="False">
+                    <HeaderStyle CssClass="cherryBackground" />
+                    <Columns>
+                        <asp:BoundField DataField="RequestID" HeaderText="Request ID" />
+                        <asp:BoundField DataField="Name" HeaderText="Contact" />
+                        <asp:BoundField DataField="Phone" HeaderText="Phone" />
+                        <asp:BoundField DataField="Email" HeaderText="Email" />
+                        <asp:BoundField DataField="DateSubmitted" DataFormatString="{0:d}" HeaderText="Submitted" />
+                        <asp:BoundField DataField="DateScheduled" HeaderText="Scheduled" />
+                        <asp:BoundField DataField="RequestStatus" HeaderText="Status" />
+                    </Columns>
+                </asp:GridView>
+            </div>
+            <div class="row">
+                <asp:Label ID="lblCompletedMsg" runat="server" Text="Completed Requests"></asp:Label>
+                <asp:GridView ID="gvCompletedRequests" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="False">
+                    <HeaderStyle CssClass="cherryBackground" />
+                    <Columns>
+                        <asp:BoundField DataField="RequestID" HeaderText="Request ID" />
+                        <asp:BoundField DataField="DateSubmitted" HeaderText="Submitted" />
+                        <asp:BoundField DataField="DateFinished" HeaderText="Finished" />
+                    </Columns>
+                </asp:GridView>
+            </div>
+            <div class="row">
+                <asp:Label ID="lblPeopleMsg" runat="server" Text="Associated People"></asp:Label>
+                <asp:GridView ID="gvPeople" CssClass="table table-striped table-bordered thead-dark gvBtn" runat="server" AutoGenerateColumns="False">
+                    <HeaderStyle CssClass="cherryBackground" />
+                    <Columns>
+                        <asp:BoundField DataField="RequestID" HeaderText="Request ID" />
+                        <asp:BoundField DataField="Name" HeaderText="Contact" />
+                        <asp:BoundField DataField="Phone" HeaderText="Phone" />
+                        <asp:BoundField DataField="Email" HeaderText="Email" />
+                        <asp:BoundField DataField="RequestStatus" HeaderText="Status" />
+                    </Columns>
+                </asp:GridView>
             </div>
         </div>
+        <%-- Requests Card End --%>
     </div>
     <asp:HiddenField ID="hfActiveTab" runat="server" />
-    <%-- Switch tabs on tab card --%>
-    <script>
-        $('#tab-card a').on('click', function (e) {
-            e.preventDefault();
-            console.log($(this).text());
-            $(this).tab('show');
-            if ($(this).text() == 'Requests') {
-                $('#headerTabCard').text('Requests from Org');
-                $('#hfActiveTab').text('Requests');
-            }
-            else if ($(this).text() == 'Completed Requests') {
-                $('#headerTabCard').text('Completed Requests');
-                $('#hfActiveTab').text('CompletedRequest');
-            }
-            else if ($(this).text() == 'People') {
-                $('#headerTabCard').text('Associated Individuals');
-                $('#hfActiveTab').text('People');
-            }
-        });
-    </script>
     <script type="text/javascript">
         function pageLoad() {
-            $('#MainContent_gvAssetList').prepend($("<thead></thead>").append($("#MainContent_gvAssetList").find("tr:first"))).DataTable({
-                stateSave: true,
-            });
+            var tables = ['#MainContent_gvPeople', '#MainContent_gvRequests', '#MainContent_gvCompletedRequests'];
+            InitDT(tables);
         };
     </script>
 </asp:Content>

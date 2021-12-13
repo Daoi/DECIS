@@ -7,11 +7,11 @@ using System.Web;
 
 namespace DECIS.DataAccess.DataAccessors.Request
 {
-    public class GetAllRequestsForOrg : DataSupport, IData
+    public class GetAllIncompleteRequestsForOrg : DataSupport, IData
     {
-        public GetAllRequestsForOrg()
+        public GetAllIncompleteRequestsForOrg()
         {
-            CommandText = "GetAllRequestsForOrg";
+            CommandText = "GetAllIncompleteRequestsForOrg";
             CommandType = CommandType.StoredProcedure;
         }
         /// <summary>

@@ -556,7 +556,11 @@
     <Compile Include="DataAccess\DataAccessors\Recycle\RecycleStatus\GetAllRecycleStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\UpdateRecycle.cs" />
     <Compile Include="DataAccess\DataAccessors\Recycle\UpdateRecycleParameters.cs" />
+    <Compile Include="DataAccess\DataAccessors\Reports\GetOrgRequestReport.cs" />
+    <Compile Include="DataAccess\DataAccessors\Reports\GetPersonalRequestReport.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllAssetsForRequest.cs" />
+    <Compile Include="DataAccess\DataAccessors\Request\GetAllCompletedRequestsForOrg.cs" />
+    <Compile Include="DataAccess\DataAccessors\Request\GetAllIncompleteRequestsForOrg.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllOrgRequestsByID.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllRequestByStatus.cs" />
     <Compile Include="DataAccess\DataAccessors\Request\GetAllRequests.cs" />
@@ -680,6 +684,7 @@
     <Compile Include="PageLogic\RequestView\BindGridviews.cs" />
     <Compile Include="PageLogic\RequestView\CreateOrgRequest.cs" />
     <Compile Include="PageLogic\RequestView\DisplayRequest.cs" />
+    <Compile Include="PageLogic\RequestView\IsEditable.cs" />
     <Compile Include="PageLogic\RequestView\RemoveAssets.cs" />
     <Compile Include="PageLogic\RequestView\UpdateAll.cs" />
     <Compile Include="PageLogic\Settings\BindGridViews.cs" />
@@ -688,6 +693,7 @@
     <Compile Include="PageLogic\Settings\SettingsLocation.cs" />
     <Compile Include="PageLogic\Settings\SettingsMake.cs" />
     <Compile Include="PageLogic\Settings\SettingsModel.cs" />
+    <Compile Include="PageLogic\Settings\SettingsReport.cs" />
     <Compile Include="PersonList.aspx.cs">
       <DependentUpon>PersonList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DECIS.Master" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="DECIS.Settings" %>
+﻿<%@ Page Title="Settings" Language="C#" MasterPageFile="~/DECIS.Master" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="DECIS.Settings" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid homepage">
         <div class="container-fluid p-0">
@@ -23,9 +24,12 @@
                         <div class="card mt-4">
                             <div class="card-body mb-2">
                                 <p class="card-text">
-                                    Adding New Models: Enter just the model name(no id), select the Make and Asset Type and then click Add New Model<br /><br />
-                                    Editing Models: Enter the name of the model followed by the ID of the model. Example: Optiplex 990,5 <br />
-                                    You must also select the values for Make and Asset Type you want the model to have. <br />
+                                    Adding New Models: Enter just the model name(no id), select the Make and Asset Type and then click Add New Model<br />
+                                    <br />
+                                    Editing Models: Enter the name of the model followed by the ID of the model. Example: Optiplex 990,5
+                                    <br />
+                                    You must also select the values for Make and Asset Type you want the model to have.
+                                    <br />
                                     If Image is left blank when editing it will continue to use the same Image. Uploading a new image will delete the old image.
                                 </p>
                                 <asp:Label ID="lblModelMsg" runat="server" Text=""></asp:Label>
@@ -102,21 +106,33 @@
         <%-- Start --%>
         <div>
             <h3>Export Database to Excel</h3>
+            <h5>Input a start and end date in yyyy-mm-dd format. Start must be before end. If no matching entries are foudn no table will be rendered.</h5>
             <div class="row mb-5 pb-5">
                 <div class="col-md-6">
                     <asp:Label ID="lbExport" runat="server" Text="Export Table"></asp:Label>
                     <br />
-                    <asp:DropDownList ID="ddlTables" runat="server" CssClass="form-control w-50" AppendDataBoundItems="True">
-                    </asp:DropDownList>
-                    <asp:Button ID="btnExportTable" runat="server" Text="Export Selected Table" CssClass="btn btn-primary mt-3" />
+                    <asp:Label ID="lblStartDate" runat="server" Text="Start Date"></asp:Label>
+                    <asp:TextBox ID="tbStartDate" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblEndDate" runat="server" Text="End Date"></asp:Label>
+                    <asp:TextBox ID="tbEndDate" CssClass="form-control" runat="server"></asp:TextBox>
+                    <br />
+                    <asp:Button ID="btnReport" runat="server" Text="View Report Tables" OnClick="btnAdd_Click" CssClass="btn btn-primary mt-3" />
                 </div>
+            </div>
+            <div class="row">
+                <asp:GridView ID="gvPersonalReport" AutoGenerateColumns="True" CssClass="table table-light table-striped table-bordered thead-dark" runat="server">
+                </asp:GridView>
+            </div>
+            <div class="row">
+                <asp:GridView ID="gvOrganizationReport" AutoGenerateColumns="True" CssClass="table table-light table-striped table-bordered thead-dark" runat="server">
+                </asp:GridView>
             </div>
             <%-- End --%>
         </div>
     </div>
-        <script type="text/javascript">
+    <script type="text/javascript">
         function pageLoad() {
-            var tables = ['#MainContent_gvModels'];
+            var tables = ['#MainContent_gvModels', '#MainContent_gvPersonalReport', '#MainContent_gvOrganizationReport'];
             InitDT(tables);
         };
     </script>
